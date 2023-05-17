@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
@@ -31,7 +32,7 @@
                         <li class="nav-item">
                             <div class="dropdown">
                                 <input type="text" id="ser-city" data-bs-toggle="dropdown" aria-expanded="false"
-                                    class="form-control" placeholder="Search Your City"
+                                    class="form-control" size="80" placeholder="Search Your City"
                                     onkeyup="showResult(this.value)" />
                                 <ul class="dropdown-menu">
                                     <li><div id="livesearch"></div></li>
@@ -42,13 +43,7 @@
                             <a class="nav-link" aria-current="page" href="register-wall.php">Register Your Wall</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-file-arrow-down-fill"></i> Download App</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sign-in.php">Sign in</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="sign-up.php">Sign up</a>
+                            <a class="nav-link" href="profile.php">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Sign
