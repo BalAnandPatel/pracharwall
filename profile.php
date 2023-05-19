@@ -52,29 +52,33 @@ include "include/header.php";
 
 
 <div class="modal fade" id="ExploreStore" tabindex="-1" aria-labelledby="ExploreStore" aria-hidden="true">
-    <div class="modal-dialog" style="margin-left: 100px;">
-        <div class="modal-content" style="width: 1200px">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
             <div class="modal-body mx-3 row">
-                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 py-3">
+                <div class="position-relative">
+                    <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 py-3">
                     <h2>Are you looking for?</h2>
                     <h5 class="text-secondary">"Computer Institutes"</h5>
                     <form>
                         <div class="form-group">
-                            <label for="username">Full Name:</label>
+                            <label for="contact-username">Full Name:</label>
                             <input type="text" class="form-control" id="contact-username" required>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="email">Email address:</label>
+                            <label for="contact-email">Email address:</label>
                             <input type="email" class="form-control" id="contact-email" required>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="pwd">Service:</label>
+                            <label for="serv">Service:</label>
                             <input type="text" class="form-control" id="serv">
                         </div>
                         <div class="form-group mt-2">
-                            <input type="sumit" class="form-control btn btn-primary" value="SEND ENQUIRY"
+                            <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
                                 id="submit-contact">
                         </div>
                     </form>
@@ -86,7 +90,7 @@ include "include/header.php";
                     </div>
                 </div>
 
-                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <img src="assets/img/service/distance-education.jpg" width="100%">
                 </div>
 
@@ -181,6 +185,22 @@ include "include/header.php";
                     </div>
                 </div>
                 <div class="row">
+                    <h5>Services</h5>
+                    <!-- <table class="mx-3">
+                        <tr>
+                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Tally</span></td>
+                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Programming</span></td>
+                            <td><span><i class="bi bi-check-circle-fill text-success"></i> SAP</span></td>
+                        </tr>
+                        <tr>
+                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Mobile Development</span>
+                            </td>
+                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Online</span></td>
+                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Offline</span></td>
+                        </tr>
+                    </table> -->
+                </div>
+                <div class="row mt-4">
                     <h5>About Us</h5>
                     <div class="col">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, cumque.
