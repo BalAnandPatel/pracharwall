@@ -1,3 +1,4 @@
+<?php include "constant.php"; ?>
 <!doctype html>
 <html lang="en">
 
@@ -11,12 +12,23 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="search.js"></script>
+    <script type="text/javascript">
+$(document).ready(function () {
+ 
+window.setTimeout(function() {
+    $(".alert").fadeTo(1000, 0).slideUp(1000, function(){
+        $(this).remove(); 
+    });
+}, 5000);
+ 
+});
+</script>
 </head>
 
 <body>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" aria-label="Navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index1.php">
+            <a class="navbar-brand" href="index.php">
                 <img src="Pracharwall_image/logo.png" alt="Pracharwall" width="160" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
@@ -58,8 +70,6 @@
             </div>
         </div>
     </nav>
-
-
     <!-- Modal Sign Up-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -70,11 +80,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button> -->
                 </div>
-                <form>
+                <form action="user/action/user_registration_post.php" method="post">
                     <div class="modal-body mx-3">
                         <div class="form-group">
                             <label style="font-weight: 600;" for="usertype">Select User Type:</label>
-                            <select class="select form-control" required>
+                            <select class="select form-control" name="userType" required>
                                 <option value="">Select Type</option>
                                 <option value="2">Business Owner</option>
                                 <option value="3">Customer</option>
@@ -82,24 +92,24 @@
                         </div>
                         <div class="form-group pt-2">
                             <label style="font-weight: 600;" for="username">Full Name:</label>
-                            <input type="text" placeholder="Enter Full Name" class="form-control" id="username" required autocomplete="off">
+                            <input type="text" name="userName" placeholder="Enter Full Name" class="form-control" id="username" required autocomplete="off">
                         </div>
                         <div class="form-group pt-2">
                             <label style="font-weight: 600;" for="mobile">Mobile No.:</label>
-                            <input type="number" placeholder="Enter Mobile No" class="form-control" id="mobile" required autocomplete="off">
+                            <input type="number" name="userMobile" placeholder="Enter Mobile No" class="form-control" id="mobile" required autocomplete="off">
                         </div>
                         <div class="form-group pt-2">
                             <label style="font-weight: 600;" for="email">Email address:</label>
-                            <input type="email" placeholder="Enter Email Id" class="form-control" id="email" required autocomplete="off">
+                            <input type="email" name="userEmail" placeholder="Enter Email Id" class="form-control" id="email" required autocomplete="off">
                         </div>
                         <div class="form-group pt-2">
                             <label style="font-weight: 600;" for="pwd">Password:</label>
-                            <input type="password" placeholder="Enter Password" class="form-control" id="pwd" required autocomplete="off">
+                            <input type="password" name="userPass" placeholder="Enter Password" class="form-control" id="pwd" required autocomplete="off">
                         </div>
                         <br>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary" type="submit">Register</button>
+                        <button class="btn btn-primary" name="submit" type="submit">Register</button>
                     </div>
                 </form>
             </div>
