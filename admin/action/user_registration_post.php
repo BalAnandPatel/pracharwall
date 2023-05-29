@@ -1,7 +1,7 @@
 <?php
 include '../../constant.php';
 
-if(isset($_POST["submit"])){
+// if(isset($_POST["submit"])){
 
  $userName=ucwords($_POST["userName"]);
  $userType=$_POST['userType'];
@@ -31,7 +31,7 @@ $_SESSION['user_reg_error']="User already registered.";
 header('location:../../index.php');  
 }
 
-  }
+  // }
 
  function url_encode_Decode($url,$postdata){
  $client = curl_init($url);

@@ -80,11 +80,12 @@ window.setTimeout(function() {
                         <span aria-hidden="true">&times;</span>
                     </button> -->
                 </div>
-                <form action="user/action/user_registration_post.php" method="post">
+                <div class="card rounded-0">
+                <form onsubmit="return userReg()" method="post">
                     <div class="modal-body mx-3">
                         <div class="form-group">
                             <label style="font-weight: 600;" for="usertype">Select User Type:</label>
-                            <select class="select form-control" name="userType" required>
+                            <select class="select form-control" id="userType" required>
                                 <option value="">Select Type</option>
                                 <option value="2">Business Owner</option>
                                 <option value="3">Customer</option>
@@ -92,19 +93,19 @@ window.setTimeout(function() {
                         </div>
                         <div class="form-group pt-2">
                             <label style="font-weight: 600;" for="username">Full Name:</label>
-                            <input type="text" name="userName" placeholder="Enter Full Name" class="form-control" id="username" required autocomplete="off">
+                            <input type="text" name="userName" placeholder="Enter Full Name" class="form-control" id="userName" required autocomplete="off">
                         </div>
                         <div class="form-group pt-2">
                             <label style="font-weight: 600;" for="mobile">Mobile No.:</label>
-                            <input type="number" name="userMobile" placeholder="Enter Mobile No" class="form-control" id="mobile" required autocomplete="off">
+                            <input type="number" name="userMobile" placeholder="Enter Mobile No" class="form-control" id="userMobile" required autocomplete="off">
                         </div>
                         <div class="form-group pt-2">
                             <label style="font-weight: 600;" for="email">Email address:</label>
-                            <input type="email" name="userEmail" placeholder="Enter Email Id" class="form-control" id="email" required autocomplete="off">
+                            <input type="email" name="userEmail" placeholder="Enter Email Id" class="form-control" id="userEmail" required autocomplete="off">
                         </div>
                         <div class="form-group pt-2">
                             <label style="font-weight: 600;" for="pwd">Password:</label>
-                            <input type="password" name="userPass" placeholder="Enter Password" class="form-control" id="pwd" required autocomplete="off">
+                            <input type="password" name="userPass" placeholder="Enter Password" class="form-control" id="userPass" required autocomplete="off">
                         </div>
                         <br>
                     </div>
@@ -113,11 +114,47 @@ window.setTimeout(function() {
                     </div>
                 </form>
             </div>
+            </div>
         </div>
     </div>
     </div>
 
-
+<script>
+function userReg(){
+// alert("done");
+var userType = $('#userType').val();
+var userName = $('#userName').val();
+var userMobile = $('#userMobile').val();
+var userEmail = $('#userEmail').val();
+var userPass = $('#userPass').val();
+// var data = userType+"-"+userName+"-"+userEmail+"-"+userMobile+"-"+userPass;
+// alert(data);
+$.ajax({
+url:'http://localhost/pracharwall/admin/action/user_registration_post.php',
+type:'POST',
+dataType:'json',
+data:{
+"userType":userType,
+"userName":userName,
+"userMobile":userMobile,
+"userEmail":userEmail,
+"userPass":userPass
+},
+success: function(response){
+response = JSON.stringify(response);
+//console.log(response);
+//alert(response);
+//alert('success');
+},
+error:function(response){
+response = JSON.stringify(response);
+//console.log(response);
+//alert(response);
+//alert('faild');
+}    
+});    
+}
+</script>    
 
     <!-- Modal Sign In-->
     <div class="modal fade" id="signin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -138,7 +175,7 @@ window.setTimeout(function() {
                         <br>
                         <div class="form-group">
                             <label style="font-weight: 600;" for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" required>
+                            <input type="password" class="form-control" id="pwd" autocomplete="off"  required>
                         </div>
                         <br>
                     </div>

@@ -3,6 +3,7 @@
  class User{
 
     private $conn;
+    private $register_wall = "register_wall";
     private $user_registration = "user_registration";
     private $user_type = "user_type";
     // private $table_payment = "payment";
@@ -84,27 +85,40 @@
         return false;
     }
 
-     public function insertUserAccount(){
+     public function insertRegisterWall(){
 
            $query="INSERT INTO
-        " . $this->user_account . "
-    SET      userId=:userId,
+        " . $this->register_wall . "
+    SET      serviceName=:serviceName,
+             serviceType=:serviceType,
+             email=:email,
+             mobile=:mobile,
+             description=:description,
              status=:status,
              createdOn=:createdOn,
              createdBy=:createdBy
                ";
 
         $stmt = $this->conn->prepare($query);
-        $this->userId=htmlspecialchars(strip_tags($this->userId));
+        $this->serviceName=htmlspecialchars(strip_tags($this->serviceName));
+        $this->serviceType=htmlspecialchars(strip_tags($this->serviceType));
+        $this->email=htmlspecialchars(strip_tags($this->email));
+        $this->mobile=htmlspecialchars(strip_tags($this->mobile));
+        $this->description=htmlspecialchars(strip_tags($this->description));
         $this->status=htmlspecialchars(strip_tags($this->status));
-        $this->createdBy=htmlspecialchars(strip_tags($this->createdBy));
         $this->createdOn=htmlspecialchars(strip_tags($this->createdOn));
+        $this->createdBy=htmlspecialchars(strip_tags($this->createdBy));
 
 
-        $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":serviceName", $this->serviceName);
+        $stmt->bindParam(":serviceType", $this->serviceType);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":mobile", $this->mobile);
+        $stmt->bindParam(":description", $this->description);
         $stmt->bindParam(":status", $this->status);
-        $stmt->bindParam(":createdOn", $this->createdOn);
+        $stmt->bindParam(":createdOn", $this->createdOn); 
         $stmt->bindParam(":createdBy", $this->createdBy);
+
        
          // execute query
          if($stmt->execute()){
