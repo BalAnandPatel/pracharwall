@@ -1,0 +1,143 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.7.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: May 30, 2023 at 06:27 AM
+-- Server version: 5.6.20-log
+-- PHP Version: 5.4.31
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `pracharwall`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `register_wall`
+--
+
+CREATE TABLE IF NOT EXISTS `register_wall` (
+`id` int(255) NOT NULL,
+  `serviceName` varchar(100) NOT NULL,
+  `serviceType` varchar(100) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `createdOn` timestamp NOT NULL,
+  `createdBy` varchar(255) NOT NULL,
+  `updatedOn` timestamp NOT NULL,
+  `updatedBy` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_registration`
+--
+
+CREATE TABLE IF NOT EXISTS `user_registration` (
+`id` int(255) NOT NULL,
+  `userType` varchar(100) NOT NULL,
+  `userName` varchar(100) NOT NULL,
+  `userMobile` varchar(12) NOT NULL,
+  `userEmail` varchar(200) NOT NULL,
+  `userPass` varchar(20) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `createdOn` timestamp NOT NULL,
+  `createdBy` varchar(255) NOT NULL,
+  `updatedOn` timestamp NOT NULL,
+  `updatedBy` varchar(255) NOT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `user_registration`
+--
+
+INSERT INTO `user_registration` (`id`, `userType`, `userName`, `userMobile`, `userEmail`, `userPass`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
+(1, '1', 'Mrityunjay Singh', '123456987', 'ms@gmail.com', '12345', 1, '2023-05-23 21:19:21', 'Mrityunjay Singh', '0000-00-00 00:00:00', ''),
+(2, '2', 'Anuj', '46456467', 'anuj@gmail.com', '12345', 2, '2023-05-23 21:32:28', 'Anuj', '0000-00-00 00:00:00', ''),
+(3, '3', 'Ramesh', '1165464646', 'ramesh@gmail.com', '123', 0, '2023-05-23 22:02:53', 'Ramesh', '0000-00-00 00:00:00', ''),
+(4, '3', 'UserName', 'userMobile', 'userEmail', 'userPass', 0, '2023-05-24 20:15:10', 'UserName', '0000-00-00 00:00:00', ''),
+(5, '2', 'Rohit', '15664', 'rohit@gmail.com', '1111', 0, '2023-05-24 20:18:16', 'Rohit', '0000-00-00 00:00:00', ''),
+(6, '2', 'Aman', '8479', 'aman@gmail.com', '122', 0, '2023-05-24 20:28:03', 'Aman', '0000-00-00 00:00:00', ''),
+(7, '2', 'Sws', '323', 'ds@gmail.com', 'df', 0, '2023-05-24 20:30:47', 'Sws', '0000-00-00 00:00:00', ''),
+(8, '2', 'New ', '46546', 'new@gmail.com', 'n123', 0, '2023-05-24 20:37:14', 'New ', '0000-00-00 00:00:00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_type`
+--
+
+CREATE TABLE IF NOT EXISTS `user_type` (
+`id` int(255) NOT NULL,
+  `userType` varchar(100) NOT NULL,
+  `userRole` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `user_type`
+--
+
+INSERT INTO `user_type` (`id`, `userType`, `userRole`, `status`) VALUES
+(1, '1', 'Admin', 0),
+(2, '2', 'User', 0),
+(3, '3', 'Customer', 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `register_wall`
+--
+ALTER TABLE `register_wall`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_registration`
+--
+ALTER TABLE `user_registration`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `userEmail` (`userEmail`);
+
+--
+-- Indexes for table `user_type`
+--
+ALTER TABLE `user_type`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `register_wall`
+--
+ALTER TABLE `register_wall`
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_registration`
+--
+ALTER TABLE `user_registration`
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `user_type`
+--
+ALTER TABLE `user_type`
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

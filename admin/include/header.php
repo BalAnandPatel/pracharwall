@@ -174,7 +174,7 @@ date_default_timezone_set('Asia/Kolkata');
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="business_category_entry.php" class="nav-link">
                     <i class="fas fa-arrow-alt-circle-right"></i>
                     <p>Add Category</p>
                   </a>
