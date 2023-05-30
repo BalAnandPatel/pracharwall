@@ -194,8 +194,8 @@ include "include/header.php";
 
 
 <div class="container-xl px-4 mt-4 mb-5">
-    <div class="row">
-        <div class="col-xl-12">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-8">
             <!-- Profile picture card-->
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Upload Post To Your Profile</div>
@@ -204,22 +204,6 @@ include "include/header.php";
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="post1">Post 1</label>
                         <input type="file" class="form-control" id="post1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="post2">Post 2</label>
-                        <input type="file" class="form-control" id="post2">
-                    </div>
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="post3">Post 3</label>
-                        <input type="file" class="form-control" id="post3">
-                    </div>
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="post4">Post 4</label>
-                        <input type="file" class="form-control" id="post4">
-                    </div>
-                    <div class="input-group mb-3">
-                        <label class="input-group-text" for="post5">Post 5</label>
-                        <input type="file" class="form-control" id="post5">
                     </div>
                     <button class="btn btn-primary" type="button">Upload Posts</button>
 
