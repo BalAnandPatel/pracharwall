@@ -100,7 +100,7 @@ function url_encode_Decode($url,$postdata){
   curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
   $response = curl_exec($client);
-  print_r($response);
+  //print_r($response);
   return $result = json_decode($response);
   
   }
