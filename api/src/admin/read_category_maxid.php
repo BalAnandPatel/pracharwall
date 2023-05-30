@@ -10,58 +10,42 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // include database and object files
 include_once '../../config/database.php';
-include_once '../../objects/ticket.php';
+include_once '../../objects/admin.php';
   
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
-  
+
 // initialize object
-$read_result = new Ticket($db);
+$read_maxid = new Admin($db);
   
 $data = json_decode(file_get_contents("php://input"));
 //print_r($data);
 
-$read_result->userType = $data->userType;
-$read_result->userId = $data->userId;
-$read_result->status = $data->status;
-
-$stmt = $read_result->releaseResultsList();
+$stmt = $read_maxid->readCategoryMaxId();
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
 if($num>0){
   
     // products array
-    $read_results_arr=array();
-    $read_results_arr["records"]=array();
+    $read_maxid_arr=array();
+    $read_maxid_arr["records"]=array();
 
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
      
         extract($row);
   
-        $read_result_item=array(
-
-            "id"=>$id,
-            "ticketId"=>$ticketId,
-            "userId"=>$userId,
-            "paymentStatus"=>$paymentStatus,
-            "userName"=>$userName,
-            "ticketId"=>$ticketId,
-            "ticketAmount"=>$ticketAmount,
-            "lotteryAmount"=>$lotteryAmount,
-            "lotteryNum"=>$lotteryNum,
-            "status"=>$status,
-            "createdBy"=>$createdBy,
-            "createdOn"=>$createdOn
-             );
+        $read_maxid_item=array(
+            "id" => $id
+        );
   
-        array_push($read_results_arr["records"], $read_result_item);
+        array_push($read_maxid_arr["records"], $read_maxid_item);
     }
   
     // show products data in json format
-    echo json_encode($read_results_arr);
+    echo json_encode($read_maxid_arr);
 
      // set response code - 200 OK
      http_response_code(200);
@@ -75,7 +59,7 @@ else{
   
     // tell the user no products found
     echo json_encode(
-        array("message" => "No ticket histry found.")
+        array("message" => "No max id found.")
     );
 }
 ?>

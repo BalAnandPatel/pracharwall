@@ -10,12 +10,12 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once '../../config/database.php';
   
 // instantiate reg object
-include_once '../../objects/ticket.php';
+include_once '../../objects/admin.php';
   
 $database = new Database();
 $db = $database->getConnection();
   
-$insert_ticket = new Ticket($db);
+$insert_category = new Admin($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
@@ -23,22 +23,21 @@ $data = json_decode(file_get_contents("php://input"));
 // make sure data is not empty
 if(
 
-   !empty($data->ticketAmount) &&
-   !empty($data->lotteryAmount)  
+   !empty($data->businessCategory) &&
+   !empty($data->subCategory)  
 )
 
 {
-    $insert_ticket->ticketAmount = $data->ticketAmount;
-    $insert_ticket->lotteryAmount = $data->lotteryAmount;
-    $insert_ticket->lotteryNum = $data->lotteryNum;
-    $insert_ticket->status = $data->status;
-    $insert_ticket->createdOn = $data->createdOn;
-    $insert_ticket->createdBy = $data->createdBy;
+    $insert_category->businessCategory = $data->businessCategory;
+    $insert_category->subCategory = $data->subCategory;
+    $insert_category->status = $data->status;
+    $insert_category->createdOn = $data->createdOn;
+    $insert_category->createdBy = $data->createdBy;
 
     
     //var_dump($reg);
     // create the reg
-    if($insert_ticket->insertTicket()){
+    if($insert_category->insertBusineshCategory()){
 
         http_response_code(201);
         echo json_encode(array("message" => "Successfull"));
@@ -49,7 +48,7 @@ if(
         http_response_code(503);
   
         // tell the user
-        echo json_encode(array("message" => "Unable to create ticket"));
+        echo json_encode(array("message" => "Unable to create category"));
     }
 }
   
@@ -60,6 +59,6 @@ else{
     http_response_code(400);
   
     // tell the user
-    echo json_encode(array("message" => "Unable to create ticket. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to create category, Data is incomplete."));
 }
 ?>

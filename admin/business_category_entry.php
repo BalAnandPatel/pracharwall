@@ -29,10 +29,13 @@ include "include/header.php";
       <div class="container-fluid">
 
           <?php
-          // if(isset($_SESSION['ticket_entry_success'])){
-          // echo '<div class="alert alert-success rounded-0" role="alert">'.$_SESSION['ticket_entry_success'].'</div>';
-          // unset($_SESSION['ticket_entry_success']);
-          // } 
+          if(isset($_SESSION['categoryUploadSuccess'])){
+          echo '<div class="alert alert-success rounded-0" role="alert">'.$_SESSION['categoryUploadSuccess'].'</div>';
+          unset($_SESSION['categoryUploadSuccess']);
+          }else if(isset($_SESSION['categoryUploadErrors'])){
+            echo '<div class="alert alert-danger rounded-0" role="alert">'.$_SESSION['categoryUploadErrors'].'</div>';
+            unset($_SESSION['categoryUploadErrors']);
+          } 
 
           ?>
 
