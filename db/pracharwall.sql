@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 24, 2023 at 07:39 AM
+-- Generation Time: May 30, 2023 at 08:05 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -23,17 +23,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `register_wall`
+-- Table structure for table `business_category`
 --
 
-CREATE TABLE IF NOT EXISTS `register_wall` (
+CREATE TABLE IF NOT EXISTS `business_category` (
 `id` int(255) NOT NULL,
-  `serviceName` varchar(100) NOT NULL,
-  `serviceType` varchar(100) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `mobile` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `businessCategory` varchar(100) NOT NULL,
+  `subCategory` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `createdOn` timestamp NOT NULL,
+  `createdBy` varchar(255) NOT NULL,
+  `updaredOn` timestamp NOT NULL,
+  `updatedBy` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_profile`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile` (
+`id` int(255) NOT NULL,
+  `userId` varchar(255) NOT NULL,
+  `businessCategory` varchar(100) NOT NULL,
+  `subCategory` varchar(100) NOT NULL,
+  `userAddress` varchar(200) NOT NULL,
+  `businessName` varchar(100) NOT NULL,
+  `establishmentYear` varchar(100) NOT NULL,
+  `paymentMode` varchar(100) NOT NULL,
+  `businessTiming` varchar(100) NOT NULL,
+  `userServices` varchar(100) NOT NULL,
+  `aboutUser` varchar(2000) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `createdOn` timestamp NOT NULL,
   `createdBy` varchar(255) NOT NULL,
@@ -48,18 +69,18 @@ CREATE TABLE IF NOT EXISTS `register_wall` (
 --
 
 CREATE TABLE IF NOT EXISTS `user_registration` (
-`id` int(255) NOT NULL,
+  `id` int(255) NOT NULL,
   `userType` varchar(100) NOT NULL,
   `userName` varchar(100) NOT NULL,
   `userMobile` varchar(12) NOT NULL,
   `userEmail` varchar(200) NOT NULL,
-  `userPass` varchar(20) NOT NULL,
+  `userPass` varchar(25) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `createdOn` timestamp NOT NULL,
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL,
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -71,33 +92,47 @@ CREATE TABLE IF NOT EXISTS `user_type` (
 `id` int(255) NOT NULL,
   `userType` varchar(100) NOT NULL,
   `userRole` varchar(100) NOT NULL,
-  `status` tinyint(1) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `status` tinyint(1) NOT NULL,
+  `createdOn` timestamp NOT NULL,
+  `createdBy` varchar(255) NOT NULL,
+  `updatedOn` timestamp NOT NULL,
+  `updatedBy` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `user_type`
+-- Table structure for table `wall_uploads`
 --
 
-INSERT INTO `user_type` (`id`, `userType`, `userRole`, `status`) VALUES
-(1, '1', 'Admin', 0),
-(2, '2', 'User', 0),
-(3, '3', 'Customer', 0);
+CREATE TABLE IF NOT EXISTS `wall_uploads` (
+`id` int(255) NOT NULL,
+  `userId` varchar(255) NOT NULL,
+  `businessCategory` varchar(100) NOT NULL,
+  `subCategory` varchar(100) NOT NULL,
+  `wallImg` varchar(200) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `createdOn` timestamp NOT NULL,
+  `createdBy` varchar(255) NOT NULL,
+  `updatedOn` timestamp NOT NULL,
+  `updatedBy` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `register_wall`
+-- Indexes for table `business_category`
 --
-ALTER TABLE `register_wall`
+ALTER TABLE `business_category`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_registration`
+-- Indexes for table `user_profile`
 --
-ALTER TABLE `user_registration`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `userEmail` (`userEmail`);
+ALTER TABLE `user_profile`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user_type`
@@ -106,24 +141,35 @@ ALTER TABLE `user_type`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `wall_uploads`
+--
+ALTER TABLE `wall_uploads`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `register_wall`
+-- AUTO_INCREMENT for table `business_category`
 --
-ALTER TABLE `register_wall`
+ALTER TABLE `business_category`
 MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `user_registration`
+-- AUTO_INCREMENT for table `user_profile`
 --
-ALTER TABLE `user_registration`
+ALTER TABLE `user_profile`
 MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user_type`
 --
 ALTER TABLE `user_type`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `wall_uploads`
+--
+ALTER TABLE `wall_uploads`
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
