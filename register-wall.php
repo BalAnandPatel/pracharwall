@@ -4,11 +4,10 @@ include "include/header.php";
 
 
 <center class="pt-2">
-    <h2>Register Your Wall</h2>
+    <h2>How to Register Your Wall</h2>
 </center>
-<div class="container mt-4 w-50 border p-4 border-secondary rounded">
+<!-- <div class="container mt-4 w-50 border p-4 border-secondary rounded">
     <form action="admin/action/register_wall_post.php" method="post" enctype="multipart/form-data"> 
-        <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
@@ -24,19 +23,16 @@ include "include/header.php";
             </div>
         </div>
 
-        <!-- File input -->
         <div class="form-outline mb-4">
             <input type="file" name="uploaded_file" class="form-control" />
             <label class="form-label" for="ser-file">Service Demo File</label>
         </div>
 
-        <!-- Email input -->
         <div class="form-outline mb-4">
             <input type="email" name="email" class="form-control" />
             <label class="form-label" for="form6Example5">Email</label>
         </div>
 
-        <!-- Text input -->
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
@@ -45,7 +41,6 @@ include "include/header.php";
                 </div>
             </div>
 
-            <!-- Number input -->
             <div class="col">
                 <div class="form-outline">
                     <input type="number" name="mobile" class="form-control" />
@@ -54,17 +49,14 @@ include "include/header.php";
             </div>
         </div>
 
-        <!-- Message input -->
         <div class="form-outline mb-4">
             <textarea class="form-control" name="description" rows="4"></textarea>
             <label class="form-label" for="form6Example7">Service Description</label>
         </div>
 
-        <!-- Submit button -->
         <button type="submit" name="submit" class="btn btn-primary btn-block mb-4">Register Wall</button>
     </form>
-</div>
-<br>
+</div> -->
 <div style="background-color: #eee;">
     <br>
     <center>

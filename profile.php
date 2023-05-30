@@ -220,17 +220,17 @@ include "include/header.php";
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
+                <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
                 <hr>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get info via SMS/Email</a>
                 <hr>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
+                <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
                 <hr>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Visit our Website</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Edit This</a>
+                <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Edit This</a>
             </div>
 
         </div>
@@ -281,7 +281,7 @@ include "include/header.php";
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 px-4">
+                    <div id="rate" class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 px-4">
                         <h2>Start Your Review</h2>
                         <div class="rate">
                             <input type="radio" id="star1" name="rate" value="1" />
