@@ -10,48 +10,49 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // include database and object files
 include_once '../../config/database.php';
-include_once '../../objects/ticket.php';
+include_once '../../objects/admin.php';
   
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
   
 // initialize object
-$read_ticket = new Ticket($db);
+$read_category = new Admin($db);
   
 $data = json_decode(file_get_contents("php://input"));
 //print_r($data);
-$stmt = $read_ticket->readTicketDetails();
+
+
+$stmt = $read_category->readBusinessCategory();
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
 if($num>0){
   
     // products array
-    $read_tickets_arr=array();
-    $read_tickets_arr["records"]=array();
+    $read_categorys_arr=array();
+    $read_categorys_arr["records"]=array();
 
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
      
         extract($row);
   
-        $read_ticket_item=array(
+        $read_category_item=array(
 
-            "id" => $id,
-            "ticketAmount"=>$ticketAmount,
-            "lotteryAmount"=>$lotteryAmount,
-            "lotteryNum"=>$lotteryNum,
+            "id"=>$id,
+            "businessCategory"=>$businessCategory,
+            "subCategory"=>$subCategory,
             "status"=>$status,
-            "createdBy"=>$createdBy,
-            "createdOn"=>$createdOn
-             );
+            "createdOn"=>$createdOn,
+            "createdBy"=>$createdBy 
+        );
   
-        array_push($read_tickets_arr["records"], $read_ticket_item);
+        array_push($read_categorys_arr["records"], $read_category_item);
     }
   
     // show products data in json format
-    echo json_encode($read_tickets_arr);
+    echo json_encode($read_categorys_arr);
 
      // set response code - 200 OK
      http_response_code(200);
@@ -65,7 +66,7 @@ else{
   
     // tell the user no products found
     echo json_encode(
-        array("message" => "No notification found.")
+        array("message" => "No user profile details found.")
     );
 }
 ?>

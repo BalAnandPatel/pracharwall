@@ -12,7 +12,7 @@ class Admin{
 
     // created business category by admin
 
-    function insertBusineshCategory(){
+    function insertBusinessCategory(){
   
         // query to insert record
     $query = "INSERT INTO
@@ -60,9 +60,9 @@ class Admin{
         return $stmt;
     }
 
-    function readTicketDetails(){
-        $query="Select 
-        id, ticketAmount, lotteryAmount, lotteryNum, status, createdOn, createdBy from " .$this->table_name." where status=1 or status=2";
+    function readBusinessCategory(){
+      $query="Select 
+        id, businessCategory, subCategory, status, createdOn, createdBy from " .$this->business_category;
         $stmt = $this->conn->prepare($query); 
         // $stmt->bindParam(":id", $this->id);
         $stmt->execute();

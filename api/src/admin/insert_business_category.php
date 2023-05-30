@@ -37,7 +37,7 @@ if(
     
     //var_dump($reg);
     // create the reg
-    if($insert_category->insertBusineshCategory()){
+    if($insert_category->insertBusinessCategory()){
 
         http_response_code(201);
         echo json_encode(array("message" => "Successfull"));
