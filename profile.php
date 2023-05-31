@@ -1,6 +1,20 @@
 <?php
 include "include/header.php";
 ?>
+<?php
+$url = $URL."user/read_user_profile.php";
+$userType='2'; 
+$id='1';
+$data = array("userType" =>$userType, "id"=>$id);
+$postdata = json_encode($data);
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+//print_r($response);
+$result = json_decode($response);
+//print_r($result);
+?>
 
 <style>
     .rated {
@@ -115,7 +129,14 @@ include "include/header.php";
                 </nav>
             </div>
         </div>
+        <?php 
+                       
+                     $counter=0;  
+                     foreach($result as $key => $value){
+                     foreach($value as $key1 => $value1)
+                    {
 
+                  ?>
 
         <div class="row border p-3 rounded">
 
@@ -125,7 +146,7 @@ include "include/header.php";
 
             <div class="col col-lg-8 col-xl-8 col-md-12 col-sm-12 col-xs-12">
 
-                <h2>Laqshya Institute Of Skills Training</h2>
+                <h2><?php echo $value1->businessName; ?></h2>
                 <div>
                     <span class="bg-success text-white px-2 rounded">4.0</span>
                     <span class="fa fa-star rated"></span>
@@ -138,7 +159,7 @@ include "include/header.php";
                 </div>
                 <div class="row">
                     <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        Andheri West, mumbai
+                        <?php echo $value1->userAddress; ?> 
                     </div>
                     <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <i class="bi bi-dot"></i>Open Until 8:00 pm
@@ -151,7 +172,8 @@ include "include/header.php";
                     300 people recently enquired
                 </div>
                 <div class="border bg-success text-white btn mt-2">
-                    1234567890
+                <i class="fa fa-phone"></i>
+                <?php echo $value1->userMobile; ?>
                 </div>
             </div>
 
@@ -171,42 +193,27 @@ include "include/header.php";
                 <div class="row">
                     <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
                         <h6 class="text-secondary">Mode of Payment</h6>
-                        <h6>Cash, Master Card, Visa Card, Debit Cards, Cheques, Credit Card</h6>
+                        <h6><?php echo $value1->paymentMode; ?></h6>
                     </div>
 
                     <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
                         <h6 class="text-secondary">Year of Establishment</h6>
-                        <h6>2008</h6>
+                        <h6><?php echo $value1->establishmentYear; ?></h6>
                     </div>
 
                     <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
                         <h6 class="text-secondary">Timings</h6>
-                        <h6>Mon - Sun <br> 10:00 am - 8:00 pm</h6>
+                        <h6>Mon - Sun <br><?php echo $value1->businessTiming; ?></h6>
                     </div>
                 </div>
                 <div class="row">
                     <h5>Services</h5>
-                    <!-- <table class="mx-3">
-                        <tr>
-                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Tally</span></td>
-                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Programming</span></td>
-                            <td><span><i class="bi bi-check-circle-fill text-success"></i> SAP</span></td>
-                        </tr>
-                        <tr>
-                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Mobile Development</span>
-                            </td>
-                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Online</span></td>
-                            <td><span><i class="bi bi-check-circle-fill text-success"></i> Offline</span></td>
-                        </tr>
-                    </table> -->
+                    <p><?php echo $value1->userServices; ?></p>
                 </div>
                 <div class="row mt-4">
                     <h5>About Us</h5>
                     <div class="col">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, cumque.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, cumque.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, cumque.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, cumque.
+                     <?php echo $value1->aboutUser; ?>
                     </div>
                 </div>
 
@@ -214,8 +221,7 @@ include "include/header.php";
 
             <div class="col col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
                 <h5>Address</h5>
-                <h6>Off.No.9 / 3A Bldg., Vivina CHS Ltd, Super Shopping Centre, Andheri West, Mumbai - 400058 (Nr.NADCO
-                    Shopping Landmark : Opp.Railway Station, Nr.Bus Depo)</h6>
+                <h6><?php echo $value1->userAddress; ?></h6>
 
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
@@ -230,7 +236,13 @@ include "include/header.php";
                 <hr>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Visit our Website</a>
                 <hr>
-                <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Edit This</a>
+                <form action="update_user.php" method="post">
+                 <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">   
+                 <input type="hidden" name="userName" value="<?php echo $value1->userName; ?>">
+                 <input type="hidden" name="userEmail" value="<?php echo $value1->userEmail; ?>">
+                 <input type="hidden" name="userMobile" value="<?php echo $value1->userMobile; ?>">
+                 <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i><button class="btn border-0 text-primary" name="update" type="submit">Edit This</button></a>
+                </form>
             </div>
 
         </div>
@@ -255,7 +267,7 @@ include "include/header.php";
                 </div>
             </div>
         </div>
-
+<?php } } ?>
         <div class="row border rounded mt-4 py-3">
             <div class="col">
                 <h5>Question & Answers</h5>

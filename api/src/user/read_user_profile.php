@@ -45,20 +45,23 @@ if($num>0){
 
             "id"=>$id,
             "userType"=>$userType,
-            "userRole"=>$userRole,
             "userName"=>$userName,
             "userEmail"=>$userEmail,
             "userMobile"=>$userMobile,
             "status"=>$status,
-            "accountHolder"=>$accountHolder,
-            "bankName"=>$bankName,
-            "branchName"=>$branchName,
-            "ifscCode"=>$ifscCode,
-            "googlePayNum"=>$googlePayNum,
-            "phonePayNum"=>$phonePayNum,
-            "accountNum"=>$accountNum,
+            "businessCategory"=>$businessCategory,
+            "businessName"=>$businessName,
+            "establishmentYear"=>$establishmentYear,
+            "paymentMode"=>$paymentMode,
+            "userAddress"=>$userAddress,
+            "userWebsite"=>$userWebsite,
+            "businessTiming"=>$businessTiming,
+            "userServices"=>$userServices,
+            "aboutUser"=>$aboutUser,
             "createdOn"=>$createdOn,
-            "createdBy"=>$createdBy 
+            "createdBy"=>$createdBy,
+            "updatedOn"=>$updatedOn,
+            "updatedBy"=>$updatedBy
         );
   
         array_push($read_userprofiles_arr["records"], $read_userprofile_item);

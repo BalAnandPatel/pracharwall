@@ -2,7 +2,7 @@
 session_start();
 // error_reporting(0);
 date_default_timezone_set('Asia/Kolkata');
-$BASE_URL="website/index.php";
+$BASE_URL="http://localhost/pracharwall/";
 // website file path on server
 
 // $URL="http://krishilimited.com/api/src/";

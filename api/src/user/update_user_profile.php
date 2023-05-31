@@ -23,25 +23,26 @@ $data = json_decode(file_get_contents("php://input"));
 // mavarke sure data is not empty
 if(
 
-    !empty($data->accountHolder) &&     
-    !empty($data->bankName) &&
-    !empty($data->branchName) &&
-    !empty($data->ifscCode) &&
-    !empty($data->accountNum) &&
-    !empty($data->phonePayNum) &&
-    !empty($data->googlePayNum) 
+    !empty($data->userId) &&     
+    !empty($data->businessName) &&
+    !empty($data->businessCategory) &&
+    !empty($data->userAddress) &&
+    !empty($data->establishmentYear) &&
+    !empty($data->businessTiming) &&
+    !empty($data->paymentMode) 
   
 )
 
 {
     $update_userprofile->userId=$data->userId;
-    $update_userprofile->accountHolder=$data->accountHolder;
-    $update_userprofile->bankName = $data->bankName;
-    $update_userprofile->branchName = $data->branchName;
-    $update_userprofile->ifscCode = $data->ifscCode;
-    $update_userprofile->accountNum = $data->accountNum;
-    $update_userprofile->phonePayNum = $data->phonePayNum;
-    $update_userprofile->googlePayNum = $data->googlePayNum;
+    $update_userprofile->businessName=$data->businessName;
+    $update_userprofile->businessCategory = $data->businessCategory;
+    $update_userprofile->userAddress = $data->userAddress;
+    $update_userprofile->alterMobile = $data->alterMobile;
+    $update_userprofile->establishmentYear = $data->establishmentYear;
+    $update_userprofile->businessTiming = $data->businessTiming;
+    $update_userprofile->paymentMode = $data->paymentMode;
+    $update_userprofile->userWebsite = $data->userWebsite;
     $update_userprofile->updatedOn = $data->updatedOn;
     $update_userprofile->updatedBy = $data->updatedBy;
 

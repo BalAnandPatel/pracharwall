@@ -3,7 +3,7 @@
  class User{
 
     private $conn;
-    private $register_wall = "register_wall";
+    private $user_profile = "user_profile";
     private $user_registration = "user_registration";
     private $user_type = "user_type";
     // private $table_payment = "payment";
@@ -12,7 +12,7 @@
         $this->conn = $db;
     }
 
-    public $id, $userId, $userType, $userName, $userEmail, $userPass, $userMobile, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
+    public $id, $userId, $userType, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $userAddress, $alterMobile, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
     
     // public function readMaxUserId(){
     //     $query="Select max(id) as userId from " .$this->table_name;
@@ -23,8 +23,7 @@
     // }
 
     public function readUserProfile(){
-     $query="Select user.id, userType, userRole, userName, userMobile, userEmail, user.status, user.createdOn, user.createdBy, accountHolder, bankName, branchName, ifscCode, accountNum, googlePayNum, phonePayNum
-        from " .$this->table_name. " as user LEFT JOIN " .$this->user_account ." as ua ON user.id=ua.userId where user.status=1 and user.userType=:userType and user.id=:id";
+     $query="Select up.id, user.id, user.userType, userName, userMobile, userEmail, user.status, businessCategory, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from ".$this->user_registration." as user LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where user.status=1 and userType=:userType and user.id=:id";
         $stmt = $this->conn->prepare($query); 
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id);
@@ -133,40 +132,43 @@
   
         // query to insert record
        $query = "UPDATE 
-                    " . $this->user_account . "
+                    " . $this->user_profile . "
                 SET
-                   accountHolder=:accountHolder,
-                   bankName=:bankName,
-                   branchName=:branchName, 
-                   ifscCode=:ifscCode,
-                   accountNum=:accountNum,
-                   phonePayNum=:phonePayNum,
-                   googlePayNum=:googlePayNum,
+                   businessName=:businessName,
+                   businessCategory=:businessCategory,
+                   userAddress=:userAddress, 
+                   alterMobile=:alterMobile,
+                   establishmentYear=:establishmentYear,
+                   businessTiming=:businessTiming,
+                   paymentMode=:paymentMode,
+                   userWebsite=:userWebsite,
                    updatedOn=:updatedOn,
                    updatedBy=:updatedBy
                    where userId=:userId";
                           
         // prepare query
         $stmt = $this->conn->prepare($query);
-        $this->accountHolder=htmlspecialchars(strip_tags($this->accountHolder));
-        $this->bankName=htmlspecialchars(strip_tags($this->bankName));
-        $this->branchName=htmlspecialchars(strip_tags($this->branchName));
-        $this->ifscCode=htmlspecialchars(strip_tags($this->ifscCode));
-        $this->accountNum=htmlspecialchars(strip_tags($this->accountNum));
-        $this->phonePayNum=htmlspecialchars(strip_tags($this->phonePayNum));
-        $this->googlePayNum=htmlspecialchars(strip_tags($this->googlePayNum));
+        $this->businessName=htmlspecialchars(strip_tags($this->businessName));
+        $this->businessCategory=htmlspecialchars(strip_tags($this->businessCategory));
+        $this->userAddress=htmlspecialchars(strip_tags($this->userAddress));
+        $this->alterMobile=htmlspecialchars(strip_tags($this->alterMobile));
+        $this->establishmentYear=htmlspecialchars(strip_tags($this->establishmentYear));
+        $this->businessTiming=htmlspecialchars(strip_tags($this->businessTiming));
+        $this->paymentMode=htmlspecialchars(strip_tags($this->paymentMode));
+        $this->userWebsite=htmlspecialchars(strip_tags($this->userWebsite));
         $this->updatedOn=htmlspecialchars(strip_tags($this->updatedOn));
         $this->updatedBy=htmlspecialchars(strip_tags($this->updatedBy));
          
         //bind values
         $stmt->bindParam(":userId", $this->userId);
-        $stmt->bindParam(":accountHolder", $this->accountHolder);
-         $stmt->bindParam(":bankName", $this->bankName);
-        $stmt->bindParam(":branchName", $this->branchName);
-        $stmt->bindParam(":ifscCode", $this->ifscCode);
-        $stmt->bindParam(":accountNum", $this->accountNum);
-        $stmt->bindParam(":phonePayNum", $this->phonePayNum);
-        $stmt->bindParam(":googlePayNum", $this->googlePayNum);
+        $stmt->bindParam(":businessName", $this->businessName);
+        $stmt->bindParam(":businessCategory", $this->businessCategory);
+        $stmt->bindParam(":userAddress", $this->userAddress);
+        $stmt->bindParam(":alterMobile", $this->alterMobile);
+        $stmt->bindParam(":establishmentYear", $this->establishmentYear);
+        $stmt->bindParam(":businessTiming", $this->businessTiming);
+        $stmt->bindParam(":paymentMode", $this->paymentMode);
+        $stmt->bindParam(":userWebsite", $this->userWebsite);
         $stmt->bindParam(":updatedOn", $this->updatedOn);
         $stmt->bindParam(":updatedBy", $this->updatedBy);   
       

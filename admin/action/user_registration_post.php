@@ -13,8 +13,7 @@ include '../../constant.php';
  $createdBy=ucwords($_POST["userName"]);
 
  $url=$URL. "user/insert_user.php";
- $max_userid_url=$URL. "user/read_max_userid.php";
- $user_account_url=$URL. "user/insert_user_account.php";
+ 
 
 $data = array("userName"=>$userName, "userType"=>$userType, "status"=>$status, "userMobile"=>$userMobile, "userEmail"=>$userEmail, "userPass"=>$userPass, "createdOn"=>$createdOn, "createdBy"=>$createdBy);
 
