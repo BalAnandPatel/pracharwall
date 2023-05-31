@@ -11,7 +11,8 @@ $BASE_URL="website/index.php";
 
 // website file path on localhost
 $URL="http://localhost/pracharwall/api/src/";
-$USER_PROFILE_IMGPATH="http://localhost/dreamlotary/user/image/user_profile/";
+$USER_PROFILE_IMGPATH="http://localhost/pracharwall/";
+$CATEGORY_IMGPATH="http://localhost/pracharwall/admin/image/uploads/img_";
 
 $SECRET_KEY = "dKgLINTEL2013aN99840$@";  
 $ISSUER_CLAIM = "GLINTEL TECHNOLOGY PVT LTD"; // this can be the servername

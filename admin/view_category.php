@@ -64,6 +64,7 @@ include "include/header.php";
                     <th>Sr No.</th>
                     <th>Category Name</th>
                     <th>Sub-Category Name</th>
+                    <th>Image</th>
                     <th>Status</th>
                     <th>Create date</th>
                     <th>Edit</th>
@@ -82,6 +83,7 @@ include "include/header.php";
                     <td><?php echo ++$counter; ?></td>
                     <td><?php echo $value1->businessCategory; ?></td>
                     <td><?php echo $value1->subCategory; ?></td>
+                    <td><img class="img img-fluid img-thumbnail" src="<?php echo $CATEGORY_IMGPATH.$value1->id.".png"; ?>" height="100px"></td>
                     <td><?php if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td>
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
                     <td><button class="btn btn-primary">Edit</button></td>
