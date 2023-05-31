@@ -38,18 +38,34 @@ include "include/header.php";
                                 <label class="small mb-1" for="inputEmailAddress">Select Business Category</label>
                                 <select class="form-select" aria-label="Default select example">
                                     <option selected disabled>Select Category</option>
-                                    <option value="1">Category One</option>
-                                    <option value="2">Category Two</option>
-                                    <option value="3">Category Three</option>
+                                    <?php 
+                                       $counter='0';
+                                       foreach($result as $key => $value){
+                                       foreach($value as $key1 => $value1)
+                                       {
+                                    ?> 
+                                        <option value="<?php echo $value1->businessCategory; ?>"><?php echo $value1->businessCategory; ?></option>
+                                    <?php
+                                      }
+                                      }
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Select Business Sub-Category</label>
                                 <select class="form-select" aria-label="Default select example">
                                     <option selected disabled>Select Sub-Category</option>
-                                    <option value="1">Category One</option>
-                                    <option value="2">Category Two</option>
-                                    <option value="3">Category Three</option>
+                                    <?php 
+                                       $counter='0';
+                                       foreach($result as $key => $value){
+                                       foreach($value as $key1 => $value1)
+                                       {
+                                    ?> 
+                                        <option value="<?php echo $value1->subCategory; ?>"><?php echo $value1->subCategory; ?></option>
+                                    <?php
+                                      }
+                                      }
+                                    ?>
                                 </select>
                             </div>
                         </div>

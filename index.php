@@ -160,8 +160,22 @@ include "include/header.php";
     <center>
         <div class="container">
             <div class="row">
+                  <?php 
+                     $counter='0';
+                     foreach($result as $key => $value){
+                     foreach($value as $key1 => $value1)
+                     {
+                  ?> 
+                  <div class="col-md-3 col-sm-6 col-xs-12">
+                  <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH.$value1->id.".png"; ?>" height="100px">
+                  <p><?php echo $value1->businessCategory; ?></p>
+                  </div>
+                  <?php
+                    }
+                    }
+                  ?>
 
-                <div class="col-md-3 col-sm-6 col-xs-12">
+                <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="dropdown">
                         <button class="btn home-office-service dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -271,7 +285,7 @@ include "include/header.php";
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
