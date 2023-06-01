@@ -11,7 +11,7 @@ $BASE_URL="http://localhost/pracharwall/";
 
 // website file path on localhost
 $URL="http://localhost/pracharwall/api/src/";
-$USER_PROFILE_IMGPATH="http://localhost/pracharwall/";
+$USER_PROFILE_IMGPATH="http://localhost/pracharwall/admin/image/user_profile/";
 $CATEGORY_IMGPATH="http://localhost/pracharwall/admin/image/uploads/img_";
 
 $SECRET_KEY = "dKgLINTEL2013aN99840$@";  

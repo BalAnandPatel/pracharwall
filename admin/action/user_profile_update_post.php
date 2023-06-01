@@ -1,6 +1,6 @@
 <?php
  include "../../constant.php";
-if(isset($_POST["update_profile"])){	
+if(isset($_POST["upload"])){	
  
  $userId=$_POST["userId"];
  $businessName=ucwords($_POST["businessName"]);

@@ -14,7 +14,7 @@ curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
 $profile_result = json_decode($response);
-print_r($profile_result);    
+//print_r($profile_result);    
 }else{
 echo '<script>window.location="profile.php"</script>';
 }
@@ -34,12 +34,27 @@ echo '<script>window.location="profile.php"</script>';
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
+                    <!-- <img class="img-account-profile rounded-circle mb-2" src="assets/img/avatar1.png" alt=""> -->
+                    <?php
+                    // error_reporting(0); 
+                    $file=$USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png";
+                    if(getimagesize($file))
+                    { ?>
+                    <img class="img-account-profile img-fluid rounded-circle mb-2" src="<?php echo $USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png"; ?>" alt="Profile Image">
+                    <?php } else { ?>
                     <img class="img-account-profile rounded-circle mb-2" src="assets/img/avatar1.png" alt="">
+                    <?php } ?>
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                    <form action="admin/action/upload_profile_post.php" method="post" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                    <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                    <input class="form-control" type="file" name="userImg" required>
+                    </div>
+                    <button class="btn btn-primary" name="upload" type="submit"><i class="bi bi-cloud-arrow-up-fill"></i>&nbsp;Upload New Image</button>
+                    </form>
                 </div>
             </div>
-        </div>
+        </div>    
         <div class="col-xl-8">
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
