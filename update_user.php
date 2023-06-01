@@ -14,7 +14,7 @@ curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
 $profile_result = json_decode($response);
-//print_r($profile_result);    
+print_r($profile_result);    
 }else{
 echo '<script>window.location="profile.php"</script>';
 }
@@ -54,8 +54,8 @@ echo '<script>window.location="profile.php"</script>';
                           <div class="row gx-3 mb-3">
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputEmailAddress">Select Business Category</label>
-                                <select class="form-select" name="businessCategory" aria-label="Default select example">
-                                    <option selected disabled>Select Category</option>
+                                <select class="form-select" name="businessCategory" aria-label="Default select example" required>
+                                    <option selected value="" disabled>Select Category</option>
                                     <?php 
                                        $counter='0';
                                        foreach($result as $key => $value){
@@ -96,6 +96,16 @@ echo '<script>window.location="profile.php"</script>';
                             <input class="form-control"  name="userAddress" value="<?php echo $profile_value1->userAddress; ?>" type="text"
                                 placeholder="Enter your location">
                         </div>
+                          <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputcity">City</label>
+                                <input class="form-control" name="city" value="<?php echo $profile_value1->city; ?>" type="text" placeholder="Enter your city">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputstate">State</label>
+                                <input class="form-control" name="state" value="<?php echo $profile_value1->state; ?>" type="text" placeholder="Enter your state">
+                            </div>
+                        </div>
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputEmailAddress">Email address</label>
@@ -109,7 +119,7 @@ echo '<script>window.location="profile.php"</script>';
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Alternative Phone number</label>
-                                <input class="form-control"  name="alterMobile" type="tel"
+                                <input class="form-control" value="<?php echo $profile_value1->alterMobile; ?>" name="alterMobile" type="number"
                                     placeholder="Enter your phone number">
                             </div>
                             <div class="col-md-6">
@@ -125,35 +135,35 @@ echo '<script>window.location="profile.php"</script>';
                             </div>
                             <div class="col">
                                 <label class="small mb-1" for="fromDay">From</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" name="businessDay[]" aria-label="Default select example">
                                     <option selected disabled>Select</option>
-                                    <option value="1">Sunday</option>
-                                    <option value="2">Monday</option>
-                                    <option value="3">Tuesday</option>
-                                    <option value="4">Wednesday</option>
-                                    <option value="5">Thursday</option>
-                                    <option value="6">Friday</option>
-                                    <option value="7">Saturday</option>
+                                    <option value="Sun">Sunday</option>
+                                    <option value="Mon">Monday</option>
+                                    <option value="Tue">Tuesday</option>
+                                    <option value="Wed">Wednesday</option>
+                                    <option value="Thu">Thursday</option>
+                                    <option value="Fri">Friday</option>
+                                    <option value="Sat">Saturday</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <label class="small mb-1" for="toDay">To</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" name="businessDay[]" aria-label="Default select example">
                                     <option selected disabled>Select</option>
-                                    <option value="1">Sunday</option>
-                                    <option value="2">Monday</option>
-                                    <option value="3">Tuesday</option>
-                                    <option value="4">Wednesday</option>
-                                    <option value="5">Thursday</option>
-                                    <option value="6">Friday</option>
-                                    <option value="7">Saturday</option>
+                                    <option value="Sun">Sunday</option>
+                                    <option value="Mon">Monday</option>
+                                    <option value="Tue">Tuesday</option>
+                                    <option value="Wed">Wednesday</option>
+                                    <option value="Thu">Thursday</option>
+                                    <option value="Fri">Friday</option>
+                                    <option value="Sat">Saturday</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row gx-3 mb-3">
                             <label for="paymentmethod mb-1 small gx-3">Payment Method</label>
                             <div class="form-check col">
-                                <input class="form-check-input" type="checkbox" value="Cash" name="paymentMode[]">
+                                <input class="form-check-input" type="checkbox" value="Cash" name="paymentMode[]" checked>
                                 <label class="form-check-label" for="flexCheckDefault">
                                     Cash
                                 </label>
@@ -206,7 +216,7 @@ echo '<script>window.location="profile.php"</script>';
                         <div class="mb-3">
                             <label class="small mb-1" for="inputBirthday">About Your Business</label>
                             <textarea class="form-control" name="aboutUser" value="<?php echo $profile_value1->aboutUser; ?>" rows="4"
-                                ></textarea>
+                                ><?php echo $profile_value1->aboutUser; ?></textarea>
                         </div>
                         <input type="hidden" name="userId" value="<?php echo $userId; ?>">
                         <button class="btn btn-primary" name="update_profile" type="submit">Save changes</button>

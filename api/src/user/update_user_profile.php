@@ -29,18 +29,23 @@ if(
     !empty($data->userAddress) &&
     !empty($data->establishmentYear) &&
     !empty($data->businessTiming) &&
-    !empty($data->paymentMode) 
+    !empty($data->paymentMode) &&
+    !empty($data->aboutUser) 
   
 )
 
 {
     $update_userprofile->userId=$data->userId;
+    $update_userprofile->aboutUser=$data->aboutUser;
     $update_userprofile->businessName=$data->businessName;
     $update_userprofile->businessCategory = $data->businessCategory;
     $update_userprofile->userAddress = $data->userAddress;
+    $update_userprofile->city = $data->city;
+    $update_userprofile->state = $data->state;
     $update_userprofile->alterMobile = $data->alterMobile;
     $update_userprofile->establishmentYear = $data->establishmentYear;
     $update_userprofile->businessTiming = $data->businessTiming;
+    $update_userprofile->businessDay = $data->businessDay;
     $update_userprofile->paymentMode = $data->paymentMode;
     $update_userprofile->userWebsite = $data->userWebsite;
     $update_userprofile->updatedOn = $data->updatedOn;

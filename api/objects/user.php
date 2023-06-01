@@ -12,18 +12,18 @@
         $this->conn = $db;
     }
 
-    public $id, $userId, $userType, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $userAddress, $alterMobile, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
+    public $id, $userId, $userType, $city, $state, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $userAddress, $alterMobile, $businessDay, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
     
-    // public function readMaxUserId(){
-    //     $query="Select max(id) as userId from " .$this->table_name;
-    //     $stmt = $this->conn->prepare($query);
-    //     // $stmt->bindParam(":userName", $this->userName); 
-    //     $stmt->execute();
-    //     return $stmt;
-    // }
+    public function readMaxUserId(){
+        $query="Select max(id) as userId from " .$this->user_registration;
+        $stmt = $this->conn->prepare($query);
+        // $stmt->bindParam(":userName", $this->userName); 
+        $stmt->execute();
+        return $stmt;
+    }
 
     public function readUserProfile(){
-     $query="Select up.id, user.id, user.userType, userName, userMobile, userEmail, user.status, businessCategory, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from ".$this->user_registration." as user LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where user.status=1 and userType=:userType and user.id=:id";
+     $query="Select up.id, user.id, user.userType, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from ".$this->user_registration." as user LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where user.status=1 and userType=:userType and user.id=:id";
         $stmt = $this->conn->prepare($query); 
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id);
@@ -84,36 +84,24 @@
         return false;
     }
 
-     public function insertRegisterWall(){
+     public function insertUserProfile(){
 
            $query="INSERT INTO
-        " . $this->register_wall . "
-    SET      serviceName=:serviceName,
-             serviceType=:serviceType,
-             email=:email,
-             mobile=:mobile,
-             description=:description,
+        " . $this->user_profile . "
+    SET      userId=:userId,
              status=:status,
              createdOn=:createdOn,
              createdBy=:createdBy
                ";
 
         $stmt = $this->conn->prepare($query);
-        $this->serviceName=htmlspecialchars(strip_tags($this->serviceName));
-        $this->serviceType=htmlspecialchars(strip_tags($this->serviceType));
-        $this->email=htmlspecialchars(strip_tags($this->email));
-        $this->mobile=htmlspecialchars(strip_tags($this->mobile));
-        $this->description=htmlspecialchars(strip_tags($this->description));
+        $this->userId=htmlspecialchars(strip_tags($this->userId));
         $this->status=htmlspecialchars(strip_tags($this->status));
         $this->createdOn=htmlspecialchars(strip_tags($this->createdOn));
         $this->createdBy=htmlspecialchars(strip_tags($this->createdBy));
 
 
-        $stmt->bindParam(":serviceName", $this->serviceName);
-        $stmt->bindParam(":serviceType", $this->serviceType);
-        $stmt->bindParam(":email", $this->email);
-        $stmt->bindParam(":mobile", $this->mobile);
-        $stmt->bindParam(":description", $this->description);
+        $stmt->bindParam(":userId", $this->userId);
         $stmt->bindParam(":status", $this->status);
         $stmt->bindParam(":createdOn", $this->createdOn); 
         $stmt->bindParam(":createdBy", $this->createdBy);
@@ -136,10 +124,14 @@
                 SET
                    businessName=:businessName,
                    businessCategory=:businessCategory,
-                   userAddress=:userAddress, 
+                   userAddress=:userAddress,
+                   city=:city,
+                   state=:state, 
                    alterMobile=:alterMobile,
+                   aboutUser=:aboutUser,
                    establishmentYear=:establishmentYear,
                    businessTiming=:businessTiming,
+                   businessDay=:businessDay,
                    paymentMode=:paymentMode,
                    userWebsite=:userWebsite,
                    updatedOn=:updatedOn,
@@ -151,9 +143,13 @@
         $this->businessName=htmlspecialchars(strip_tags($this->businessName));
         $this->businessCategory=htmlspecialchars(strip_tags($this->businessCategory));
         $this->userAddress=htmlspecialchars(strip_tags($this->userAddress));
+        $this->city=htmlspecialchars(strip_tags($this->city));
+        $this->state=htmlspecialchars(strip_tags($this->state));
         $this->alterMobile=htmlspecialchars(strip_tags($this->alterMobile));
+        $this->aboutUser=htmlspecialchars(strip_tags($this->aboutUser));
         $this->establishmentYear=htmlspecialchars(strip_tags($this->establishmentYear));
         $this->businessTiming=htmlspecialchars(strip_tags($this->businessTiming));
+        $this->businessDay=htmlspecialchars(strip_tags($this->businessDay));
         $this->paymentMode=htmlspecialchars(strip_tags($this->paymentMode));
         $this->userWebsite=htmlspecialchars(strip_tags($this->userWebsite));
         $this->updatedOn=htmlspecialchars(strip_tags($this->updatedOn));
@@ -164,9 +160,13 @@
         $stmt->bindParam(":businessName", $this->businessName);
         $stmt->bindParam(":businessCategory", $this->businessCategory);
         $stmt->bindParam(":userAddress", $this->userAddress);
+        $stmt->bindParam(":city", $this->city);
+        $stmt->bindParam(":state", $this->state);
         $stmt->bindParam(":alterMobile", $this->alterMobile);
+        $stmt->bindParam(":aboutUser", $this->aboutUser);
         $stmt->bindParam(":establishmentYear", $this->establishmentYear);
         $stmt->bindParam(":businessTiming", $this->businessTiming);
+        $stmt->bindParam(":businessDay", $this->businessDay);
         $stmt->bindParam(":paymentMode", $this->paymentMode);
         $stmt->bindParam(":userWebsite", $this->userWebsite);
         $stmt->bindParam(":updatedOn", $this->updatedOn);

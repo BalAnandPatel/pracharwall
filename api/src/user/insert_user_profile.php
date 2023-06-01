@@ -15,7 +15,7 @@ include_once '../../objects/user.php';
 $database = new Database();
 $db = $database->getConnection();
   
-$insert_regwall = new User($db);
+$insert_profile = new User($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
@@ -23,32 +23,25 @@ $data = json_decode(file_get_contents("php://input"));
 // make sure data is not empty
 if(
     
-    !empty($data->serviceName) &&
-    !empty($data->serviceType) &&
-    !empty($data->email) &&
-    !empty($data->city) &&
-    !empty($data->mobile) &&
-    !empty($data->description) 
+    !empty($data->userId) &&
+    !empty($data->createdOn) &&
+    !empty($data->createdBy) 
+
 )
 
 {
-    $insert_regwall->serviceName = $data->serviceName;
-    $insert_regwall->serviceType = $data->serviceType;
-    $insert_regwall->email = $data->email;
-    $insert_regwall->city = $data->city;
-    $insert_regwall->mobile = $data->mobile;
-    $insert_regwall->description = $data->description;
-    $insert_regwall->status = $data->status;
-    $insert_regwall->createdOn = $data->createdOn;
-    $insert_regwall->createdBy = $data->createdBy;
+    $insert_profile->userId = $data->userId;
+    $insert_profile->status = $data->status;
+    $insert_profile->createdOn = $data->createdOn;
+    $insert_profile->createdBy = $data->createdBy;
 
        
     //var_dump($exam);
     // create the reg
-    if($insert_regwall->insertRegisterWall()){
+    if($insert_profile->insertUserProfile()){
 
         http_response_code(201);
-        echo json_encode(array("message"=>"Successfull"));
+        echo json_encode(array("message"=>"Profile Inserted Successfully"));
     }
     else{
   
@@ -56,7 +49,7 @@ if(
         http_response_code(503);
   
         // tell the user
-        echo json_encode(array("message" => "Unable to insert register wall"));
+        echo json_encode(array("message" => "Unable to insert profile data"));
     }
 }
   
@@ -67,6 +60,6 @@ else{
     http_response_code(400);
   
     // tell the user
-    echo json_encode(array("message" => "Unable to insert user account. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to insert profile data. Data is incomplete."));
 }
 ?>

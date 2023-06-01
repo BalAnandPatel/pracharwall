@@ -4,7 +4,7 @@ include "include/header.php";
 <?php
 $url = $URL."user/read_user_profile.php";
 $userType='2'; 
-$id='1';
+$id='4';
 $data = array("userType" =>$userType, "id"=>$id);
 $postdata = json_encode($data);
 $client = curl_init($url);
@@ -159,7 +159,7 @@ $result = json_decode($response);
                 </div>
                 <div class="row">
                     <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <?php echo $value1->userAddress; ?> 
+                        <?php echo $value1->city.", ".$value1->state; ?> 
                     </div>
                     <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <i class="bi bi-dot"></i>Open Until 8:00 pm
@@ -203,7 +203,7 @@ $result = json_decode($response);
 
                     <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
                         <h6 class="text-secondary">Timings</h6>
-                        <h6>Mon - Sun <br><?php echo $value1->businessTiming; ?></h6>
+                        <h6><?php echo $value1->businessDay; ?><br><?php echo $value1->businessTiming; ?></h6>
                     </div>
                 </div>
                 <div class="row">
@@ -234,7 +234,7 @@ $result = json_decode($response);
                 <hr>
                 <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Visit our Website</a>
+                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
                 <hr>
                 <form action="update_user.php" method="post">
                  <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">   
