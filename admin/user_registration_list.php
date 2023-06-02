@@ -89,8 +89,20 @@ include "include/header.php";
                     <td><?php echo $value1->userEmail; ?></td>
                     <td><?php if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td> 
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
-                    <td class="col-md-1"><button type="button" class="btn btn-success btn-sm">Approve</button></td>
-                    <td class="col-md-1"><button type="button" class="btn btn-danger btn-sm">Reject</button></td>    
+                    <td class="col-md-1">
+                    <form action="action/user_status_updater.php" method="post">
+                    <input type="hidden" name="userId" value="<?php echo $value1->id; ?>"> 
+                    <input type="hidden" name="status" value="1">  
+                    <button type="submit" name="submit" class="btn btn-success btn-sm">Approve</button>
+                    </form>
+                    </td>
+                    <form action="action/user_status_updater.php" method="post"> 
+                    <td class="col-md-1">
+                    <input type="hidden" name="status" value="2">
+                    <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">  
+                    <button type="submit" name="submit" class="btn btn-danger btn-sm">Reject</button>
+                    </td>    
+                    </form>
                   </tr>
                   <?php
                      }

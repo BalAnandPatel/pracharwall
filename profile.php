@@ -4,7 +4,7 @@ include "include/header.php";
 <?php
 $url = $URL."user/read_user_profile.php";
 $userType='2'; 
-$id='4';
+$id='5';
 $userId=$id;
 $data = array("userType" =>$userType, "id"=>$id);
 $postdata = json_encode($data);
@@ -143,7 +143,7 @@ $result = json_decode($response);
 
             <div class="col col-lg-1 col-xl-1 col-md-12 col-sm-12 col-xs-12 py-3 d-flex justify-content-center">
                  <?php
-                    // error_reporting(0); 
+                     error_reporting(0); 
                     $file=$USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png";
                     if(getimagesize($file))
                     { ?>

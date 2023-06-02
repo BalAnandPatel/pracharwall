@@ -12,7 +12,7 @@
         $this->conn = $db;
     }
 
-    public $id, $userId, $userType, $city, $state, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $userAddress, $alterMobile, $businessDay, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
+    public $id, $userId, $userType, $city, $state, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $userAddress, $alterMobile, $businessDay, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $remark, $createdOn, $createdBy, $updatedOn, $updatedBy;
     
     public function readMaxUserId(){
         $query="Select max(id) as userId from " .$this->user_registration;
@@ -179,6 +179,38 @@
       
         return false;
           
+    }
+
+    function updateUserStatus(){
+
+        // echo $this->userId.'<br>'.$this->status;
+
+          // query to insert record
+      echo $query = "UPDATE 
+                    " . $this->user_registration . "
+                SET
+                   remark=:remark
+                   status=:status
+                   where id=:id";
+                          
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+        $this->id=htmlspecialchars(strip_tags($this->id));
+        $this->remark=htmlspecialchars(strip_tags($this->remark));
+        $this->status=htmlspecialchars(strip_tags($this->status));
+         
+        //bind values
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":remark", $this->remark);
+        $stmt->bindParam(":status", $this->status);
+ 
+      
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+      
+        return false;
     }
 
 
