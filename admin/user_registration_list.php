@@ -1,66 +1,66 @@
 <?php
 // error_reporting(0);
 include "include/header.php";
-	$url = $URL."user/read_allusers_list.php";
-  $status='0';
-	$data = array("status"=>$status);
-  //print_r($data);
-	$postdata = json_encode($data);
-	$client = curl_init($url);
-	curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
-	//curl_setopt($client, CURLOPT_POST, 5);
-	curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-	$response = curl_exec($client);
-  //print_r($response);
-  $result = json_decode($response);
-  //print_r($result);
-  ?>
+$url = $URL . "user/read_allusers_list.php";
+$status = '0';
+$data = array("status" => $status);
+//print_r($data);
+$postdata = json_encode($data);
+$client = curl_init($url);
+curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
+//curl_setopt($client, CURLOPT_POST, 5);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+//print_r($response);
+$result = json_decode($response);
+//print_r($result);
+?>
 
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <!-- <h1>Regiserd Users</h1> -->
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">User's Details</li>
-              <li class="breadcrumb-item active">Registerd Users</li>
-            </ol>
-          </div>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <!-- <h1>Regiserd Users</h1> -->
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">User's Details</li>
+            <li class="breadcrumb-item active">Registerd Users</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-  
-    <!-- <div class="alert alert-success" id="success-alert" role="alert"> 
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+
+      <!-- <div class="alert alert-success" id="success-alert" role="alert"> 
                </div>
           
             <div class="alert alert-danger" id="success-alert" role="alert">
                </div> -->
-         
-     
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              
-            </div>
-            <!-- /.card -->
 
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">REGISTERD USERS DETAILS</h3> 
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped text-center">
-                  <thead>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+
+          </div>
+          <!-- /.card -->
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">REGISTERD USERS DETAILS</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped text-center">
+                <thead>
                   <tr class="table-warning">
                     <th>Sr No.</th>
                     <th>User Type</th>
@@ -72,58 +72,95 @@ include "include/header.php";
                     <th>Approve</th>
                     <th>Reject</th>
                   </tr>
-                  	
-                  </thead>
-                  <tbody>
-                  <?php 
-								     $counter='0';
-                     foreach($result as $key => $value){
-                     foreach($value as $key1 => $value1)
-                     {
-                  ?>  
-                  <tr>          
-                    <td><?php echo ++$counter; ?></td>
-                    <td><?php echo $value1->userRole; ?></td>
-                    <td><?php echo $value1->userName; ?></td>
-                    <td><?php echo $value1->userMobile; ?></td>
-                    <td><?php echo $value1->userEmail; ?></td>
-                    <td><?php if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td> 
-                    <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
-                    <td class="col-md-1">
-                    <form action="action/user_status_updater.php" method="post">
-                    <input type="hidden" name="userId" value="<?php echo $value1->id; ?>"> 
-                    <input type="hidden" name="status" value="1">  
-                    <button type="submit" name="submit" class="btn btn-success btn-sm">Approve</button>
-                    </form>
-                    </td>
-                    <form action="action/user_status_updater.php" method="post"> 
-                    <td class="col-md-1">
-                    <input type="hidden" name="status" value="2">
-                    <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">  
-                    <button type="submit" name="submit" class="btn btn-danger btn-sm">Reject</button>
-                    </td>    
-                    </form>
-                  </tr>
+
+                </thead>
+                <tbody>
                   <?php
-                     }
+                  $counter = '0';
+                  foreach ($result as $key => $value) {
+                    foreach ($value as $key1 => $value1) {
+                      ?>
+                      <tr>
+                        <td>
+                          <?php echo ++$counter; ?>
+                        </td>
+                        <td>
+                          <?php echo $value1->userRole; ?>
+                        </td>
+                        <td>
+                          <?php echo $value1->userName; ?>
+                        </td>
+                        <td>
+                          <?php echo $value1->userMobile; ?>
+                        </td>
+                        <td>
+                          <?php echo $value1->userEmail; ?>
+                        </td>
+                        <td>
+                          <?php if ($value1->status == 1)
+                            echo "ACTIVE";
+                          else
+                            echo "PENDING"; ?>
+                        </td>
+                        <td>
+                          <?php echo date('d-m-Y', strtotime($value1->createdOn)); ?>
+                        </td>
+                        <td class="col-md-1">
+                          <form action="action/user_approve_post.php" method="post">
+                            <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">
+                            <button type="submit" name="submit" class="btn btn-success btn-sm">Approve</button>
+                          </form>
+                        </td>
+                        <td class="col-md-1">
+                          <button type="submit" name="submit" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#remark">Reject</button>
+                        </td>
+                      </tr>
+                      <?php
                     }
+                  }
                   ?>
                 </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+              </table>
             </div>
-            <!-- /.card -->
+            <!-- /.card-body -->
           </div>
-          <!-- /.col -->
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
+        <!-- /.col -->
       </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-    
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+
+</div>
+
+<!-- Modal Reject Remark -->
+<div class="modal fade" id="remark" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reason of rejecting the User.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="action/user_reject_post.php" method="post">
+        <div class="modal-body">
+          <textarea name="remark" class="form-control" rows="3" placeholder="Write remark here" autofocus
+            style="resize:none;" required></textarea>
+          <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="submit" class="btn btn-danger">Reject</button>
+      </form>
+    </div>
   </div>
+</div>
+</div>
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>

@@ -3,9 +3,9 @@ include '../../constant.php';
 
 if(isset($_POST["submit"])){
 
-$remark=$_POST["remark"];
+$remark=$_POST['remark'];
 $userId=$_POST["userId"];
-$status=$_POST["status"];
+$status=2;
  
  $url=$URL. "user/update_user_status.php";
 
