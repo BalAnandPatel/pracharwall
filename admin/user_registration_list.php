@@ -2,8 +2,9 @@
 // error_reporting(0);
 include "include/header.php";
 $url = $URL . "user/read_allusers_list.php";
+$userType='2';
 $status = '0';
-$data = array("status" => $status);
+$data = array("status"=>$status, "userType"=>$userType);
 //print_r($data);
 $postdata = json_encode($data);
 $client = curl_init($url);

@@ -20,6 +20,7 @@ $db = $database->getConnection();
 $read_allusers = new User($db);
   
 $data = json_decode(file_get_contents("php://input"));
+$read_allusers->userType = $data->userType;
 $read_allusers->status = $data->status;
 
 //print_r($data);
@@ -46,8 +47,10 @@ if($num>0){
             "userRole"=>$userRole,
             "userName"=>$userName,
             "userMobile"=>$userMobile,
+            "userAddress"=>$userAddress,
             "userEmail"=>$userEmail,
             "status"=>$status,
+            "remark"=>$remark,
             "createdOn"=>$createdOn,
             "createdBy"=>$createdBy 
         );

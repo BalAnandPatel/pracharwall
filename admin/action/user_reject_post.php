@@ -3,7 +3,7 @@ include '../../constant.php';
 
 if(isset($_POST["submit"])){
 
-$remark=$_POST['remark'];
+$remark=ucfirst($_POST['remark']);
 $userId=$_POST["userId"];
 $status=2;
  

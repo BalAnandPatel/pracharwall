@@ -27,7 +27,7 @@ class User
 
     public function readUserProfile()
     {
-        $query = "Select up.id, user.id, user.userType, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where user.status=1 and userType=:userType and user.id=:id";
+        $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where user.status=1 and userType=:userType and user.id=:id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id);
@@ -38,9 +38,10 @@ class User
     public function readAllUsersDetail()
     {
 
-        $query = "Select user.id, user.userType, userRole, userName, userMobile, userEmail, user.status, user.createdOn, user.createdBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType where user.status=:status";
+        $query = "Select user.id, user.userType, remark, userRole, userName, userAddress, userMobile, userEmail, user.status, user.createdOn, user.createdBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where user.status=:status and user.userType=:userType";
 
         $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":status", $this->status);
         $stmt->execute();
         return $stmt;
