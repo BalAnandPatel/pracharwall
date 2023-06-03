@@ -2,8 +2,8 @@
 // error_reporting(0);
 include "include/header.php";
 $url = $URL . "user/read_allusers_list.php";
-$status = '1';
-$userType = '3';
+$status='0';
+$userType='3';
 $data = array("status"=>$status, "userType"=>$userType);
 //print_r($data);
 $postdata = json_encode($data);

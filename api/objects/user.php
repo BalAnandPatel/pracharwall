@@ -27,10 +27,18 @@ class User
 
     public function readUserProfile()
     {
+
+        if($this->status=='1'){
         $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where user.status=1 and user.userType=:userType and user.id=:id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id);
+    }else{
+         $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where user.userType=:userType and user.id=:id and (user.status=1 or user.status=0 or user.status=2)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":userType", $this->userType);
+        $stmt->bindParam(":id", $this->id); 
+    }
         $stmt->execute();
         return $stmt;
     }

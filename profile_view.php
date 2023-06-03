@@ -4,9 +4,10 @@ include "include/header.php";
 <?php
 $url = $URL."user/read_user_profile.php";
 $userType='2'; 
+$status='1';
 $id=$_GET['id'];
 $userId=$id;
-$data = array("userType" =>$userType, "id"=>$id);
+$data = array("userType" =>$userType, "status"=>$status, "id"=>$id);
 $postdata = json_encode($data);
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,1);

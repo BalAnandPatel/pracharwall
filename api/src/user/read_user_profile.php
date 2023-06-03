@@ -23,6 +23,7 @@ $data = json_decode(file_get_contents("php://input"));
 //print_r($data);
 
 $read_userprofile->userType=$data->userType;
+$read_userprofile->status=$data->status;
 $read_userprofile->id=$data->id;
 // $exam->id=$data->id;
 
