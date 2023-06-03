@@ -1,8 +1,20 @@
 <?php
 include "include/header.php";
 ?>
-
-
+<?php
+$url = $URL."user/read_profile_by_category.php";
+$userType='2'; 
+$businessCategory=$_GET['category'];
+$data = array("userType" =>$userType, "businessCategory"=>$businessCategory);
+$postdata = json_encode($data);
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+//print_r($response);
+$result = json_decode($response);
+//print_r($result);
+?>
 <style>
     .rated {
         color: orange;
@@ -50,53 +62,7 @@ include "include/header.php";
         color: #c59b08;
     }
 </style>
-<div class="modal fade" id="ExploreStore" tabindex="-1" aria-labelledby="ExploreStore" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-body mx-3 row">
-                <div class="position-relative">
-                    <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 py-3">
-                    <h2>Are you looking for?</h2>
-                    <h5 class="text-secondary">"Computer Institutes"</h5>
-                    <form>
-                        <div class="form-group">
-                            <label for="contact-username">Full Name:</label>
-                            <input type="text" class="form-control" id="contact-username" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="contact-email">Email address:</label>
-                            <input type="email" class="form-control" id="contact-email" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="serv">Service:</label>
-                            <input type="text" class="form-control" id="serv">
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
-                                id="submit-contact">
-                        </div>
-                    </form>
-                    <div class="mt-2">
-                        <li>Your requirement is sent to the selected relevant businesses</li>
-                        <li>Businesses compete with each other to get you the Best Deal</li>
-                        <li>You choose whichever suits you best</li>
-                        <li>Contact info sent to you by SMS/Email</li>
-                    </div>
-                </div>
 
-                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img src="assets/img/service/distance-education.jpg" width="100%">
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 
 
@@ -117,18 +83,26 @@ include "include/header.php";
         </div>
 
         <h3>Salons in Mumbai</h3>
+             <?php 
+                       
+                     $counter=0;  
+                     foreach($result as $key => $value){
+                     foreach($value as $key1 => $value1)
+                    {
 
+                  ?>
+        <a href="profile_view.php?id=<?php echo $value1->userId;?>" style="color:inherit; text-decoration:none;">        
         <div class="row d-flex mt-3 justify-content-between">
             <div class="col col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
 
                 <div class="row">
                     <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
-                        <img src="assets/img/events.png" class="img-fluid img-thumbnail" alt="">
+                        <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" class="img-fluid img-thumbnail" alt="">
                     </div>
 
                     <div class="col col-lg-8 col-xl-8 col-md-12 col-sm-12 col-xs-12">
                         <h4>
-                            Time Machinee Beauty Solutions Private Limited
+                            <?php echo $value1->businessName; ?>
                         </h4>
                         <div>
                             <span class="bg-success text-white px-2 rounded">4.0</span>
@@ -138,8 +112,8 @@ include "include/header.php";
                             <span class="fa fa-star rated"></span>
                             <span class="fa fa-star"></span>&nbsp;
                         </div>
-                        <div class="row">
-
+                        <div class="col">
+                         <?php echo $value1->city.", ".$value1->state; ?>
                         </div>
                         <div class="col">
                             Open Until 8:00 pm
@@ -147,13 +121,12 @@ include "include/header.php";
                             15 Yrs in Business
                         </div>
                         <div class="col">
-                            About
+                            <?php echo $value1->aboutUser; ?>
                         </div>
                         <button class="btn btn-success mt-2">
-                            <i class="fa fa-phone"></i> 00809786898
+                            <i class="fa fa-phone"></i> <?php echo $value1->userMobile; ?>
                         </button>
-                        <button class="btn btn-outline-primary mt-2" data-bs-toggle="modal"
-                            data-bs-target="#ExploreStore">
+                        <button class="btn btn-outline-primary mt-2">
                             Send Enquiry
                         </button>
 
@@ -166,9 +139,7 @@ include "include/header.php";
                 </div>
 
             </div>
-
-
-
-
         </div>
+      </a>
+      <?php } } ?>
 </section>

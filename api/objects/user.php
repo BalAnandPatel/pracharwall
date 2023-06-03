@@ -27,13 +27,25 @@ class User
 
     public function readUserProfile()
     {
-        $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where user.status=1 and userType=:userType and user.id=:id";
+        $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where user.status=1 and user.userType=:userType and user.id=:id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id);
         $stmt->execute();
         return $stmt;
     }
+
+        public function readAllProfileByCategory()
+    {
+      $query = "Select up.id, userId, user.userType, remark, city, state, userName, userMobile, userEmail, up.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where businessCategory=:businessCategory and up.status=1 and user.userType=:userType";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":userType", $this->userType);
+        $stmt->bindParam(":businessCategory", $this->businessCategory);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    
 
     public function readAllUsersDetail()
     {
@@ -47,7 +59,7 @@ class User
         return $stmt;
     }
 
-
+ 
 
     public function insertUser()
     {
