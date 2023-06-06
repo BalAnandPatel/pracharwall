@@ -17,7 +17,7 @@ class User
 
     public $id, $userId, $userType, $city, $state, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $userAddress, $alterMobile, $businessDay, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $remark, $createdOn, $createdBy, $updatedOn, $updatedBy;
 
-    public $cuName,$cuEmail,$requiredService;
+    public $cuId, $cuName,$cuEmail,$requiredService;
     public function readMaxUserId()
     {
         $query = "Select max(id) as userId from " . $this->user_registration;
@@ -150,7 +150,9 @@ class User
 
         $query = "INSERT INTO
         " . $this->customer_inquiry . "
-    SET      cuName=:cuName,
+    SET      cuId=:cuId,
+             userId=:userId,
+             cuName=:cuName,
              cuEmail=:cuEmail,
              requiredService=:requiredService,
              createdOn=:createdOn,
@@ -158,6 +160,8 @@ class User
                ";
 
         $stmt = $this->conn->prepare($query);
+        $this->cuId = htmlspecialchars(strip_tags($this->cuId));
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
         $this->cuName = htmlspecialchars(strip_tags($this->cuName));
         $this->cuEmail = htmlspecialchars(strip_tags($this->cuEmail));
         $this->requiredService = htmlspecialchars(strip_tags($this->requiredService));
@@ -165,6 +169,8 @@ class User
         $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
 
 
+        $stmt->bindParam(":cuId", $this->cuId);
+        $stmt->bindParam(":userId", $this->userId);
         $stmt->bindParam(":cuName", $this->cuName);
         $stmt->bindParam(":cuEmail", $this->cuEmail);
         $stmt->bindParam(":requiredService", $this->requiredService);

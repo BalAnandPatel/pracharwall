@@ -69,6 +69,7 @@ $result = json_decode($response);
                     <th>Mobile No.</th>
                     <th>Email Id</th>
                     <th>Status</th>
+                    <th>View</th>
                     <th>Create date</th>
                     <th>Approve</th>
                     <th>Reject</th>
@@ -104,6 +105,9 @@ $result = json_decode($response);
                             echo "PENDING"; ?>
                         </td>
                         <td>
+                          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProfile">View</button> 
+                        </td>
+                        <td>
                           <?php echo date('d-m-Y', strtotime($value1->createdOn)); ?>
                         </td>
                         <td class="col-md-1">
@@ -136,6 +140,19 @@ $result = json_decode($response);
   </section>
   <!-- /.content -->
 
+</div>
+
+  <!-- Modal for user profile details (Admin)-->
+  <div class="modal fade" id="viewProfile" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>This is a large modal.</p>
+          <iframe src="http://localhost/pracharwall/profile_view.php?id=5" width="100%" height="300"  title="description"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Modal Reject Remark -->

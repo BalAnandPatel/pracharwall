@@ -66,7 +66,14 @@ $result = json_decode($response);
     }
 </style>
 
+  <?php 
+                       
+                     $counter=0;  
+                     foreach($result as $key => $value){
+                     foreach($value as $key1 => $value1)
+                    {
 
+                  ?>
 <div class="modal fade" id="ExploreStore" tabindex="-1" aria-labelledby="ExploreStore" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -76,12 +83,10 @@ $result = json_decode($response);
                         aria-label="Close"></button>
                 </div>
                 <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 py-3">
-                    <?php if(isset($_SESSION['inquiry_msg'])){ ?>
-                    <div class="alert alert-success"><?php echo $_SESSION['inquiry_msg']; unset($_SESSION['inquiry_msg']); ?></div>
-                    <?php } ?>
                     <h2>Are you looking for?</h2>
-                    <h5 class="text-secondary">"Computer Institutes"</h5>
+                    <h5 class="text-secondary">"<?php echo $value1->businessCategory; ?>"</h5>
                     <form name="InquiryForm" method="post" onsubmit="return inquiryFormdataPost()">
+                        <input type="hidden" name="userId" value="<?php echo $value1->id; ?>"> 
                         <div class="form-group">
                             <label for="contact-username">Full Name:</label>
                             <input type="text" class="form-control" name="cuName" required>
@@ -117,9 +122,10 @@ $result = json_decode($response);
         </div>
     </div>
 </div>
-
+<?php } } ?>
 <script>
 function inquiryFormdataPost() {
+  var userId = document.forms["InquiryForm"]["userId"].value;
   var cuName = document.forms["InquiryForm"]["cuName"].value;
   var cuEmail = document.forms["InquiryForm"]["cuEmail"].value;
   var requiredService = document.forms["InquiryForm"]["requiredService"].value;
@@ -130,24 +136,22 @@ function inquiryFormdataPost() {
     type:'POST',
     dataType:'json',
     data:{
+       "cuId":'1', 
+       "userId":userId,
        "cuName":cuName,
        "cuEmail":cuEmail,
        "requiredService":requiredService
     },
     success:function(response){
-     console.log("ms"+JSON.stringify(response));
-     // alert("ms"+JSON.stringify(response));
-     // if (JSON.stringify(response)=='Successfull') {
-                  // document.getElementById("ExploreStore").reload();
-     $('#ExploreStore').modal('show');
-                // }
+     // console.log("ms"+JSON.stringify(response));
+     alert(JSON.stringify(response)); 
     },
      error:function(response){
       console.log("dh"+JSON.stringify(response));
       // alert("er"+JSON.stringify(response));
 
     }
-  })
+  });
   
 }
 </script>

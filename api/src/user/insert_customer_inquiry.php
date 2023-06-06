@@ -25,10 +25,14 @@ if(
     
     !empty($data->cuName) &&
     !empty($data->cuEmail) &&
+    !empty($data->cuId) &&
+    !empty($data->userId) &&
     !empty($data->requiredService) 
 )
 
 {
+    $insert_customer_inquiry->userId = $data->userId;
+    $insert_customer_inquiry->cuId = $data->cuId;
     $insert_customer_inquiry->cuName = $data->cuName;
     $insert_customer_inquiry->cuEmail = $data->cuEmail;
     $insert_customer_inquiry->requiredService = $data->requiredService;
