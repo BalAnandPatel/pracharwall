@@ -64,7 +64,6 @@ $result = json_decode($response);
                 <thead>
                   <tr class="table-warning">
                     <th>Sr No.</th>
-                    <th>User Type</th>
                     <th>User Name</th>
                     <th>Mobile No.</th>
                     <th>Email Id</th>
@@ -85,9 +84,6 @@ $result = json_decode($response);
                       <tr>
                         <td>
                           <?php echo ++$counter; ?>
-                        </td>
-                        <td>
-                          <?php echo $value1->userRole; ?>
                         </td>
                         <td>
                           <?php echo $value1->userName; ?>
