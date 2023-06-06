@@ -69,6 +69,17 @@ class User
         return $stmt;
     }
 
+        public function customerInquiryDetail()
+    {
+
+        $query = "Select id, userId, cuId, cuEmail, cuName, requiredService, createdOn, createdBy from " . $this->customer_inquiry;
+
+        $stmt = $this->conn->prepare($query);
+        // $stmt->bindParam(":userId", $this->userId);
+        $stmt->execute();
+        return $stmt;
+    }
+
  
 
     public function insertUser()
