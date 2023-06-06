@@ -76,22 +76,25 @@ $result = json_decode($response);
                         aria-label="Close"></button>
                 </div>
                 <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 py-3">
+                    <?php if(isset($_SESSION['inquiry_msg'])){ ?>
+                    <div class="alert alert-success"><?php echo $_SESSION['inquiry_msg']; unset($_SESSION['inquiry_msg']); ?></div>
+                    <?php } ?>
                     <h2>Are you looking for?</h2>
                     <h5 class="text-secondary">"Computer Institutes"</h5>
-                    <form>
+                    <form name="InquiryForm" method="post" onsubmit="return inquiryFormdataPost()">
                         <div class="form-group">
                             <label for="contact-username">Full Name:</label>
-                            <input type="text" class="form-control" id="contact-username" required>
+                            <input type="text" class="form-control" name="cuName" required>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="contact-email">Email address:</label>
-                            <input type="email" class="form-control" id="contact-email" required>
+                            <input type="email" class="form-control" name="cuEmail" required>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="serv">Service:</label>
-                            <input type="text" class="form-control" id="serv">
+                            <input type="text" class="form-control" name="requiredService">
                         </div>
                         <div class="form-group mt-2">
                             <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
@@ -115,7 +118,39 @@ $result = json_decode($response);
     </div>
 </div>
 
+<script>
+function inquiryFormdataPost() {
+  var cuName = document.forms["InquiryForm"]["cuName"].value;
+  var cuEmail = document.forms["InquiryForm"]["cuEmail"].value;
+  var requiredService = document.forms["InquiryForm"]["requiredService"].value;
+  // alert(cuName);
 
+  $.ajax({
+    url:'http://localhost/pracharwall/admin/action/customer_inquiry_post.php',
+    type:'POST',
+    dataType:'json',
+    data:{
+       "cuName":cuName,
+       "cuEmail":cuEmail,
+       "requiredService":requiredService
+    },
+    success:function(response){
+     console.log("ms"+JSON.stringify(response));
+     // alert("ms"+JSON.stringify(response));
+     // if (JSON.stringify(response)=='Successfull') {
+                  // document.getElementById("ExploreStore").reload();
+     $('#ExploreStore').modal('show');
+                // }
+    },
+     error:function(response){
+      console.log("dh"+JSON.stringify(response));
+      // alert("er"+JSON.stringify(response));
+
+    }
+  })
+  
+}
+</script>
 
 
 <section style="background-color: #;">

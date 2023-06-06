@@ -5,6 +5,7 @@ class User
 
     private $conn;
     private $user_profile = "user_profile";
+    private $customer_inquiry = "customer_inquiry";
     private $user_registration = "user_registration";
     private $user_type = "user_type";
     // private $table_payment = "payment";
@@ -16,6 +17,7 @@ class User
 
     public $id, $userId, $userType, $city, $state, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $userAddress, $alterMobile, $businessDay, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $remark, $createdOn, $createdBy, $updatedOn, $updatedBy;
 
+    public $cuName,$cuEmail,$requiredService;
     public function readMaxUserId()
     {
         $query = "Select max(id) as userId from " . $this->user_registration;
@@ -131,6 +133,41 @@ class User
 
         $stmt->bindParam(":userId", $this->userId);
         $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":createdOn", $this->createdOn);
+        $stmt->bindParam(":createdBy", $this->createdBy);
+
+
+        // execute query
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+       public function insertCustomerInquiry()
+    {
+
+        $query = "INSERT INTO
+        " . $this->customer_inquiry . "
+    SET      cuName=:cuName,
+             cuEmail=:cuEmail,
+             requiredService=:requiredService,
+             createdOn=:createdOn,
+             createdBy=:createdBy
+               ";
+
+        $stmt = $this->conn->prepare($query);
+        $this->cuName = htmlspecialchars(strip_tags($this->cuName));
+        $this->cuEmail = htmlspecialchars(strip_tags($this->cuEmail));
+        $this->requiredService = htmlspecialchars(strip_tags($this->requiredService));
+        $this->createdOn = htmlspecialchars(strip_tags($this->createdOn));
+        $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
+
+
+        $stmt->bindParam(":cuName", $this->cuName);
+        $stmt->bindParam(":cuEmail", $this->cuEmail);
+        $stmt->bindParam(":requiredService", $this->requiredService);
         $stmt->bindParam(":createdOn", $this->createdOn);
         $stmt->bindParam(":createdBy", $this->createdBy);
 
