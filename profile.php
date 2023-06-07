@@ -246,6 +246,8 @@ $result = json_decode($response);
                 <hr>
                 <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
                 <hr>
+                <a href="cuInquiry.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i> View Inquriy</a>
+                <hr>
                 <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
                 <hr>
                 <form action="update_user.php" method="post">
