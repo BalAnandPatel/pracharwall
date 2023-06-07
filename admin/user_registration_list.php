@@ -1,20 +1,24 @@
 <?php
-// error_reporting(0);
 include "include/header.php";
 $url = $URL . "user/read_allusers_list.php";
 $userType='2';
 $status = '0';
+// read user details
+
 $data = array("status"=>$status, "userType"=>$userType);
 //print_r($data);
 $postdata = json_encode($data);
+$result = giplCurl($url,$postdata);
+
+function giplCurl($url,$postdata){
 $client = curl_init($url);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
 //curl_setopt($client, CURLOPT_POST, 5);
 curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
-$result = json_decode($response);
-//print_r($result);
+return $result = json_decode($response);
+}
 ?>
 
 <div class="content-wrapper">
@@ -101,7 +105,7 @@ $result = json_decode($response);
                             echo "PENDING"; ?>
                         </td>
                         <td>
-                          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProfile">View</button> 
+                          <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProfile" onclick="getProfileList(<?php echo $value1->id; ?>)">View</a>
                         </td>
                         <td>
                           <?php echo date('d-m-Y', strtotime($value1->createdOn)); ?>
@@ -137,31 +141,75 @@ $result = json_decode($response);
   <!-- /.content -->
 
 </div>
+<script>
+
+    function getProfileList(id) {
+    // alert(id);
+    // var id;    
+    // var userType=2;    
+    // var status=0;    
+    // myData = {userId:id,userType:userType,status:status };
+    // console.log(myData);    
+    $.ajax({
+      url:"<?php echo $BASE_URL ?>admin/action/get_data.php",   
+      type:'POST',  
+      dataType:'json',  
+      data:{
+        "userId":id 
+      },
+      success: function(response) {
+        console.log(response);
+        console.log("depth" + JSON.stringify(response));
+        // console.log(response.records[0].userName);
+        // alert("response");
+        // document.getElementById("viewUserId").innerHTML = response.records[0].id;
+        document.getElementById("viewUserName").innerHTML = response.records[0].userName;
+        document.getElementById("viewUserEmail").innerHTML = response.records[0].userEmail;
+        document.getElementById("viewUserMobile").innerHTML = "+91-"+response.records[0].userMobile;
+        document.getElementById("viewBusinessCategory").innerHTML = response.records[0].businessCategory;
+        document.getElementById("viewUserAddress").innerHTML = response.records[0].userAddress;
+        document.getElementById("viewAlterMobile").innerHTML = response.records[0].alterMobile;
+        document.getElementById("viewBusinessDay").innerHTML = response.records[0].businessDay;
+        document.getElementById("viewUserWebsite").innerHTML = response.records[0].userWebsite;
+        document.getElementById("viewEstablishmentYear").innerHTML = response.records[0].establishmentYear;
+        document.getElementById("viewPaymentMode").innerHTML = response.records[0].paymentMode;
+        document.getElementById("viewBusinessTiming").innerHTML = response.records[0].businessTiming;
+        document.getElementById("viewAboutUser").innerHTML = response.records[0].aboutUser;
+        document.getElementById("viewBusinessName").innerHTML = response.records[0].businessName;
+        document.getElementById("viewCity").innerHTML = response.records[0].city;
+        document.getElementById("viewState").innerHTML = response.records[0].state;
+
+      }  
+    });    
+ 
+  }
+</script>
+
 
   <!-- Modal for user profile details (Admin)-->
   <div class="modal fade" id="viewProfile" role="dialog">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-body">
-          <p>This is a large modal.</p>
+          <p>View More Details</p>
           <!-- <iframe src="http://localhost/pracharwall/profile_view.php?id=5" width="100%" height="300"  title="description"></iframe> -->
-            <section style="background-color: #eee;">
+            <section class="bg-light">
                         <div class="container py-3">
 
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="card mb-4">
                                         <div class="card-body text-center">
-                                            <img src="assets/img/events.png" alt="avatar"
+                                           
+                                            <img src="" alt="avatar"
                                                 class="rounded-circle img-fluid">
-                                            <h5 class="my-3">John Smith</h5>
-                                            <p class="text-muted mb-1">Full Stack Developer</p>
-                                            <p class="text-muted mb-1">example@example.com</p>
-                                            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                                            <div class="d-flex justify-content-center mb-2">
+                                            <h5 id="viewUserName" class="my-3"></h5>
+                                            <p id="viewUserEmail" class="text-muted mb-1"></p>
+                                            <p id="viewUserMobile" class="text-muted mb-4"></p>
+                                            <!-- <div class="d-flex justify-content-center mb-2">
                                                 <button type="button" class="btn btn-primary">Edit Proflie <i
                                                         class="bi bi-pencil-square"></i></button>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +222,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Business Cateory</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Food</p>
+                                                    <p id="viewBusinessCategory" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -183,34 +231,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Business Name</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Full Name</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Johnatan Smith</p>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Email</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">example@example.com</p>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Mobile</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">(098) 765-4321</p>
+                                                    <p id="viewBusinessName" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -219,7 +240,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Address</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                                    <p id="viewUserAddress" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -228,7 +249,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Alernate Mobile</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">5555151515</p>
+                                                    <p id="viewAlterMobile" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -237,7 +258,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">City</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">San Francisco</p>
+                                                    <p id="viewCity" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -246,7 +267,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">State</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">CA</p>
+                                                    <p id="viewState" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -255,7 +276,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Establishment of Year</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                                    <p id="viewEstablishmentYear" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -264,7 +285,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Payment Mode</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                                    <p id="viewPaymentMode" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -273,7 +294,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Business Timing</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                                    <p id="viewBusinessTiming" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -282,16 +303,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Business Days</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <p class="mb-0">Service (provided)</p>
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                                    <p id="viewBusinessDay" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -300,7 +312,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">Website</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                                    <p id="viewUserWebsite" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -309,7 +321,7 @@ $result = json_decode($response);
                                                     <p class="mb-0">About User</p>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                                    <p id="viewAboutUser" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -340,7 +352,7 @@ $result = json_decode($response);
         <div class="modal-body">
           <textarea name="remark" class="form-control" rows="3" placeholder="Write remark here" autofocus
             style="resize:none;" required></textarea>
-          <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">
+          <input type="text" name="userId" value="<?php echo $value1->id; ?>">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -351,24 +363,6 @@ $result = json_decode($response);
 </div>
 </div>
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="lugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="plugins/jszip/jszip.min.js"></script>
-<script src="plugins/pdfmake/pdfmake.min.js"></script>
-<script src="plugins/pdfmake/vfs_fonts.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- Page specific script -->
 
 <?php
 include "include/footer.php";
