@@ -7,7 +7,7 @@
 
 
 <div style="background-color: #eee;">
-    <footer class="p-4 small">
+    <footer class="p-4 small bg-light">
 
         <div class="row">
             <h6>POPULAR LINKS</h6>
