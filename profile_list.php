@@ -13,7 +13,7 @@ curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
 $result = json_decode($response);
-//print_r($result);
+print_r($result);
 ?>
 <style>
     .rated {
