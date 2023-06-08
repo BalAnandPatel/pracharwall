@@ -20,7 +20,7 @@ $db = $database->getConnection();
 $read_inqury = new User($db);
   
 $data = json_decode(file_get_contents("php://input"));
-// $read_inqurys->userId = $data->userId;
+$read_inqury->userId = $data->userId;
 
 //print_r($data);
 

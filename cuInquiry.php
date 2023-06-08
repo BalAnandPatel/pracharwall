@@ -1,4 +1,19 @@
-<?php include "include/header.php"; ?>
+<?php
+include "include/header.php";
+  $url = $URL."user/read_customers_inquiry.php";
+  $userId='5';
+  $data = array("userId"=>$userId);
+  //print_r($data);
+  $postdata = json_encode($data);
+  $client = curl_init($url);
+  curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+  //curl_setopt($client, CURLOPT_POST, 5);
+  curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+  $response = curl_exec($client);
+  //print_r($response);
+  $result = json_decode($response);
+  //print_r($result);
+  ?>
 <!-- DataTables -->
 <link rel="stylesheet" href="common/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="common/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -19,22 +34,24 @@
                         <th>Customer Name</th>
                         <th>Email Id</th>
                         <th>Service (needed)</th>
-                        <th>Status</th>
                         <th>Delete</th>
                     </tr>
 
                 </thead>
                 <tbody>
-
+                   <?php
+                  $counter = '0';
+                  foreach ($result as $key => $value) {
+                    foreach ($value as $key1 => $value1) {
+                      ?>
                     <tr>
-                        <td>1</td>
-                        <td>Name</td>
-                        <td>name@gmail.com</td>
-                        <td></td>
-                        <td>Pending</td>
-                        <td>Delete</td>
+                        <td class="col-md-1"><?php echo ++$counter; ?></td>
+                        <td><?php echo $value1->cuName; ?></td>
+                        <td><?php echo $value1->cuEmail; ?></td>
+                        <td><?php echo $value1->requiredService; ?></td>
+                        <td class="col-md-1"><button class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button></td>
                     </tr>
-
+                  <?php } } ?>
                 </tbody>
             </table>
         </div>

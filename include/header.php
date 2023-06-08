@@ -156,7 +156,7 @@
             // var data = userType+"-"+userName+"-"+userEmail+"-"+userMobile+"-"+userPass;
             // alert(data);
             $.ajax({
-                url: 'http://localhost/pracharwall/admin/action/user_registration_post.php',
+                url: '<?php echo $BASE_URL ?>admin/action/user_registration_post.php',
                 type: 'POST',
                 dataType: 'json',
                 data: {

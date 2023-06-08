@@ -3,9 +3,9 @@ include '../../constant.php';
  
  $cuId=$_POST["cuId"];
  $userId=$_POST["userId"];
- $cuName=$_POST["cuName"];
+ $cuName=ucwords($_POST["cuName"]);
  $cuEmail=$_POST["cuEmail"];
- $requiredService=$_POST["requiredService"];
+ $requiredService=ucfirst($_POST["requiredService"]);
  $createdOn=date("Y-m-d h:i:S");
  $createdBy=$_POST["cuName"];
 // $cuName="MS";

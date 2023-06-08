@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 06, 2023 at 08:40 AM
+-- Generation Time: Jun 08, 2023 at 07:44 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -61,35 +61,14 @@ CREATE TABLE IF NOT EXISTS `customer_inquiry` (
   `status` tinyint(1) NOT NULL,
   `createdOn` timestamp NOT NULL,
   `createdBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `customer_inquiry`
 --
 
 INSERT INTO `customer_inquiry` (`id`, `userId`, `cuId`, `cuName`, `cuEmail`, `requiredService`, `status`, `createdOn`, `createdBy`) VALUES
-(2, '', '', 'mrityunjay ', 'ms@gmail.com', 'new', 0, '2023-06-04 20:29:00', 'mrityunjay '),
-(3, '', '', 'yash', 'yash@gmail.com', 'ser', 0, '2023-06-04 20:29:00', 'yash'),
-(4, '', '', 'mrityunjay ', 'ms@gmail.com', 'new', 0, '2023-06-04 20:31:00', 'mrityunjay '),
-(5, '', '', 'mrityunjay ', 'ms@gmail.com', 'ser', 0, '2023-06-04 20:32:00', 'mrityunjay '),
-(6, '', '', 'dwsd', 'dwd@gmail.com', 'dswd', 0, '2023-06-04 20:33:00', 'dwsd'),
-(7, '', '', 'mrityunjay ', 'ms@gmail.com', 'any service', 0, '2023-06-04 20:34:00', 'mrityunjay '),
-(8, '', '', 'mrityunjay ', 'dwd@gmail.com', 'dwd', 0, '2023-06-04 20:38:00', 'mrityunjay '),
-(9, '', '', 'mrityunjay ', 'ms@gmail.com', 'any service', 0, '2023-06-04 20:39:00', 'mrityunjay '),
-(10, '', '', 'mrityunjay ', 'ms@gmail.com', 'any service', 0, '2023-06-04 20:44:00', 'mrityunjay '),
-(11, '', '', 'mrityunjay ', 'dwd@gmail.com', 'any service', 0, '2023-06-04 20:58:00', 'mrityunjay '),
-(12, '', '', 'mrityunjay ', 'dwd@gmail.com', 'any service', 0, '2023-06-04 20:59:00', 'mrityunjay '),
-(13, '', '', 'mrityunjay ', 'ms@gmail.com', 'dwd', 0, '2023-06-04 21:08:00', 'mrityunjay '),
-(14, '', '', 'mrityunjay ', 'dwd@gmail.com', 'any service', 0, '2023-06-04 21:09:00', 'mrityunjay '),
-(15, '', '', 'mrityunjay ', 'ms@gmail.com', 'any service', 0, '2023-06-04 21:10:00', 'mrityunjay '),
-(16, '', '', 'yash', 'ms@gmail.com', 'new', 0, '2023-06-04 21:13:00', 'yash'),
-(17, '', '', 'mrityunjay ', 'dwd@gmail.com', 'any service', 0, '2023-06-04 21:29:00', 'mrityunjay '),
-(18, '', '', 'mrityunjay ', 'dwd@gmail.com', 'dwd', 0, '2023-06-04 21:33:00', 'mrityunjay '),
-(19, '', '', 'dwsd', 'ms@gmail.com', 'any service', 0, '2023-06-04 21:34:00', 'dwsd'),
-(20, '', '', 'mrityunjay ', 'dwd@gmail.com', 'dwd', 0, '2023-06-04 22:09:00', 'mrityunjay '),
-(21, '', '', 'mrityunjay ', 'dwd@gmail.com', 'dwd', 0, '2023-06-06 06:41:00', 'mrityunjay '),
-(22, '5', '1', 'mrityunjay ', 'dwd@gmail.com', 'dwd', 0, '2023-06-06 07:14:00', 'mrityunjay '),
-(23, '5', '1', 'mrityunjay ', 'dwd@gmail.com', 'dwd', 0, '2023-06-06 07:18:00', 'mrityunjay ');
+(24, '5', '1', 'Mrityunjay Singh', 'ms@gmail.com', 'Realestate ', 0, '2023-06-08 06:33:00', 'mrityunjay singh');
 
 -- --------------------------------------------------------
 
@@ -156,8 +135,8 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
 --
 
 INSERT INTO `user_registration` (`id`, `userType`, `userName`, `userMobile`, `userEmail`, `userPass`, `status`, `remark`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(5, '2', 'Karan', '654567744655', 'karan@gmail.com', '123456', 1, '', '2023-06-02 05:33:39', 'Karan', '0000-00-00 00:00:00', ''),
-(4, '2', 'Mrityunjay Singh', '23654478958', 'ms@gmail.com', '12345', 1, 'Rejected', '2023-05-31 20:39:58', 'Mrityunjay Singh', '0000-00-00 00:00:00', ''),
+(5, '2', 'Karan', '654567744655', 'karan@gmail.com', '123456', 1, 'Approved', '2023-06-02 05:33:39', 'Karan', '0000-00-00 00:00:00', ''),
+(4, '2', 'Mrityunjay Singh', '23654478958', 'ms@gmail.com', '12345', 0, 'Approved', '2023-05-31 20:39:58', 'Mrityunjay Singh', '0000-00-00 00:00:00', ''),
 (6, '3', 'Rahul', '1654474987', 'rahul@gmail.com', '1111', 0, '', '2023-06-01 21:55:04', 'Rahul', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
@@ -258,7 +237,7 @@ MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `customer_inquiry`
 --
 ALTER TABLE `customer_inquiry`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `user_profile`
 --
