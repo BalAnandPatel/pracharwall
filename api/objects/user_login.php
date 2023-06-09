@@ -2,15 +2,16 @@
 class Login{
 
     private $conn;
-    private $table_name = "user_login";
+    private $user_type = "user_type";
+    private $user_registration = "user_registration";
     public $id,$userType,$userRole,$userName,$userEmail,$userPass,$status,$createdOn,$createdBy;
     public function __construct($db){
         $this->conn = $db;
     }
 
     function userLoginVerify(){
-        $query="Select 
-        id, userType, userRole, userName, userEmail, userPass, createdOn  from " .$this->table_name .  " where userEmail=:userEmail and userPass=:userPass";
+       $query="Select 
+        user.id as id, user.userType, userRole, userName, userEmail, userPass, user.createdOn  from " .$this->user_registration .  " as user LEFT JOIN ".$this->user_type." ut ON user.userType=ut.userType where user.userEmail=:userEmail and user.userPass=:userPass";
         $stmt = $this->conn->prepare($query); 
         $stmt->bindParam(":userEmail", $this->userEmail);
         $stmt->bindParam(":userPass", $this->userPass);

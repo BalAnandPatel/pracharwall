@@ -1,6 +1,5 @@
 <?php
 session_start();
-// error_reporting(0);
 date_default_timezone_set('Asia/Kolkata');
 $BASE_URL="http://localhost/pracharwall/";
 // website file path on server
@@ -16,7 +15,7 @@ $CATEGORY_IMGPATH="http://localhost/pracharwall/admin/image/uploads/img_";
 
 $SECRET_KEY = "dKgLINTEL2013aN99840$@";  
 $ISSUER_CLAIM = "GLINTEL TECHNOLOGY PVT LTD"; // this can be the servername
-$AUDIENCE_CLAIM = "DREAM LOTARY";
+$AUDIENCE_CLAIM = "PRACHARWALL";
 
 $LOGIN_SUCCESS_MSG="Login Successful";
 $LOGIN_FAILED_MSG="Request Failed";

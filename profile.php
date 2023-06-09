@@ -7,7 +7,7 @@ $url = $URL."user/read_user_profile.php";
 $userType='2';
 $status='0';
 //user id will be session id 
-$id='4';
+$id=$_SESSION['USER_ID'];
 $userId=$id;
 $data = array("userType" =>$userType, "status"=>$status, "id"=>$id);
 $postdata = json_encode($data);

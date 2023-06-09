@@ -1,19 +1,18 @@
-<?php include "constant.php"; ?>
 <?php
-// error_reporting(0);
-  $url = $URL."admin/read_business_category.php";
-  $data = array();
-  //print_r($data);
-  $postdata = json_encode($data);
-  $client = curl_init($url);
-  curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
-  //curl_setopt($client, CURLOPT_POST, 5);
-  curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-  $response = curl_exec($client);
-  //print_r($response);
-  $result = json_decode($response);
-  //print_r($result);
-  ?>
+include "constant.php";
+$url = $URL."admin/read_business_category.php";
+$data = array();
+//print_r($data);
+$postdata = json_encode($data);
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+//curl_setopt($client, CURLOPT_POST, 5);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+//print_r($response);
+$result = json_decode($response);
+//print_r($result);
+?>
 
 <!doctype html>
 <html lang="en">
@@ -192,16 +191,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button> -->
                 </div>
-                <form>
+                <form action="admin/action/user_login_post.php" method="post">
                     <div class="modal-body mx-3">
                         <div class="form-group">
                             <label style="font-weight: 600;" for="email">Email address:</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <input type="email" class="form-control" name="userEmail" required>
                         </div>
                         <br>
                         <div class="form-group">
                             <label style="font-weight: 600;" for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" autocomplete="off" required>
+                            <input type="password" class="form-control" name="userPass" autocomplete="off" required>
                         </div>
                         <br>
                     </div>

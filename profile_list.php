@@ -1,5 +1,6 @@
 <?php
 include "include/header.php";
+error_reporting(0);
 ?>
 <?php
 $url = $URL."user/read_profile_by_category.php";
@@ -13,7 +14,7 @@ curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
 $result = json_decode($response);
-print_r($result);
+// print_r($result);
 ?>
 <style>
     .rated {
@@ -81,9 +82,9 @@ print_r($result);
                 </nav>
             </div>
         </div>
-
-        <h3>Salons in Mumbai</h3>
-             <?php 
+        <?php if($result->records[0]->status=='1'){ ?>
+        <h3><?php echo $result->records[0]->businessCategory; ?></h3>
+        <?php 
                        
                      $counter=0;  
                      foreach($result as $key => $value){
@@ -91,6 +92,7 @@ print_r($result);
                     {
 
                   ?>
+          
         <a href="profile_view.php?id=<?php echo $value1->userId;?>" style="color:inherit; text-decoration:none;">        
         <div class="row d-flex mt-3 justify-content-between">
             <div class="col col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
@@ -142,4 +144,24 @@ print_r($result);
         </div>
       </a>
       <?php } } ?>
+      <?php }else{
+        echo '<div class="container">
+ <div class="d-flex align-items-center justify-content-center vh-50">
+            <div class="text-center row">
+                <div class=" col-md-6">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg" alt="404Img"
+                        class="img-fluid">
+                </div>
+                <div class=" col-md-6 mt-5">
+                    <p class="fs-3"> <span class="text-danger">Sorry! </span>No Business Listed</p>
+                    <p class="lead">
+                        The page you’re looking for doesn’t exist.
+                    </p>
+                    <a href="'.$BASE_URL.'" class="btn btn-primary"><span class="fa fa-arrow-circle-left"></span> Go Home</a>
+                </div>
+
+            </div>
+        </div>
+</div>';
+      } ?>
 </section>

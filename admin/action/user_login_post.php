@@ -20,8 +20,8 @@ curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
 // curl_close($client);
 //print_r($response);
-
 $decode = (json_decode($response));
+//print_r($decode);
 
 // echo $decode->message;
 
@@ -46,25 +46,21 @@ $result->data->userPass==$_POST['userPass'])
   $_SESSION["JWT"]=$result;
   $_SESSION['MEMBBER_FROM']=$result->data->createdOn;
 
- header('Location:../adm_dashboard.php');
+if($_SESSION["USER_TYPE"]=='1'){
+header('Location:../adm_dashboard.php');
+}else if($_SESSION['USER_TYPE']=='2'){
+header('Location:../../profile.php');  
+}else if($_SESSION['USER_TYPE']=='3'){
+header('Location:../../cu_profile.php');  
+}
 
 }else{
  $msg="Incorrect User Email or Password"; 
- header('Location:../index.php');
+ header('Location:../../index.php');
 }
  }else{
-  //print_r($decode->message);
-  header('Location:../index.php?msg='.$decode->message); 
+  print_r($decode->message);
+  header('Location:../../index.php?msg='.$decode->message); 
  }
-
-// function giplCurl($api,$postdata){
-//    $url = $api; 
-//    $client = curl_init($url);
-//     curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-//     curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-//     $response = curl_exec($client);
-//   //  print_r($response);
-//     return $result = json_decode($response);
-// }
 
 ?>

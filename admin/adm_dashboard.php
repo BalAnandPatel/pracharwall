@@ -1,6 +1,11 @@
 <?php
 include "include/header.php";
-
+if(!isset($_SESSION["USER_ROLE"])=="Admin"){
+// header('location:http://localhost/pracharwall/index.php');
+echo '<script>window.location="'.$BASE_URL.'"</script>';  
+}
+?>
+<?php
 // function giplCurl($url, $postdata)
 // {
 //   $client = curl_init($url);
@@ -40,16 +45,13 @@ include "include/header.php";
 // $result_vacancy_count = giplCurl($url_read_total_vacancy, $postdata_approved);
 // //print_r($result_vacancy_count);
 // $total_vacncy = $result_vacancy_count->records[0]->exam_count;
-
 ?>
+<!-- <script>windo.location.href="http://localhost/pracharwall/"</script> -->
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
-      <?php if(isset($_SESSION['change_userpass_success'])){ ?>
-      <div class="alert alert-success"><?php echo $_SESSION['change_userpass_success']; unset($_SESSION['change_userpass_success']); ?></div>
-      <?php } ?>
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1 class="m-0">Dashboard</h1>
