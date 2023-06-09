@@ -149,7 +149,7 @@ $result = json_decode($response);
  <div class="d-flex align-items-center justify-content-center vh-50">
             <div class="text-center row">
                 <div class=" col-md-6">
-                    <img src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg" alt="404Img"
+                    <img src="Pracharwall_image/404.png" alt="404Img"
                         class="img-fluid">
                 </div>
                 <div class=" col-md-6 mt-5">
