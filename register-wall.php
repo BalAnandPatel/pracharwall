@@ -11,8 +11,6 @@ include "include/header.php";
 
     <img src="assets/img/howto.png" class="img-fluid mb-5" />
 
-
-
 </div>
 
 <?php include "include/footer.php"; ?>
