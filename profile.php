@@ -68,58 +68,6 @@ $result = json_decode($response);
     }
 </style>
 
-
-<div class="modal fade" id="ExploreStore" tabindex="-1" aria-labelledby="ExploreStore" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-body mx-3 row">
-                <div class="position-relative">
-                    <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 py-3">
-                    <h2>Are you looking for?</h2>
-                    <h5 class="text-secondary">"Computer Institutes"</h5>
-                    <form>
-                        <div class="form-group">
-                            <label for="contact-username">Full Name:</label>
-                            <input type="text" class="form-control" id="contact-username" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="contact-email">Email address:</label>
-                            <input type="email" class="form-control" id="contact-email" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="serv">Service:</label>
-                            <input type="text" class="form-control" id="serv">
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
-                                id="submit-contact">
-                        </div>
-                    </form>
-                    <div class="mt-2">
-                        <li>Your requirement is sent to the selected relevant businesses</li>
-                        <li>Businesses compete with each other to get you the Best Deal</li>
-                        <li>You choose whichever suits you best</li>
-                        <li>Contact info sent to you by SMS/Email</li>
-                    </div>
-                </div>
-
-                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img src="assets/img/service/distance-education.jpg" width="100%">
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
 <section style="background-color: #;">
     <div class="container py-5">
 
@@ -188,13 +136,7 @@ $result = json_decode($response);
                 <?php echo $value1->userMobile; ?>
                 </div>
             </div>
-
-            <div class="col col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center mt-1">
-                <a class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ExploreStore" href="">
-                    <b>Enquiry Now</b>
-                </a>
-            </div>
-
+            
         </div>
 
 
