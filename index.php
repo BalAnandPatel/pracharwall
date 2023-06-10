@@ -53,41 +53,6 @@ include "include/header.php";
             background-position: -247px -75px
         }
     </style>
-    
-
-    <!-- <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="Pracharwall_image/logo.png" alt="Pracharwall" width="160" height="40">
-            </a>
-
-            <div>
-                <a class="p-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                    href="#">
-                    List Your Business
-                </a>
-                <a class="p-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                    href="#">
-                    Post a Free Ad
-                </a>
-                <a class="p-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                    href="#">
-                    <i class="bi bi-file-arrow-down-fill"></i> Download App
-                </a>
-                <a class="p-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                    href="#">
-                    Sign in
-                </a>
-                <a class="p-2 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                    href="#">
-                    Sign Up
-                </a>
-            </div>
-        </div>
-    </nav> -->
-
-
-
 
  <?php
    if(isset($_SESSION["user_reg_error"])){
@@ -98,6 +63,7 @@ include "include/header.php";
     unset($_SESSION["user_reg_success"]);
    } 
     ?>
+    
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -129,7 +95,7 @@ include "include/header.php";
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -138,7 +104,7 @@ include "include/header.php";
             data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-        </button>
+        </button> -->
     </div>
 
     <div class="container d-flex justify-content-center">
@@ -739,26 +705,4 @@ include "include/header.php";
             </div>
         </div>
 
-        <div class="">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center px-2 py-3 border-top">
-                <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Company, Inc</p>
-
-                <a href="index.html"
-                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                    <img src="Pracharwall_image/logo.png" alt="Pracharwall" width="160" height="40">
-                </a>
-
-                <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Register Your Wall</a>
-                    </li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Sign in</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Sign Up</a></li>
-                </ul>
-            </footer>
-        </div>
-
-
-</body>
-
-</html>
+<?php include "include/footer.php"; ?>

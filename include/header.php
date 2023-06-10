@@ -1,11 +1,11 @@
 <?php
 include "constant.php";
-$url = $URL."admin/read_business_category.php";
+$url = $URL . "admin/read_business_category.php";
 $data = array();
 //print_r($data);
 $postdata = json_encode($data);
 $client = curl_init($url);
-curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
 //curl_setopt($client, CURLOPT_POST, 5);
 curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
@@ -21,7 +21,8 @@ $result = json_decode($response);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pracharwall</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="assets/css/theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -44,9 +45,14 @@ $result = json_decode($response);
 <body>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" aria-label="Navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
-                <img src="Pracharwall_image/logo.png" alt="Pracharwall" width="160" height="40">
-            </a>
+            <div>
+                <a class="fs-4" data-bs-toggle="offcanvas" href="#sidenav" aria-controls="offcanvasExample" style="text-decoration:none;">
+                    &#9776;
+                </a>
+                <a class="navbar-brand" href="index.php">
+                    <img src="Pracharwall_image/logo.png" class="img-fluid" alt="Pracharwall" width="160" height="40">
+                </a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
                 aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -97,9 +103,7 @@ $result = json_decode($response);
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-                    <!-- <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button> -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="card rounded-0">
                     <form onsubmit="return userReg()" method="post">
@@ -187,9 +191,7 @@ $result = json_decode($response);
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-                    <!-- <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button> -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="admin/action/user_login_post.php" method="post">
                     <div class="modal-body mx-3">
@@ -213,4 +215,29 @@ $result = json_decode($response);
     </div>
     </div>
 
+    <!-- Side Navabr -->
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="sidenav" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Category</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
 
+        <div class="offcanvas-body">
+            <div>
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images,
+                lists,
+                etc.
+            </div>
+            <div class="dropdown mt-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>

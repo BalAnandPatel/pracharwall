@@ -1,6 +1,6 @@
 <?php include "include/header.php"; ?>
 
-<section style="background-color: #eee;">
+<section>
                         <div class="container py-3">
 
                             <div class="row">
@@ -74,4 +74,5 @@
                         </div>
                     </section>
 
-<?php //include "include/footer.php"; ?>
+                    <hr>
+<?php include "include/footer.php"; ?>
