@@ -68,7 +68,7 @@ $result = json_decode($response);
     }
 </style>
 
-<section style="background-color: #;">
+<section>
     <div class="container py-5">
 
         <div class="row">
@@ -197,7 +197,9 @@ $result = json_decode($response);
                  <input type="hidden" name="userName" value="<?php echo $value1->userName; ?>">
                  <input type="hidden" name="userEmail" value="<?php echo $value1->userEmail; ?>">
                  <input type="hidden" name="userMobile" value="<?php echo $value1->userMobile; ?>">
-                 <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i><button class="btn border-0 text-primary" name="update" type="submit">Edit This</button></a>
+                 <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i>
+                 <button class="btn border-0 text-primary" name="update" type="submit">Edit This</button>
+                 </a>
                 </form>
             </div>
 

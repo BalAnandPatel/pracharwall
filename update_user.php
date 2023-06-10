@@ -5,8 +5,9 @@ include "include/header.php";
 if(isset($_POST['update'])){
 $userId = $_POST['userId'];
 $url = $URL."user/read_user_profile.php";
-$userType='2'; 
-$data = array("userType" =>$userType, "id"=>$userId);
+$userType='2';
+$status='0'; 
+$data = array("userType" =>$userType, "status"=>$status, "id"=>$userId);
 $postdata = json_encode($data);
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,1);

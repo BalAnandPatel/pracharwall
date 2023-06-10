@@ -1,4 +1,19 @@
-<?php include "include/header.php"; ?>
+<?php
+include "include/header.php";
+$userId = $_SESSION["USER_ID"];
+$url = $URL."user/read_user_profile.php";
+$userType='3';
+$status='1'; 
+$data = array("userType" =>$userType, "status"=>$status, "id"=>$userId);
+$postdata = json_encode($data);
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+print_r($response);
+$profile_result = json_decode($response);
+print_r($profile_result);
+?>
 
 <section>
                         <div class="container py-3">
