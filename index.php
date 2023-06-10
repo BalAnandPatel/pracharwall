@@ -154,12 +154,12 @@ if (isset($_SESSION["user_reg_error"])) {
             <h2>Education & Training</h2>
         </div>
         <div class="col d-flex justify-content-end" id="customize-controls">
-            <button class="btn btn-outline-primary m-1" type="button" data-bs-target="#carouselExampleControls"
+            <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls"
                 data-bs-slide="prev">
                 <i class="bi bi-arrow-left"></i>
                 <span class="">Previous</span>
             </button>
-            <button class="btn btn-outline-primary m-1" type="button" data-bs-target="#carouselExampleControls"
+            <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls"
                 data-bs-slide="next">
                 <span class="">Next</span>
                 <i class="bi bi-arrow-right"></i>
