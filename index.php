@@ -153,7 +153,7 @@ if (isset($_SESSION["user_reg_error"])) {
         <div class="col">
             <h2>Education & Training</h2>
         </div>
-        <div class="col d-flex justify-content-end">
+        <div class="col d-flex justify-content-end" id="customize-controls">
             <button class="btn btn-outline-primary m-1" type="button" data-bs-target="#carouselExampleControls"
                 data-bs-slide="prev">
                 <i class="bi bi-arrow-left"></i>
@@ -171,7 +171,7 @@ if (isset($_SESSION["user_reg_error"])) {
         <div class="carousel-inner">
 
             <div class="carousel-item active">
-                <div class="row">
+                <div class="row my-slider">
 
                     <?php
                     $counter = 0;
@@ -186,145 +186,13 @@ if (isset($_SESSION["user_reg_error"])) {
                                         <h5 class="card-title">
                                             <?php echo $value1->businessCategory; ?>
                                         </h5>
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                        <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                            Qoutes</a>
+                                        <a href="#" class="btn btn-primary w-100">Enquiry Now</a>
                                     </div>
                                 </div>
                             </div>
 
                         <?php }
                     } ?>
-
-                    <!-- 
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/entrance-exam-coaching.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Entrance Exam Coaching</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/job-training.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Job Trainig</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/distance-education.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Distance Education</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="carousel-item">
-                <div class="row">
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/overseas-education.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Overseas Education</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/school-tuitions.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">School Tuitions</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/bank-insurance-exam-coaching.jpg" class="card-img-top"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Bank & Insurance Exam Coaching</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <div class="row">
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/language-training.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Language Training</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/playschools.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Playschools</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Competitive Exam Coaching</h5>
-                                <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                    Qoutes</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <img src="assets/img/service/finance-accounting-tuitions.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Finance & Accounting Tuitions</h5>
-                            <a href="#" class="btn border-danger text-danger d-flex justify-content-center">Get
-                                Qoutes</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
                 </div>
             </div>
@@ -404,7 +272,6 @@ if (isset($_SESSION["user_reg_error"])) {
                 <br><br>
             </div>
         </div> -->
-        
 
     </div>
 </div>
