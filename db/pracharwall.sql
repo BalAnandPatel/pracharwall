@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 08, 2023 at 07:44 AM
+-- Generation Time: Jun 10, 2023 at 10:33 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL,
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `user_profile`
@@ -107,7 +107,8 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
 INSERT INTO `user_profile` (`id`, `userId`, `businessCategory`, `subCategory`, `alterMobile`, `userAddress`, `city`, `state`, `businessName`, `establishmentYear`, `paymentMode`, `businessTiming`, `businessDay`, `userServices`, `userWebsite`, `aboutUser`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
 (5, '4', 'Food', '', '3698574859', 'Pratapgarh Road Mungra Badshahpur Jaunpur 222202', 'Jaunpur', 'Uttar Pradesh', 'Shivam Restaurant ', '2023', 'Cash, Master Card, Debit Cards, Credit Cards', '10AM - 8PM', 'Mon - Sat', '', 'https://glintel.com/', 'Hi I am mrityunjay ', 1, '2023-05-31 20:39:58', 'Mrityunjay Singh', '2023-05-31 18:30:00', '4'),
 (6, '5', 'Realestate', '', '6354654646', 'Jhusi Prayagraj', 'Prayagraj', 'Uttar Pradesh', 'Ultrimax Land Developer', '2023', 'Cash, Master Card, Visa Card', '10AM - 8PM', 'Mon - Sat', '', 'https://glintel.com/', 'Ultrimax land developer a real estate company  ', 1, '2023-06-02 05:33:39', 'Karan', '2023-06-02 18:30:00', '5'),
-(7, '6', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2023-06-01 21:55:04', 'Rahul', '0000-00-00 00:00:00', '');
+(7, '6', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2023-06-01 21:55:04', 'Rahul', '0000-00-00 00:00:00', ''),
+(8, '11', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2023-06-07 20:29:17', 'Ms', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -128,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL,
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `user_registration`
@@ -137,7 +138,9 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
 INSERT INTO `user_registration` (`id`, `userType`, `userName`, `userMobile`, `userEmail`, `userPass`, `status`, `remark`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
 (5, '2', 'Karan', '654567744655', 'karan@gmail.com', '123456', 1, 'Approved', '2023-06-02 05:33:39', 'Karan', '0000-00-00 00:00:00', ''),
 (4, '2', 'Mrityunjay Singh', '23654478958', 'ms@gmail.com', '12345', 0, 'Approved', '2023-05-31 20:39:58', 'Mrityunjay Singh', '0000-00-00 00:00:00', ''),
-(6, '3', 'Rahul', '1654474987', 'rahul@gmail.com', '1111', 0, '', '2023-06-01 21:55:04', 'Rahul', '0000-00-00 00:00:00', '');
+(6, '3', 'Rahul', '1654474987', 'rahul@gmail.com', '1111', 0, '', '2023-06-01 21:55:04', 'Rahul', '0000-00-00 00:00:00', ''),
+(11, '2', 'Gaurav Singh', '123456', 'Gaurav@gmail.com', '123', 0, '', '2023-06-07 20:29:17', 'Ms', '0000-00-00 00:00:00', ''),
+(12, '1', 'Admin', '', 'admin@gmail.com', 'admin@123', 1, '', '2023-06-09 07:32:44', '', '2023-06-09 07:32:44', '');
 
 -- --------------------------------------------------------
 
@@ -210,7 +213,7 @@ ALTER TABLE `user_profile`
 -- Indexes for table `user_registration`
 --
 ALTER TABLE `user_registration`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `userEmail` (`userEmail`);
 
 --
 -- Indexes for table `user_type`
@@ -242,12 +245,12 @@ MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 -- AUTO_INCREMENT for table `user_profile`
 --
 ALTER TABLE `user_profile`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `user_registration`
 --
 ALTER TABLE `user_registration`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `user_type`
 --
