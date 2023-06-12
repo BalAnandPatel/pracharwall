@@ -1,7 +1,7 @@
 <?php
 include "include/header.php";
 ?>
-<!-- header end here -->
+<!-- header part end here -->
 <style>
     .home-office-service:before,
     .home-improvement:before,
