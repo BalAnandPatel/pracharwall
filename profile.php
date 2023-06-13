@@ -180,13 +180,7 @@ $result = json_decode($response);
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
-                <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get info via SMS/Email</a>
-                <hr>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
-                <hr>
-                <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
                 <hr>
                 <a href="cuInquiry.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i> View Inquriy</a>
                 <hr>
