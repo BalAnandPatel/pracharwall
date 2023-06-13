@@ -1,7 +1,7 @@
 <?php
 include "include/header.php";
-$userId = '6';
-// $userId = $_SESSION["USER_ID"];
+// $userId = '6';
+$userId = $_SESSION["USER_ID"];
 $url = $URL . "user/read_user_profile.php";
 $userType = '3';
 $status = '0';
@@ -13,12 +13,12 @@ curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
 $result = json_decode($response);
-print_r($result);
+//print_r($result);
 ?>
 
 <section>
     <div class="container py-3">
-
+     <h5 class="bg-success text-white p-5" id="cuEditMsg" style="display:none; trangetion:1s;"></h5>
         <?php
         $counter = '0';
         foreach ($result as $key => $value) {
@@ -28,7 +28,7 @@ print_r($result);
                     <div class="col-lg-4">
                         <div class="card mb-4">
                             <div class="card-body text-center">
-                                <img src="assets/img/events.png" alt="avatar" class="rounded-circle img-fluid">
+                                <img src="assets/img/user_icon.png" height="30%" width="30%" alt="user image" class="rounded-circle img-fluid img-thumbnail">
                                 <h5 class="my-3">
                                     <?php echo $value1->userName; ?>
                                 </h5>
@@ -121,10 +121,10 @@ print_r($result);
         $("#userEdit").click(function (event) {
             event.preventDefault();
             //    alert("clicked");
-            var cuName = $('#cuName').removeAttr("disabled").val();
-            var cuMobile = $('#cuMobile').removeAttr("disabled").val();
-            var cuAddress = $('#cuAddress').removeAttr("disabled").val();
-            $('#editCustomer').css("display", "block");
+            //  $('#cuName').removeAttr("disabled");
+            //  $('#cuMobile').removeAttr("disabled");
+             $('#cuAddress').removeAttr("disabled");
+             $('#editCustomer').css("display", "block");
         });
 
         $("#editCustomer").click(function () {
@@ -147,12 +147,11 @@ print_r($result);
                     // alert(response);
                     // alert(JSON.stringify(response));
                     if(response.message=="User profile updated successfully"){
-                        // alert("done");
-                        // $('#cuUpdateMsg').text("Hello world!");
-                    // $("#cuUpdateMsg").fadeTo(2000, 500).slideUp(500, function () {
-                    // $("#cuUpdateMsg").slideUp(500);
-                    //     });
-                     
+                        // alert("Successfilly Updated");
+                        $('#cuEditMsg').text("Successfilly Updated");
+                        $("#cuEditMsg").fadeTo(5000, 500).slideUp(5000, function () {
+                        $("#cuEditMsg").slideUp(5000);
+                        });
                     
                     }
                    
