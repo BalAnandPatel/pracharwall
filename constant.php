@@ -22,7 +22,7 @@ $LOGIN_FAILED_MSG="Request Failed";
 
 $ROLE="";
 if(isset($_SESSION["USER_TYPE"]))
-echo $_SESSION["USER_TYPE"];
+// echo $_SESSION["USER_TYPE"];
 if($_SESSION["USER_TYPE"]=="")
 {
 $ROLE="";    
