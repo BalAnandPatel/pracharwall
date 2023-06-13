@@ -79,12 +79,13 @@ $result = json_decode($response);
                             <a class="nav-link" aria-current="page" href="register-wall.php">Register Your Wall</a>
                         </li>
                         <?php
-                         if (strpos($ROLE, $PROFILE) !== false) {
+                         if (strpos($ROLE, $PROFILE_USER) !== false) {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link" href="profile.php">Profile</a>
                         </li>
                         <?php } ?>
+                        <?php if($ROLE==""){ ?>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Sign
                                 up</a>
@@ -93,8 +94,13 @@ $result = json_decode($response);
                             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signin" href="">Sign
                                 in</a>
                         </li>
+                        <?php }else{ ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/logout.php">Log Out</a>
+                        </li>
+                        <?php } ?>
                         <?php
-                         if (strpos($ROLE, $CU_PROFILE) !== false) {
+                         if (strpos($ROLE, $PROFILE_CUSTOMER) !== false) {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link" href="cu_profile.php">

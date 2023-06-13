@@ -21,18 +21,18 @@ $LOGIN_SUCCESS_MSG="Login Successful";
 $LOGIN_FAILED_MSG="Request Failed";
 
 $ROLE="";
-if(isset($_SESSION["USER_TYPE"]))
-// echo $_SESSION["USER_TYPE"];
-if($_SESSION["USER_TYPE"]=="")
+if(isset($_SESSION["USER_ROLE"]))
+// echo $_SESSION["USER_ROLE"];
+if($_SESSION["USER_ROLE"]=="")
 {
 $ROLE="";    
-}else if($_SESSION["USER_TYPE"]=='2'){
-$ROLE="profile";    
-}else if($_SESSION["USER_TYPE"]=='3'){
-$ROLE="cu_profile";    
+}else if($_SESSION["USER_ROLE"]=="User"){
+$ROLE="profile_user";    
+}else if($_SESSION["USER_ROLE"]=="Customer"){
+$ROLE="profile_customer";    
 }
 
-$PROFILE="profile";
-$CU_PROFILE="cu_profile";
+$PROFILE_USER="profile_user";
+$PROFILE_CUSTOMER="profile_customer";
 
 ?>
