@@ -78,9 +78,13 @@ $result = json_decode($response);
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="register-wall.php">Register Your Wall</a>
                         </li>
+                        <?php
+                         if (strpos($ROLE, $PROFILE) !== false) {
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="profile.php">Profile</a>
                         </li>
+                        <?php } ?>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Sign
                                 up</a>
@@ -89,11 +93,15 @@ $result = json_decode($response);
                             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signin" href="">Sign
                                 in</a>
                         </li>
+                        <?php
+                         if (strpos($ROLE, $CU_PROFILE) !== false) {
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="cu_profile.php">
                                 My Profile
                             </a>
                         </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

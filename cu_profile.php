@@ -18,7 +18,7 @@ $result = json_decode($response);
 
 <section>
     <div class="container py-3">
-     <h5 class="bg-success text-white p-5" id="cuEditMsg" style="display:none; trangetion:1s;"></h5>
+     <h5 class="bg-success text-white p-5" id="cuEditMsg" style="display:none;"></h5>
         <?php
         $counter = '0';
         foreach ($result as $key => $value) {

@@ -20,34 +20,34 @@ class Login{
         return $stmt;
     }
     
-    function changeUserPass(){
+    // function changeUserPass(){
   
-        // query to insert record
-        $query = "UPDATE 
-                    " . $this->table_name . "
-                SET
-                   userPass=:userPass
-                   where id=:id and userType=:userType and status=1";
+    //     // query to insert record
+    //     $query = "UPDATE 
+    //                 " . $this->table_name . "
+    //             SET
+    //                userPass=:userPass
+    //                where id=:id and userType=:userType and status=1";
                           
-        // prepare query
-        $stmt = $this->conn->prepare($query);
-        $this->userPass=htmlspecialchars(strip_tags($this->userPass));
-        $this->id=htmlspecialchars(strip_tags($this->id));
-        $this->userType=htmlspecialchars(strip_tags($this->userType));
+    //     // prepare query
+    //     $stmt = $this->conn->prepare($query);
+    //     $this->userPass=htmlspecialchars(strip_tags($this->userPass));
+    //     $this->id=htmlspecialchars(strip_tags($this->id));
+    //     $this->userType=htmlspecialchars(strip_tags($this->userType));
          
-        //bind values
-        $stmt->bindParam(":userPass", $this->userPass);
-        $stmt->bindParam(":id", $this->id);
-        $stmt->bindParam(":userType", $this->userType);   
+    //     //bind values
+    //     $stmt->bindParam(":userPass", $this->userPass);
+    //     $stmt->bindParam(":id", $this->id);
+    //     $stmt->bindParam(":userType", $this->userType);   
       
-        // execute query
-        if($stmt->execute()){
-            return true;
-        }
+    //     // execute query
+    //     if($stmt->execute()){
+    //         return true;
+    //     }
       
-        return false;
+    //     return false;
           
-    }
+    // }
 
 }
     ?>
