@@ -67,7 +67,7 @@ $result = json_decode($response);
 
 
 
-<section style="background-color: #;">
+<section>
     <div class="container py-5">
 
         <div class="row">

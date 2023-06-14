@@ -56,12 +56,9 @@ include "include/header.php";
 
 <div id="carouselExampleCaptions" class="carousel slide">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -118,17 +115,16 @@ include "include/header.php";
             $counter = '0';
             foreach ($result as $key => $value) {
                 foreach ($value as $key1 => $value1) {
-                    ?>
+            ?>
                     <div class="col-md-1 col-sm-4 col-xs-12 img-thumbnail m-1">
                         <a href="profile_list.php?category=<?php echo $value1->businessCategory; ?>">
-                            <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>"
-                                style="height:60px;">
+                            <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>" style="height:60px;">
                             <p>
                                 <?php echo $value1->businessCategory; ?>
                             </p>
                         </a>
                     </div>
-                    <?php
+            <?php
                 }
             }
             ?>
@@ -143,20 +139,18 @@ include "include/header.php";
     <?php
     $counter = 0;
     foreach ($result as $key => $value) {
-    foreach ($value as $key1 => $value1) {
+        foreach ($value as $key1 => $value1) {
     ?>
             <div class="row mx-2">
                 <div class="col">
                     <h2><?php echo $value1->businessCategory; ?></h2>
                 </div>
                 <div class="col d-flex justify-content-end" id="customize-controls">
-                    <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
+                    <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <i class="bi bi-arrow-left"></i>
                         <span class="">Previous</span>
                     </button>
-                    <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next">
+                    <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                         <span class="">Next</span>
                         <i class="bi bi-arrow-right"></i>
                     </button>
@@ -165,29 +159,50 @@ include "include/header.php";
 
             <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-
+                    <?php
+                    $url = $URL . "user/read_profile_by_category.php";
+                    $userType = '2';
+                    $businessCategory = $value1->businessCategory;
+                    $data = array("userType" => $userType, "businessCategory" => $businessCategory);
+                    $postdata = json_encode($data);
+                    $client = curl_init($url);
+                    curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
+                    curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+                    $response = curl_exec($client);
+                    //print_r($response);
+                    $result = json_decode($response);
+                    //print_r($result);
+                    ?>
+                    <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>
                     <div class="carousel-item active">
                         <div class="row my-slider">
-
-                            <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
+                        <?php 
+                          $counter=0;  
+                          foreach($result as $key => $value){
+                          foreach($value as $key1 => $value1)
+                         {
+                    ?>
+                            <div class="col-md-3 col-lg-3 col-xl-3 col-sm-12 col-xs-12">
                                 <div class="card">
-                                    <img src="assets/img/service/entrance-exam-coaching.jpg" class="card-img-top" alt="...">
+                                    <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" height="200px" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <?php echo $value1->businessCategory; ?>
+                                            <?php echo $value1->businessName; ?>
                                         </h5>
                                         <a href="#" class="btn btn-primary w-100">Enquiry Now</a>
                                     </div>
                                 </div>
                             </div>
-
-
-
+                          <?php }} ?>
                         </div>
                     </div>
+                    <?php }else{
+                        echo '<p class="text-center text-warning p-2">No Business Listed</p>';
+                    } ?>
                 </div>
             </div>
-        <?php } } ?>
+    <?php }
+    } ?>
 
     <br>
     <!-- <hr> -->
