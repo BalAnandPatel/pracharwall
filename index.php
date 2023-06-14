@@ -113,7 +113,7 @@ include "include/header.php";
 
 <center>
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <?php
             $counter = '0';
             foreach ($result as $key => $value) {
