@@ -124,6 +124,7 @@ include "include/header.php";
                             </p>
                         </a>
                     </div>
+                    <?php if(++$counter==2){  echo '<button type="button" class="btn btn-success">View More</button>'; break; } ?>
             <?php
                 }
             }
@@ -183,6 +184,7 @@ include "include/header.php";
                          {
                     ?>
                             <div class="col-md-3 col-lg-3 col-xl-3 col-sm-12 col-xs-12">
+                            <a href="profile_view.php?id=<?php echo $value1->userId;?>" style="color:inherit; text-decoration:none;">
                                 <div class="card" style="width: 16rem;">
                                     <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -192,6 +194,7 @@ include "include/header.php";
                                         <a href="#" class="btn btn-primary w-100">Enquiry Now</a>
                                     </div>
                                 </div>
+                              </a>
                             </div>
                           <?php }} ?>
                         </div>
