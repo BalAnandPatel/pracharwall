@@ -48,9 +48,9 @@ $result = json_decode($response);
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" aria-label="Navbar">
         <div class="container-fluid">
             <div>
-                <a class="fs-4" data-bs-toggle="offcanvas" href="#sidenav" aria-controls="offcanvasExample" style="text-decoration:none;">
+                <!-- <a class="fs-4" data-bs-toggle="offcanvas" href="#sidenav" aria-controls="offcanvasExample" style="text-decoration:none;">
                     &#9776;
-                </a>
+                </a> -->
                 <a class="navbar-brand" href="index.php">
                     <img src="Pracharwall_image/logo.png" class="img-fluid" alt="Pracharwall" width="160" height="40">
                 </a>

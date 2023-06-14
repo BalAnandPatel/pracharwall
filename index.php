@@ -126,7 +126,7 @@ include "include/header.php";
                     </div>
                     <?php if(++$counter==2){ ?>
                         <div class="col-md-1 col-sm-4 col-xs-12 img-thumbnail m-1 d-flex align-items-center">
-                        <a href="profile_list.php?category=<?php echo $value1->businessCategory; ?>">
+                        <a class="fs-4" data-bs-toggle="offcanvas" href="#sidenav" aria-controls="offcanvasExample" style="text-decoration:none;">
                         <img class="img img-fluid" src="Pracharwall_image/hamburger-menu.png" style="height:auto;">
                             <!-- <p>
                                 View More
