@@ -124,7 +124,16 @@ include "include/header.php";
                             </p>
                         </a>
                     </div>
-                    <?php if(++$counter==2){  echo '<button type="button" class="btn btn-success">View More</button>'; break; } ?>
+                    <?php if(++$counter==2){ ?>
+                        <div class="col-md-1 col-sm-4 col-xs-12 img-thumbnail m-1 d-flex align-items-center">
+                        <a href="profile_list.php?category=<?php echo $value1->businessCategory; ?>">
+                        <img class="img img-fluid" src="Pracharwall_image/hamburger-menu.png" style="height:auto;">
+                            <!-- <p>
+                                View More
+                            </p> -->
+                        </a>
+                    </div>
+                    <?php break; } ?>
             <?php
                 }
             }
