@@ -183,8 +183,8 @@ include "include/header.php";
                          {
                     ?>
                             <div class="col-md-3 col-lg-3 col-xl-3 col-sm-12 col-xs-12">
-                                <div class="card">
-                                    <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" height="200px" class="card-img-top" alt="...">
+                                <div class="card" style="width: 16rem;">
+                                    <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <?php echo $value1->businessName; ?>
