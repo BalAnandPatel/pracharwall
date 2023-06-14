@@ -188,14 +188,10 @@ $result = json_decode($response);
                 success: function (response) {
                     response = JSON.stringify(response);
                     //console.log(response);
-                    //alert(response);
-                    //alert('success');
                 },
                 error: function (response) {
                     response = JSON.stringify(response);
                     //console.log(response);
-                    //alert(response);
-                    //alert('faild');
                 }
             });
         }
@@ -257,3 +253,16 @@ $result = json_decode($response);
         </div>
 
     </div>
+    <?php
+if (isset($_SESSION["user_reg_error"])) {
+    echo '<script>
+     swal("Sorry!", "User already registered", "error");
+     </script>';
+    unset($_SESSION["user_reg_error"]);
+}else if(isset($_SESSION["user_reg_success"])) {
+    echo '<script>
+     swal("Thank you!", "You have successfully registerd. Now you can login", "success");
+     </script>';
+    unset($_SESSION["user_reg_success"]);
+}
+?>

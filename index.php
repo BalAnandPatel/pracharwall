@@ -53,17 +53,7 @@ include "include/header.php";
         background-position: -247px -75px
     }
 </style>
-
-<?php
-if (isset($_SESSION["user_reg_error"])) {
-    echo '<div class="alert alert-danger text-center rounded-0 mb-0">' . $_SESSION["user_reg_error"] . '</div>';
-    unset($_SESSION["user_reg_error"]);
-} else if (isset($_SESSION["user_reg_success"])) {
-    echo '<div class="alert alert-success text-center rounded-0 mb-0">' . $_SESSION["user_reg_success"] . '</div>';
-    unset($_SESSION["user_reg_success"]);
-}
-?>
-
+ 
 <div id="carouselExampleCaptions" class="carousel slide">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
