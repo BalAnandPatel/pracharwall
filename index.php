@@ -53,7 +53,7 @@ include "include/header.php";
         background-position: -247px -75px
     }
 </style>
- 
+
 <div id="carouselExampleCaptions" class="carousel slide">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -139,35 +139,35 @@ include "include/header.php";
 <br>
 
 <div class="container">
-    <div class="row mb-1">
-        <div class="col">
-            <h2>Education & Training</h2>
-        </div>
-        <div class="col d-flex justify-content-end" id="customize-controls">
-            <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
-                <i class="bi bi-arrow-left"></i>
-                <span class="">Previous</span>
-            </button>
-            <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
-                <span class="">Next</span>
-                <i class="bi bi-arrow-right"></i>
-            </button>
-        </div>
-    </div>
 
-    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
+    <?php
+    $counter = 0;
+    foreach ($result as $key => $value) {
+    foreach ($value as $key1 => $value1) {
+    ?>
+            <div class="row mx-2">
+                <div class="col">
+                    <h2><?php echo $value1->businessCategory; ?></h2>
+                </div>
+                <div class="col d-flex justify-content-end" id="customize-controls">
+                    <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <i class="bi bi-arrow-left"></i>
+                        <span class="">Previous</span>
+                    </button>
+                    <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="">Next</span>
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
 
-            <div class="carousel-item active">
-                <div class="row my-slider">
+            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
 
-                    <?php
-                    $counter = 0;
-                    foreach ($result as $key => $value) {
-                        foreach ($value as $key1 => $value1) {
-                            ?>
+                    <div class="carousel-item active">
+                        <div class="row my-slider">
 
                             <div class="col-md-4 col-lg-4 col-xl-4 col-sm-6 col-xs-12">
                                 <div class="card">
@@ -181,89 +181,89 @@ include "include/header.php";
                                 </div>
                             </div>
 
-                        <?php }
-                    } ?>
 
+
+                        </div>
+                    </div>
                 </div>
             </div>
+        <?php } } ?>
+
+    <br>
+    <!-- <hr> -->
+
+    <!-- <div class="">
+        <div class="container">
+            <br>
+            <center>
+                <h1>WE'VE GOT IT BLOGGED</h1>
+                <h3 class="text-body-secondary">Your Best Practices Guide for all your local service needs</h3>
+            </center>
+            <br>
+            <div class="row">
+
+                <div class="col-lg-3 col-xl-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title">Niviya Chanchez</h6>
+                            <h5 class="card-title">Get Set to Host a Low-Budget Summer Party</h5>
+                            <p class="card-text">It's summer and time for a holiday plan. With the past few years
+                                spent confined and distanced socially, this summer is the time for bash and back to
+                                socializing. It is also when kids have summer vacations and want to indulge in fun
+                                and frolic. From......</p>
+                            <a href="#" class="btn w-100 text-danger border-danger">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title">Sai Vishal Kannan</h6>
+                            <h5 class="card-title">Why is Summer the Best Season!</h5>
+                            <p class="card-text">It's summer and time for a holiday plan. With the past few years
+                                spent confined and distanced socially, this summer is the time for bash and back to
+                                socializing. It is also when kids have summer vacations and want to indulge in fun
+                                and frolic. From......</p>
+                            <a href="#" class="btn w-100 text-danger border-danger">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title">Sai Vishal Kannan</h6>
+                            <h5 class="card-title">Breaking Barriers: British Council Scholarships to Empo...</h5>
+                            <p class="card-text">It's summer and time for a holiday plan. With the past few years
+                                spent confined and distanced socially, this summer is the time for bash and back to
+                                socializing. It is also when kids have summer vacations and want to indulge in fun
+                                and frolic. From......</p>
+                            <a href="#" class="btn w-100 text-danger border-danger">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="card">
+                        <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title">Harshavardini M</h6>
+                            <h5 class="card-title">12 Global Events to Look Forward to in 2023</h5>
+                            <p class="card-text">It's summer and time for a holiday plan. With the past few years
+                                spent confined and distanced socially, this summer is the time for bash and back to
+                                socializing. It is also when kids have summer vacations and want to indulge in fun
+                                and frolic. From......</p>
+                            <a href="#" class="btn w-100 text-danger border-danger">READ MORE</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
         </div>
+    </div> -->
 
-        <br>
-        <!-- <hr> -->
-
-        <!-- <div class="">
-            <div class="container">
-                <br>
-                <center>
-                    <h1>WE'VE GOT IT BLOGGED</h1>
-                    <h3 class="text-body-secondary">Your Best Practices Guide for all your local service needs</h3>
-                </center>
-                <br>
-                <div class="row">
-
-                    <div class="col-lg-3 col-xl-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h6 class="card-title">Niviya Chanchez</h6>
-                                <h5 class="card-title">Get Set to Host a Low-Budget Summer Party</h5>
-                                <p class="card-text">It's summer and time for a holiday plan. With the past few years
-                                    spent confined and distanced socially, this summer is the time for bash and back to
-                                    socializing. It is also when kids have summer vacations and want to indulge in fun
-                                    and frolic. From......</p>
-                                <a href="#" class="btn w-100 text-danger border-danger">READ MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-xl-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h6 class="card-title">Sai Vishal Kannan</h6>
-                                <h5 class="card-title">Why is Summer the Best Season!</h5>
-                                <p class="card-text">It's summer and time for a holiday plan. With the past few years
-                                    spent confined and distanced socially, this summer is the time for bash and back to
-                                    socializing. It is also when kids have summer vacations and want to indulge in fun
-                                    and frolic. From......</p>
-                                <a href="#" class="btn w-100 text-danger border-danger">READ MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-xl-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h6 class="card-title">Sai Vishal Kannan</h6>
-                                <h5 class="card-title">Breaking Barriers: British Council Scholarships to Empo...</h5>
-                                <p class="card-text">It's summer and time for a holiday plan. With the past few years
-                                    spent confined and distanced socially, this summer is the time for bash and back to
-                                    socializing. It is also when kids have summer vacations and want to indulge in fun
-                                    and frolic. From......</p>
-                                <a href="#" class="btn w-100 text-danger border-danger">READ MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-xl-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="card">
-                            <img src="assets/img/service/competitive-exam-coaching.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h6 class="card-title">Harshavardini M</h6>
-                                <h5 class="card-title">12 Global Events to Look Forward to in 2023</h5>
-                                <p class="card-text">It's summer and time for a holiday plan. With the past few years
-                                    spent confined and distanced socially, this summer is the time for bash and back to
-                                    socializing. It is also when kids have summer vacations and want to indulge in fun
-                                    and frolic. From......</p>
-                                <a href="#" class="btn w-100 text-danger border-danger">READ MORE</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <br><br>
-            </div>
-        </div> -->
-
-    </div>
 </div>
 
 <?php include "include/footer.php"; ?>
