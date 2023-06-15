@@ -168,8 +168,11 @@ include "include/header.php";
                 </div>
             </div>
 
-            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+            <div id="carouselExampleControls" class="row carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="d-flex align-items-center h1 me-auto" style="width:2%;">
+                        <i class="bi bi-caret-left" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"></i>
+                </div>
+                <div class="carousel-inner" style="width:94%;">
                     <?php
                     $url = $URL . "user/read_profile_by_category.php";
                     $userType = '2';
@@ -213,6 +216,9 @@ include "include/header.php";
                     <?php }else{
                         echo '<p class="text-center text-warning p-2">No Business Listed</p>';
                     } ?>
+                </div>
+                <div class="d-flex align-items-center h1 ms-auto" style="width:2%;">
+                    <i class="bi bi-caret-right" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"></i>
                 </div>
             </div>
         </div>
