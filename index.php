@@ -151,9 +151,10 @@ include "include/header.php";
     foreach ($result as $key => $value) {
         foreach ($value as $key1 => $value1) {
     ?>
-            <div class="row mx-2">
+        <div class="my-4">
+            <div class="row">
                 <div class="col">
-                    <h2><?php echo $value1->businessCategory; ?></h2>
+                    <h3 class="card-title"><?php echo $value1->businessCategory; ?></h3>
                 </div>
                 <div class="col d-flex justify-content-end" id="customize-controls">
                     <button class="btn btn-outline-primary btn-sm m-1" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -185,7 +186,7 @@ include "include/header.php";
                     ?>
                     <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>
                     <div class="carousel-item active">
-                        <div class="row my-slider">
+                        <div class="row my-slider align-items-center">
                         <?php 
                           $counter=0;  
                           foreach($result as $key => $value){
@@ -194,12 +195,13 @@ include "include/header.php";
                     ?>
                             <div class="col-md-3 col-lg-3 col-xl-3 col-sm-12 col-xs-12">
                             <a href="profile_view.php?id=<?php echo $value1->userId;?>" style="color:inherit; text-decoration:none;">
-                                <div class="card" style="width: 16rem;">
-                                    <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" class="card-img-top" alt="...">
+                                <div class="card" style="width: 16rem;height:100%;">
+                                    <img id="businessImg" src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             <?php echo $value1->businessName; ?>
                                         </h5>
+                                        <p class="card-text"><?php echo $value1->city; ?></p>
                                         <a href="#" class="btn btn-primary w-100">Enquiry Now</a>
                                     </div>
                                 </div>
@@ -213,6 +215,7 @@ include "include/header.php";
                     } ?>
                 </div>
             </div>
+        </div>
     <?php }
     } ?>
 
