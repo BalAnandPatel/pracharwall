@@ -151,7 +151,7 @@ include "include/header.php";
     foreach ($value as $key1 => $value1) {
     ?>
 
-    <div class="row">
+    <div class="row mt-3">
         <h3 class="card-title"><?php echo $value1->businessCategory; ?></h3>
     </div>
     <div class="slide-container swiper">

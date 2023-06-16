@@ -25,17 +25,11 @@ $result = json_decode($response);
     <link href="assets/css/theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
-        integrity="sha512-eMxdaSf5XW3ZW1wZCrWItO2jZ7A9FhuZfjVdztr7ZsKNOmt6TUMTQgfpNoVRyfPE5S9BC0A4suXzsGSrAOWcoQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.css" integrity="sha512-nGNAKpV+BrfDZabPX1O6q6mRlT57/amdj+6vF322ongqKABLHYLfLc3jYtVVbkiR9towDWPPE9gWFE2tsZIPZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="search.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"
-        integrity="sha512-j+F4W//4Pu39at5I8HC8q2l1BNz4OF3ju39HyWeqKQagW6ww3ZF9gFcu8rzUbyTDY7gEo/vqqzGte0UPpo65QQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.js" integrity="sha512-3Ei7OPFo83kw3cPbDLeLhn/YF8tZB7Vs8sfli0B/KEekureL5eosDeshYFICCvt4K8i0yUil/lK3cSiic2Wjkg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
@@ -50,28 +44,12 @@ $result = json_decode($response);
 
         });
     </script>
-    <!-- <style>
-        #tns1>.tns-item {
-            width: calc(12%)!important;
-        }
-    </style> -->
-    <style>
-        #businessImg{
-            transition: transform .4s;
-        }
-        #businessImg:hover{
-            transform: scale(1.1);
-        }
-    </style>
 </head>
 
 <body>
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" aria-label="Navbar">
         <div class="container-fluid">
             <div>
-                <!-- <a class="fs-4" data-bs-toggle="offcanvas" href="#sidenav" aria-controls="offcanvasExample" style="text-decoration:none;">
-                    &#9776;
-                </a> -->
                 <a class="navbar-brand" href="index.php">
                     <img src="Pracharwall_image/logo.png" class="img-fluid" alt="Pracharwall" width="160" height="40">
                 </a>
@@ -80,22 +58,23 @@ $result = json_decode($response);
                 aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <div class="nav-item">
+                <div class="dropdown">
+                    <input type="text" id="ser-city" data-bs-toggle="dropdown" aria-expanded="false"
+                        class="form-control" size="60" placeholder="Search Your City"
+                        onkeyup="showResult(this.value)" />
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div id="livesearch"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
             <div>
                 <div class="collapse navbar-collapse" id="navbarsExample04">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <input type="text" id="ser-city" data-bs-toggle="dropdown" aria-expanded="false"
-                                    class="form-control" size="60" placeholder="Search Your City"
-                                    onkeyup="showResult(this.value)" />
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div id="livesearch"></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="register-wall.php">Register Your Wall</a>
                         </li>
