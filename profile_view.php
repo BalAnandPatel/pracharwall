@@ -1,5 +1,11 @@
 <?php
 include "include/header.php";
+if(isset($_SESSION["USER_EMAIL"])){
+$userEmail= $_SESSION["USER_EMAIL"];   
+$userId= $_SESSION["USER_ID"];   
+}else{
+$userEmail="";    
+}
 ?>
 <?php
 $url = $URL."user/read_user_profile.php";
@@ -85,7 +91,7 @@ $result = json_decode($response);
                 <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 py-3">
                     <h2>Are you looking for?</h2>
                     <h5 class="text-secondary">"<?php echo $value1->businessCategory; ?>"</h5>
-                    <form name="InquiryForm" method="post" onsubmit="return inquiryFormdataPost()">
+                    <form name="InquiryForm" id="InquiryForm" method="post" onsubmit="return inquiryFormdataPost(event)">
                         <input type="hidden" name="userId" value="<?php echo $value1->id; ?>"> 
                         <div class="form-group">
                             <label for="contact-username">Full Name:</label>
@@ -109,7 +115,7 @@ $result = json_decode($response);
                         <br>
                         <div class="form-group">
                             <label for="serv">Service:</label>
-                            <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" name="requiredService">
+                            <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" name="requiredService" required>
                         </div>
                         <div class="form-group mt-2">
                             <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
@@ -134,7 +140,8 @@ $result = json_decode($response);
 </div>
 <?php } } ?>
 <script>
-function inquiryFormdataPost() {
+function inquiryFormdataPost(event) {
+  event.preventDefault();
   var userId = document.forms["InquiryForm"]["userId"].value;
   var cuName = document.forms["InquiryForm"]["cuName"].value;
   var cuMobile = document.forms["InquiryForm"]["cuMobile"].value;
@@ -143,11 +150,18 @@ function inquiryFormdataPost() {
   var requiredService = document.forms["InquiryForm"]["requiredService"].value;
   // alert(cuName);
 
-  $.ajax({
-    url:'http://localhost/pracharwall/admin/action/customer_inquiry_post.php',
+if("<?php echo $userEmail; ?>"==""){
+// alert("session expired");
+swal("Sorry!", "Please login your Account", "error");    
+}else if("<?php echo $userEmail; ?>"!==cuEmail){
+swal("Sorry!", "Your Email Id not matched", "error");
+}else{
+
+    $.ajax({
+    url:'<?php echo $BASE_URL ?>admin/action/customer_inquiry_post.php',
     type:'POST',
     data:{
-       "cuId":'1', 
+       "cuId":"<?php echo $userId; ?>", 
        "userId":userId,
        "cuName":cuName,
        "cuMobile":cuMobile,
@@ -159,12 +173,15 @@ function inquiryFormdataPost() {
         // alert(response);
      if(response=="1"){
         swal("Thank you!", "Your message has been successfully sent. We will contact you very soon!", "success");
+        $("#InquiryForm")[0].reset();
      }else if(response=="0"){
         swal("Sorry!", "Something Went Wrong! Please check the API ", "error");
      } 
     }
-  });
-  
+  });    
+    
+}
+exit();  
 }
 </script>
 

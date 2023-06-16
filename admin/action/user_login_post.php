@@ -39,7 +39,7 @@ $result->data->userPass==$_POST['userPass'])
   $userRole=$result->data->userRole;
 
   $_SESSION["USER_ID"]=$uid;
-  $_SESSION["USER_Email"]=$userEmail;
+  $_SESSION["USER_EMAIL"]=$userEmail;
   $_SESSION["USER_TYPE"]=$userType;
   $_SESSION["USER_ROLE"]=$userRole;
   $_SESSION["NAME"]=$name;
