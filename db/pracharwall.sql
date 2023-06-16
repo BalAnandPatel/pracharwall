@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2023 at 10:33 AM
+-- Generation Time: Jun 16, 2023 at 11:52 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `business_category` (
   `createdBy` varchar(255) NOT NULL,
   `updaredOn` timestamp NOT NULL,
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `business_category`
@@ -43,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `business_category` (
 
 INSERT INTO `business_category` (`id`, `businessCategory`, `subCategory`, `status`, `createdOn`, `createdBy`, `updaredOn`, `updatedBy`) VALUES
 (1, 'Food', 'Veg ', 1, '2023-05-29 21:57:29', 'Admin', '0000-00-00 00:00:00', ''),
-(2, 'Realestate', 'Land', 1, '2023-05-29 22:08:06', 'Admin', '0000-00-00 00:00:00', '');
+(2, 'Realestate', 'Land', 1, '2023-05-29 22:08:06', 'Admin', '0000-00-00 00:00:00', ''),
+(3, 'school', 'school ', 1, '2023-06-13 21:21:57', 'Admin', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -56,19 +57,22 @@ CREATE TABLE IF NOT EXISTS `customer_inquiry` (
   `userId` varchar(255) NOT NULL,
   `cuId` varchar(255) NOT NULL,
   `cuName` varchar(100) NOT NULL,
+  `cuMobile` varchar(20) NOT NULL,
+  `cuAddress` varchar(255) NOT NULL,
   `cuEmail` varchar(200) NOT NULL,
   `requiredService` varchar(1000) NOT NULL,
   `status` tinyint(1) NOT NULL,
   `createdOn` timestamp NOT NULL,
   `createdBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `customer_inquiry`
 --
 
-INSERT INTO `customer_inquiry` (`id`, `userId`, `cuId`, `cuName`, `cuEmail`, `requiredService`, `status`, `createdOn`, `createdBy`) VALUES
-(24, '5', '1', 'Mrityunjay Singh', 'ms@gmail.com', 'Realestate ', 0, '2023-06-08 06:33:00', 'mrityunjay singh');
+INSERT INTO `customer_inquiry` (`id`, `userId`, `cuId`, `cuName`, `cuMobile`, `cuAddress`, `cuEmail`, `requiredService`, `status`, `createdOn`, `createdBy`) VALUES
+(36, '5', '5', 'ITAHARA MUNGRA BADSHAHPUR', '09648488477', 'ITAHARA MUNGRA BADSHAHPUR', 'rahul@gmail.com', 'Nkdn', 0, '2023-06-15 23:24:00', 'ITAHARA MUNGRA BADSHAHPUR'),
+(37, '5', '5', 'RAJESH PATEL', '38747', 'VILL JAYPALPUR', 'rahul@gmail.com', 'Ncke', 0, '2023-06-15 23:41:00', 'RAJESH PATEL');
 
 -- --------------------------------------------------------
 
@@ -105,9 +109,9 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
 --
 
 INSERT INTO `user_profile` (`id`, `userId`, `businessCategory`, `subCategory`, `alterMobile`, `userAddress`, `city`, `state`, `businessName`, `establishmentYear`, `paymentMode`, `businessTiming`, `businessDay`, `userServices`, `userWebsite`, `aboutUser`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(5, '4', 'Food', '', '3698574859', 'Pratapgarh Road Mungra Badshahpur Jaunpur 222202', 'Jaunpur', 'Uttar Pradesh', 'Shivam Restaurant ', '2023', 'Cash, Master Card, Debit Cards, Credit Cards', '10AM - 8PM', 'Mon - Sat', '', 'https://glintel.com/', 'Hi I am mrityunjay ', 1, '2023-05-31 20:39:58', 'Mrityunjay Singh', '2023-05-31 18:30:00', '4'),
+(5, '4', 'Food', '', '3698574859', 'Pratapgarh Road Mungra Badshahpur Jaunpur 222202', 'Jaunpur', 'Uttar Pradesh', 'Shivam Restaurant ', '2023', 'Cash', '10AM - 8PM', '', '', 'https://glintel.com/', 'Hi I am mrityunjay singh', 1, '2023-05-31 20:39:58', 'Mrityunjay Singh', '2023-06-12 18:30:00', '4'),
 (6, '5', 'Realestate', '', '6354654646', 'Jhusi Prayagraj', 'Prayagraj', 'Uttar Pradesh', 'Ultrimax Land Developer', '2023', 'Cash, Master Card, Visa Card', '10AM - 8PM', 'Mon - Sat', '', 'https://glintel.com/', 'Ultrimax land developer a real estate company  ', 1, '2023-06-02 05:33:39', 'Karan', '2023-06-02 18:30:00', '5'),
-(7, '6', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2023-06-01 21:55:04', 'Rahul', '0000-00-00 00:00:00', ''),
+(7, '6', 'na', '', 'na', 'Address ', 'na', 'na', 'na', 'na', 'na', 'na', 'na', '', 'na', 'na', 0, '2023-06-01 21:55:04', 'Rahul', '2023-06-12 18:30:00', '6'),
 (8, '11', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2023-06-07 20:29:17', 'Ms', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
@@ -138,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
 INSERT INTO `user_registration` (`id`, `userType`, `userName`, `userMobile`, `userEmail`, `userPass`, `status`, `remark`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
 (5, '2', 'Karan', '654567744655', 'karan@gmail.com', '123456', 1, 'Approved', '2023-06-02 05:33:39', 'Karan', '0000-00-00 00:00:00', ''),
 (4, '2', 'Mrityunjay Singh', '23654478958', 'ms@gmail.com', '12345', 0, 'Approved', '2023-05-31 20:39:58', 'Mrityunjay Singh', '0000-00-00 00:00:00', ''),
-(6, '3', 'Rahul', '1654474987', 'rahul@gmail.com', '1111', 0, '', '2023-06-01 21:55:04', 'Rahul', '0000-00-00 00:00:00', ''),
+(6, '3', 'Rahul', '1654474987', 'rahul@gmail.com', '1111', 1, '', '2023-06-01 21:55:04', 'Rahul', '0000-00-00 00:00:00', ''),
 (11, '2', 'Gaurav Singh', '123456', 'Gaurav@gmail.com', '123', 0, '', '2023-06-07 20:29:17', 'Ms', '0000-00-00 00:00:00', ''),
 (12, '1', 'Admin', '', 'admin@gmail.com', 'admin@123', 1, '', '2023-06-09 07:32:44', '', '2023-06-09 07:32:44', '');
 
@@ -235,12 +239,12 @@ ALTER TABLE `wall_uploads`
 -- AUTO_INCREMENT for table `business_category`
 --
 ALTER TABLE `business_category`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `customer_inquiry`
 --
 ALTER TABLE `customer_inquiry`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `user_profile`
 --
