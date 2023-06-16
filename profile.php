@@ -67,7 +67,13 @@ $result = json_decode($response);
         color: #c59b08;
     }
 </style>
-
+<!-- <script>
+$(document).ready(function(){
+ $("#clickWall").click(function(){
+ $("#uploadWall").click();
+ });
+});    
+</script>     -->
 <section>
     <div class="container py-5">
 
@@ -204,6 +210,9 @@ $result = json_decode($response);
                 <h5>Photos</h5>
                 <div class="row">
                     <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
+                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" width="500px" height="200px" class="border rounded">
+                    </div>
+                    <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">
                     </div>
                     <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
@@ -214,14 +223,20 @@ $result = json_decode($response);
                     </div>
                     <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">
-                    </div>
-                    <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="assets/img/events.png" class="border rounded">
+                    </div> -->
+                </div>
+                <form action="admin/action/upload_wall_post.php" method="post" enctype="multipart/form-data">
+                <div class="row mt-5">
+                <h5>Upload Post</h5>
+                     <div class="col-md-4">
+                     <input class="form-control" name="uploadWallFile" type="file" required>
+                     </div>
+                     <div class="col-md-4">
+                       <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">        
+                       <button class="btn btn-primary" type="submit" name="uploadWall"><i class="bi bi-cloud-arrow-up-fill"></i> Upload Photos</button>
                     </div>
                 </div>
-                <div class="row btn mt-2">
-                    <button class="btn btn-primary"><i class="bi bi-cloud-arrow-up-fill"></i> Upload Photos</button>
-                </div>
+                </form>
             </div>
         </div>
 <?php } } ?>

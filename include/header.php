@@ -195,7 +195,6 @@ $result = json_decode($response);
             $.ajax({
                 url: '<?php echo $BASE_URL ?>admin/action/user_registration_post.php',
                 type: 'POST',
-                dataType: 'json',
                 data: {
                     "userType": userType,
                     "userName": userName,
@@ -204,12 +203,12 @@ $result = json_decode($response);
                     "userPass": userPass
                 },
                 success: function (response) {
-                    response = JSON.stringify(response);
-                    //console.log(response);
-                },
-                error: function (response) {
-                    response = JSON.stringify(response);
-                    //console.log(response);
+                //  alert(response);
+                if(response==1){
+                swal("Thank you!", "You have successfully registerd. Now you can login", "success");
+                }else if(response==2){
+                swal("Sorry!", "User already registered", "error");    
+                }   
                 }
             });
         }

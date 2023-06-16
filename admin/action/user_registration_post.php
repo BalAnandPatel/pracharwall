@@ -39,11 +39,11 @@ $result_profile=url_encode_Decode($url_profile,$postdata_profile);
 //print_r($postdata_profile);
 
 
-$_SESSION['user_reg_success']="You have successfully registered.";
-header('location:../../index.php');
+echo "1";
+// header('location:../../index.php');
 }else{
-$_SESSION['user_reg_error']="User already registered.";  
-header('location:../../index.php');  
+echo "2";  
+// header('location:../../index.php');  
 }
 
 
