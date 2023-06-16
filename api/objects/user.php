@@ -17,7 +17,7 @@ class User
 
     public $id, $userId, $userType, $city, $state, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $userAddress, $alterMobile, $businessDay, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $remark, $createdOn, $createdBy, $updatedOn, $updatedBy;
 
-    public $cuId, $cuName,$cuEmail,$requiredService;
+    public $cuId, $cuName,$cuEmail, $cuAddress, $cuMobile, $requiredService;
     public function readMaxUserId()
     {
         $query = "Select max(id) as userId from " . $this->user_registration;
@@ -165,6 +165,8 @@ class User
              userId=:userId,
              cuName=:cuName,
              cuEmail=:cuEmail,
+             cuMobile=:cuMobile,
+             cuAddress=:cuAddress,
              requiredService=:requiredService,
              createdOn=:createdOn,
              createdBy=:createdBy
@@ -175,6 +177,8 @@ class User
         $this->userId = htmlspecialchars(strip_tags($this->userId));
         $this->cuName = htmlspecialchars(strip_tags($this->cuName));
         $this->cuEmail = htmlspecialchars(strip_tags($this->cuEmail));
+        $this->cuMobile = htmlspecialchars(strip_tags($this->cuMobile));
+        $this->cuAddress = htmlspecialchars(strip_tags($this->cuAddress));
         $this->requiredService = htmlspecialchars(strip_tags($this->requiredService));
         $this->createdOn = htmlspecialchars(strip_tags($this->createdOn));
         $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
@@ -184,6 +188,8 @@ class User
         $stmt->bindParam(":userId", $this->userId);
         $stmt->bindParam(":cuName", $this->cuName);
         $stmt->bindParam(":cuEmail", $this->cuEmail);
+        $stmt->bindParam(":cuMobile", $this->cuMobile);
+        $stmt->bindParam(":cuAddress", $this->cuAddress);
         $stmt->bindParam(":requiredService", $this->requiredService);
         $stmt->bindParam(":createdOn", $this->createdOn);
         $stmt->bindParam(":createdBy", $this->createdBy);

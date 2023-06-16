@@ -89,17 +89,27 @@ $result = json_decode($response);
                         <input type="hidden" name="userId" value="<?php echo $value1->id; ?>"> 
                         <div class="form-group">
                             <label for="contact-username">Full Name:</label>
-                            <input type="text" class="form-control" name="cuName" required>
+                            <input type="text" class="form-control" name="cuName" placeholder="Enter Your Name" autocomplete="off" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="contact-email">Mobile No:</label>
+                            <input type="number" class="form-control" placeholder="Enter Your Mobile No." name="cuMobile" autocomplete="off" required>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="contact-email">Email address:</label>
-                            <input type="email" class="form-control" name="cuEmail" required>
+                            <input type="email" class="form-control" name="cuEmail" placeholder="Enter Your Email Id" autocomplete="off" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="contact-email">Address:</label>
+                            <input type="text" class="form-control" name="cuAddress" placeholder="Enter Your Address" autocomplete="off" required>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="serv">Service:</label>
-                            <input type="text" class="form-control" name="requiredService">
+                            <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" name="requiredService">
                         </div>
                         <div class="form-group mt-2">
                             <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
@@ -127,29 +137,31 @@ $result = json_decode($response);
 function inquiryFormdataPost() {
   var userId = document.forms["InquiryForm"]["userId"].value;
   var cuName = document.forms["InquiryForm"]["cuName"].value;
+  var cuMobile = document.forms["InquiryForm"]["cuMobile"].value;
   var cuEmail = document.forms["InquiryForm"]["cuEmail"].value;
+  var cuAddress = document.forms["InquiryForm"]["cuAddress"].value;
   var requiredService = document.forms["InquiryForm"]["requiredService"].value;
   // alert(cuName);
 
   $.ajax({
     url:'http://localhost/pracharwall/admin/action/customer_inquiry_post.php',
     type:'POST',
-    dataType:'json',
     data:{
        "cuId":'1', 
        "userId":userId,
        "cuName":cuName,
+       "cuMobile":cuMobile,
        "cuEmail":cuEmail,
+       "cuAddress":cuAddress,
        "requiredService":requiredService
     },
     success:function(response){
-     // console.log("ms"+JSON.stringify(response));
-     alert(JSON.stringify(response)); 
-    },
-     error:function(response){
-      console.log("dh"+JSON.stringify(response));
-      // alert("er"+JSON.stringify(response));
-
+        // alert(response);
+     if(response=="1"){
+        swal("Thank you!", "Your message has been successfully sent. We will contact you very soon!", "success");
+     }else if(response=="0"){
+        swal("Sorry!", "Something Went Wrong! Please check the API ", "error");
+     } 
     }
   });
   
