@@ -85,28 +85,60 @@
 
 <script>
 
-    const slider = tns({
-        container: '.my-slider',
-        loop: true,
-        items: 1,
-        slideBy: 'page',
-        nav: false,
-        autoplay: true,
-        speed: 400,
-        autoplayButtonOutput: false,
-        mouseDrag: true,
-        lazyload: true,
-        controlsContainer: "#customize-controls",
-        responsive: {
-            640: {
-                items: 2,
-            },
-            768: {
-                items: 3,
-            }
-        }
-    });
+    // const slider = tns({
+    //     container: '.my-slider',
+    //     loop: true,
+    //     items: 1,
+    //     slideBy: 'page',
+    //     nav: false,
+    //     autoplay: true,
+    //     speed: 400,
+    //     autoplayButtonOutput: false,
+    //     mouseDrag: true,
+    //     lazyload: true,
+    //     controlsContainer: "#customize-controls",
+    //     responsive: {
+    //         640: {
+    //             items: 2,
+    //         },
+    //         768: {
+    //             items: 3,
+    //         }
+    //     }
+    // });
 
+    var swiper = new Swiper(".slide-content", {
+    slidesPerView: 3,
+    spaceBetween: 25,
+    loop: true,
+    centerSlide: 'true',
+    fade: 'true',
+    grabCursor: 'true',
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints:{
+        0: {
+            slidesPerView: 1,
+        },
+        520: {
+            slidesPerView: 2,
+        },
+        950: {
+            slidesPerView: 3,
+        },
+    },
+    autoplay: {
+      delay: 3000,
+    },
+  });
 </script>
 
 

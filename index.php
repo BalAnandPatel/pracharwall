@@ -195,7 +195,7 @@ include "include/header.php";
                           foreach($result as $key => $value){
                           foreach($value as $key1 => $value1)
                          {
-                    ?>
+                        ?>
                             <div class="col-md-3 col-lg-3 col-xl-3 col-sm-12 col-xs-12">
                             <a href="profile_view.php?id=<?php echo $value1->userId;?>" style="color:inherit; text-decoration:none;">
                                 <div class="card" style="width: 16rem;height:100%;">
@@ -222,10 +222,95 @@ include "include/header.php";
                 </div>
             </div>
         </div>
-    <?php }
-    } ?>
+    <?php } } ?>
 
     <br>
+
+<div class="container">
+    <?php
+    $counter = 0;
+    foreach ($result as $key => $value) {
+    foreach ($value as $key1 => $value1) {
+    ?>
+
+    <div class="row">
+        <h3 class="card-title"><?php echo $value1->businessCategory; ?></h3>
+    </div>
+    <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                <?php
+                    $url = $URL . "user/read_profile_by_category.php";
+                    $userType = '2';
+                    $businessCategory = $value1->businessCategory;
+                    $data = array("userType" => $userType, "businessCategory" => $businessCategory);
+                    $postdata = json_encode($data);
+                    $client = curl_init($url);
+                    curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
+                    curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+                    $response = curl_exec($client);
+                    //print_r($response);
+                    $result = json_decode($response);
+                    //print_r($result);
+                    ?>
+                    <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>
+                    <?php 
+                      $counter=0;  
+                      foreach($result as $key => $value){
+                      foreach($value as $key1 => $value1)
+                     {
+                    ?>
+
+                    <a href="profile_view.php?id=<?php echo $value1->userId;?>">
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="overlay"></span>
+
+                                <div class="card-image">
+                                    <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" alt="" class="card-img">
+                                </div>
+                            </div>
+
+                            <div class="card-content">
+                                <h2 class="name"><?php echo $value1->businessName; ?></h2>
+                                <p class="description"><?php echo $value1->city; ?></p>
+                                <a href="profile_view.php?id=<?php echo $value1->userId;?>" class="btn btn-primary w-100">Enquiry Now</a>
+                            </div>
+                        </div>
+                    </a>
+                    <?php }} ?>
+                    <?php }else{
+                        echo '<p class="text-center text-warning p-2">No Business Listed</p>';
+                    } ?>
+
+                    <!-- <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="images/profile2.jpg" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div> -->
+                    
+                    
+                </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    <?php } } ?>
+</div>
+  
     <!-- <hr> -->
 
     <!-- <div class="">
@@ -301,5 +386,129 @@ include "include/header.php";
     </div> -->
 
 </div>
+<style>
+.slide-container{
+  max-width: 1120px;
+  width: 100%;
+  padding: 10px 0;
+}
+.slide-content{
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+.card{
+  border-radius: 25px;
+  background-color: #FFF;
+}
+.image-content,
+.card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.image-content{
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #4070F4;
+  border-radius: 25px 25px 0 25px;
+}
+.overlay::before,
+.overlay::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: #4070F4;
+}
+.overlay::after{
+  border-radius: 0 25px 0 0;
+  background-color: #FFF;
+}
+.card-image{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070F4;
+}
+.name{
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+.description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+.button{
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover{
+  background: #265DF2;
+}
+
+.swiper-navBtn{
+  color: #6E93f7;
+  transition: color 0.3s ease;
+}
+.swiper-navBtn:hover{
+  color: #4070F4;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+  font-size: 35px;
+}
+.swiper-button-next{
+  right: 0;
+}
+.swiper-button-prev{
+  left: 0;
+}
+.swiper-pagination-bullet{
+  background-color: #6E93f7;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active{
+  background-color: #4070F4;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content{
+    margin: 0 10px;
+  }
+  .swiper-navBtn{
+    display: none;
+  }
+}
+</style>
 
 <?php include "include/footer.php"; ?>
