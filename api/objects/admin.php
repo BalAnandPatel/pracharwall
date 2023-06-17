@@ -69,41 +69,10 @@ class Admin{
         return $stmt;
     }
 
-    public function updateTicketPurchased(){
-              // query to insert record
-       $query = "UPDATE 
-                    " . $this->table_name . "
-                SET
-                            status=:status,
-                            updatedOn=:updatedOn,
-                            updatedBy=:updatedBy
-                            WHERE id=:id"; 
-                          
-        // prepare query
-        $stmt = $this->conn->prepare($query);
-        $this->id=htmlspecialchars(strip_tags($this->id));
-        $this->status=htmlspecialchars(strip_tags($this->status));
-        $this->updatedOn=htmlspecialchars(strip_tags($this->updatedOn));
-        $this->updatedBy=htmlspecialchars(strip_tags($this->updatedBy));
-        
-        //bind values
-        $stmt->bindParam(":id", $this->id);
-        $stmt->bindParam(":status", $this->status);
-        $stmt->bindParam(":updatedOn", $this->updatedOn); 
-        $stmt->bindParam(":updatedBy", $this->updatedBy);       
-      
-        // execute query
-        if($stmt->execute()){
-            return true;
-        }
-      
-        return false; 
-    }
-
-  function deleteTicket(){
+  function deleteCategory(){
   
     // delete query
-    $query = " DELETE FROM " . $this->table_name . " 
+    $query = " DELETE FROM " . $this->business_category . " 
     WHERE id= ? ";
   
     // prepare query

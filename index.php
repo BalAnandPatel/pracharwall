@@ -116,7 +116,7 @@ include "include/header.php";
             foreach ($result as $key => $value) {
                 foreach ($value as $key1 => $value1) {
             ?>
-                    <div class="col-md-1 col-sm-4 col-xs-12 img-thumbnail m-1">
+                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4 img-thumbnail m-1">
                         <a href="profile_list.php?category=<?php echo $value1->businessCategory; ?>">
                             <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>" style="height:60px;">
                             <p>

@@ -1,12 +1,10 @@
 <?php
+include "../../constant.php";
 
-  if(isset($_POST['delete'])){
-   
-  include "../../constant.php";
+$id = $_POST['id'];
+$file_path = "../image/uploads/img_".$id.".png";
 
-  $id = $_POST['id'];
-
-  $url = $URL."ticket/delete_ticket.php";
+  $url = $URL."admin/delete_category.php";
 
   $data = array('id'=>$id);
   //print_r($data);
@@ -21,11 +19,10 @@
   //print_r($result);
 
   if($result->message=="Record has been deleted."){
-    $_SESSION['ticket_delete_success']="Record deleted successfully";
-    header('location:../ticket_list.php');
-  }
-  header('location:../ticket_list.php');
-
+    unlink($file_path);
+    echo "1";
+  }else{
+   echo "0";
   }
 
 ?>
