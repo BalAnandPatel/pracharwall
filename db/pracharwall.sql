@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 16, 2023 at 11:52 AM
+-- Generation Time: Jun 17, 2023 at 08:08 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `business_category` (
   `createdBy` varchar(255) NOT NULL,
   `updaredOn` timestamp NOT NULL,
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `business_category`
@@ -44,7 +44,14 @@ CREATE TABLE IF NOT EXISTS `business_category` (
 INSERT INTO `business_category` (`id`, `businessCategory`, `subCategory`, `status`, `createdOn`, `createdBy`, `updaredOn`, `updatedBy`) VALUES
 (1, 'Food', 'Veg ', 1, '2023-05-29 21:57:29', 'Admin', '0000-00-00 00:00:00', ''),
 (2, 'Realestate', 'Land', 1, '2023-05-29 22:08:06', 'Admin', '0000-00-00 00:00:00', ''),
-(3, 'school', 'school ', 1, '2023-06-13 21:21:57', 'Admin', '0000-00-00 00:00:00', '');
+(3, 'school', 'school ', 1, '2023-06-13 21:21:57', 'Admin', '0000-00-00 00:00:00', ''),
+(4, 'hospitals', 'hospitals', 1, '2023-06-17 07:00:18', 'Admin', '0000-00-00 00:00:00', ''),
+(5, 'Pet Shops', 'dogs', 1, '2023-06-17 07:05:06', 'Admin', '0000-00-00 00:00:00', ''),
+(6, 'Gyms', 'Gyms in mub', 1, '2023-06-17 07:09:12', 'Admin', '0000-00-00 00:00:00', ''),
+(7, 'travel', 'air', 1, '2023-06-17 07:22:32', 'Admin', '0000-00-00 00:00:00', ''),
+(8, 'dentists', 'teeth', 1, '2023-06-17 07:29:23', 'Admin', '0000-00-00 00:00:00', ''),
+(9, 'Education', 'School', 1, '2023-06-16 19:48:43', 'Admin', '0000-00-00 00:00:00', ''),
+(10, 'Driving School', 'Car Driving', 1, '2023-06-16 20:01:15', 'Admin', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -239,7 +246,7 @@ ALTER TABLE `wall_uploads`
 -- AUTO_INCREMENT for table `business_category`
 --
 ALTER TABLE `business_category`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `customer_inquiry`
 --

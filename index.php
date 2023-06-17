@@ -124,7 +124,7 @@ include "include/header.php";
                             </p>
                         </a>
                     </div>
-                    <?php if(++$counter==2){ ?>
+                    <?php if(++$counter==10){ ?>
                         <div class="col-md-1 col-sm-4 col-xs-12 img-thumbnail m-1 d-flex align-items-center">
                         <a class="fs-4" data-bs-toggle="offcanvas" href="#sidenav" aria-controls="offcanvasExample" style="text-decoration:none;">
                         <img class="img img-fluid" src="Pracharwall_image/hamburger-menu.png" style="height:auto;">
