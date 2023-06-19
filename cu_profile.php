@@ -18,7 +18,8 @@ $result = json_decode($response);
 
 <section>
     <div class="container py-3">
-     <h6 class="bg-success text-white p-3" id="cuEditMsg" style="display:none;"></h6>       
+     <!-- <h6 class="bg-success text-white p-3" id="cuEditMsg" style="display:none;"></h6>        -->
+     <div class="p-0" id="cuEditMsg"></div>
         <?php
         $counter = '0';
         foreach ($result as $key => $value) {
@@ -147,13 +148,11 @@ $result = json_decode($response);
                     // alert(response);
                     // alert(JSON.stringify(response));
                     if(response.message=="User profile updated successfully"){
-                        // alert("Successfilly Updated");
-                        $('#cuEditMsg').text("Successfully Updated");
+                     
+                        $("#cuEditMsg").html('<div class="alert alert-success">Successfully Updated</div>');
                         $("#cuEditMsg").fadeTo(5000, 500).slideUp(5000, function () {
                         $("#cuEditMsg").slideUp(5000);
                         });
-                        $('#cuAddress').attr("disabled", true);
-                        $('#editCustomer').css("display", "none");
                     }
                    
 
