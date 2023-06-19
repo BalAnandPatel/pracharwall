@@ -3,10 +3,15 @@ date_default_timezone_set('Asia/Kolkata');
 class Database{
   
     // specify your own database credentials
+    
     private $host = "localhost";
     private $db_name = "pracharwall";
     private $username = "root";
     private $password = "root";
+    
+    // private $db_name = "glintqnj_pracharwall";
+    // private $username = "glintqnj_pracharwall";
+    // private $password = "Giplwall@12qw";
     public $conn;
   
     // get the database connection
