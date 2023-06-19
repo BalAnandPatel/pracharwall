@@ -45,6 +45,8 @@ if($num>0){
             "userId"=>$userId,
             "cuName"=>$cuName,
             "cuEmail"=>$cuEmail,
+            "cuMobile"=>$cuMobile,
+            "cuAddress"=>$cuAddress,
             "requiredService"=>$requiredService,
             "createdOn"=>$createdOn,
             "createdBy"=>$createdBy 

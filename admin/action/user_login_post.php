@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include '../../constant.php';
 include '../../common/php-jwt/src/JWT.php';
 include '../../common/php-jwt/src/ExpiredException.php';
@@ -19,7 +20,7 @@ curl_setopt($client, CURLOPT_TIMEOUT, 4); //timeout in seconds
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
 // curl_close($client);
-//print_r($response);
+// print_r($response);
 $decode = (json_decode($response));
 //print_r($decode);
 
@@ -46,21 +47,18 @@ $result->data->userPass==$_POST['userPass'])
   $_SESSION["JWT"]=$result;
   $_SESSION['MEMBBER_FROM']=$result->data->createdOn;
 
-if($_SESSION["USER_TYPE"]=='1'){
-header('Location:../adm_dashboard.php');
-}else if($_SESSION['USER_TYPE']=='2'){
-header('Location:../../profile.php');  
-}else if($_SESSION['USER_TYPE']=='3'){
-header('Location:../../cu_profile.php');  
-}
-
+// echo "success";
+echo "1";
 }else{
- $msg="Incorrect User Email or Password"; 
- header('Location:../../index.php');
+//  echo $msg="Incorrect User Email or Password"; 
+ echo "0"; 
+ //header('Location:../../index.php');
 }
  }else{
-  print_r($decode->message);
-  header('Location:../../index.php?msg='.$decode->message); 
+  // print_r($decode->message);
+ // header('Location:../../index.php');
+  // echo "Request Failed";
+  echo "0";  
  }
 
 ?>

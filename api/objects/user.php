@@ -72,7 +72,7 @@ class User
         public function customerInquiryDetail()
     {
 
-        $query = "Select id, userId, cuId, cuEmail, cuName, requiredService, createdOn, createdBy from ".$this->customer_inquiry." where userId=:userId";
+        $query = "Select id, userId, cuId, cuMobile, cuAddress, cuEmail, cuName, requiredService, createdOn, createdBy from ".$this->customer_inquiry." where userId=:userId";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userId", $this->userId);

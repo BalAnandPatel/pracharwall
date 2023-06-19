@@ -208,27 +208,74 @@ $result = json_decode($response);
                     <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="admin/action/user_login_post.php" method="post">
+                <!-- <form action="admin/action/user_login_post.php" method="post"> -->
+                <form method="post">
                     <div class="modal-body mx-3">
                         <div class="form-group">
                             <label style="font-weight: 600;" for="email">Email address:</label>
-                            <input type="email" class="form-control" name="userEmail" required>
+                            <input type="email" class="form-control" id="uEmail" name="userEmail" required>
                         </div>
                         <br>
                         <div class="form-group">
                             <label style="font-weight: 600;" for="pwd">Password:</label>
-                            <input type="password" class="form-control" name="userPass" autocomplete="off" required>
+                            <input type="password" class="form-control" id="uPass" name="userPass" autocomplete="off" required>
                         </div>
                         <br>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-primary" type="submit">Sign in</button>
+                        <button class="btn btn-primary" id="loginPost" type="submit">Sign in</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     </div>
+<!-- using ajax query for login -->
+    <script>
+        $(document).ready(function(){
+         
+        $("#loginPost").on("click", function(e){
+        e.preventDefault();
+        var email = $("#uEmail").val();  
+        var pass = $("#uPass").val();
+        
+        if(email=="" || pass==""){
+        // alert("Please fill in the blanks"); 
+        swal("Request Failed!", "You need to enter a Email and Password");    
+        }else{
+        
+         if(/^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/.test(email)) {
+        //  alert('passed');
+
+        $.ajax({
+         url:"<?php echo $BASE_URL ?>admin/action/user_login_post.php",
+         type:"POST",
+         data:{
+         "userEmail":email,
+         "userPass":pass   
+         },
+         success:function(response){
+        //  alert(response);
+        if(response==0){
+        swal("Request Failed!", "Incorrect User Email or Password");
+        }else if (response==1){
+        window.location.reload(); 
+        }
+            
+         }
+        });
+
+         }else{
+        //   alert("Please Enter valid Email");
+        swal("Request Failed!", "Please Enter valid Email");  
+         }
+         
+        }
+
+        });
+
+        });
+    </script>    
 
     <!-- Side Navabr -->
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="sidenav"

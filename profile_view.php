@@ -322,6 +322,9 @@ exit();
                 <h5>Photos</h5>
                 <div class="row">
                     <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
+                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" class="border rounded">
+                    </div>
+                    <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">
                     </div>
                     <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
@@ -332,10 +335,7 @@ exit();
                     </div>
                     <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">
-                    </div>
-                    <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="assets/img/events.png" class="border rounded">
-                    </div>
+                    </div> -->
                 </div>
               
             </div>

@@ -33,6 +33,8 @@ include "include/header.php";
                         <th>Sr No.</th>
                         <th>Customer Name</th>
                         <th>Email Id</th>
+                        <th>Monile No.</th>
+                        <th>Address</th>
                         <th>Service (needed)</th>
                         <th>Delete</th>
                     </tr>
@@ -48,6 +50,8 @@ include "include/header.php";
                         <td class="col-md-1"><?php echo ++$counter; ?></td>
                         <td><?php echo $value1->cuName; ?></td>
                         <td><?php echo $value1->cuEmail; ?></td>
+                        <td><?php echo $value1->cuMobile; ?></td>
+                        <td><?php echo $value1->cuAddress; ?></td>
                         <td><?php echo $value1->requiredService; ?></td>
                         <td class="col-md-1"><button class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button></td>
                     </tr>
