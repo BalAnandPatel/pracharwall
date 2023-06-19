@@ -48,7 +48,8 @@ $result->data->userPass==$_POST['userPass'])
   $_SESSION['MEMBBER_FROM']=$result->data->createdOn;
 
 // echo "success";
-echo "1";
+// echo "1";
+echo $userType;
 }else{
 //  echo $msg="Incorrect User Email or Password"; 
  echo "0"; 

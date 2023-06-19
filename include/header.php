@@ -259,7 +259,10 @@ $result = json_decode($response);
         if(response==0){
         swal("Request Failed!", "Incorrect User Email or Password");
         }else if (response==1){
-        window.location.reload(); 
+        window.open('http://localhost/pracharwall/admin/adm_dashboard.php', '_blank'); 
+        window.location.reload();
+        }else{
+        window.location.reload();    
         }
             
          }
