@@ -80,6 +80,9 @@ $result = json_decode($response);
                 <div class="collapse navbar-collapse" id="navbarsExample04">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="register-wall.php">Register Your Wall</a>
                         </li>
                         <?php
@@ -158,7 +161,10 @@ $result = json_decode($response);
                             </div>
                             <br>
                         </div>
-                        <div class="modal-footer d-flex justify-content-center">
+                        <div class="modal-footer d-flex justify-content-between">
+                        <div class="small">
+                        Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signin">Sign in</a>
+                        </div>
                             <button class="btn btn-primary" name="submit" type="submit">Register</button>
                         </div>
                     </form>
@@ -222,7 +228,10 @@ $result = json_decode($response);
                         </div>
                         <br>
                     </div>
-                    <div class="modal-footer d-flex justify-content-center">
+                    <div class="modal-footer d-flex justify-content-between">
+                        <div class="small">
+                        Don't have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Sign up</a>
+                        </div>
                         <button class="btn btn-primary" id="loginPost" type="submit">Sign in</button>
                     </div>
                 </form>
