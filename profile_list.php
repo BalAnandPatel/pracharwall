@@ -99,7 +99,7 @@ $result = json_decode($response);
 
                 <div class="row">
                     <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
-                        <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" class="img-fluid img-thumbnail" alt="">
+                        <img src="<?php $id=$value1->userId; echo $USER_WALL_IMGPATH."/".$id."/wall_img_".$id.".png"; ?>" style="height:100%;" class="img-fluid img-thumbnail" alt="user wall img">
                     </div>
 
                     <div class="col col-lg-8 col-xl-8 col-md-12 col-sm-12 col-xs-12">

@@ -117,8 +117,8 @@ return $result = json_decode($response);
                           </form>
                         </td>
                         <td class="col-md-1">
-                          <button type="submit" name="submit" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#remark">Reject</button>
+                          <button class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#remark" onclick="rejectUsers(<?php echo $value1->id; ?>)">Reject</button>
                         </td>
                       </tr>
                       <?php
@@ -142,6 +142,15 @@ return $result = json_decode($response);
 
 </div>
 <script>
+
+    //This method for reject user details
+     function rejectUsers(id){
+     //alert(id);
+     document.getElementById("rejectUserId").value = id;
+     }
+
+    
+    // read user profle details
 
     function getProfileList(id) {
     // alert(id);
@@ -352,7 +361,7 @@ return $result = json_decode($response);
         <div class="modal-body">
           <textarea name="remark" class="form-control" rows="3" placeholder="Write remark here" autofocus
             style="resize:none;" required></textarea>
-          <input type="text" name="userId" value="<?php echo $value1->id; ?>">
+          <input type="text" id="rejectUserId" name="userId">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

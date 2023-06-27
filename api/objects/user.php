@@ -47,7 +47,7 @@ class User
 
         public function readAllProfileByCategory()
     {
-      $query = "Select up.id, userId, user.userType, remark, city, state, userName, userMobile, userEmail, up.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where businessCategory=:businessCategory and user.status=1 and user.userType=:userType";
+      $query = "Select up.id, userId, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where businessCategory=:businessCategory and user.status=1 and user.userType=:userType";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":businessCategory", $this->businessCategory);
