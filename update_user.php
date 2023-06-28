@@ -1,4 +1,5 @@
 <?php
+ error_reporting(0);
 include "include/header.php";
 ?>
 <?php
@@ -42,7 +43,7 @@ if (isset($_POST['update'])) {
                     if (getimagesize($file)) { ?>
                         <img class="img-account-profile img-fluid rounded-circle mb-2" src="<?php echo $USER_PROFILE_IMGPATH . $userId . "/user_img_" . $userId . ".png"; ?>" alt="Profile Image">
                     <?php } else { ?>
-                        <img class="img-account-profile rounded-circle mb-2" src="assets/img/avatar1.png" alt="">
+                        <img class="img-account-profile img-fluid rounded-circle mb-2" src="assets/img/user_icon.png" alt="">
                     <?php } ?>
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     <form action="admin/action/upload_profile_post.php" method="post" enctype="multipart/form-data">

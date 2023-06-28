@@ -185,7 +185,7 @@ include "include/header.php";
                                 <span class="overlay"></span>
 
                                 <div class="card-image">
-                                    <img src="<?php $id=$value1->userId; echo $USER_PROFILE_IMGPATH.$id."/user_img_".$id.".png"; ?>" alt="" class="card-img">
+                                    <img src="<?php $id=$value1->userId; echo $USER_WALL_IMGPATH."/".$id."/wall_img_".$id.".png"; ?>" alt="" class="card-img">
                                 </div>
                             </div>
 
