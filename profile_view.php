@@ -189,16 +189,16 @@ exit();
 <section>
     <div class="container py-5">
 
-        <!-- <div class="row">
+        <div class="row">
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                     <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="index1.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">User Profile</li>
                     </ol>
                 </nav>
             </div>
-        </div> -->
+        </div>
         <?php 
                        
                      $counter=0;  
