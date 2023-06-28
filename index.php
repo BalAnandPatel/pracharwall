@@ -1,6 +1,17 @@
 <?php
 include "include/header.php";
 ?>
+<?php
+function giplCurl($url,$postdata){
+$client = curl_init($url);
+curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+//print_r($response);
+$result = json_decode($response);
+return $result;    
+}
+?>
 <!-- header part end here -->
 <style>
     .home-office-service:before,
@@ -163,15 +174,10 @@ include "include/header.php";
                     $businessCategory = $value1->businessCategory;
                     $data = array("userType" => $userType, "businessCategory" => $businessCategory);
                     $postdata = json_encode($data);
-                    $client = curl_init($url);
-                    curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
-                    curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-                    $response = curl_exec($client);
-                    //print_r($response);
-                    $result = json_decode($response);
-                    //print_r($result);
+                    $result = giplCurl($url,$postdata);
+                    // print_r($result);
                     ?>
-                    <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>
+                    <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>s
                     <?php 
                       $counter=0;  
                       foreach($result as $key => $value){
@@ -179,7 +185,7 @@ include "include/header.php";
                      {
                     ?>
 
-                    <a href="profile_view.php?id=<?php echo $value1->userId;?>">
+                    <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>">
                         <div class="card swiper-slide">
                             <div class="image-content">
                                 <span class="overlay"></span>

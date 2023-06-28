@@ -320,7 +320,7 @@ $result = json_decode($response);
                 foreach ($value as $key1 => $value1) {
             ?>
                 <div class="col-md-2 col-sm-4 col-xs-12 img-thumbnail m-1">
-                    <a href="profile_list.php?category=<?php echo $value1->businessCategory; ?>">
+                    <a href="profile_list.php?category=<?php echo base64_encode($value1->businessCategory); ?>">
                         <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>"
                             style="height:60px;">
                         <p>
