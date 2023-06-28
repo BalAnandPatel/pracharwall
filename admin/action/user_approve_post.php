@@ -2,7 +2,7 @@
 include '../../constant.php';
 
 if(isset($_POST["submit"])){
-
+    
 $remark="Approved";
 $userId=$_POST["userId"];
 $status=1;
@@ -25,7 +25,7 @@ $status=1;
  curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
  curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
  $response = curl_exec($client);
- print_r($response);
+ //print_r($response);
  $result = json_decode($response);
  return $result;
 

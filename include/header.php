@@ -129,7 +129,7 @@ $result = json_decode($response);
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="card rounded-0">
-                    <form onsubmit="return userReg()" method="post">
+                    <form onsubmit="return userReg(event)" method="post">
                         <div class="modal-body mx-3">
                             <div class="form-group">
                                 <label style="font-weight: 600;" for="usertype">Select User Type:</label>
@@ -175,7 +175,8 @@ $result = json_decode($response);
     </div>
 
     <script>
-    function userReg() {
+    function userReg(event) {
+        event.preventDefault();
         // alert("done");
         var userType = $('#userType').val();
         var userName = $('#userName').val();
@@ -194,11 +195,10 @@ $result = json_decode($response);
                 "userEmail": userEmail,
                 "userPass": userPass
             },
-            success: function(response) {
-                //  alert(response);
-                if (response == 1) {
+            success:function(response){
+                if (response==1) {
                     swal("Thank you!", "You have successfully registerd. Now you can login", "success");
-                } else if (response == 2) {
+                } else if (response==2) {
                     swal("Sorry!", "User already registered", "error");
                 }
             }
@@ -320,7 +320,7 @@ $result = json_decode($response);
                 foreach ($value as $key1 => $value1) {
             ?>
                 <div class="col-md-2 col-sm-4 col-xs-12 img-thumbnail m-1">
-                    <a href="profile_list.php?category=<?php echo base64_encode($value1->businessCategory); ?>">
+                    <a href="profile_list.php?category=<?php echo $value1->businessCategory; ?>">
                         <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>"
                             style="height:60px;">
                         <p>
