@@ -11,7 +11,7 @@ $userEmail="";
 $url = $URL."user/read_user_profile.php";
 $userType='2'; 
 $status='1';
-$id=$_GET['id'];
+$id=base64_decode($_GET['id']);
 $userId=$id;
 $data = array("userType" =>$userType, "status"=>$status, "id"=>$id);
 $postdata = json_encode($data);
@@ -210,7 +210,7 @@ exit();
 
         <div class="row border p-3 rounded">
 
-            <div class="col col-lg-1 col-xl-1 col-md-12 col-sm-12 col-xs-12 py-3 d-flex justify-content-center">
+            <div class="col-lg-2 col-xl-2 col-md-6 col-sm-12 col-xs-12 py-3 d-flex justify-content-center">
                  <?php
                      error_reporting(0); 
                     $file=$USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png";
@@ -222,7 +222,7 @@ exit();
                     <?php } ?>
             </div>
 
-            <div class="col col-lg-8 col-xl-8 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-7 col-xl-7 col-md-6 col-sm-12 col-xs-12">
 
                 <h2><?php echo $value1->businessName; ?></h2>
                 <div>
@@ -236,13 +236,13 @@ exit();
                     <span><i class="bi bi-check-circle-fill"></i> Checked</span>
                 </div>
                 <div class="row">
-                    <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <?php echo $value1->city.", ".$value1->state; ?> 
                     </div>
-                    <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <i class="bi bi-dot"></i>Open Until 8:00 pm
                     </div>
-                    <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <i class="bi bi-dot"></i>15 Yrs in Business
                     </div>
                 </div>
@@ -255,7 +255,7 @@ exit();
                 </div>
             </div>
 
-            <div class="col col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center mt-1">
+            <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center mt-1">
                 <a class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ExploreStore" href="">
                     <b>Enquiry Now</b>
                 </a>
@@ -265,21 +265,21 @@ exit();
 
 
         <div class="row d-flex mt-3 justify-content-between">
-            <div class="col col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
+            <div class="col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
                 <h5>Quick Information</h5>
 
                 <div class="row">
-                    <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
+                    <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
                         <h6 class="text-secondary">Mode of Payment</h6>
                         <h6><?php echo $value1->paymentMode; ?></h6>
                     </div>
 
-                    <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
+                    <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
                         <h6 class="text-secondary">Year of Establishment</h6>
                         <h6><?php echo $value1->establishmentYear; ?></h6>
                     </div>
 
-                    <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
+                    <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
                         <h6 class="text-secondary">Timings</h6>
                         <h6><?php echo $value1->businessDay; ?><br><?php echo $value1->businessTiming; ?></h6>
                     </div>
@@ -297,7 +297,7 @@ exit();
 
             </div>
 
-            <div class="col col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
+            <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
                 <h5>Address</h5>
                 <h6><?php echo $value1->userAddress; ?></h6>
 
@@ -321,8 +321,8 @@ exit();
             <div class="col">
                 <h5>Photos</h5>
                 <div class="row">
-                    <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" class="border rounded">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
+                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" class="img-fluid border rounded">
                     </div>
                     <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">

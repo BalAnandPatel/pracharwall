@@ -5,7 +5,7 @@ error_reporting(0);
 <?php
 $url = $URL."user/read_profile_by_category.php";
 $userType='2'; 
-$businessCategory=$_GET['category'];
+$businessCategory=base64_decode($_GET['category']);
 $data = array("userType" =>$userType, "businessCategory"=>$businessCategory);
 $postdata = json_encode($data);
 $client = curl_init($url);
@@ -93,7 +93,7 @@ $result = json_decode($response);
 
                   ?>
           
-        <a href="profile_view.php?id=<?php echo $value1->userId;?>" style="color:inherit; text-decoration:none;">        
+        <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" style="color:inherit; text-decoration:none;">        
         <div class="row d-flex mt-3 justify-content-between">
             <div class="col col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
 
