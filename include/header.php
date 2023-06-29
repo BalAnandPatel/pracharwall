@@ -89,7 +89,7 @@ $result = json_decode($response);
                         if (strpos($ROLE, $PROFILE_USER) !== false) {
                             ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php">Profile</a>
+                            <a class="nav-link" href="profile.php">Update Profile</a>
                         </li>
                         <?php } ?>
                         <?php if ($ROLE == "") { ?>
