@@ -182,16 +182,6 @@ $(document).ready(function(){
             <div class="col col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
                 <h5>Address</h5>
                 <h6><?php echo $value1->userAddress; ?></h6>
-
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
-                <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
-                <hr>
-                <a href="cuInquiry.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i> View Inquriy</a>
-                <hr>
-                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
-                <hr>
                 <form action="update_user.php" method="post">
                  <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">   
                  <input type="hidden" name="userName" value="<?php echo $value1->userName; ?>">
@@ -201,6 +191,15 @@ $(document).ready(function(){
                  <button class="btn border-0 text-primary" name="update" type="submit">Edit Your Account</button>
                  </a>
                 </form>
+                <hr>
+                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
+                <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
+                <hr>
+                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
+                <hr>
+                <a href="cuInquiry.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i> View Inquriy</a>
+                <hr>
+                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
             </div>
 
         </div>
