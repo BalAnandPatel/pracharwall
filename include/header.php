@@ -123,7 +123,7 @@ $result = json_decode($response);
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+                    <h4 class="modal-title w-100 font-weight-bold">Create Account</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="card rounded-0">
@@ -209,7 +209,7 @@ $result = json_decode($response);
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+                    <h4 class="modal-title w-100 font-weight-bold">Login</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <!-- <form action="admin/action/user_login_post.php" method="post"> -->
