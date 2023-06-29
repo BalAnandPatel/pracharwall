@@ -92,6 +92,15 @@ $result = json_decode($response);
                             <a class="nav-link" href="profile.php">MY Profile</a>
                         </li>
                         <?php } ?>
+                        <?php
+                        if (strpos($ROLE, $PROFILE_CUSTOMER) !== false) {
+                            ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cu_profile.php">
+                                My Profile
+                            </a>
+                        </li>
+                        <?php } ?>
                         <?php if ($ROLE == "") { ?>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Create Account</a>
@@ -102,15 +111,6 @@ $result = json_decode($response);
                         <?php } else { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="admin/logout.php">Log Out <i class="bi bi-box-arrow-right"></i></a>
-                        </li>
-                        <?php } ?>
-                        <?php
-                        if (strpos($ROLE, $PROFILE_CUSTOMER) !== false) {
-                            ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cu_profile.php">
-                                My Profile
-                            </a>
                         </li>
                         <?php } ?>
                     </ul>
