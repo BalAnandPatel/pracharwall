@@ -302,7 +302,7 @@ exit();
                 <h6><?php echo $value1->userAddress; ?></h6>
 
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
-                <button class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</button>
+                <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
                 <hr>
                 <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
                 <hr>
