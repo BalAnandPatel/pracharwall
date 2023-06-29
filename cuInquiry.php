@@ -1,7 +1,7 @@
 <?php
 include "include/header.php";
   $url = $URL."user/read_customers_inquiry.php";
-  $userId='5';
+  $userId=$_SESSION["USER_ID"];
   $data = array("userId"=>$userId);
   //print_r($data);
   $postdata = json_encode($data);
