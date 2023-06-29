@@ -232,7 +232,7 @@ $(document).ready(function(){
                      </div>
                      <div class="col-md-4">
                        <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">        
-                       <button class="btn btn-primary" type="submit" name="uploadWall"><i class="bi bi-cloud-arrow-up-fill"></i> Upload Photos</button>
+                       <button class="btn btn-primary" type="submit" name="uploadWall"><i class="bi bi-cloud-arrow-up-fill"></i> Upload your Business Banner</button>
                     </div>
                 </div>
                 </form>

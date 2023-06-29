@@ -114,7 +114,7 @@ $result = json_decode($response);
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="serv">Service:</label>
+                            <label for="serv">Service(Write about your need):</label>
                             <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" name="requiredService" required>
                         </div>
                         <div class="form-group mt-2">
@@ -302,7 +302,7 @@ exit();
                 <h6><?php echo $value1->userAddress; ?></h6>
 
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
+                <button class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</button>
                 <hr>
                 <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
                 <hr>
