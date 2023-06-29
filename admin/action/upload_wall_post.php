@@ -9,10 +9,12 @@ if(isset($_POST["uploadWall"])){
 
     if (!is_dir($path)){
     mkdir($path, 0777, true);
-    echo "directory created";
+    // echo "directory created";
+     header('Location:../../profile.php');
     }
     else{ 
-     echo "unable to create directory";
+    //  echo "unable to create directory";
+     header('Location:../../profile.php');
     }
 
   $target_file_type = basename($_FILES["uploadWallFile"]["name"]);

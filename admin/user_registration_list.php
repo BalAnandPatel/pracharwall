@@ -361,7 +361,7 @@ return $result = json_decode($response);
         <div class="modal-body">
           <textarea name="remark" class="form-control" rows="3" placeholder="Write remark here" autofocus
             style="resize:none;" required></textarea>
-          <input type="text" id="rejectUserId" name="userId">
+          <input type="hidden" id="rejectUserId" name="userId">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
