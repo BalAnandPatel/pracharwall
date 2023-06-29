@@ -94,12 +94,10 @@ $result = json_decode($response);
                         <?php } ?>
                         <?php if ($ROLE == "") { ?>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Sign
-                                up</a>
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Create Account</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signin" href="">Sign
-                                in</a>
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signin" href="">Login</a>
                         </li>
                         <?php } else { ?>
                         <li class="nav-item">
@@ -140,8 +138,8 @@ $result = json_decode($response);
                                 </select>
                             </div>
                             <div class="form-group pt-2">
-                                <label style="font-weight: 600;" for="username">Full Name:</label>
-                                <input type="text" name="userName" placeholder="Enter Full Name" class="form-control"
+                                <label style="font-weight: 600;" for="username">Your Name:</label>
+                                <input type="text" name="userName" placeholder="Enter Your Full Name" class="form-control"
                                     id="userName" required autocomplete="off">
                             </div>
                             <div class="form-group pt-2">
