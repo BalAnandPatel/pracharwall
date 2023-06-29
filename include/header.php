@@ -127,7 +127,7 @@ $result = json_decode($response);
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="card rounded-0">
-                    <form onsubmit="return userReg(event)" method="post">
+                    <form onsubmit="return userReg(event)" id="signupForm" method="post">
                         <div class="modal-body mx-3">
                             <div class="form-group">
                                 <label style="font-weight: 600;" for="usertype">Select User Type:</label>
@@ -196,6 +196,7 @@ $result = json_decode($response);
             success:function(response){
                 if (response==1) {
                     swal("Thank you!", "You have successfully registerd. Now you can login", "success");
+                    $("#signupForm").trigger('reset');
                 } else if (response==2) {
                     swal("Sorry!", "User already registered", "error");
                 }
