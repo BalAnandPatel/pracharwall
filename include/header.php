@@ -89,7 +89,7 @@ $result = json_decode($response);
                         if (strpos($ROLE, $PROFILE_USER) !== false) {
                             ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php">Update Profile</a>
+                            <a class="nav-link" href="profile.php">MY Profile</a>
                         </li>
                         <?php } ?>
                         <?php if ($ROLE == "") { ?>
@@ -101,7 +101,7 @@ $result = json_decode($response);
                         </li>
                         <?php } else { ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin/logout.php">Log Out</a>
+                            <a class="nav-link" href="admin/logout.php">Log Out <i class="bi bi-box-arrow-right"></i></a>
                         </li>
                         <?php } ?>
                         <?php
