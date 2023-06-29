@@ -1,5 +1,5 @@
 <?php
- error_reporting(0);
+//  error_reporting(0);
 include "include/header.php";
 ?>
 <?php
@@ -68,13 +68,13 @@ if (isset($_POST['update'])) {
                         ?>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-12">
-                                        <label class="small mb-1" for="inputEmailAddress">Select Business Category</label>
-                                        <select class="form-select" name="businessCategory" aria-label="Default select example" required>
-                                            <option selected value="" disabled>Select Category</option>
-                                            <?php
+                                        <?php
                                               $cat = $profile_value1->businessCategory;
                                               if ($cat == "") {
                                             ?>
+                                        <label class="small mb-1" for="inputEmailAddress">Select Business Category</label>
+                                        <select class="form-select" name="businessCategory" aria-label="Default select example" required>
+                                            <option selected value="" disabled>Select Category</option>
                                                 <?php
                                                 $counter = '0';
                                                 foreach ($result as $key => $value) {
@@ -85,10 +85,11 @@ if (isset($_POST['update'])) {
                                                     }
                                                 }
                                                 ?>
+                                                </select>
                                             <?php } else { ?>
-                                                <option value="<?php echo $profile_value1->businessCategory; ?>" selected><?php echo $profile_value1->businessCategory; ?></option>
+                                                <label class="small mb-1">Business Category</label>
+                                                <input class="form-control" type=text"" value="<?php echo $profile_value1->businessCategory; ?>" disabled>
                                             <?php } ?>
-                                        </select>
                                     </div>
                                     <!-- <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Select Business Sub-Category</label>
@@ -151,8 +152,8 @@ if (isset($_POST['update'])) {
                                     </div>
                                     <div class="col">
                                         <label class="small mb-1" for="fromDay">From</label>
-                                        <select class="form-select" name="businessDay[]" aria-label="Default select example">
-                                            <option selected disabled>Select</option>
+                                        <select class="form-select" name="businessDay[]" aria-label="Default select example" required>
+                                            <option value="" selected disabled>Select</option>
                                             <option value="Sun">Sunday</option>
                                             <option value="Mon">Monday</option>
                                             <option value="Tue">Tuesday</option>
@@ -164,8 +165,8 @@ if (isset($_POST['update'])) {
                                     </div>
                                     <div class="col">
                                         <label class="small mb-1" for="toDay">To</label>
-                                        <select class="form-select" name="businessDay[]" aria-label="Default select example">
-                                            <option selected disabled>Select</option>
+                                        <select class="form-select" name="businessDay[]" aria-label="Default select example" required>
+                                            <option value="" selected disabled>Select</option>
                                             <option value="Sun">Sunday</option>
                                             <option value="Mon">Monday</option>
                                             <option value="Tue">Tuesday</option>

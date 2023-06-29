@@ -1,6 +1,7 @@
 <?php
  include "../../constant.php";
-if(isset($_POST["update_profile"])){	
+if(isset($_POST["update_profile"])){
+    
  $userId=$_POST["userId"];
  $businessName=ucwords($_POST["businessName"]);
  $businessCategory=ucwords($_POST["businessCategory"]);
@@ -21,11 +22,11 @@ if(isset($_POST["update_profile"])){
 
  $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userWebsite"=>$userWebsite, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
-  //print_r($data);
+//   print_r($data);
 
  $postdata = json_encode($data);
  $result=url_encode_Decode($url,$postdata);
- //print_r($result);
+//  print_r($result);
  if($result->message=="User profile updated successfully"){
   $_SESSION['profileupdate_success']="Updated successfully"; 
   header('location:../../profile.php');
@@ -41,7 +42,7 @@ if(isset($_POST["update_profile"])){
     curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
     $response = curl_exec($client);
-    //print_r($response);
+    // print_r($response);
     return $result = json_decode($response);
 
 }

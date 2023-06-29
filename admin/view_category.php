@@ -63,7 +63,7 @@ include "include/header.php";
                     <th>Image</th>
                     <th>Status</th>
                     <th>Create date</th>
-                    <th>Delete</th>
+                    <!--<th>Delete</th>-->
                   </tr>
                     
                   </thead>
@@ -81,7 +81,7 @@ include "include/header.php";
                     <td><img class="img img-fluid img-thumbnail" src="<?php echo $CATEGORY_IMGPATH.$value1->id.".png"; ?>" width="100px" height="100px"></td>
                     <td><?php if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td>
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
-                    <td><button class="btn btn-danger" type='submit' onclick="getProfileList(<?php echo $value1->id; ?>)">Delete</button></td> 
+                    <!--<td><button class="btn btn-danger" type='submit' onclick="getProfileList()">Delete</button></td> -->
                   </tr>
                   <?php
                     }

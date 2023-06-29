@@ -79,7 +79,7 @@ if(isset($_POST["submit"])){
    
     if (move_uploaded_file($_FILES["busineshImg"]["tmp_name"], $target_file)) {
     
-         $_SESSION["categoryUploadSuccess"] = "Record added succesfully.";
+         $_SESSION["categoryUploadSuccess"] = "Category created succesfully.";
          header('Location:../business_category_entry.php');
          }
           else {

@@ -1,22 +1,21 @@
 <?php
 include "include/header.php";
-if(isset($_SESSION["USER_EMAIL"])){
-$userEmail= $_SESSION["USER_EMAIL"];   
-$userId= $_SESSION["USER_ID"];   
-}else{
-$userEmail="";    
+if (isset($_SESSION["USER_EMAIL"])) {
+    $userEmail = $_SESSION["USER_EMAIL"];
+} else {
+    $userEmail = "";
 }
 ?>
 <?php
-$url = $URL."user/read_user_profile.php";
-$userType='2'; 
-$status='1';
-$id=base64_decode($_GET['id']);
-$userId=$id;
-$data = array("userType" =>$userType, "status"=>$status, "id"=>$id);
+$url = $URL . "user/read_user_profile.php";
+$userType = '2';
+$status = '1';
+$id = base64_decode($_GET['id']);
+$userId = $id;
+$data = array("userType" => $userType, "status" => $status, "id" => $id);
 $postdata = json_encode($data);
 $client = curl_init($url);
-curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
@@ -72,117 +71,117 @@ $result = json_decode($response);
     }
 </style>
 
-  <?php 
-                       
-                     $counter=0;  
-                     foreach($result as $key => $value){
-                     foreach($value as $key1 => $value1)
-                    {
+<?php
 
-                  ?>
-<div class="modal fade" id="ExploreStore" tabindex="-1" aria-labelledby="ExploreStore" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-body mx-3 row">
-                <div class="position-relative">
-                    <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 py-3">
-                    <h2>Are you looking for?</h2>
-                    <h5 class="text-secondary">"<?php echo $value1->businessCategory; ?>"</h5>
-                    <form name="InquiryForm" id="InquiryForm" method="post" onsubmit="return inquiryFormdataPost(event)">
-                        <input type="hidden" name="userId" value="<?php echo $value1->id; ?>"> 
-                        <div class="form-group">
-                            <label for="contact-username">Full Name:</label>
-                            <input type="text" class="form-control" name="cuName" placeholder="Enter Your Name" autocomplete="off" required>
+$counter = 0;
+foreach ($result as $key => $value) {
+    foreach ($value as $key1 => $value1) {
+
+?>
+        <div class="modal fade" id="ExploreStore" tabindex="-1" aria-labelledby="ExploreStore" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-body mx-3 row">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="contact-email">Mobile No:</label>
-                            <input type="number" class="form-control" placeholder="Enter Your Mobile No." name="cuMobile" autocomplete="off" required>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 py-3">
+                            <h2>Are you looking for?</h2>
+                            <h5 class="text-secondary">"<?php echo $value1->businessCategory; ?>"</h5>
+                            <form name="InquiryForm" id="InquiryForm" method="post" onsubmit="return inquiryFormdataPost(event)">
+                                <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">
+                                <div class="form-group">
+                                    <label for="contact-username">Full Name:</label>
+                                    <input type="text" class="form-control" name="cuName" placeholder="Enter Your Name" autocomplete="off" style="text-transform:capitalize" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="contact-email">Mobile No:</label>
+                                    <input type="number" class="form-control" placeholder="Enter Your Mobile No." name="cuMobile" autocomplete="off" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="contact-email">Email address:</label>
+                                    <input type="email" class="form-control" name="cuEmail" placeholder="Enter Your Email Id" autocomplete="off" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="contact-email">Address:</label>
+                                    <input type="text" class="form-control" name="cuAddress" placeholder="Enter Your Address" style="text-transform:capitalize" autocomplete="off" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="serv">Service(Write about your need):</label>
+                                    <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" style="text-transform:capitalize" name="requiredService" required>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY" id="submit-contact">
+                                </div>
+                            </form>
+                            <div class="mt-2">
+                                <li>Your requirement is sent to the selected relevant businesses</li>
+                                <li>Businesses compete with each other to get you the Best Deal</li>
+                                <li>You choose whichever suits you best</li>
+                                <li>Contact info sent to you by SMS/Email</li>
+                            </div>
                         </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="contact-email">Email address:</label>
-                            <input type="email" class="form-control" name="cuEmail" placeholder="Enter Your Email Id" autocomplete="off" required>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <img src="assets/img/service/distance-education.jpg" width="100%">
                         </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="contact-email">Address:</label>
-                            <input type="text" class="form-control" name="cuAddress" placeholder="Enter Your Address" autocomplete="off" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="serv">Service(Write about your need):</label>
-                            <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" name="requiredService" required>
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
-                                id="submit-contact">
-                        </div>
-                    </form>
-                    <div class="mt-2">
-                        <li>Your requirement is sent to the selected relevant businesses</li>
-                        <li>Businesses compete with each other to get you the Best Deal</li>
-                        <li>You choose whichever suits you best</li>
-                        <li>Contact info sent to you by SMS/Email</li>
+
                     </div>
                 </div>
-
-                <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <img src="assets/img/service/distance-education.jpg" width="100%">
-                </div>
-
             </div>
         </div>
-    </div>
-</div>
-<?php } } ?>
+<?php }
+} ?>
 <script>
-function inquiryFormdataPost(event) {
-  event.preventDefault();
-  var userId = document.forms["InquiryForm"]["userId"].value;
-  var cuName = document.forms["InquiryForm"]["cuName"].value;
-  var cuMobile = document.forms["InquiryForm"]["cuMobile"].value;
-  var cuEmail = document.forms["InquiryForm"]["cuEmail"].value;
-  var cuAddress = document.forms["InquiryForm"]["cuAddress"].value;
-  var requiredService = document.forms["InquiryForm"]["requiredService"].value;
-  // alert(cuName);
+    function inquiryFormdataPost(event) {
+        event.preventDefault();
+        var userId = document.forms["InquiryForm"]["userId"].value;
+        var cuName = document.forms["InquiryForm"]["cuName"].value;
+        var cuMobile = document.forms["InquiryForm"]["cuMobile"].value;
+        var cuEmail = document.forms["InquiryForm"]["cuEmail"].value;
+        var cuAddress = document.forms["InquiryForm"]["cuAddress"].value;
+        var requiredService = document.forms["InquiryForm"]["requiredService"].value;
+        // alert(cuName);
 
-if("<?php echo $userEmail; ?>"==""){
-// alert("session expired");
-swal("Sorry!", "Please login your Account", "error");    
-}else if("<?php echo $userEmail; ?>"!==cuEmail){
-swal("Sorry!", "Your Email Id not matched", "error");
-}else{
+        if ("<?php echo $userEmail; ?>" == "") {
+            // alert("session expired");
+            // swal("Sorry!", "Please login your Account", "error");
+            $('#ExploreStore').modal('hide');
+            $('#signin').modal('show');
+        } else if ("<?php echo $userEmail; ?>" !== cuEmail) {
+            swal("Sorry!", "Your Email Id not matched", "error");
+        } else {
 
-    $.ajax({
-    url:'<?php echo $BASE_URL ?>admin/action/customer_inquiry_post.php',
-    type:'POST',
-    data:{
-       "cuId":"<?php echo $userId; ?>", 
-       "userId":userId,
-       "cuName":cuName,
-       "cuMobile":cuMobile,
-       "cuEmail":cuEmail,
-       "cuAddress":cuAddress,
-       "requiredService":requiredService
-    },
-    success:function(response){
-        // alert(response);
-     if(response=="1"){
-        swal("Thank you!", "Your message has been successfully sent. We will contact you very soon!", "success");
-        $("#InquiryForm")[0].reset();
-     }else if(response=="0"){
-        swal("Sorry!", "Something Went Wrong! Please check the API ", "error");
-     } 
+            $.ajax({
+                url: '<?php echo $BASE_URL ?>admin/action/customer_inquiry_post.php',
+                type: 'POST',
+                data: {
+                    "cuId": "<?php echo $userId; ?>",
+                    "userId": userId,
+                    "cuName": cuName,
+                    "cuMobile": cuMobile,
+                    "cuEmail": cuEmail,
+                    "cuAddress": cuAddress,
+                    "requiredService": requiredService
+                },
+                success: function(response) {
+                    // alert(response);
+                    if (response == "1") {
+                        swal("Thank you!", "Your message has been successfully sent. We will contact you very soon!", "success");
+                        $("#InquiryForm")[0].reset();
+                    } else if (response == "0") {
+                        swal("Sorry!", "Something Went Wrong! Please check the API ", "error");
+                    }
+                }
+            });
+
+        }
+        exit();
     }
-  });    
-    
-}
-exit();  
-}
 </script>
 
 
@@ -199,132 +198,130 @@ exit();
                 </nav>
             </div>
         </div>
-        <?php 
-                       
-                     $counter=0;  
-                     foreach($result as $key => $value){
-                     foreach($value as $key1 => $value1)
-                    {
+        <?php
 
-                  ?>
+        $counter = 0;
+        foreach ($result as $key => $value) {
+            foreach ($value as $key1 => $value1) {
 
-        <div class="row border p-3 rounded">
+        ?>
 
-            <div class="col-lg-2 col-xl-2 col-md-6 col-sm-12 col-xs-12 py-3 d-flex justify-content-center">
-                 <?php
-                     error_reporting(0); 
-                    $file=$USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png";
-                    if(getimagesize($file))
-                    { ?>
-                    <img class="img-account-profile img-fluid img-thumbnail rounded-circle mb-2" src="<?php echo $USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png"; ?>" alt="Profile Image">
-                    <?php } else { ?>
-                    <img class="img-account-profile rounded-circle mb-2" src="assets/img/avatar1.png" alt="">
-                    <?php } ?>
-            </div>
+                <div class="row border p-3 rounded">
 
-            <div class="col-lg-7 col-xl-7 col-md-6 col-sm-12 col-xs-12">
-
-                <h2><?php echo $value1->businessName; ?></h2>
-                <div>
-                    <span class="bg-success text-white px-2 rounded">4.0</span>
-                    <span class="fa fa-star rated"></span>
-                    <span class="fa fa-star rated"></span>
-                    <span class="fa fa-star rated"></span>
-                    <span class="fa fa-star rated"></span>
-                    <span class="fa fa-star"></span>&nbsp;
-                    <span class="text-secondary">223 Ratings</span>
-                    <span><i class="bi bi-check-circle-fill"></i> Checked</span>
-                </div>
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <?php echo $value1->city.", ".$value1->state; ?> 
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <i class="bi bi-dot"></i>Open Until 8:00 pm
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <i class="bi bi-dot"></i>15 Yrs in Business
-                    </div>
-                </div>
-                <div>
-                    300 people recently enquired
-                </div>
-                <div class="border bg-success text-white btn mt-2">
-                <i class="fa fa-phone"></i>
-                <?php echo $value1->userMobile; ?>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center mt-1">
-                <a class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ExploreStore" href="">
-                    <b>Enquiry Now</b>
-                </a>
-            </div>
-
-        </div>
-
-
-        <div class="row d-flex mt-3 justify-content-between">
-            <div class="col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
-                <h5>Quick Information</h5>
-
-                <div class="row">
-                    <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
-                        <h6 class="text-secondary">Mode of Payment</h6>
-                        <h6><?php echo $value1->paymentMode; ?></h6>
+                    <div class="col-lg-2 col-xl-2 col-md-6 col-sm-12 col-xs-12 py-3 d-flex justify-content-center">
+                        <?php
+                        error_reporting(0);
+                        $file = $USER_PROFILE_IMGPATH . $userId . "/user_img_" . $userId . ".png";
+                        if (getimagesize($file)) { ?>
+                            <img class="img-account-profile img-fluid img-thumbnail rounded-circle mb-2" src="<?php echo $USER_PROFILE_IMGPATH . $userId . "/user_img_" . $userId . ".png"; ?>" alt="Profile Image">
+                        <?php } else { ?>
+                            <img class="img-account-profile rounded-circle mb-2" src="assets/img/avatar1.png" alt="">
+                        <?php } ?>
                     </div>
 
-                    <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
-                        <h6 class="text-secondary">Year of Establishment</h6>
-                        <h6><?php echo $value1->establishmentYear; ?></h6>
+                    <div class="col-lg-7 col-xl-7 col-md-6 col-sm-12 col-xs-12">
+
+                        <h2><?php echo $value1->businessName; ?></h2>
+                        <div>
+                            <span class="bg-success text-white px-2 rounded">4.0</span>
+                            <span class="fa fa-star rated"></span>
+                            <span class="fa fa-star rated"></span>
+                            <span class="fa fa-star rated"></span>
+                            <span class="fa fa-star rated"></span>
+                            <span class="fa fa-star"></span>&nbsp;
+                            <span class="text-secondary">223 Ratings</span>
+                            <span><i class="bi bi-check-circle-fill"></i> Checked</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <?php echo $value1->city . ", " . $value1->state; ?>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <i class="bi bi-dot"></i>Open Until 8:00 pm
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <i class="bi bi-dot"></i>15 Yrs in Business
+                            </div>
+                        </div>
+                        <div>
+                            300 people recently enquired
+                        </div>
+                        <div class="border bg-success text-white btn mt-2">
+                            <i class="fa fa-phone"></i>
+                            <?php echo $value1->userMobile; ?>
+                        </div>
                     </div>
 
-                    <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
-                        <h6 class="text-secondary">Timings</h6>
-                        <h6><?php echo $value1->businessDay; ?><br><?php echo $value1->businessTiming; ?></h6>
+                    <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center mt-1">
+                        <a class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ExploreStore" href="">
+                            <b>Enquiry Now</b>
+                        </a>
                     </div>
+
                 </div>
-                <div class="row">
-                    <h5>Services</h5>
-                    <p><?php echo $value1->userServices; ?></p>
+
+
+                <div class="row d-flex mt-3 justify-content-between">
+                    <div class="col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
+                        <h5>Quick Information</h5>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
+                                <h6 class="text-secondary">Mode of Payment</h6>
+                                <h6><?php echo $value1->paymentMode; ?></h6>
+                            </div>
+
+                            <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
+                                <h6 class="text-secondary">Year of Establishment</h6>
+                                <h6><?php echo $value1->establishmentYear; ?></h6>
+                            </div>
+
+                            <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
+                                <h6 class="text-secondary">Timings</h6>
+                                <h6><?php echo $value1->businessDay; ?><br><?php echo $value1->businessTiming; ?></h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h5>Services</h5>
+                            <p><?php echo $value1->userServices; ?></p>
+                        </div>
+                        <div class="row mt-4">
+                            <h5>About Us</h5>
+                            <div class="col">
+                                <?php echo $value1->aboutUser; ?>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
+                        <h5>Address</h5>
+                        <h6><?php echo $value1->userAddress; ?></h6>
+
+                        <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
+                        <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
+                        <hr>
+                        <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
+                        <hr>
+                        <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get info via SMS/Email</a>
+                        <hr>
+                        <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
+                        <hr>
+                        <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
+                        <hr>
+                        <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
+                    </div>
+
                 </div>
-                <div class="row mt-4">
-                    <h5>About Us</h5>
+
+                <div class="row border rounded mt-4 py-3">
                     <div class="col">
-                     <?php echo $value1->aboutUser; ?>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
-                <h5>Address</h5>
-                <h6><?php echo $value1->userAddress; ?></h6>
-
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
-                <hr>
-                <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
-                <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get info via SMS/Email</a>
-                <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
-                <hr>
-                <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
-                <hr>
-                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
-            </div>
-
-        </div>
-
-        <div class="row border rounded mt-4 py-3">
-            <div class="col">
-                <h5>Photos</h5>
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" class="img-fluid border rounded">
-                    </div>
-                    <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
+                        <h5>Photos</h5>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
+                                <img src="<?php echo $USER_WALL_IMGPATH . $id . '/wall_img_' . $id . '.png'; ?>" class="img-fluid border rounded">
+                            </div>
+                            <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">
                     </div>
                     <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
@@ -336,11 +333,12 @@ exit();
                     <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">
                     </div> -->
+                        </div>
+
+                    </div>
                 </div>
-              
-            </div>
-        </div>
-<?php } } ?>
+        <?php }
+        } ?>
         <div class="row border rounded mt-4 py-3">
             <div class="col">
                 <h5>Question & Answers</h5>
@@ -390,24 +388,16 @@ exit();
                         <ul class="d-flex justify-content-between" id="myTab" role="tablist">
                             <div class="nav nav-tabs">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                                        data-bs-target="#home-tab-pane" type="button" role="tab"
-                                        aria-controls="home-tab-pane" aria-selected="true">Relevant</button>
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Relevant</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
-                                        data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                        aria-controls="profile-tab-pane" aria-selected="false">Friends Ratings</button>
+                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Friends Ratings</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
-                                        data-bs-target="#contact-tab-pane" type="button" role="tab"
-                                        aria-controls="contact-tab-pane" aria-selected="false">Latest</button>
+                                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Latest</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="disabled-tab" data-bs-toggle="tab"
-                                        data-bs-target="#disabled-tab-pane" type="button" role="tab"
-                                        aria-controls="disabled-tab-pane" aria-selected="false">High to Low</button>
+                                    <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">High to Low</button>
                                 </li>
                             </div>
                             <li class="nav-item" style="list-style-type: none;">
@@ -415,20 +405,16 @@ exit();
                                     <span class="input-group-text" id="SearchReview">
                                         <i class="bi bi-search"></i>
                                     </span>
-                                    <input type="text" size="40" class="form-control" placeholder="Search Reviews"
-                                        aria-describedby="SearchReview">
+                                    <input type="text" size="40" class="form-control" placeholder="Search Reviews" aria-describedby="SearchReview">
                                 </div>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
 
-                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
-                                aria-labelledby="home-tab" tabindex="0">
+                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 
                                 <div class="d-flex flex-start p-5">
-                                    <img class="rounded-circle shadow-1-strong me-3"
-                                        src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (23).webp" alt="avatar"
-                                        width="60" height="60" />
+                                    <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (23).webp" alt="avatar" width="60" height="60" />
                                     <div>
                                         <h6 class="fw-bold mb-1">Maggie Marsh</h6>
                                         <div class="d-flex align-items-center mb-3">
@@ -448,16 +434,13 @@ exit();
 
                         </div>
 
-                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
-                            tabindex="0">
+                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                             ...
                         </div>
-                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
-                            tabindex="0">
+                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
                             ...
                         </div>
-                        <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab"
-                            tabindex="0">
+                        <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
                             ...
                         </div>
                     </div>

@@ -183,6 +183,7 @@ $result = json_decode($response);
         var userPass = $('#userPass').val();
         // var data = userType+"-"+userName+"-"+userEmail+"-"+userMobile+"-"+userPass;
         // alert(data);
+        if(/^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/.test(userEmail)) {
         $.ajax({
             url: '<?php echo $BASE_URL ?>admin/action/user_registration_post.php',
             type: 'POST',
@@ -202,6 +203,9 @@ $result = json_decode($response);
                 }
             }
         });
+    }else{
+        swal("Sorry!", "Please Enter valid Email", "error");    
+    }
     }
     </script>
 
