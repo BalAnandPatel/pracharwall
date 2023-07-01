@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
     $response = curl_exec($client);
     //print_r($response);
     $profile_result = json_decode($response);
-    //print_r($profile_result);    
+    print_r($profile_result);    
 } else {
     echo '<script>window.location="profile.php"</script>';
 }
@@ -88,7 +88,9 @@ if (isset($_POST['update'])) {
                                                 </select>
                                             <?php } else { ?>
                                                 <label class="small mb-1">Business Category</label>
-                                                <input class="form-control" type="text" value="<?php echo $profile_value1->businessCategory; ?>" disabled>
+                                                <select class="form-select bg-light" name="businessCategory" aria-label="Default select example">
+                                                <option value="<?php echo $profile_value1->categoryId; ?>" selected><?php echo $profile_value1->businessCategory; ?></option>
+                                                </select>
                                             <?php } ?>
                                     </div>
                                     <!-- <div class="col-md-6">
@@ -103,7 +105,7 @@ if (isset($_POST['update'])) {
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputUsername">Business Name (How your name will appear to
                                         other users on the site)</label>
-                                    <input style="text-transform:capitalize;" type="text" class="form-control"  name="businessName" value="<?php echo $profile_value1->businessName; ?>" placeholder="Enter your business name" autocomplete="off">
+                                    <input style="text-transform:capitalize;" type="text" class="form-control"  name="businessName" value="<?php echo $profile_value1->businessName; ?>" placeholder="Enter your business name" autocomplete="off" required>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-12">
@@ -113,16 +115,16 @@ if (isset($_POST['update'])) {
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputLocation">Address</label>
-                                    <input style="text-transform:capitalize;" class="form-control" name="userAddress" value="<?php echo $profile_value1->userAddress; ?>" type="text" placeholder="Enter your location" autocomplete="off">
+                                    <input style="text-transform:capitalize;" class="form-control" name="userAddress" value="<?php echo $profile_value1->userAddress; ?>" type="text" placeholder="Enter your location" autocomplete="off" required>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputcity">City</label>
-                                        <input style="text-transform:capitalize;" class="form-control" name="city" value="<?php echo $profile_value1->city; ?>" type="text" placeholder="Enter your city" autocomplete="off">
+                                        <input style="text-transform:capitalize;" class="form-control" name="city" value="<?php echo $profile_value1->city; ?>" type="text" placeholder="Enter your city" autocomplete="off" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputstate">State</label>
-                                        <input style="text-transform:capitalize;" class="form-control" name="state" value="<?php echo $profile_value1->state; ?>" type="text" placeholder="Enter your state" autocomplete="off">
+                                        <input style="text-transform:capitalize;" class="form-control" name="state" value="<?php echo $profile_value1->state; ?>" type="text" placeholder="Enter your state" autocomplete="off" required>
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
@@ -142,13 +144,13 @@ if (isset($_POST['update'])) {
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputEmailAddress">Year of Establishment</label>
-                                        <input class="form-control" name="establishmentYear" value="<?php echo $profile_value1->establishmentYear; ?>" type="number" placeholder="Enter the year of establishment" autocomplete="off">
+                                        <input class="form-control" name="establishmentYear" value="<?php echo $profile_value1->establishmentYear; ?>" type="number" placeholder="Enter the year of establishment" autocomplete="off" required>
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col">
                                         <label class="small mb-1" for="inputPhone">Timing</label>
-                                        <input style="text-transform:capitalize;" class="form-control" name="businessTiming" value="<?php echo $profile_value1->businessTiming; ?>" type="text" placeholder="@10:00am - 8:00pm" autocomplete="off">
+                                        <input style="text-transform:capitalize;" class="form-control" name="businessTiming" value="<?php echo $profile_value1->businessTiming; ?>" type="text" placeholder="@10:00am - 8:00pm" autocomplete="off" required>
                                     </div>
                                     <div class="col">
                                         <label class="small mb-1" for="fromDay">From</label>
@@ -225,12 +227,12 @@ if (isset($_POST['update'])) {
                                     </div>
                                     <div class="col-md-6">
                                 <label class="small mb-1" for="services">Type Your Sevices</label>
-                                    <textarea style="text-transform:capitalize;" class="form-control" name="userServices" value="<?php echo $profile_value1->userServices; ?>" rows="1"><?php echo $profile_value1->userServices; ?></textarea>
+                                    <textarea style="text-transform:capitalize;" class="form-control" name="userServices" value="<?php echo $profile_value1->userServices; ?>" rows="1" placeholder="About your services" required><?php echo $profile_value1->userServices; ?></textarea>
                             </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputBirthday">About Your Business</label>
-                                    <textarea class="form-control" name="aboutUser" value="<?php echo $profile_value1->aboutUser; ?>" rows="4"><?php echo $profile_value1->aboutUser; ?></textarea>
+                                    <textarea class="form-control" name="aboutUser" value="<?php echo $profile_value1->aboutUser; ?>" rows="4" placeholder="About your business" required><?php echo $profile_value1->aboutUser; ?></textarea>
                                 </div>
                                 <input type="hidden" name="userId" value="<?php echo $userId; ?>">
                                 <button class="btn btn-primary" name="update_profile" type="submit">Save changes</button>

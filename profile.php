@@ -131,7 +131,7 @@ $(document).ready(function(){
                         <i class="bi bi-dot"></i>Open Until 8:00 pm
                     </div>
                     <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <i class="bi bi-dot"></i><?php $C_DATE = date("Y"); echo $C_DATE-$value1->establishmentYear; ?> Yrs in Business
+                        <i class="bi bi-dot"></i><?php $C_YEAR=date("Y"); $E_YEAR=$value1->establishmentYear; echo $C_YEAR-$E_YEAR; ?> Yrs in Business
                     </div>
                 </div>
                 <div>

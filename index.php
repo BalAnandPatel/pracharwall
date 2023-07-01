@@ -204,7 +204,8 @@ return $result;
                     </a>
                     <?php }} ?>
                     <?php }else{
-                        echo '<script>document.getElementById("hideCategory").style.display="none"</script>';
+                        echo "comming soon";
+                        // echo '<script>document.querySelectorAll("#hideCategory").style.display="none"</script>';
                     } ?>
 
                     <!-- <div class="card swiper-slide">

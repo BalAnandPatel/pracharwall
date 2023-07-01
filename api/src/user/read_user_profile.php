@@ -51,6 +51,7 @@ if($num>0){
             "userMobile"=>$userMobile,
             "status"=>$status,
             "businessCategory"=>$businessCategory,
+            "categoryId"=>$categoryId,
             "businessName"=>$businessName,
             "establishmentYear"=>$establishmentYear,
             "paymentMode"=>$paymentMode,
