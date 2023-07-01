@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
     $response = curl_exec($client);
     //print_r($response);
     $profile_result = json_decode($response);
-    print_r($profile_result);    
+    //print_r($profile_result);    
 } else {
     echo '<script>window.location="profile.php"</script>';
 }

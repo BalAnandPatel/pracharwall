@@ -3,8 +3,10 @@ class Admin{
 
     private $conn;
     private $business_category = "business_category";
+    private $user_registration = "user_registration";
 
     public $id, $businessCategory, $subCategory, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
+    public $userType;
 
     public function __construct($db){
         $this->conn = $db;
@@ -92,5 +94,23 @@ class Admin{
     return false;
 }
   
+// counting details for admin dashboard 
+ 
+// Users Count
+
+function usersCount(){
+     
+    // select all query
+	   $query = "SELECT COUNT(id) as users_count FROM " . $this->user_registration . " where userType=:userType and status=:status";
+    
+    $stmt = $this->conn->prepare($query);
+  
+   $stmt->bindParam(":userType", $this->userType);
+   $stmt->bindParam(":status", $this->status);
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
 }
 ?>

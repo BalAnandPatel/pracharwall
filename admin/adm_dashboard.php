@@ -6,37 +6,37 @@ echo '<script>window.location="'.$BASE_URL.'"</script>';
 }
 ?>
 <?php
-// function giplCurl($url, $postdata)
-// {
-//   $client = curl_init($url);
-//   curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
-//   curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-//   $response = curl_exec($client);
-//   // print_r($response);
-//   return $result = json_decode($response);
-// }
+function giplCurl($url, $postdata)
+{
+  $client = curl_init($url);
+  curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+  $response = curl_exec($client);
+  //print_r($response);
+  return $result = json_decode($response);
+}
 
 
-// $url_read_total_reg = $URL . "dashboard/total_reg_count.php";
+ $url_read_total_users = $URL . "admin/read_users_count.php";
 // $url_read_total_vacancy = $URL . "dashboard/total_vacancy_count.php";
 
 
-// $data_pending = array("status" => '0');
-// $postdata_pending = json_encode($data_pending);
+$data_pending = array("status" => '0', "userType" => '2');
+$postdata_pending = json_encode($data_pending);
 
-// $data_approved = array("status" => '1');
-// $postdata_approved = json_encode($data_approved);
+$data_approved = array("status" => '1', "userType" => '2');
+$postdata_approved = json_encode($data_approved);
 
 // $data_rejected = array("status" => '2');
 // $postdata_rejected = json_encode($data_rejected);
 
-// $result_pendin_reg = giplCurl($url_read_total_reg, $postdata_pending);
-// //print_r($result_pendin_reg);
-// $pending_registration = $result_pendin_reg->records[0]->reg_count;
+$result_pendin_reg = giplCurl($url_read_total_users, $postdata_pending);
+//print_r($result_pendin_reg);
+$pending_users = $result_pendin_reg->records[0]->users_count;
 
-// $result_approved_reg = giplCurl($url_read_total_reg, $postdata_approved);
-// //print_r($result_approved_reg);
-// $approved_registration = $result_approved_reg->records[0]->reg_count;
+$result_approved_users = giplCurl($url_read_total_users, $postdata_approved);
+//print_r($result_approved_users);
+$approved_users = $result_approved_users->records[0]->users_count;
 
 // $result_rejected_reg = giplCurl($url_read_total_reg, $postdata_rejected);
 // //print_r($result_rejected_reg);
@@ -76,9 +76,9 @@ echo '<script>window.location="'.$BASE_URL.'"</script>';
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3> <?php // echo $pending_registration; ?></h3>
+              <h3> <?php  echo $pending_users; ?></h3>
 
-              <p>Pending Registrations</p>
+              <p>Pending Users</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -91,9 +91,9 @@ echo '<script>window.location="'.$BASE_URL.'"</script>';
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3><?php // echo $approved_registration; ?></h3>
+              <h3><?php echo $approved_users; ?></h3>
 
-              <p>Approved Registrations</p>
+              <p>Approved Users</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -109,7 +109,7 @@ echo '<script>window.location="'.$BASE_URL.'"</script>';
             <div class="inner">
               <h3><?php // echo $rejected_registration; ?></h3>
 
-              <p>Rejected Registrations</p>
+              <p>Rejected Users</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -124,7 +124,7 @@ echo '<script>window.location="'.$BASE_URL.'"</script>';
             <div class="inner">
 
               <h3><?php // echo $total_vacncy;  ?></h3>
-              <p>Number of vacancies</p>
+              <p>Number of Customers</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

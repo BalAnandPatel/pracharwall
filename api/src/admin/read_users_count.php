@@ -10,56 +10,47 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // include database and object files
 include_once '../../config/database.php';
-include_once '../../objects/ticket.php';
+include_once '../../objects/admin.php';
   
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
   
 // initialize object
-$read_ticket = new Ticket($db);
+$read_users_count = new Admin($db);
   
 $data = json_decode(file_get_contents("php://input"));
 //print_r($data);
 
-$read_ticket->userType = $data->userType;
-$read_ticket->userId = $data->userId;
-$read_ticket->status = $data->status;
+$read_users_count->userType = $data->userType;
+$read_users_count->status = $data->status;
 
-$stmt = $read_ticket->readTicketDetailsByStatus();
+$stmt = $read_users_count->usersCount();
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
 if($num>0){
   
     // products array
-    $read_tickets_arr=array();
-    $read_tickets_arr["records"]=array();
+    $read_users_counts_arr=array();
+    $read_users_counts_arr["records"]=array();
 
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
      
         extract($row);
   
-        $read_ticket_item=array(
+        $read_users_count_item=array(
 
-            "id"=>$id,
-            "ticketId"=>$ticketId,
-            "userId"=>$userId,
-            "ticketId"=>$ticketId,
-            "ticketAmount"=>$ticketAmount,
-            "lotteryAmount"=>$lotteryAmount,
-            "lotteryNum"=>$lotteryNum,
-            "status"=>$status,
-            "createdBy"=>$createdBy,
-            "createdOn"=>$createdOn
+            "users_count"=>$users_count
+
              );
   
-        array_push($read_tickets_arr["records"], $read_ticket_item);
+        array_push($read_users_counts_arr["records"], $read_users_count_item);
     }
   
     // show products data in json format
-    echo json_encode($read_tickets_arr);
+    echo json_encode($read_users_counts_arr);
 
      // set response code - 200 OK
      http_response_code(200);
@@ -73,7 +64,7 @@ else{
   
     // tell the user no products found
     echo json_encode(
-        array("message" => "No ticket histry found.")
+        array("message" => "No users found.")
     );
 }
 ?>
