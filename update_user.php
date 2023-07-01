@@ -80,7 +80,7 @@ if (isset($_POST['update'])) {
                                                 foreach ($result as $key => $value) {
                                                     foreach ($value as $key1 => $value1) {
                                                 ?>
-                                                        <option value="<?php echo $value1->businessCategory; ?>"><?php echo $value1->businessCategory; ?></option>
+                                                        <option value="<?php echo $value1->id; ?>"><?php echo $value1->businessCategory; ?></option>
                                                 <?php
                                                     }
                                                 }
@@ -88,7 +88,7 @@ if (isset($_POST['update'])) {
                                                 </select>
                                             <?php } else { ?>
                                                 <label class="small mb-1">Business Category</label>
-                                                <input class="form-control" type=text"" value="<?php echo $profile_value1->businessCategory; ?>" disabled>
+                                                <input class="form-control" type="text" value="<?php echo $profile_value1->businessCategory; ?>" disabled>
                                             <?php } ?>
                                     </div>
                                     <!-- <div class="col-md-6">
@@ -103,7 +103,7 @@ if (isset($_POST['update'])) {
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputUsername">Business Name (How your name will appear to
                                         other users on the site)</label>
-                                    <input class="form-control" name="businessName" value="<?php echo $profile_value1->businessName; ?>" type="text" placeholder="Enter your business name">
+                                    <input style="text-transform:capitalize;" type="text" class="form-control"  name="businessName" value="<?php echo $profile_value1->businessName; ?>" placeholder="Enter your business name" autocomplete="off">
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-12">
@@ -113,16 +113,16 @@ if (isset($_POST['update'])) {
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputLocation">Address</label>
-                                    <input class="form-control" name="userAddress" value="<?php echo $profile_value1->userAddress; ?>" type="text" placeholder="Enter your location">
+                                    <input style="text-transform:capitalize;" class="form-control" name="userAddress" value="<?php echo $profile_value1->userAddress; ?>" type="text" placeholder="Enter your location" autocomplete="off">
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputcity">City</label>
-                                        <input class="form-control" name="city" value="<?php echo $profile_value1->city; ?>" type="text" placeholder="Enter your city">
+                                        <input style="text-transform:capitalize;" class="form-control" name="city" value="<?php echo $profile_value1->city; ?>" type="text" placeholder="Enter your city" autocomplete="off">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputstate">State</label>
-                                        <input class="form-control" name="state" value="<?php echo $profile_value1->state; ?>" type="text" placeholder="Enter your state">
+                                        <input style="text-transform:capitalize;" class="form-control" name="state" value="<?php echo $profile_value1->state; ?>" type="text" placeholder="Enter your state" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
@@ -138,17 +138,17 @@ if (isset($_POST['update'])) {
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputPhone">Alternative Phone number</label>
-                                        <input class="form-control" value="<?php echo $profile_value1->alterMobile; ?>" name="alterMobile" type="number" placeholder="Enter your phone number">
+                                        <input class="form-control" value="<?php echo $profile_value1->alterMobile; ?>" name="alterMobile" type="number" placeholder="Enter your phone number" autocomplete="off">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputEmailAddress">Year of Establishment</label>
-                                        <input class="form-control" name="establishmentYear" value="<?php echo $profile_value1->establishmentYear; ?>" type="text" placeholder="Enter the year of establishment">
+                                        <input class="form-control" name="establishmentYear" value="<?php echo $profile_value1->establishmentYear; ?>" type="number" placeholder="Enter the year of establishment" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col">
                                         <label class="small mb-1" for="inputPhone">Timing</label>
-                                        <input class="form-control" name="businessTiming" value="<?php echo $profile_value1->businessTiming; ?>" type="text" placeholder="@10:00am - 8:00pm">
+                                        <input style="text-transform:capitalize;" class="form-control" name="businessTiming" value="<?php echo $profile_value1->businessTiming; ?>" type="text" placeholder="@10:00am - 8:00pm" autocomplete="off">
                                     </div>
                                     <div class="col">
                                         <label class="small mb-1" for="fromDay">From</label>
@@ -221,13 +221,12 @@ if (isset($_POST['update'])) {
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="userWebsite">Your Website</label>
-                                        <input class="form-control" name="userWebsite" value="<?php echo $profile_value1->userWebsite; ?>" type="url" placeholder="https://www.website.com">
+                                        <input class="form-control" name="userWebsite" value="<?php echo $profile_value1->userWebsite; ?>" type="url" placeholder="https://www.website.com" autocomplete="off">
                                     </div>
-                                    <!-- <div class="col-md-6">
-                                <label class="small mb-1" for="inputEmailAddress">Year of Establishment</label>
-                                <input class="form-control" id="inputEmailAddress" type="email"
-                                    placeholder="Enter the year of establishment">
-                            </div> -->
+                                    <div class="col-md-6">
+                                <label class="small mb-1" for="services">Type Your Sevices</label>
+                                    <textarea style="text-transform:capitalize;" class="form-control" name="userServices" value="<?php echo $profile_value1->userServices; ?>" rows="1"><?php echo $profile_value1->userServices; ?></textarea>
+                            </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="small mb-1" for="inputBirthday">About Your Business</label>

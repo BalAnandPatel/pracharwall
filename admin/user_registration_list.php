@@ -9,6 +9,7 @@ $data = array("status"=>$status, "userType"=>$userType);
 //print_r($data);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
+//print_r($result);
 
 function giplCurl($url,$postdata){
 $client = curl_init($url);
@@ -68,6 +69,7 @@ return $result = json_decode($response);
                 <thead>
                   <tr class="table-warning">
                     <th>Sr No.</th>
+                    <th>User Img</th>
                     <th>User Name</th>
                     <th>Mobile No.</th>
                     <th>Email Id</th>
@@ -88,6 +90,10 @@ return $result = json_decode($response);
                       <tr>
                         <td>
                           <?php echo ++$counter; ?>
+                        </td>
+                        <td>
+                          <?php $uid = $value1->id; ?>
+                          <img class="img-fluid img-thumbnail rounded-circle" height="100" width="100" src="<?php echo $USER_PROFILE_IMGPATH.$uid."/user_img_".$uid.".png"; ?>">
                         </td>
                         <td>
                           <?php echo $value1->userName; ?>
@@ -171,12 +177,14 @@ return $result = json_decode($response);
         console.log("depth" + JSON.stringify(response));
         // console.log(response.records[0].userName);
         // alert("response");
-        // document.getElementById("viewUserId").innerHTML = response.records[0].id;
-        document.getElementById("viewUserName").innerHTML = response.records[0].userName;
-        document.getElementById("viewUserEmail").innerHTML = response.records[0].userEmail;
-        document.getElementById("viewUserMobile").innerHTML = "+91-"+response.records[0].userMobile;
+        var u_id = response.records[0].id;
+        document.getElementById("viewUserImg").src = "<?php echo $USER_WALL_IMGPATH ?>"+u_id+"/wall_img_"+u_id+".png";
+        // document.getElementById("viewUserName").innerHTML = response.records[0].userName;
+        // document.getElementById("viewUserEmail").innerHTML = response.records[0].userEmail;
+        // document.getElementById("viewUserMobile").innerHTML = "+91-"+response.records[0].userMobile;
         document.getElementById("viewBusinessCategory").innerHTML = response.records[0].businessCategory;
         document.getElementById("viewUserAddress").innerHTML = response.records[0].userAddress;
+        document.getElementById("viewUserServices").innerHTML = response.records[0].userServices;
         document.getElementById("viewAlterMobile").innerHTML = response.records[0].alterMobile;
         document.getElementById("viewBusinessDay").innerHTML = response.records[0].businessDay;
         document.getElementById("viewUserWebsite").innerHTML = response.records[0].userWebsite;
@@ -209,12 +217,11 @@ return $result = json_decode($response);
                                 <div class="col-lg-4">
                                     <div class="card mb-4">
                                         <div class="card-body text-center">
-                                           
-                                            <img src="" alt="avatar"
-                                                class="rounded-circle img-fluid">
-                                            <h5 id="viewUserName" class="my-3"></h5>
-                                            <p id="viewUserEmail" class="text-muted mb-1"></p>
-                                            <p id="viewUserMobile" class="text-muted mb-4"></p>
+                                        <h5 id="viewUserName" class="my-3">Business Banner</h5>
+                                            <img src="" id="viewUserImg" alt="user image"
+                                                class="rounded-0 img-fluid img-thumbnail" height="100%" width="100%">
+                                            <!--<p id="viewUserEmail" class="text-muted mb-1"></p>-->
+                                            <!-- <p id="viewUserMobile" class="text-muted mb-4"></p> --> 
                                             <!-- <div class="d-flex justify-content-center mb-2">
                                                 <button type="button" class="btn btn-primary">Edit Proflie <i
                                                         class="bi bi-pencil-square"></i></button>
@@ -222,7 +229,6 @@ return $result = json_decode($response);
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-8">
                                     <div class="card">
                                         <div class="card-body">
@@ -331,6 +337,15 @@ return $result = json_decode($response);
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <p id="viewAboutUser" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">User's Services</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewUserServices" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
                                             <hr>

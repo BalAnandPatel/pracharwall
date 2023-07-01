@@ -128,7 +128,7 @@ return $result;
                 foreach ($value as $key1 => $value1) {
             ?>
                     <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4 img-thumbnail m-1">
-                        <a href="profile_list.php?category=<?php echo base64_encode($value1->businessCategory); ?>">
+                        <a href="profile_list.php?category=<?php echo base64_encode($value1->id); ?>">
                             <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>" style="height:60px;">
                             <p>
                                 <?php echo $value1->businessCategory; ?>
@@ -163,7 +163,7 @@ return $result;
     ?>
 
     <div class="row mt-3">
-        <h3 class="card-title"><?php echo $value1->businessCategory; ?></h3>
+        <h3 class="card-title" id="hideCategory"><?php echo $value1->businessCategory; ?></h3>
     </div>
     <div class="slide-container swiper">
             <div class="slide-content">
@@ -171,20 +171,20 @@ return $result;
                 <?php
                     $url = $URL . "user/read_profile_by_category.php";
                     $userType = '2';
-                    $businessCategory = $value1->businessCategory;
+                    $businessCategory = $value1->id;
                     $data = array("userType" => $userType, "businessCategory" => $businessCategory);
                     $postdata = json_encode($data);
                     $result = giplCurl($url,$postdata);
                     // print_r($result);
                     ?>
-                    <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>s
+                    <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>
                     <?php 
                       $counter=0;  
                       foreach($result as $key => $value){
                       foreach($value as $key1 => $value1)
                      {
                     ?>
-
+                    
                     <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>">
                         <div class="card swiper-slide">
                             <div class="image-content">
@@ -204,7 +204,7 @@ return $result;
                     </a>
                     <?php }} ?>
                     <?php }else{
-                        echo '<p class="text-center text-warning p-2">No Business Listed</p>';
+                        echo '<script>document.getElementById("hideCategory").style.display="none"</script>';
                     } ?>
 
                     <!-- <div class="card swiper-slide">

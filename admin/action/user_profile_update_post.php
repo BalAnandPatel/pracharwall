@@ -10,17 +10,18 @@ if(isset($_POST["update_profile"])){
  $city=ucwords($_POST["city"]);
  $alterMobile=strtoupper($_POST["alterMobile"]);
  $establishmentYear=$_POST["establishmentYear"];
- $businessTiming=$_POST["businessTiming"];
+ $businessTiming=ucwords($_POST["businessTiming"]);
  $paymentMode =implode(", ", $_POST["paymentMode"]);
  $businessDay =implode(" - ", $_POST["businessDay"]);
  $userWebsite=$_POST["userWebsite"];
+ $userServices=ucwords($_POST["userServices"]);
  $aboutUser=$_POST["aboutUser"];
  $updatedOn=date("Y-m-d");
  $updatedBy=$_POST["userId"];
   
  $url = $URL . "user/update_user_profile.php";
 
- $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userWebsite"=>$userWebsite, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+ $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
 //   print_r($data);
 

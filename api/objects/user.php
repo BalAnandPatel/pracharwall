@@ -5,6 +5,7 @@ class User
 
     private $conn;
     private $user_profile = "user_profile";
+    private $business_category = "business_category";
     private $customer_inquiry = "customer_inquiry";
     private $user_registration = "user_registration";
     private $user_type = "user_type";
@@ -31,12 +32,12 @@ class User
     {
 
         if($this->status=='1'){
-        $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where user.status=1 and user.userType=:userType and user.id=:id";
+        $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where user.status=1 and user.userType=:userType and user.id=:id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id);
     }else{
-         $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where user.userType=:userType and user.id=:id and (user.status=1 or user.status=0 or user.status=2)";
+        $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where user.userType=:userType and user.id=:id and (user.status=1 or user.status=0 or user.status=2)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id); 
@@ -47,7 +48,7 @@ class User
 
         public function readAllProfileByCategory()
     {
-      $query = "Select up.id, userId, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId where businessCategory=:businessCategory and user.status=1 and user.userType=:userType";
+       $query = "Select up.id, userId, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.businessCategory=:businessCategory and user.status=1 and user.userType=:userType";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":businessCategory", $this->businessCategory);
@@ -218,6 +219,7 @@ class User
                    state=:state, 
                    alterMobile=:alterMobile,
                    aboutUser=:aboutUser,
+                   userServices=:userServices,
                    establishmentYear=:establishmentYear,
                    businessTiming=:businessTiming,
                    businessDay=:businessDay,
@@ -236,6 +238,7 @@ class User
         $this->state = htmlspecialchars(strip_tags($this->state));
         $this->alterMobile = htmlspecialchars(strip_tags($this->alterMobile));
         $this->aboutUser = htmlspecialchars(strip_tags($this->aboutUser));
+        $this->userServices = htmlspecialchars(strip_tags($this->userServices));
         $this->establishmentYear = htmlspecialchars(strip_tags($this->establishmentYear));
         $this->businessTiming = htmlspecialchars(strip_tags($this->businessTiming));
         $this->businessDay = htmlspecialchars(strip_tags($this->businessDay));
@@ -253,6 +256,7 @@ class User
         $stmt->bindParam(":state", $this->state);
         $stmt->bindParam(":alterMobile", $this->alterMobile);
         $stmt->bindParam(":aboutUser", $this->aboutUser);
+        $stmt->bindParam(":userServices", $this->userServices);
         $stmt->bindParam(":establishmentYear", $this->establishmentYear);
         $stmt->bindParam(":businessTiming", $this->businessTiming);
         $stmt->bindParam(":businessDay", $this->businessDay);

@@ -7,6 +7,7 @@ $url = $URL."user/read_profile_by_category.php";
 $userType='2'; 
 $businessCategory=base64_decode($_GET['category']);
 $data = array("userType" =>$userType, "businessCategory"=>$businessCategory);
+// print_r($data);
 $postdata = json_encode($data);
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
@@ -14,7 +15,7 @@ curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
 $result = json_decode($response);
-// print_r($result);
+//print_r($result);
 ?>
 <style>
     .rated {

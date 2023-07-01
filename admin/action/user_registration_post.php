@@ -32,7 +32,7 @@ $result_maxid=url_encode_Decode($url_maxId,$postdata_maxid);
 //print_r($result_maxid);
 $userId = $result_maxid->records[0]->userId;
 
-$data_profile = array("userId"=>$userId, "status"=>$status, "createdOn"=>$createdOn, "createdBy"=>$createdBy);
+$data_profile = array("userId"=>$userId, "status"=>$status, "createdOn"=>$createdOn, "createdBy"=>$userId);
 //print_r($data_profile);
 $postdata_profile = json_encode($data_profile);
 $result_profile=url_encode_Decode($url_profile,$postdata_profile);

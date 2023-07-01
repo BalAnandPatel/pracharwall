@@ -51,13 +51,13 @@ include "include/header.php";
               <div class="col-md-6">
                   <div class="form-group">
                     <label for="name">Business Category*</label>
-                    <input type="text" class="form-control" name="businessCategory" id="exampleFormControlInput1" placeholder="Enter Business Category" autocomplete="off" required>
+                    <input style="text-transform:capitalize;" type="text" class="form-control" name="businessCategory" id="exampleFormControlInput1" placeholder="Enter Business Category" autocomplete="off" required>
                   </div>
               </div>
                <div class="col-md-6">
                   <div class="form-group">
                     <label for="name">Sub Category*</label>
-                    <input type="text" class="form-control" name="subCategory" id="exampleFormControlInput1" placeholder="Enter Subcategory" autocomplete="off" required>
+                    <input type="text" style="text-transform:capitalize;" class="form-control" name="subCategory" value="Na" id="exampleFormControlInput1" placeholder="Enter Subcategory" autocomplete="off" re>
                   </div>
               </div>
             
