@@ -115,7 +115,8 @@ $result = json_decode($response);
                         <br>
                         <div class="form-group">
                             <label for="serv">Service(Write about your need):</label>
-                            <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" name="requiredService" required>
+                            <!-- <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" name="requiredService" required> -->
+                            <textarea class="form-control" placeholder="Enter Your service" autocomplete="off" name="requiredService" required></textarea>
                         </div>
                         <div class="form-group mt-2">
                             <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
