@@ -209,7 +209,7 @@ class User
     {
 
         // query to insert record
-        $query = "UPDATE 
+       $query = "UPDATE 
                     " . $this->user_profile . "
                 SET
                    businessName=:businessName,

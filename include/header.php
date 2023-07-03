@@ -89,7 +89,7 @@ $result = json_decode($response);
                         if (strpos($ROLE, $PROFILE_USER) !== false) {
                             ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php">MY Profile</a>
+                            <a class="nav-link" href="profile.php">Dashboard</a>
                         </li>
                         <?php } ?>
                         <?php
@@ -208,6 +208,8 @@ $result = json_decode($response);
     }
     }
     </script>
+
+
 
     <!-- Modal Sign In-->
     <div class="modal fade" id="signin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

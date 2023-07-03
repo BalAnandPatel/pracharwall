@@ -1,13 +1,14 @@
 <?php
  include "../../constant.php";
 
-//  $userId='6';
+ // $userId='69';
  $userId=$_POST["cuId"];
  $businessName="na";
  $businessCategory="na";
-//  $userAddress="add";
+ // $userAddress="add";
  $userAddress=ucwords($_POST["cuAddress"]);
  $state="na";
+ $userServices = "na";
  $city="na";
  $alterMobile="na";
  $establishmentYear="na";
@@ -17,18 +18,18 @@
  $userWebsite="na";
  $aboutUser="na";
  $updatedOn=date("Y-m-d");
-//  $updatedBy="rahul";
+ // $updatedBy="rahul";
  $updatedBy=$_POST["cuId"];
   
  $url = $URL . "user/update_user_profile.php";
 
- $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userWebsite"=>$userWebsite, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+ $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "userServices"=>$userServices, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userWebsite"=>$userWebsite, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
   //print_r($data);
 
  $postdata = json_encode($data);
  $result=url_encode_Decode($url,$postdata);
-// print_r($result);
+  //print_r($result);
 //  if($result->message=="User profile updated successfully"){
 //   $_SESSION['profileupdate_success']="Updated successfully"; 
 //   header('location:../../profile.php');
