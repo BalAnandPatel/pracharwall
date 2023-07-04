@@ -137,10 +137,10 @@ $(document).ready(function(){
                 <div>
                     300 people recently enquired
                 </div>
-                <div class="border bg-success text-white btn mt-2">
-                <i class="fa fa-phone"></i>
-                <?php echo $value1->userMobile; ?>
-                </div>
+                <a href="tel:<?php echo $value1->userMobile; ?>" class="border bg-success text-white btn mt-2">
+                    <i class="fa fa-phone"></i>
+                    <?php echo $value1->userMobile; ?></a>
+                </a>
             </div>
             
         </div>
@@ -182,24 +182,25 @@ $(document).ready(function(){
             <div class="col col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
                 <h5>Address</h5>
                 <h6><?php echo $value1->userAddress; ?></h6>
+
                 <form action="update_user.php" method="post">
                  <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">   
                  <input type="hidden" name="userName" value="<?php echo $value1->userName; ?>">
                  <input type="hidden" name="userEmail" value="<?php echo $value1->userEmail; ?>">
                  <input type="hidden" name="userMobile" value="<?php echo $value1->userMobile; ?>">
-                 <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i>
+                 <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-pencil-square"></i>
                  <button class="btn border-0 text-primary" name="update" type="submit">Edit Your Account</button>
                  </a>
                 </form>
                 <hr>
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
+                <!-- <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a> -->
                 <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#shareProfile" class="m-1 link-underline-light"><i class="bi bi-share"></i> Share this</a>
                 <hr>
-                <a href="cuInquiry.php" class="m-1 link-underline-light"><i class="bi bi-compass"></i> View Inquriy</a>
+                <a href="cuInquiry.php" class="m-1 link-underline-light"><i class="bi bi-eye"></i> View Inquriy</a>
                 <hr>
-                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
+                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-globe"></i> Visit our Website</a>
             </div>
 
         </div>
@@ -239,7 +240,7 @@ $(document).ready(function(){
             </div>
         </div>
 <?php } } ?>
-        <div class="row border rounded mt-4 py-3">
+        <!-- <div class="row border rounded mt-4 py-3">
             <div class="col">
                 <h5>Question & Answers</h5>
                 <h6 class="text-secondary">Would you like to ask a questions?</h6>
@@ -362,7 +363,7 @@ $(document).ready(function(){
 
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     </div>

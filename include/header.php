@@ -21,6 +21,7 @@ $result = json_decode($response);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pracharwall</title>
+    <link rel="shortcut icon" href="Pracharwall_image/favicon.png.jpg" type="image/x-icon">
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="assets/css/theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -51,6 +52,9 @@ $result = json_decode($response);
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0" nonce="8bvEYOfu"></script>
+
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" aria-label="Navbar">
         <div class="container-fluid">
             <div>
@@ -352,3 +356,52 @@ $result = json_decode($response);
         unset($_SESSION["user_reg_success"]);
     }
     ?>
+
+<!-- Modal -->
+<div class="modal fade" id="shareProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Share Profile</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-block">
+            <input type="text" value="" class="form-control" id="showPageUrl">
+        </div>
+        <script>
+            document.getElementById("showPageUrl").value = window.location.href;
+        </script>
+
+    <div class="container mt-3">
+      <div class="d-flex justify-content-evenly">
+          <a href="https://wa.me/?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
+              <h1><i class="bi bi-whatsapp text-success"></i></h1>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
+             <h1><i class="bi bi-facebook text-info"></i></h1>
+          </a>
+          <div class="fb-share-button" data-href="http://localhost/pracharwall/profile_view.php?id=MTU=" data-layout="" data-size="">
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=Hi%20I%20am%20interested%20in%20your%20service&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                Share
+            </a>
+          </div>
+          <a href="https://twitter.com/intent/tweet?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
+              <h1><i class="bi bi-twitter text-info"></i></h1>
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
+              <h1><i class="bi bi-linkedin text-info"></i></h1>
+          </a>
+          <a href="mailto:?subject=[Contact]&body=[Hi%20I%20am%20interested%20in%20your%20service.]" target="_blank">
+              <img src="assets/img/gmail.png" alt="gmail">
+          </a>
+      </div>
+    </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

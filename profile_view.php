@@ -252,10 +252,10 @@ exit();
                 <div>
                     300 people recently enquired
                 </div>
-                <div class="border bg-success text-white btn mt-2">
-                <i class="fa fa-phone"></i>
-                <?php echo $value1->userMobile; ?>
-                </div>
+                <a href="tel:<?php echo $value1->userMobile; ?>" class="border bg-success text-white btn mt-2">
+                    <i class="fa fa-phone"></i>
+                    <?php echo $value1->userMobile; ?>
+                </a>
             </div>
 
             <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center mt-1">
@@ -303,19 +303,18 @@ exit();
             <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
                 <h5>Address</h5>
                 <h6><?php echo $value1->userAddress; ?></h6>
-
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
+                <!-- <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a> -->
                 <hr>
-                <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
+                <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-envelope"></i> Send Enquiry by Email</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get info via SMS/Email</a>
+                <a href="https://wa.me/<?php echo $value1->userMobile; ?>?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank" class="m-1 link-underline-light"><i class="bi bi-whatsapp"></i> Get info via Whatsapp</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
+                <a href="#" class="m-1 link-underline-light"><i class="bi bi-share"></i> Share this</a>
+                <!-- <hr>
+                <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a> -->
                 <hr>
-                <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
-                <hr>
-                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
+                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-globe"></i> Visit our Website</a>
             </div>
 
         </div>
@@ -344,7 +343,7 @@ exit();
             </div>
         </div>
 <?php } } ?>
-        <div class="row border rounded mt-4 py-3">
+        <!-- <div class="row border rounded mt-4 py-3">
             <div class="col">
                 <h5>Question & Answers</h5>
                 <h6 class="text-secondary">Would you like to ask a questions?</h6>
@@ -467,7 +466,7 @@ exit();
 
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     </div>
