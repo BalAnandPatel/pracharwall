@@ -239,7 +239,15 @@ exit();
                         <i class="bi bi-dot"></i>Open Until 8:00 pm
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <i class="bi bi-dot"></i><?php $C_YEAR=date("Y"); $E_YEAR=$value1->establishmentYear; echo $C_YEAR-$E_YEAR; ?> Yrs in Business
+                        <i class="bi bi-dot"></i>
+                        <?php  
+                        if($value1->establishmentYear!==""){
+                        $C_YEAR=date("Y"); 
+                        $E_YEAR = $value1->establishmentYear;
+                        echo $C_YEAR - $E_YEAR;
+                        }else{ 
+                        echo "0";
+                        }?> Yrs in Business
                     </div>
                 </div>
                 <div>
