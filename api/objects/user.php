@@ -73,7 +73,8 @@ class User
         public function customerInquiryDetail()
     {
 
-        $query = "Select id, userId, cuId, cuMobile, cuAddress, cuEmail, cuName, requiredService, createdOn, createdBy from ".$this->customer_inquiry." where userId=:userId";
+        echo $query = "Select cui.id, cui.userId, cui.cuId, user.userMobile, user.userEmail, cui.cuName, cui.requiredService, cui.createdOn, cui.createdBy from ".$this->customer_inquiry.
+        "as cui LEFT JOIN ".$this->user_registration." as user ON user.id=cui.cuId where user.userId=:userId";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userId", $this->userId);
@@ -166,8 +167,6 @@ class User
              userId=:userId,
              cuName=:cuName,
              cuEmail=:cuEmail,
-             cuMobile=:cuMobile,
-             cuAddress=:cuAddress,
              requiredService=:requiredService,
              createdOn=:createdOn,
              createdBy=:createdBy
@@ -178,8 +177,6 @@ class User
         $this->userId = htmlspecialchars(strip_tags($this->userId));
         $this->cuName = htmlspecialchars(strip_tags($this->cuName));
         $this->cuEmail = htmlspecialchars(strip_tags($this->cuEmail));
-        $this->cuMobile = htmlspecialchars(strip_tags($this->cuMobile));
-        $this->cuAddress = htmlspecialchars(strip_tags($this->cuAddress));
         $this->requiredService = htmlspecialchars(strip_tags($this->requiredService));
         $this->createdOn = htmlspecialchars(strip_tags($this->createdOn));
         $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
@@ -189,8 +186,6 @@ class User
         $stmt->bindParam(":userId", $this->userId);
         $stmt->bindParam(":cuName", $this->cuName);
         $stmt->bindParam(":cuEmail", $this->cuEmail);
-        $stmt->bindParam(":cuMobile", $this->cuMobile);
-        $stmt->bindParam(":cuAddress", $this->cuAddress);
         $stmt->bindParam(":requiredService", $this->requiredService);
         $stmt->bindParam(":createdOn", $this->createdOn);
         $stmt->bindParam(":createdBy", $this->createdBy);

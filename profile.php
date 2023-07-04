@@ -87,7 +87,8 @@ $(document).ready(function(){
                 </nav>
             </div>
         </div>
-        <?php 
+        
+         <?php 
                        
                      $counter=0;  
                      foreach($result as $key => $value){
@@ -131,7 +132,15 @@ $(document).ready(function(){
                         <i class="bi bi-dot"></i>Open Until 8:00 pm
                     </div>
                     <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <i class="bi bi-dot"></i><?php $C_YEAR=date("Y"); $E_YEAR=$value1->establishmentYear; echo $C_YEAR-$E_YEAR; ?> Yrs in Business
+                        <i class="bi bi-dot"></i>
+                        <?php  
+                        if($value1->establishmentYear!==""){
+                        $C_YEAR=date("Y"); 
+                        $E_YEAR = $value1->establishmentYear;
+                        echo $C_YEAR - $E_YEAR;
+                        }else{ 
+                        echo "0";
+                        }?> Yrs in Business
                     </div>
                 </div>
                 <div>
@@ -144,7 +153,7 @@ $(document).ready(function(){
             </div>
             
         </div>
-
+        
 
         <div class="row d-flex mt-3 justify-content-between">
             <div class="col col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
@@ -204,6 +213,7 @@ $(document).ready(function(){
             </div>
 
         </div>
+        
 
         <div class="row border rounded mt-4 py-3">
             <div class="col">

@@ -4,9 +4,7 @@ include '../../constant.php';
  $cuId=$_POST["cuId"];
  $userId=$_POST["userId"];
  $cuName=ucwords($_POST["cuName"]);
- $cuMobile=$_POST["cuMobile"];
  $cuEmail=$_POST["cuEmail"];
- $cuAddress=$_POST["cuAddress"];
  $requiredService=ucfirst($_POST["requiredService"]);
  $createdOn=date("Y-m-d h:i:S");
  $createdBy=$_POST["cuName"];
@@ -18,7 +16,7 @@ include '../../constant.php';
  
  $url=$URL. "user/insert_customer_inquiry.php";
 
- $data = array("cuId"=>$cuId, "userId"=>$userId, "cuName"=>$cuName, "cuMobile"=>$cuMobile, "cuAddress"=>$cuAddress, "cuEmail"=>$cuEmail, "requiredService"=>$requiredService, "createdOn"=>$createdOn, "createdBy"=>$createdBy);
+ $data = array("cuId"=>$cuId, "userId"=>$userId, "cuName"=>$cuName, "cuEmail"=>$cuEmail, "requiredService"=>$requiredService, "createdOn"=>$createdOn, "createdBy"=>$createdBy);
 
  //print_r($data);
  $postdata = json_encode($data);
