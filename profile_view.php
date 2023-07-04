@@ -303,7 +303,7 @@ exit();
                 <hr>
                 <a href="https://wa.me/<?php echo $value1->userMobile; ?>?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank" class="m-1 link-underline-light"><i class="bi bi-whatsapp"></i> Get info via Whatsapp</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light"><i class="bi bi-share"></i> Share this</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#shareProfile" class="m-1 link-underline-light"><i class="bi bi-share"></i> Share this</a>
                 <!-- <hr>
                 <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a> -->
                 <hr>

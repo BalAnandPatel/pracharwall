@@ -52,9 +52,6 @@ $result = json_decode($response);
 </head>
 
 <body>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0" nonce="8bvEYOfu"></script>
-
     <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" aria-label="Navbar">
         <div class="container-fluid">
             <div>
@@ -378,14 +375,9 @@ $result = json_decode($response);
           <a href="https://wa.me/?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
               <h1><i class="bi bi-whatsapp text-success"></i></h1>
           </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
+          <!-- <a href="https://www.facebook.com/sharer/sharer.php?u=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
              <h1><i class="bi bi-facebook text-info"></i></h1>
-          </a>
-          <div class="fb-share-button" data-href="http://localhost/pracharwall/profile_view.php?id=MTU=" data-layout="" data-size="">
-            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=Hi%20I%20am%20interested%20in%20your%20service&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
-                Share
-            </a>
-          </div>
+          </a> -->
           <a href="https://twitter.com/intent/tweet?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
               <h1><i class="bi bi-twitter text-info"></i></h1>
           </a>
