@@ -2,7 +2,7 @@
 include "include/header.php";
 if(isset($_SESSION["USER_EMAIL"])){
 $userEmail= $_SESSION["USER_EMAIL"];   
-$userId= $_SESSION["USER_ID"];   
+$U_Id= $_SESSION["USER_ID"];   
 }else{
 $userEmail="";    
 }
@@ -95,28 +95,25 @@ $result = json_decode($response);
                         <input type="hidden" name="userId" value="<?php echo $value1->id; ?>"> 
                         <div class="form-group">
                             <label for="contact-username">Full Name:</label>
-                            <input type="text" class="form-control" name="cuName" placeholder="Enter Your Name" autocomplete="off" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="contact-email">Mobile No:</label>
-                            <input type="number" class="form-control" placeholder="Enter Your Mobile No." name="cuMobile" autocomplete="off" required>
+                            <?php if(!isset($_SESSION["USER_EMAIL"])){ ?>
+                            <input type="text" class="form-control" name="cuName" placeholder="Enter Your Name"  autocomplete="off" required>
+                           <?php }else{ ?>
+                            <input type="text" class="form-control" name="cuName" placeholder="Enter Your Name" value="<?php echo $_SESSION["NAME"]; ?>" autocomplete="off" disabled>
+                           <?php } ?>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="contact-email">Email address:</label>
-                            <input type="email" class="form-control" name="cuEmail" placeholder="Enter Your Email Id" autocomplete="off" required>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="contact-email">Address:</label>
-                            <input type="text" class="form-control" name="cuAddress" placeholder="Enter Your Address" autocomplete="off" required>
+                            <?php if(!isset($_SESSION["USER_EMAIL"])){ ?>
+                            <input type="email" class="form-control" name="cuEmail" placeholder="Enter Your Email Id" value="" autocomplete="off" required>
+                           <?php }else{ ?>
+                            <input type="email" class="form-control" name="cuEmail" placeholder="Enter Your Email Id" value="<?php echo $_SESSION["USER_EMAIL"]; ?>" autocomplete="off" disabled>
+                           <?php } ?>
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="serv">Service(Write about your need):</label>
-                            <!-- <input type="text" class="form-control" placeholder="Enter Your ervice" autocomplete="off" name="requiredService" required> -->
-                            <textarea class="form-control" placeholder="Enter Your service" autocomplete="off" name="requiredService" required></textarea>
+                            <textarea class="form-control" placeholder="Enter Your Service" autocomplete="off" name="requiredService" required></textarea>
                         </div>
                         <div class="form-group mt-2">
                             <input type="submit" class="form-control btn btn-primary" value="SEND ENQUIRY"
@@ -145,9 +142,7 @@ function inquiryFormdataPost(event) {
   event.preventDefault();
   var userId = document.forms["InquiryForm"]["userId"].value;
   var cuName = document.forms["InquiryForm"]["cuName"].value;
-  var cuMobile = document.forms["InquiryForm"]["cuMobile"].value;
   var cuEmail = document.forms["InquiryForm"]["cuEmail"].value;
-  var cuAddress = document.forms["InquiryForm"]["cuAddress"].value;
   var requiredService = document.forms["InquiryForm"]["requiredService"].value;
   // alert(cuName);
 
@@ -164,12 +159,10 @@ $('#signin').modal('show');
     url:'<?php echo $BASE_URL ?>admin/action/customer_inquiry_post.php',
     type:'POST',
     data:{
-       "cuId":"<?php echo $userId; ?>", 
+       "cuId":"<?php echo $U_Id; ?>", 
        "userId":userId,
        "cuName":cuName,
-       "cuMobile":cuMobile,
        "cuEmail":cuEmail,
-       "cuAddress":cuAddress,
        "requiredService":requiredService
     },
     success:function(response){

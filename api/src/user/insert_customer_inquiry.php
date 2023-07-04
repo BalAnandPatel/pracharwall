@@ -24,9 +24,7 @@ $data = json_decode(file_get_contents("php://input"));
 if(
     
     !empty($data->cuName) &&
-    !empty($data->cuMobile) &&
     !empty($data->cuEmail) &&
-    !empty($data->cuAddress) &&
     !empty($data->cuId) &&
     !empty($data->userId) &&
     !empty($data->requiredService) 
@@ -36,8 +34,6 @@ if(
     $insert_customer_inquiry->userId = $data->userId;
     $insert_customer_inquiry->cuId = $data->cuId;
     $insert_customer_inquiry->cuName = $data->cuName;
-    $insert_customer_inquiry->cuMobile = $data->cuMobile;
-    $insert_customer_inquiry->cuAddress = $data->cuAddress;
     $insert_customer_inquiry->cuEmail = $data->cuEmail;
     $insert_customer_inquiry->requiredService = $data->requiredService;
     $insert_customer_inquiry->createdOn = $data->createdOn;
