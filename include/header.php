@@ -21,7 +21,7 @@ $result = json_decode($response);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pracharwall</title>
-    <link rel="shortcut icon" href="Pracharwall_image/favicon.png.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="Pracharwall_image/favicon.jpg" type="image/x-icon">
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="assets/css/theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
