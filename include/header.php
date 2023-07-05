@@ -24,19 +24,15 @@ $result = json_decode($response);
     <link rel="shortcut icon" href="Pracharwall_image/favicon.ico" type="image/x-icon">
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="assets/css/theme.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.css"
-        integrity="sha512-nGNAKpV+BrfDZabPX1O6q6mRlT57/amdj+6vF322ongqKABLHYLfLc3jYtVVbkiR9towDWPPE9gWFE2tsZIPZg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="search.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.4.1/swiper-bundle.min.js"
-        integrity="sha512-3Ei7OPFo83kw3cPbDLeLhn/YF8tZB7Vs8sfli0B/KEekureL5eosDeshYFICCvt4K8i0yUil/lK3cSiic2Wjkg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function() {
@@ -325,7 +321,7 @@ $result = json_decode($response);
             foreach ($result as $key => $value) {
                 foreach ($value as $key1 => $value1) {
             ?>
-                <div class="col-md-2 col-sm-4 col-xs-12 img-thumbnail m-1">
+                <div class="col-md-2 col-sm-4 col-xs-12 text-break img-thumbnail m-1 d-flex justify-content-center">
                     <a href="profile_list.php?category=<?php echo $value1->businessCategory; ?>">
                         <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>"
                             style="height:60px;">
@@ -354,6 +350,7 @@ $result = json_decode($response);
     }
     ?>
 
+
 <!-- Modal -->
 <div class="modal fade" id="shareProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -366,7 +363,7 @@ $result = json_decode($response);
 
         <div class="input-group mb-3">
           <input type="text" class="form-control" value="" id="showPageUrl" placeholder="" aria-label="Recipient's username" aria-describedby="basic-addon2">
-          <button onclick="copyUrl()" class="input-group-text" id="basic-addon2">@example.com</button>
+          <button onclick="copyUrl()" class="input-group-text" id="basic-addon2"><i class="bi bi-clipboard2"></i></button>
         </div>
         <script>
             document.getElementById("showPageUrl").value = window.location.href;
@@ -389,19 +386,19 @@ $result = json_decode($response);
 
     <div class="container">
       <div class="d-flex justify-content-evenly">
-          <a href="https://wa.me/?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
+          <a href="https://wa.me/?text=<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" target="_blank">
               <h1><i class="bi bi-whatsapp text-success"></i></h1>
           </a>
           <!-- <a href="https://www.facebook.com/sharer/sharer.php?u=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
              <h1><i class="bi bi-facebook text-info"></i></h1>
           </a> -->
-          <a href="https://twitter.com/intent/tweet?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
+          <a href="https://twitter.com/intent/tweet?text=<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" target="_blank">
               <h1><i class="bi bi-twitter text-info"></i></h1>
           </a>
-          <a href="https://www.linkedin.com/shareArticle?mini=Hi%20I%20am%20interested%20in%20your%20service." target="_blank">
+          <a href="https://www.linkedin.com/shareArticle?mini=<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" target="_blank">
               <h1><i class="bi bi-linkedin text-info"></i></h1>
           </a>
-          <a href="mailto:?subject=[Contact]&body=[Hi%20I%20am%20interested%20in%20your%20service.]" target="_blank">
+          <a href="mailto:?subject=[Contact]&body=[<?php echo $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>]" target="_blank">
               <img src="assets/img/gmail.png" alt="gmail">
           </a>
       </div>
