@@ -73,8 +73,8 @@ class User
         public function customerInquiryDetail()
     {
 
-        echo $query = "Select cui.id, cui.userId, cui.cuId, user.userMobile, user.userEmail, cui.cuName, cui.requiredService, cui.createdOn, cui.createdBy from ".$this->customer_inquiry.
-        "as cui LEFT JOIN ".$this->user_registration." as user ON user.id=cui.cuId where user.userId=:userId";
+       $query = "Select cui.id, cui.userId, cui.cuId, user.userMobile as cuMobile, user.userEmail as cuEmail, up.userAddress as cuAddress, cui.cuName, cui.requiredService, cui.createdOn, cui.createdBy from ".$this->customer_inquiry.
+        " as cui LEFT JOIN ".$this->user_registration." as user ON user.id=cui.cuId LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where cui.userId=:userId";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userId", $this->userId);

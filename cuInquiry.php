@@ -10,9 +10,9 @@ include "include/header.php";
   //curl_setopt($client, CURLOPT_POST, 5);
   curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
   $response = curl_exec($client);
-  print_r($response);
+  //print_r($response);
   $result = json_decode($response);
-  print_r($result);
+  //print_r($result);
   ?>
 <!-- DataTables -->
 <link rel="stylesheet" href="common/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -36,7 +36,7 @@ include "include/header.php";
                         <th>Monile No.</th>
                         <th>Address</th>
                         <th>Service (needed)</th>
-                        <th>Delete</th>
+                        <!-- <th>Delete</th> -->
                     </tr>
 
                 </thead>
@@ -53,7 +53,7 @@ include "include/header.php";
                         <td><?php echo $value1->cuMobile; ?></td>
                         <td><?php echo $value1->cuAddress; ?></td>
                         <td><?php echo $value1->requiredService; ?></td>
-                        <td class="col-md-1"><button class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button></td>
+                        <!-- <td class="col-md-1"><button class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button></td> -->
                     </tr>
                   <?php } } ?>
                 </tbody>
