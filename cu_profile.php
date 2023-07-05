@@ -18,8 +18,19 @@ $result = json_decode($response);
 
 <section>
     <div class="container py-3">
-     <!-- <h6 class="bg-success text-white p-3" id="cuEditMsg" style="display:none;"></h6>        -->
-     <div class="p-0" id="cuEditMsg"></div>
+        
+    <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">My Profile</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+     <div class="pt-2" id="cuEditMsg"></div>
         <?php
         $counter = '0';
         foreach ($result as $key => $value) {
@@ -29,7 +40,7 @@ $result = json_decode($response);
                     <div class="col-lg-4">
                         <div class="card mb-4">
                             <div class="card-body text-center">
-                                <img src="assets/img/user_icon.png" height="30%" width="30%" alt="user image" class="rounded-circle img-fluid img-thumbnail">
+                                <img src="<?php echo $USER_PROFILE_IMGPATH . $userId . "/user_img_" . $userId . ".png"; ?>" height="50%" width="50%" alt="user image" class="rounded-circle img-fluid img-thumbnail">
                                 <h5 class="my-3">
                                     <?php echo $value1->userName; ?>
                                 </h5>
@@ -38,8 +49,16 @@ $result = json_decode($response);
                                     <?php echo $value1->userEmail; ?>
                                 </p>
                                 <div class="d-flex justify-content-center mb-2">
-                                    <button type="button" class="btn btn-primary" id="userEdit">Edit Proflie <i
+                                    <button type="button" class="btn btn-primary w-100" id="userEdit">Edit Proflie <i
                                             class="bi bi-pencil-square"></i></button>
+                                </div>
+                                <div class="container bg-light rounded-1 mt-2 p-3">
+                                <form action="admin/action/upload_cu_profile_post.php" method="post" enctype="multipart/form-data">
+                                <label class="text-bold p-2">Upload Profile</label>
+                                <input type="hidden" name="userId" value="<?php echo $userId; ?>">   
+                                <input class="form-control form-control-sm" type="file" name="userImg" required>
+                                <button class="btn btn-primary btn-sm mt-2 w-100" type="submit" name="upload"><i class="bi bi-upload"></i>&nbsp;Upload</button>
+                                </form>
                                 </div>
                             </div>
                         </div>
@@ -149,10 +168,13 @@ $result = json_decode($response);
                     // alert(JSON.stringify(response));
                     if(response.message=="User profile updated successfully"){
                      
-                        $("#cuEditMsg").html('<div class="alert alert-success">Successfully Updated</div>');
+                        $("#cuEditMsg").html('<div class="alert alert-success" role="alert">Successfully Updated</div>');
                         $("#cuEditMsg").fadeTo(5000, 500).slideUp(5000, function () {
                         $("#cuEditMsg").slideUp(5000);
                         });
+
+                        $('#cuAddress').attr("disabled", true);
+                        $('#editCustomer').css("display", "none");
                     }
                    
 
