@@ -214,7 +214,7 @@ exit();
                     { ?>
                     <img class="img-account-profile img-fluid img-thumbnail rounded-circle mb-2" src="<?php echo $USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png"; ?>" alt="Profile Image">
                     <?php } else { ?>
-                    <img class="img-account-profile rounded-circle mb-2" src="assets/img/avatar1.png" alt="">
+                    <img class="img-account-profile img-fluid img-thumbnail rounded-circle mb-2" src="assets/img/user_icon.png" alt="user-profile">
                     <?php } ?>
             </div>
 
