@@ -40,7 +40,15 @@ $result = json_decode($response);
                     <div class="col-lg-4">
                         <div class="card mb-4">
                             <div class="card-body text-center">
-                                <img src="<?php echo $USER_PROFILE_IMGPATH . $userId . "/user_img_" . $userId . ".png"; ?>" height="50%" width="50%" alt="user image" class="rounded-circle img-fluid img-thumbnail">
+                                  <?php
+                                    // error_reporting(0); 
+                                    $file=$USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png";
+                                    if(getimagesize($file))
+                                 { ?>
+                                <img src="<?php echo $USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png"; ?>" height="50%" width="50%" alt="user image" class="rounded-circle img-fluid img-thumbnail">
+                                <?php } else { ?>
+                                <img class="img-account-profile img-fluid img-thumbnail rounded-circle mb-2" src="assets/img/user_icon.png"  height="50%" width="50%" alt="user-profile">
+                                <?php } ?>
                                 <h5 class="my-3">
                                     <?php echo $value1->userName; ?>
                                 </h5>
