@@ -4,7 +4,8 @@ if(isset($_SESSION["USER_EMAIL"])){
 $userEmail= $_SESSION["USER_EMAIL"];   
 $U_Id= $_SESSION["USER_ID"];   
 }else{
-$userEmail="";    
+$userEmail="";
+$U_Id="";    
 }
 ?>
 <?php
@@ -137,6 +138,7 @@ $result = json_decode($response);
     </div>
 </div>
 <?php } } ?>
+
 <script>
 function inquiryFormdataPost(event) {
   event.preventDefault();
@@ -144,15 +146,12 @@ function inquiryFormdataPost(event) {
   var cuName = document.forms["InquiryForm"]["cuName"].value;
   var cuEmail = document.forms["InquiryForm"]["cuEmail"].value;
   var requiredService = document.forms["InquiryForm"]["requiredService"].value;
-  // alert(cuName);
 
 if("<?php echo $userEmail; ?>"=="" || "<?php echo $userEmail; ?>"!==cuEmail){
 // alert("session expired");
-// swal("Sorry!", "Please login your Account", "error");
 $('#ExploreStore').modal('hide');    
-$('#signin').modal('show');    
-// }else if(){
-// swal("Sorry!", "Your Email Id not matched", "error");
+$('#signin').modal('show');   
+
 }else{
 
     $.ajax({
@@ -170,6 +169,7 @@ $('#signin').modal('show');
      if(response=="1"){
         swal("Thank you!", "Your message has been successfully sent. We will contact you very soon!", "success");
         $("#InquiryForm")[0].reset();
+        $("#ExploreStore").modal('hide');
      }else if(response=="0"){
         swal("Sorry!", "Something Went Wrong! Please check the API ", "error");
      } 
@@ -214,7 +214,7 @@ exit();
                     { ?>
                     <img class="img-account-profile img-fluid img-thumbnail rounded-circle mb-2" src="<?php echo $USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png"; ?>" alt="Profile Image">
                     <?php } else { ?>
-                    <img class="img-account-profile rounded-circle mb-2" src="assets/img/avatar1.png" alt="">
+                    <img class="img-account-profile img-fluid img-thumbnail rounded-circle mb-2" src="assets/img/user_icon.png" alt="user-profile">
                     <?php } ?>
             </div>
 

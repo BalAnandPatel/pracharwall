@@ -219,8 +219,8 @@ $(document).ready(function(){
             <div class="col">
                 <h5>Photos</h5>
                 <div class="row">
-                    <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" width="500px" height="200px" class="border rounded">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
+                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" class="img-fluid border rounded">
                     </div>
                     <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">

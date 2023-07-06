@@ -127,7 +127,7 @@ return $result;
             foreach ($result as $key => $value) {
                 foreach ($value as $key1 => $value1) {
             ?>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4 img-thumbnail m-1">
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4 img-thumbnail m-1">
                         <a href="profile_list.php?category=<?php echo base64_encode($value1->id); ?>">
                             <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>" style="height:60px;">
                             <p>
