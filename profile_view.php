@@ -159,7 +159,7 @@ $('#signin').modal('show');
     url:'<?php echo $BASE_URL ?>admin/action/customer_inquiry_post.php',
     type:'POST',
     data:{
-       "cuId":"<?php echo $U_Id; ?>", 
+       "cuId":"<?php echo $userId; ?>", 
        "userId":userId,
        "cuName":cuName,
        "cuEmail":cuEmail,
@@ -239,24 +239,16 @@ exit();
                         <i class="bi bi-dot"></i>Open Until 8:00 pm
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <i class="bi bi-dot"></i>
-                        <?php  
-                        if($value1->establishmentYear!==""){
-                        $C_YEAR=date("Y"); 
-                        $E_YEAR = $value1->establishmentYear;
-                        echo $C_YEAR - $E_YEAR;
-                        }else{ 
-                        echo "0";
-                        }?> Yrs in Business
+                        <i class="bi bi-dot"></i><?php $C_YEAR=date("Y"); $E_YEAR=$value1->establishmentYear; echo $C_YEAR-$E_YEAR; ?> Yrs in Business
                     </div>
                 </div>
                 <div>
                     300 people recently enquired
                 </div>
-                <a href="tel:<?php echo $value1->userMobile; ?>" class="border bg-success text-white btn mt-2">
-                    <i class="fa fa-phone"></i>
-                    <?php echo $value1->userMobile; ?>
-                </a>
+                <div class="border bg-success text-white btn mt-2">
+                <i class="fa fa-phone"></i>
+                <?php echo $value1->userMobile; ?>
+                </div>
             </div>
 
             <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center mt-1">
@@ -304,18 +296,19 @@ exit();
             <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 border rounded mt-1 py-3">
                 <h5>Address</h5>
                 <h6><?php echo $value1->userAddress; ?></h6>
+
                 <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get Directions</a>
-                <!-- <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a> -->
+                <a href="#" class="m-1 link-underline-light"><i class="bi bi-clipboard-plus"></i> Copy</a>
                 <hr>
-                <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-envelope"></i> Send Enquiry by Email</a>
+                <a href="#" class="m-1 link-underline-light" data-bs-toggle="modal" data-bs-target="#ExploreStore"><i class="bi bi-compass"></i> Send Enquiry by Email</a>
                 <hr>
-                <a href="https://wa.me/<?php echo $value1->userMobile; ?>?text=Hi%20I%20am%20interested%20in%20your%20service." target="_blank" class="m-1 link-underline-light"><i class="bi bi-whatsapp"></i> Get info via Whatsapp</a>
+                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Get info via SMS/Email</a>
                 <hr>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#shareProfile" class="m-1 link-underline-light"><i class="bi bi-share"></i> Share this</a>
-                <!-- <hr>
-                <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a> -->
+                <a href="#" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Share this</a>
                 <hr>
-                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-globe"></i> Visit our Website</a>
+                <a href="#rate" class="m-1 link-underline-light"><i class="bi bi-compass"></i> Tap to rate</a>
+                <hr>
+                <a href="<?php echo $value1->userWebsite; ?>" class="m-1 link-underline-light" target="_blank"><i class="bi bi-compass"></i> Visit our Website</a>
             </div>
 
         </div>
@@ -344,7 +337,7 @@ exit();
             </div>
         </div>
 <?php } } ?>
-        <!-- <div class="row border rounded mt-4 py-3">
+        <div class="row border rounded mt-4 py-3">
             <div class="col">
                 <h5>Question & Answers</h5>
                 <h6 class="text-secondary">Would you like to ask a questions?</h6>
@@ -467,7 +460,7 @@ exit();
 
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 
     </div>
