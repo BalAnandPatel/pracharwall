@@ -9,7 +9,7 @@
 <div style="background-color: #eee;">
     <footer class="p-4 small">
 
-        <div class="row">
+        <!-- <div class="row">
             <h6>POPULAR LINKS</h6>
             <div class="col">
                 <p>
@@ -49,24 +49,27 @@
                     <a href="" class="mx-2 link-body-emphasis">Link</a>
                 </p>
             </div>
-        </div>
+        </div> -->
 
 
-        <div class="d-flex flex-wrap justify-content-between align-items-center px-2 py-3 border-top">
-            <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 <a href="https://www.glintel.com/"
-                    class="text-decoration-underline">Glintel Technologies</a>, All Rights Reserved.</p>
+        <div class="d-flex flex-wrap justify-content-between align-items-center px-2 ">
+            <p class="col-md-4 mb-0 text-body-secondary">
+                <a class="navbar-brand d-block" href="index.php">
+                    <img src="Pracharwall_image/logo.png" class="img-fluid" alt="Pracharwall" width="160" height="40">
+                </a>
+            </p>
 
-            <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+            <div class="col-md-4 d-flex justify-content-center text-decoration-none"
                 style="font-size:2em;">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-twitter"></i>
-                <i class="bi bi-youtube"></i>
-                <i class="bi bi-skype"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-linkedin"></i>
+                <a href="" class="p-1 icon-link icon-link-hover"><i class="bi bi-facebook"></i></a>
+                <a href="" class="p-1 icon-link icon-link-hover"><i class="bi bi-twitter"></i></a>
+                <a href="" class="p-1 icon-link icon-link-hover"><i class="bi bi-youtube"></i></a>
+                <a href="" class="p-1 icon-link icon-link-hover"><i class="bi bi-skype"></i></a>
+                <a href="" class="p-1 icon-link icon-link-hover"><i class="bi bi-instagram"></i></a>
+                <a href="" class="p-1 icon-link icon-link-hover"><i class="bi bi-linkedin"></i></a>
             </div>
 
-            <ul class="nav col-md-4 justify-content-end">
+            <ul class="nav col-md-4 justify-content-end justify-content-sm-center">
                 <li class="nav-item"><a href="index.php" class="nav-link px-2 text-body-secondary">Home</a></li>
                 <li class="nav-item"><a href="register-wall.php" class="nav-link px-2 text-body-secondary">Register Your
                         Wall</a>
@@ -75,7 +78,11 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Terms & Condition</a></li>
             </ul>
         </div>
-
+        <p class="text-center mt-md-1">
+            &copy; 2023 
+            <a href="https://www.glintel.com/" class="text-decoration-underline">Glintel Technologies</a>, All Rights Reserved.
+        </p>
+       
 
 
     </footer>

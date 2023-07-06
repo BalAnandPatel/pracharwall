@@ -12,58 +12,6 @@ $result = json_decode($response);
 return $result;    
 }
 ?>
-<!-- header part end here -->
-<style>
-    .home-office-service:before,
-    .home-improvement:before,
-    .property-rental:before,
-    .edu-training:before,
-    .pro-service:before,
-    .travel-transport:before,
-    .health-wellness:before,
-    .events:before {
-        background: url(assets/img/menu-category.png) 0 0 no-repeat;
-        width: 68px;
-        height: 40px;
-        display: block;
-        margin: 0 auto 10px;
-        content: '';
-        position: relative;
-        transition: .3s ease-in
-    }
-
-    .home-office-service:before {
-        background-position: 8px -9px
-    }
-
-    .home-improvement:before {
-        background-position: -65px -9px
-    }
-
-    .property-rental:before {
-        background-position: -153px -9px
-    }
-
-    .edu-training:before {
-        background-position: -242px -9px
-    }
-
-    .pro-service:before {
-        background-position: 3px -75px
-    }
-
-    .travel-transport:before {
-        background-position: -73px -75px
-    }
-
-    .health-wellness:before {
-        background-position: -172px -75px
-    }
-
-    .events:before {
-        background-position: -247px -75px
-    }
-</style>
 
 <div id="carouselExampleCaptions" class="carousel slide">
     <!-- <div class="carousel-indicators">
@@ -188,10 +136,12 @@ return $result;
                     <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>">
                         <div class="card swiper-slide">
                             <div class="image-content">
-                                <span class="overlay"></span>
+                                <span class="overlay">
+
+                                    <img src="<?php $id=$value1->userId; echo $USER_WALL_IMGPATH."/".$id."/wall_img_".$id.".png"; ?>" alt="" class="card-img">
+                                </span>
 
                                 <div class="card-image">
-                                    <img src="<?php $id=$value1->userId; echo $USER_WALL_IMGPATH."/".$id."/wall_img_".$id.".png"; ?>" alt="" class="card-img">
                                 </div>
                             </div>
 
@@ -344,10 +294,10 @@ return $result;
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: #4070F4;
+  /* background-color: #4070F4; */
   border-radius: 25px 25px 0 25px;
 }
-.overlay::before,
+/* .overlay::before,
 .overlay::after{
   content: '';
   position: absolute;
@@ -356,25 +306,25 @@ return $result;
   height: 40px;
   width: 40px;
   background-color: #4070F4;
-}
-.overlay::after{
+} */
+/* .overlay::after{
   border-radius: 0 25px 0 0;
   background-color: #FFF;
-}
+} */
 .card-image{
   position: relative;
   height: 150px;
   width: 150px;
-  border-radius: 50%;
-  background: #FFF;
+  /* border-radius: 50%; */
+  /* background: #FFF; */
   padding: 3px;
 }
 .card-image .card-img{
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #4070F4;
+  /* border-radius: 50%; */
+  /* border: 4px solid #4070F4; */
 }
 .name{
   font-size: 18px;

@@ -10172,7 +10172,8 @@ fieldset:disabled .btn {
 
 .icon-link-hover:focus-visible>.bi,
 .icon-link-hover:hover>.bi {
-    transform: var(--fc-icon-link-transform, translate3d(.25em, 0, 0))
+    transform: var(--fc-icon-link-transform, translate3d(0, -.2em, 0));
+    color: #0d6efd;
 }
 
 .ratio {
