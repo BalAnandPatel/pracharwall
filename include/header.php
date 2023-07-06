@@ -25,7 +25,8 @@ $result = json_decode($response);
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="assets/css/theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
@@ -219,13 +220,13 @@ $result = json_decode($response);
                 <form method="post">
                     <div class="modal-body mx-3">
                         <div class="form-group">
-                            <label style="font-weight: 600;" for="email">Email address:</label>
-                            <input type="email" class="form-control" id="uEmail" name="userEmail" required>
+                            <label style="font-weight: 600;" for="email">Email Address:</label>
+                            <input type="email" class="form-control" id="uEmail" name="userEmail" placeholder="Email Address" autocomplete="off" required>
                         </div>
                         <br>
                         <div class="form-group">
                             <label style="font-weight: 600;" for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="uPass" name="userPass" autocomplete="off" required>
+                            <input type="password" class="form-control" id="uPass" name="userPass" placeholder="Password" autocomplete="off" required>
                         </div>
                         <br>
                     </div>
