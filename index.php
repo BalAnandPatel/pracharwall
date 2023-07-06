@@ -146,8 +146,8 @@ return $result;
                             </div>
 
                             <div class="card-content">
-                                <h2 class="name"><?php echo $value1->businessName; ?></h2>
-                                <p class="description"><?php echo $value1->city; ?></p>
+                                <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" class="name"><?php echo $value1->businessName; ?></a>
+                                <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" class="description"><?php echo $value1->city; ?></a>
                                 <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" class="btn btn-primary w-100">Enquiry Now</a>
                             </div>
                         </div>
@@ -312,9 +312,9 @@ return $result;
   background-color: #FFF;
 } */
 .card-image{
-  position: relative;
+  /* position: relative; */
   height: 150px;
-  width: 150px;
+  /* width: 150px; */
   /* border-radius: 50%; */
   /* background: #FFF; */
   padding: 3px;
