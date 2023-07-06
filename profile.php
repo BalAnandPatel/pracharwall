@@ -220,7 +220,7 @@ $(document).ready(function(){
                 <h5>Photos</h5>
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" class="img-fluid border rounded">
+                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" class="img-fluid border rounded" alt="Nothig To Preview">
                     </div>
                     <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">

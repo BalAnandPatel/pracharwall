@@ -5,6 +5,7 @@ class User
 
     private $conn;
     private $user_profile = "user_profile";
+    private $user_profile_history = "user_profile_history";
     private $business_category = "business_category";
     private $customer_inquiry = "customer_inquiry";
     private $user_registration = "user_registration";
@@ -158,6 +159,81 @@ class User
         return false;
     }
 
+// create user profile history
+    
+     public function insertUserProfileHistory()
+    {
+
+        $query = "INSERT INTO
+        " . $this->user_profile_history . "
+    SET
+                   userId=:userId,
+                   businessName=:businessName,
+                   businessCategory=:businessCategory,
+                   userAddress=:userAddress,
+                   city=:city,
+                   state=:state, 
+                   alterMobile=:alterMobile,
+                   aboutUser=:aboutUser,
+                   userServices=:userServices,
+                   establishmentYear=:establishmentYear,
+                   businessTiming=:businessTiming,
+                   businessDay=:businessDay,
+                   paymentMode=:paymentMode,
+                   userWebsite=:userWebsite,
+                   status=:status,
+                   updatedOn=:updatedOn,
+                   updatedBy=:updatedBy
+               ";
+
+        $stmt = $this->conn->prepare($query);
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->businessName = htmlspecialchars(strip_tags($this->businessName));
+        $this->businessCategory = htmlspecialchars(strip_tags($this->businessCategory));
+        $this->userAddress = htmlspecialchars(strip_tags($this->userAddress));
+        $this->city = htmlspecialchars(strip_tags($this->city));
+        $this->state = htmlspecialchars(strip_tags($this->state));
+        $this->alterMobile = htmlspecialchars(strip_tags($this->alterMobile));
+        $this->aboutUser = htmlspecialchars(strip_tags($this->aboutUser));
+        $this->userServices = htmlspecialchars(strip_tags($this->userServices));
+        $this->establishmentYear = htmlspecialchars(strip_tags($this->establishmentYear));
+        $this->businessTiming = htmlspecialchars(strip_tags($this->businessTiming));
+        $this->businessDay = htmlspecialchars(strip_tags($this->businessDay));
+        $this->paymentMode = htmlspecialchars(strip_tags($this->paymentMode));
+        $this->userWebsite = htmlspecialchars(strip_tags($this->userWebsite));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->updatedOn = htmlspecialchars(strip_tags($this->updatedOn));
+        $this->updatedBy = htmlspecialchars(strip_tags($this->updatedBy));
+
+
+        //bind values
+        $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":businessName", $this->businessName);
+        $stmt->bindParam(":businessCategory", $this->businessCategory);
+        $stmt->bindParam(":userAddress", $this->userAddress);
+        $stmt->bindParam(":city", $this->city);
+        $stmt->bindParam(":state", $this->state);
+        $stmt->bindParam(":alterMobile", $this->alterMobile);
+        $stmt->bindParam(":aboutUser", $this->aboutUser);
+        $stmt->bindParam(":userServices", $this->userServices);
+        $stmt->bindParam(":establishmentYear", $this->establishmentYear);
+        $stmt->bindParam(":businessTiming", $this->businessTiming);
+        $stmt->bindParam(":businessDay", $this->businessDay);
+        $stmt->bindParam(":paymentMode", $this->paymentMode);
+        $stmt->bindParam(":userWebsite", $this->userWebsite);
+        $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":updatedOn", $this->updatedOn);
+        $stmt->bindParam(":updatedBy", $this->updatedBy);
+
+
+        // execute query
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
        public function insertCustomerInquiry()
     {
 
@@ -220,6 +296,7 @@ class User
                    businessDay=:businessDay,
                    paymentMode=:paymentMode,
                    userWebsite=:userWebsite,
+                   status=:status,
                    updatedOn=:updatedOn,
                    updatedBy=:updatedBy
                    where userId=:userId";
@@ -239,6 +316,7 @@ class User
         $this->businessDay = htmlspecialchars(strip_tags($this->businessDay));
         $this->paymentMode = htmlspecialchars(strip_tags($this->paymentMode));
         $this->userWebsite = htmlspecialchars(strip_tags($this->userWebsite));
+        $this->status = htmlspecialchars(strip_tags($this->status));
         $this->updatedOn = htmlspecialchars(strip_tags($this->updatedOn));
         $this->updatedBy = htmlspecialchars(strip_tags($this->updatedBy));
 
@@ -257,6 +335,7 @@ class User
         $stmt->bindParam(":businessDay", $this->businessDay);
         $stmt->bindParam(":paymentMode", $this->paymentMode);
         $stmt->bindParam(":userWebsite", $this->userWebsite);
+        $stmt->bindParam(":status", $this->status);
         $stmt->bindParam(":updatedOn", $this->updatedOn);
         $stmt->bindParam(":updatedBy", $this->updatedBy);
 

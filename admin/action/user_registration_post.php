@@ -25,6 +25,8 @@ $result=url_encode_Decode($url,$postdata);
 
 if($result->message=="Successfull"){
 
+// read user registration max id
+
 $data_maxId = array();
 //print_r($data_maxId);
 $postdata_maxid = json_encode($data_maxId);
@@ -32,12 +34,13 @@ $result_maxid=url_encode_Decode($url_maxId,$postdata_maxid);
 //print_r($result_maxid);
 $userId = $result_maxid->records[0]->userId;
 
-$data_profile = array("userId"=>$userId, "status"=>$status, "createdOn"=>$createdOn, "createdBy"=>$userId);
+// insert user profile
+
+$profile_data = array("userId"=>$userId, "status"=>$status, "createdOn"=>$createdOn, "createdBy"=>$userId);
 //print_r($data_profile);
-$postdata_profile = json_encode($data_profile);
+$postdata_profile = json_encode($profile_data);
 $result_profile=url_encode_Decode($url_profile,$postdata_profile);
 //print_r($postdata_profile);
-
 
 echo "1";
 // header('location:../../index.php');
