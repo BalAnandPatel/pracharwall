@@ -32,13 +32,13 @@ class User
     public function readUserProfile()
     {
 
-        if($this->status=='1'){
-        $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where user.status=1 and user.userType=:userType and user.id=:id";
+        if($this->userType=='3'){
+        $query = "Select up.id, user.id, user.userType, up.remark, city, state, userName, userMobile, userEmail, up.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.status=1 and user.userType=:userType and user.id=:id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id);
     }else{
-        $query = "Select up.id, user.id, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where user.userType=:userType and user.id=:id and (user.status=1 or user.status=0 or user.status=2)";
+        $query = "Select up.id, user.id, user.userType, up.remark, city, state, userName, userMobile, userEmail, up.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where user.userType=:userType and user.id=:id and (up.status=1 or up.status=0 or up.status=2)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id); 
@@ -49,7 +49,7 @@ class User
 
         public function readAllProfileByCategory()
     {
-       $query = "Select up.id, userId, user.userType, remark, city, state, userName, userMobile, userEmail, user.status, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.businessCategory=:businessCategory and user.status=1 and user.userType=:userType";
+        $query = "Select up.id, userId, user.userType, up.remark, up.city, up.state, userName, userMobile, userEmail, up.status, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.businessCategory=:businessCategory and up.status=1 and user.userType=:userType";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":businessCategory", $this->businessCategory);
@@ -58,11 +58,25 @@ class User
     }
 
     
-
+// select quiry for users pending, approve or rejected list 
     public function readAllUsersDetail()
     {
 
-        $query = "Select user.id, user.userType, remark, userRole, userName, userAddress, userMobile, userEmail, user.status, user.createdOn, user.createdBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where user.status=:status and user.userType=:userType";
+        $query = "Select user.id, user.userType, user.remark, userRole, user.userName, up.userAddress, businessCategory, user.userMobile, user.userEmail, up.status, up.createdOn, up.createdBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where up.status=:status and user.userType=:userType";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":userType", $this->userType);
+        $stmt->bindParam(":status", $this->status);
+        $stmt->execute();
+        return $stmt;
+    }
+
+// select quiry for users reupdated list
+
+    public function readReupdatedUsersDetail()
+    {
+
+    $query = "Select ph.id, ph.userID, user.userType, user.remark, ut.userRole, user.userName, ph.userAddress, ph.businessCategory, user.userMobile, user.userEmail, ph.status, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile_history." as ph ON user.id=ph.userId where ph.status=:status and user.userType=:userType ORDER BY ph.id DESC limit 1";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
@@ -353,25 +367,39 @@ class User
 
         // query to insert record
         $query = "UPDATE 
-         " . $this->user_registration . "
+         " . $this->user_profile . "
      SET
         remark=:remark,
         status=:status
-        where id=:id";
+        where userId=:id";
+
+        $query2 = "UPDATE 
+         " . $this->user_profile_history . "
+     SET
+        remark=:remark,
+        status=:status
+        where userId=:id";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
+        $stmt2 = $this->conn->prepare($query2);
+
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->remark = htmlspecialchars(strip_tags($this->remark));
         $this->status = htmlspecialchars(strip_tags($this->status));
 
-        //bind values
+        //bind values with stmt
         $stmt->bindParam(":id", $this->id);
         $stmt->bindParam(":remark", $this->remark);
         $stmt->bindParam(":status", $this->status);
+        
+        //bind values with stmt2
+        $stmt2->bindParam(":id", $this->id);
+        $stmt2->bindParam(":remark", $this->remark);
+        $stmt2->bindParam(":status", $this->status);
 
-        // execute query
-        if ($stmt->execute()) {
+        // execute query2
+        if ($stmt->execute() && $stmt2->execute()) {
             return true;
         }
 

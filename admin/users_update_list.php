@@ -1,20 +1,26 @@
 <?php
-// error_reporting(0);
 include "include/header.php";
-//   $url = $URL."user/read_allusers_list.php";
-//   $status='2';
-//   $data = array("status"=>$status);
-//   //print_r($data);
-//   $postdata = json_encode($data);
-//   $client = curl_init($url);
-//   curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
-//   //curl_setopt($client, CURLOPT_POST, 5);
-//   curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-//   $response = curl_exec($client);
-//   //print_r($response);
-//   $result = json_decode($response);
-//   //print_r($result);
-  ?>
+$url = $URL . "user/read_reupdated_users_list.php";
+$userType='2';
+$status = '0';
+//read user details
+
+$data = array("status"=>$status, "userType"=>$userType);
+//print_r($data);
+$postdata = json_encode($data);
+$result = giplCurl($url,$postdata);
+//print_r($result);
+
+function giplCurl($url,$postdata){
+$client = curl_init($url);
+curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
+//curl_setopt($client, CURLOPT_POST, 5);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+//print_r($response);
+return $result = json_decode($response);
+}
+?>
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -60,37 +66,78 @@ include "include/header.php";
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped text-center">
-                  <thead>
+                <thead>
                   <tr class="table-warning">
                     <th>Sr No.</th>
-                    <th>Business Category</th>
+                    <th>User Img</th>
                     <th>User Name</th>
                     <th>Mobile No.</th>
                     <th>Email Id</th>
-                    <th>Profile</th>
-                    <th>Action</th>
+                    <th>Status</th>
+                    <th>View</th>
+                    <th>Update date</th>
+                    <th>Approve</th>
+                    <th>Reject</th>
                   </tr>
-                    
-                  </thead>
-                  <tbody>
-                  <?php 
-                    //  $counter='0';
-                    //  foreach($result as $key => $value){
-                    //  foreach($value as $key1 => $value1)
-                    //  {
-                  ?>  
-                  <tr>          
-                    <td><?php //echo ++$counter; ?></td>
-                    <td><?php //echo $value1->userRole; ?></td>
-                    <td><?php //echo $value1->userName; ?></td>
-                    <td><?php //echo $value1->userMobile; ?></td>
-                    <td><?php //echo $value1->userEmail; ?></td>
-                    <td><?php //if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td> 
-                    <td><?php //echo date('d-m-Y',strtotime($value1->createdOn)); ?></td> 
-                  </tr>
+
+                </thead>
+                   <tbody>
                   <?php
-                    //  }
-                    // }
+                  $counter = '0';
+                  foreach ($result as $key => $value) {
+                    foreach ($value as $key1 => $value1) {
+                      ?>
+                      <tr>
+                        <td>
+                          <?php echo ++$counter; ?>
+                        </td>
+                        <td>
+                          <?php $uid = $value1->id; ?>
+                          <img class="img-fluid img-thumbnail rounded-circle" height="100" width="100" src="<?php echo $USER_PROFILE_IMGPATH.$uid."/user_img_".$uid.".png"; ?>" alt="user image">
+                        </td>
+                        <td>
+                          <?php echo $value1->userName; ?>
+                        </td>
+                        <td>
+                          <?php echo $value1->userMobile; ?>
+                        </td>
+                        <td>
+                          <?php echo $value1->userEmail; ?>
+                        </td>
+                        <td>
+                          <?php if ($value1->status == 0)
+                            echo '<button type="button" class="btn btn-light btn-sm text-primary">PENDING</button>'; 
+                          else
+                            echo '<button type="button" class="btn btn-light btn-sm text-primary">ACTIVE</button>'; ?>
+                        </td>
+                        <td>
+                         <?php if(!empty($value1->businessCategory)) { ?>
+                          <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProfile" onclick="getProfileList(<?php echo $value1->id; ?>)">View</a>
+                         <?php }else{ ?>
+                            <button type="button" class="btn btn-secondary btn-xs" disabled>Details Pending</button> 
+                         <?php } ?>
+                        </td>
+                        <td>
+                          <?php echo date('d-m-Y', strtotime($value1->updatedOn)); ?>
+                        </td>
+                        <td class="col-md-1">
+                          <form action="action/user_approve_post.php" method="post">
+                            <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">
+                            <?php if(!empty($value1->businessCategory)) { ?>
+                            <button type="submit" name="submit" class="btn btn-success btn-sm">Approve</button>
+                            <?php }else{ ?>
+                            <button type="button" class="btn btn-success btn-sm" disabled>Approve</button> 
+                            <?php } ?>
+                          </form>
+                        </td>
+                        <td class="col-md-1">
+                          <button class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#remark" onclick="rejectUsers(<?php echo $value1->id; ?>)">Reject</button>
+                        </td>
+                      </tr>
+                      <?php
+                    }
+                  }
                   ?>
                 </tbody>
                 </table>

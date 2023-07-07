@@ -3,7 +3,7 @@ include "include/header.php";
 $url = $URL . "user/read_allusers_list.php";
 $userType='2';
 $status = '0';
-// read user details
+//read user details
 
 $data = array("status"=>$status, "userType"=>$userType);
 //print_r($data);
@@ -93,7 +93,7 @@ return $result = json_decode($response);
                         </td>
                         <td>
                           <?php $uid = $value1->id; ?>
-                          <img class="img-fluid img-thumbnail rounded-circle" height="100" width="100" src="<?php echo $USER_PROFILE_IMGPATH.$uid."/user_img_".$uid.".png"; ?>">
+                          <img class="img-fluid img-thumbnail rounded-circle" height="100" width="100" src="<?php echo $USER_PROFILE_IMGPATH.$uid."/user_img_".$uid.".png"; ?>" alt="user image">
                         </td>
                         <td>
                           <?php echo $value1->userName; ?>
@@ -105,13 +105,17 @@ return $result = json_decode($response);
                           <?php echo $value1->userEmail; ?>
                         </td>
                         <td>
-                          <?php if ($value1->status == 1)
-                            echo "ACTIVE";
+                          <?php if ($value1->status == 0)
+                            echo '<button type="button" class="btn btn-light btn-sm text-primary">PENDING</button>'; 
                           else
-                            echo "PENDING"; ?>
+                            echo '<button type="button" class="btn btn-light btn-sm text-primary">ACTIVE</button>'; ?>
                         </td>
                         <td>
+                         <?php if(!empty($value1->businessCategory)) { ?>
                           <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProfile" onclick="getProfileList(<?php echo $value1->id; ?>)">View</a>
+                         <?php }else{ ?>
+                            <button type="button" class="btn btn-secondary btn-xs" disabled>Details Pending</button> 
+                         <?php } ?>
                         </td>
                         <td>
                           <?php echo date('d-m-Y', strtotime($value1->createdOn)); ?>
@@ -119,7 +123,11 @@ return $result = json_decode($response);
                         <td class="col-md-1">
                           <form action="action/user_approve_post.php" method="post">
                             <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">
+                            <?php if(!empty($value1->businessCategory)) { ?>
                             <button type="submit" name="submit" class="btn btn-success btn-sm">Approve</button>
+                            <?php }else{ ?>
+                            <button type="button" class="btn btn-success btn-sm" disabled>Approve</button> 
+                            <?php } ?>
                           </form>
                         </td>
                         <td class="col-md-1">
@@ -348,9 +356,10 @@ return $result = json_decode($response);
                                                     <p id="viewUserServices" class="text-muted mb-0"></p>
                                                 </div>
                                             </div>
-                                            <hr>
+
 
                                         </div>
+                                        <!-- </card-body> -->
                                     </div>
                                 </div>
                             </div>

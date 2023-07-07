@@ -1,6 +1,6 @@
 <?php
 include "include/header.php";
-error_reporting(0);
+// error_reporting(0);
 ?>
 <?php
 $url = $URL."user/read_profile_by_category.php";

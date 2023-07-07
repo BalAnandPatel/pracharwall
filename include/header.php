@@ -137,7 +137,7 @@ $result = json_decode($response);
                             <div class="form-group pt-2">
                                 <label style="font-weight: 600;" for="username">Your Name:</label>
                                 <input type="text" name="userName" placeholder="Enter Your Full Name" class="form-control"
-                                    id="userName" required autocomplete="off">
+                                    id="userName" style="text-transform:capitalize;" required autocomplete="off">
                             </div>
                             <div class="form-group pt-2">
                                 <label style="font-weight: 600;" for="mobile">Mobile No.:</label>

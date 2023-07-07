@@ -15,7 +15,6 @@ $status=1;
  $postdata = json_encode($data);
  $result=url_encode_Decode($url,$postdata);
  //print_r($result);
-
  header('Location:../user_registration_list.php');
 
  }

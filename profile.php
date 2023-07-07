@@ -5,11 +5,10 @@ include "include/header.php";
 $url = $URL."user/read_user_profile.php";
 // user type is static value for business owner 
 $userType='2';
-$status='0';
 //user id will be session id 
 $id=$_SESSION['USER_ID'];
 $userId=$id;
-$data = array("userType" =>$userType, "status"=>$status, "id"=>$id);
+$data = array("userType" =>$userType, "id"=>$id);
 $postdata = json_encode($data);
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
@@ -193,7 +192,7 @@ $(document).ready(function(){
                 <h6><?php echo $value1->userAddress; ?></h6>
 
                 <form action="update_user.php" method="post">
-                 <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">   
+                 <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">    
                  <input type="hidden" name="userName" value="<?php echo $value1->userName; ?>">
                  <input type="hidden" name="userEmail" value="<?php echo $value1->userEmail; ?>">
                  <input type="hidden" name="userMobile" value="<?php echo $value1->userMobile; ?>">

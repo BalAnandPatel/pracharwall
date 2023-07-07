@@ -16,14 +16,17 @@ if(isset($_POST["update_profile"])){
  $userWebsite=$_POST["userWebsite"];
  $userServices=ucwords($_POST["userServices"]);
  $aboutUser=$_POST["aboutUser"];
+ $pre_status=$_POST["pre_status"];
  $status="0";
  $updatedOn=date("Y-m-d");
  $updatedBy=$_POST["userId"];
   
  $url = $URL . "user/update_user_profile.php";
- $url_profile_hostory=$URL. "user/insert_user_profile_history.php";
+ $url_profile_history=$URL. "user/insert_user_profile_history.php";
  
  // update user profile
+
+if($pre_status=='0' && $status=='0'){
 
  $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite,
      "status"=>$status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
@@ -32,24 +35,26 @@ if(isset($_POST["update_profile"])){
 
  $postdata = json_encode($data);
  $result=url_encode_Decode($url,$postdata);
- print_r($result);
+ //print_r($result);
+
+}
 
 // create user profile update history
 
-  $profile_histry_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>$status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>$status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
 // print_r($data);
 
- $profile_hostory_postdata = json_encode($profile_hostory_data);
- $profile_hostory_result=url_encode_Decode($url_profile_hostory,$profile_hostory_postdata);
- print_r($profile_hostory_result);
+ $profile_history_postdata = json_encode($profile_history_data);
+ $profile_history_result=url_encode_Decode($url_profile_history,$profile_history_postdata);
+ //print_r($profile_history_result);
 
- // if($result->message=="User profile updated successfully"){
- //  $_SESSION['profileupdate_success']="Updated successfully"; 
- //  header('location:../../profile.php');
- // }else{
- //  header('location:../../update_user.php');
- // }   
+ if($result->message=="User profile updated successfully"){
+  $_SESSION['profileupdate_success']="Updated successfully"; 
+  header('location:../../profile.php');
+ }else{
+  header('location:../../update_user.php');
+ }   
 
 }
     
@@ -59,7 +64,7 @@ if(isset($_POST["update_profile"])){
     curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
     $response = curl_exec($client);
-    print_r($response);
+    //print_r($response);
     return $result = json_decode($response);
 
 }

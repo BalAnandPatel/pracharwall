@@ -235,6 +235,7 @@ if (isset($_POST['update'])) {
                                     <textarea class="form-control" name="aboutUser" value="<?php echo $profile_value1->aboutUser; ?>" rows="4" placeholder="About your business" required><?php echo $profile_value1->aboutUser; ?></textarea>
                                 </div>
                                 <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                                <input type="hidden" name="pre_status" value="<?php echo $profile_value1->status; ?>">
                                 <button class="btn btn-primary" name="update_profile" type="submit">Save changes</button>
                         <?php }
                         } ?>

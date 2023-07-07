@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
   
-// database connection will be here
+//database connection will be here
 
 // include database and object files
 include_once '../../config/database.php';
@@ -17,63 +17,50 @@ $database = new Database();
 $db = $database->getConnection();
   
 // initialize object
-$read_userprofile = new User($db);
+$read_reupdated_users = new User($db);
   
 $data = json_decode(file_get_contents("php://input"));
+$read_reupdated_users->userType = $data->userType;
+$read_reupdated_users->status = $data->status;
+
 //print_r($data);
 
-$read_userprofile->userType=$data->userType;
-$read_userprofile->id=$data->id;
-// $exam->id=$data->id;
-
-$stmt = $read_userprofile->readUserProfile();
+$stmt = $read_reupdated_users->readReupdatedUsersDetail();
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
 if($num>0){
   
     // products array
-    $read_userprofiles_arr=array();
-    $read_userprofiles_arr["records"]=array();
+    $read_reupdated_users_arr=array();
+    $read_reupdated_users_arr["records"]=array();
 
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
      
         extract($row);
   
-        $read_userprofile_item=array(
+        $read_reupdated_users_item=array(
 
-            "id"=>$id,
+            "id" => $id,
             "userType"=>$userType,
-            "userName"=>$userName,
-            "userEmail"=>$userEmail,
-            "userMobile"=>$userMobile,
-            "status"=>$status,
+            "userRole"=>$userRole,
             "businessCategory"=>$businessCategory,
-            "categoryId"=>$categoryId,
-            "businessName"=>$businessName,
-            "establishmentYear"=>$establishmentYear,
-            "paymentMode"=>$paymentMode,
+            "userName"=>$userName,
+            "userMobile"=>$userMobile,
             "userAddress"=>$userAddress,
-            "city"=>$city,
-            "state"=>$state,
-            "userWebsite"=>$userWebsite,
-            "alterMobile"=>$alterMobile,
-            "businessTiming"=>$businessTiming,
-            "businessDay"=>$businessDay,
-            "userServices"=>$userServices,
-            "aboutUser"=>$aboutUser,
-            "createdOn"=>$createdOn,
-            "createdBy"=>$createdBy,
+            "userEmail"=>$userEmail,
+            "status"=>$status,
+            "remark"=>$remark,
             "updatedOn"=>$updatedOn,
-            "updatedBy"=>$updatedBy
+            "updatedBy"=>$updatedBy 
         );
   
-        array_push($read_userprofiles_arr["records"], $read_userprofile_item);
+        array_push($read_reupdated_users_arr["records"], $read_reupdated_users_item);
     }
   
     // show products data in json format
-    echo json_encode($read_userprofiles_arr);
+    echo json_encode($read_reupdated_users_arr);
 
      // set response code - 200 OK
      http_response_code(200);
@@ -87,7 +74,7 @@ else{
   
     // tell the user no products found
     echo json_encode(
-        array("message" => "No user profile details found.")
+        array("message" => "No user list found.")
     );
 }
 ?>

@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
   
-// database connection will be here
+//database connection will be here
 
 // include database and object files
 include_once '../../config/database.php';
@@ -45,6 +45,7 @@ if($num>0){
             "id" => $id,
             "userType"=>$userType,
             "userRole"=>$userRole,
+            "businessCategory"=>$businessCategory,
             "userName"=>$userName,
             "userMobile"=>$userMobile,
             "userAddress"=>$userAddress,
