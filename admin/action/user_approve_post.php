@@ -4,7 +4,7 @@ include '../../constant.php';
 if(isset($_POST["submit"])){
     
 $remark="Approved";
-$userId=$_POST["userId"];
+$userId=$_POST["userId"]; 
 $status=1;
  
  $url=$URL. "user/update_user_status.php";

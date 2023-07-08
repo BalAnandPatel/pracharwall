@@ -10,6 +10,7 @@ class User
     private $customer_inquiry = "customer_inquiry";
     private $user_registration = "user_registration";
     private $user_type = "user_type";
+    private $wall_uploads = "wall_uploads";
     // private $table_payment = "payment";
 
     public function __construct($db)
@@ -17,7 +18,7 @@ class User
         $this->conn = $db;
     }
 
-    public $id, $userId, $userType, $city, $state, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $categoryId, $userAddress, $alterMobile, $businessDay, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $remark, $createdOn, $createdBy, $updatedOn, $updatedBy;
+    public $id, $userId, $userType, $city, $state, $userName, $userEmail, $userPass, $userMobile, $businessCategory, $categoryId, $userAddress, $alterMobile, $businessDay, $userWebsite, $businessName, $establishmentYear, $paymentMode, $businessTiming, $userServices, $aboutUser, $status, $remark, $createdOn, $createdBy,$wallImg, $updatedOn, $updatedBy;
 
     public $cuId, $cuName,$cuEmail, $cuAddress, $cuMobile, $requiredService;
     public function readMaxUserId()
@@ -33,12 +34,15 @@ class User
     {
 
         if($this->userType=='3'){
-        $query = "Select up.id, user.id, user.userType, up.remark, city, state, userName, userMobile, userEmail, up.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.status=1 and user.userType=:userType and user.id=:id";
+            
+        $query = "Select up.id, user.id, user.userType, up.remark, city, state, userName, userMobile, userEmail, up.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.status=1 and user.userType=2 and user.id=:id";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id);
+
     }else{
-        $query = "Select up.id, user.id, user.userType, up.remark, city, state, userName, userMobile, userEmail, up.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where user.userType=:userType and user.id=:id and (up.status=1 or up.status=0 or up.status=2)";
+        // $query = "Select up.id, user.id, user.userType, up.remark, city, state, userName, userMobile, userEmail, up.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where user.userType=:userType and user.id=:id and (up.status=1 or up.status=0 or up.status=2)";
+        $query = "Select ph.id, user.id, user.userType, ph.remark, city, state, userName, userMobile, userEmail, ph.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, wallImg, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user  LEFT JOIN ".$this->wall_uploads." as wall ON user.id=wall.userId LEFT JOIN " . $this->user_profile_history . " as ph ON user.id=ph.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=ph.businessCategory where user.userType=:userType and user.id=:id and (ph.status=1 or ph.status=0 or ph.status=2) ORDER BY ph.id DESC limit 1";
+        // LEFT LOIN ".$this->wall_uploads." as wall ON ph.userId=wall.userId
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id); 
@@ -76,7 +80,7 @@ class User
     public function readReupdatedUsersDetail()
     {
 
-    $query = "Select ph.id, ph.userID, user.userType, user.remark, ut.userRole, user.userName, ph.userAddress, ph.businessCategory, user.userMobile, user.userEmail, ph.status, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile_history." as ph ON user.id=ph.userId where ph.status=:status and user.userType=:userType ORDER BY ph.id DESC limit 1";
+    $query = "Select ph.id, ph.userId, user.userType, user.remark, ut.userRole, user.userName, ph.userAddress, ph.businessCategory, user.userMobile, user.userEmail, ph.status, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile_history." as ph ON user.id=ph.userId where ph.status=:status and user.userType=:userType ORDER BY ph.id DESC limit 1";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
@@ -141,28 +145,64 @@ class User
         return false;
     }
 
-    public function insertUserProfile()
+    // insert user prachar wall image in wall_uploads table
+
+    public function insertUserWall()
     {
 
-        $query = "INSERT INTO
-        " . $this->user_profile . "
+       $query = "INSERT INTO
+        " . $this->wall_uploads . "
     SET      userId=:userId,
-             status=:status,
+             wallImg=:wallImg,
              createdOn=:createdOn,
              createdBy=:createdBy
                ";
 
         $stmt = $this->conn->prepare($query);
         $this->userId = htmlspecialchars(strip_tags($this->userId));
-        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->wallImg = htmlspecialchars(strip_tags($this->wallImg));
         $this->createdOn = htmlspecialchars(strip_tags($this->createdOn));
         $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
 
 
         $stmt->bindParam(":userId", $this->userId);
-        $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":wallImg", $this->wallImg);
         $stmt->bindParam(":createdOn", $this->createdOn);
         $stmt->bindParam(":createdBy", $this->createdBy);
+
+
+        // execute query
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    // update user wall
+    public function updateUserWall()
+    {
+
+       $query = "UPDATE
+        " . $this->wall_uploads . "
+    SET      userId=:userId,
+             wallImg=:wallImg,
+             updatedOn=:updatedOn,
+             updatedBy=:updatedBy
+             where userId=:userId";
+
+        $stmt = $this->conn->prepare($query);
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->wallImg = htmlspecialchars(strip_tags($this->wallImg));
+        $this->updatedOn = htmlspecialchars(strip_tags($this->updatedOn));
+        $this->updatedBy = htmlspecialchars(strip_tags($this->updatedBy));
+
+
+        $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":wallImg", $this->wallImg);
+        $stmt->bindParam(":updatedOn", $this->updatedOn);
+        $stmt->bindParam(":updatedBy", $this->updatedBy);
 
 
         // execute query

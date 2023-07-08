@@ -24,7 +24,6 @@ $data = json_decode(file_get_contents("php://input"));
 
 $read_userprofile->userType=$data->userType;
 $read_userprofile->id=$data->id;
-// $exam->id=$data->id;
 
 $stmt = $read_userprofile->readUserProfile();
 $num = $stmt->rowCount();
@@ -51,6 +50,7 @@ if($num>0){
             "status"=>$status,
             "businessCategory"=>$businessCategory,
             "categoryId"=>$categoryId,
+            "wallImg"=>$wallImg,
             "businessName"=>$businessName,
             "establishmentYear"=>$establishmentYear,
             "paymentMode"=>$paymentMode,

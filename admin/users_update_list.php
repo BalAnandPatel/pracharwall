@@ -92,7 +92,7 @@ return $result = json_decode($response);
                           <?php echo ++$counter; ?>
                         </td>
                         <td>
-                          <?php $uid = $value1->id; ?>
+                          <?php $uid = $value1->userId; ?>
                           <img class="img-fluid img-thumbnail rounded-circle" height="100" width="100" src="<?php echo $USER_PROFILE_IMGPATH.$uid."/user_img_".$uid.".png"; ?>" alt="user image">
                         </td>
                         <td>
@@ -112,7 +112,7 @@ return $result = json_decode($response);
                         </td>
                         <td>
                          <?php if(!empty($value1->businessCategory)) { ?>
-                          <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProfile" onclick="getProfileList(<?php echo $value1->id; ?>)">View</a>
+                          <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProfile" onclick="getProfileList(<?php echo $value1->userId; ?>)">View</a>
                          <?php }else{ ?>
                             <button type="button" class="btn btn-secondary btn-xs" disabled>Details Pending</button> 
                          <?php } ?>
@@ -121,8 +121,8 @@ return $result = json_decode($response);
                           <?php echo date('d-m-Y', strtotime($value1->updatedOn)); ?>
                         </td>
                         <td class="col-md-1">
-                          <form action="action/user_approve_post.php" method="post">
-                            <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">
+                          <form action="action/user_reapprove_post.php" method="post">
+                            <input type="hidden" name="userId" value="<?php echo $value1->userId; ?>">
                             <?php if(!empty($value1->businessCategory)) { ?>
                             <button type="submit" name="submit" class="btn btn-success btn-sm">Approve</button>
                             <?php }else{ ?>
@@ -158,25 +158,220 @@ return $result = json_decode($response);
 
   <!-- modal box start-->
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Payment Slip</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <img src="<?php echo $slip_img; ?>" alt="..." class="img-fluid img-thumbnail" width="100%">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+<!-- Modal for user profile details (Admin)-->
+  <div class="modal fade" id="viewProfile" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>View More Details</p>
+          <!-- <iframe src="http://localhost/pracharwall/profile_view.php?id=5" width="100%" height="300"  title="description"></iframe> -->
+            <section class="bg-light">
+                        <div class="container py-3">
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card mb-4">
+                                        <div class="card-body text-center">
+                                        <h5 id="viewUserName" class="my-3">Business Banner</h5>
+                                            <img src="" id="viewUserImg" alt="user image"
+                                                class="rounded-0 img-fluid img-thumbnail" height="100%" width="100%">
+                                            <!--<p id="viewUserEmail" class="text-muted mb-1"></p>-->
+                                            <!-- <p id="viewUserMobile" class="text-muted mb-4"></p> --> 
+                                            <!-- <div class="d-flex justify-content-center mb-2">
+                                                <button type="button" class="btn btn-primary">Edit Proflie <i
+                                                        class="bi bi-pencil-square"></i></button>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Business Cateory</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewBusinessCategory" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Business Name</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewBusinessName" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Address</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewUserAddress" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Alernate Mobile</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewAlterMobile" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">City</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewCity" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">State</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewState" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Establishment of Year</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewEstablishmentYear" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Payment Mode</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewPaymentMode" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Business Timing</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewBusinessTiming" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Business Days</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewBusinessDay" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">Website</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewUserWebsite" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">About User</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewAboutUser" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <p class="mb-0">User's Services</p>
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <p id="viewUserServices" class="text-muted mb-0"></p>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <!-- </card-body> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <!-- modal box end-->
+
+<script>
+
+    //This method for reject user details
+     function rejectUsers(id){
+     //alert(id);
+     document.getElementById("rejectUserId").value = id;
+     }
+
+    
+    // read user profle details
+
+    function getProfileList(id) {
+    // alert(id);
+    // var id;    
+    // var userType=2;    
+    // var status=0;    
+    // myData = {userId:id,userType:userType,status:status };
+    // console.log(myData);    
+    $.ajax({
+      url:"<?php echo $BASE_URL ?>admin/action/get_data.php",   
+      type:'POST',  
+      dataType:'json',  
+      data:{
+        "userId":id 
+      },
+      success: function(response) {
+        console.log(response);
+        console.log("depth" + JSON.stringify(response));
+        // console.log(response.records[0].userName);
+        // alert("response");
+        var u_id = response.records[0].id;
+        document.getElementById("viewUserImg").src = "<?php echo $USER_WALL_IMGPATH ?>"+u_id+"/wall_img_"+u_id+".png";
+        // document.getElementById("viewUserName").innerHTML = response.records[0].userName;
+        // document.getElementById("viewUserEmail").innerHTML = response.records[0].userEmail;
+        // document.getElementById("viewUserMobile").innerHTML = "+91-"+response.records[0].userMobile;
+        document.getElementById("viewBusinessCategory").innerHTML = response.records[0].businessCategory;
+        document.getElementById("viewUserAddress").innerHTML = response.records[0].userAddress;
+        document.getElementById("viewUserServices").innerHTML = response.records[0].userServices;
+        document.getElementById("viewAlterMobile").innerHTML = response.records[0].alterMobile;
+        document.getElementById("viewBusinessDay").innerHTML = response.records[0].businessDay;
+        document.getElementById("viewUserWebsite").innerHTML = response.records[0].userWebsite;
+        document.getElementById("viewEstablishmentYear").innerHTML = response.records[0].establishmentYear;
+        document.getElementById("viewPaymentMode").innerHTML = response.records[0].paymentMode;
+        document.getElementById("viewBusinessTiming").innerHTML = response.records[0].businessTiming;
+        document.getElementById("viewAboutUser").innerHTML = response.records[0].aboutUser;
+        document.getElementById("viewBusinessName").innerHTML = response.records[0].businessName;
+        document.getElementById("viewCity").innerHTML = response.records[0].city;
+        document.getElementById("viewState").innerHTML = response.records[0].state;
+
+      }  
+    });    
+ 
+  }
+</script>
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>

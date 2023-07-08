@@ -43,6 +43,7 @@ if($num>0){
         $read_reupdated_users_item=array(
 
             "id" => $id,
+            "userId" => $userId,
             "userType"=>$userType,
             "userRole"=>$userRole,
             "businessCategory"=>$businessCategory,

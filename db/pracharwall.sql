@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 07, 2023 at 12:15 PM
+-- Generation Time: Jul 08, 2023 at 12:33 PM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
 --
 
 INSERT INTO `user_profile` (`id`, `userId`, `businessCategory`, `subCategory`, `alterMobile`, `userAddress`, `city`, `state`, `businessName`, `establishmentYear`, `paymentMode`, `businessTiming`, `businessDay`, `userServices`, `userWebsite`, `aboutUser`, `remark`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(67, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology ( GIPL)', '2015', 'Cash, Master Card, Visa Card', '9 Am To 6 Pm', 'Mon - Sat', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '2023-07-07 09:54:39', '72', '2023-07-06 18:30:00', '72'),
+(67, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology 3', '2015', 'Cash, Master Card, Visa Card, Debit Cards', '9 Am To 6 Pm', 'Mon - Sat', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '2023-07-08 09:33:24', '72', '2023-07-07 18:30:00', '72'),
 (68, '73', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2023-07-07 06:10:45', '73', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
@@ -139,15 +139,16 @@ CREATE TABLE IF NOT EXISTS `user_profile_history` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL,
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `user_profile_history`
 --
 
 INSERT INTO `user_profile_history` (`id`, `userId`, `businessCategory`, `subCategory`, `alterMobile`, `userAddress`, `city`, `state`, `businessName`, `establishmentYear`, `paymentMode`, `businessTiming`, `businessDay`, `userServices`, `userWebsite`, `aboutUser`, `remark`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(5, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology ( GIPL)', '2015', 'Cash, Master Card, Visa Card', '9 Am To 6 Pm', 'Mon - Sat', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 0, '0000-00-00 00:00:00', '', '2023-07-06 18:30:00', '72'),
-(6, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology ', '2015', 'Cash', '9 Am To 6 Pm', 'Wed - Wed', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', '', 0, '0000-00-00 00:00:00', '', '2023-07-06 18:30:00', '72');
+(5, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology ( GIPL1)', '2015', 'Cash, Master Card, Visa Card', '9 Am To 6 Pm', 'Mon - Sat', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-06 18:30:00', '72'),
+(6, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology 2', '2015', 'Cash', '9 Am To 6 Pm', 'Wed - Wed', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-06 18:30:00', '72'),
+(7, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology 3', '2015', 'Cash, Master Card, Visa Card, Debit Cards', '9 Am To 6 Pm', 'Mon - Sat', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-07 18:30:00', '72');
 
 -- --------------------------------------------------------
 
@@ -222,6 +223,32 @@ CREATE TABLE IF NOT EXISTS `wall_uploads` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `wall_uploads`
+--
+
+INSERT INTO `wall_uploads` (`id`, `userId`, `businessCategory`, `subCategory`, `wallImg`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
+(2, '72', '', '', 'wall_img_72_43.png', 0, '2023-07-08 11:55:03', '72', '2023-07-07 18:30:00', '72');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wall_upload_history`
+--
+
+CREATE TABLE IF NOT EXISTS `wall_upload_history` (
+`id` int(255) NOT NULL,
+  `userId` varchar(255) NOT NULL,
+  `businessCategory` varchar(100) NOT NULL,
+  `subCategory` varchar(100) NOT NULL,
+  `wallImg` varchar(200) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `createdOn` timestamp NOT NULL,
+  `createdBy` varchar(255) NOT NULL,
+  `updatedOn` timestamp NOT NULL,
+  `updatedBy` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
@@ -271,6 +298,12 @@ ALTER TABLE `wall_uploads`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `wall_upload_history`
+--
+ALTER TABLE `wall_upload_history`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -293,7 +326,7 @@ MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=69;
 -- AUTO_INCREMENT for table `user_profile_history`
 --
 ALTER TABLE `user_profile_history`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user_registration`
 --
@@ -308,6 +341,11 @@ MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `wall_uploads`
 --
 ALTER TABLE `wall_uploads`
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `wall_upload_history`
+--
+ALTER TABLE `wall_upload_history`
 MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

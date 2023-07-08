@@ -10,7 +10,7 @@ $U_Id="";
 ?>
 <?php
 $url = $URL."user/read_user_profile.php";
-$userType='2'; 
+$userType='3'; 
 $id=base64_decode($_GET['id']);
 $userId=$id;
 $data = array("userType" =>$userType, "id"=>$id);
@@ -21,7 +21,7 @@ curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
 //print_r($response);
 $result = json_decode($response);
-// print_r($result);
+//print_r($result);
 ?>
 
 <style>

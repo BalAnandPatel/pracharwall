@@ -3,18 +3,24 @@ include '../../constant.php';
 
 if(isset($_POST["uploadWall"])){
   
+  $url = $URL . "user/insert_user_wall.php";
+  $update_url = $URL . "user/update_user_wall.php";
   $userId=$_POST['userId'];
+  $date=date("Y-m-d");
+  $createdBy=$_POST['userId'];
   $target_dir = "../image/walluploads/";
   $path = "../image/walluploads/".$userId."/";
-
+  $rand_no = rand(10,100);
+  $pre_wall_image = $_POST['pre_wall_image'];
+ 
     if (!is_dir($path)){
     mkdir($path, 0777, true);
     // echo "directory created";
-     header('Location:../../profile.php');
+    header('Location:../../profile.php');
     }
     else{ 
     //  echo "unable to create directory";
-     header('Location:../../profile.php');
+    header('Location:../../profile.php');
     }
 
   $target_file_type = basename($_FILES["uploadWallFile"]["name"]);
@@ -55,10 +61,25 @@ if(isset($_POST["uploadWall"])){
       header('Location:../../profile.php');
     } else {
 
-    $target_file = $path."wall_img_".$userId.".png";
+    $target_file = $path."wall_img_".$userId."_".$rand_no.".png";
+    $wallImg = "wall_img_".$userId."_".$rand_no.".png";
    
     if (move_uploaded_file($_FILES["uploadWallFile"]["tmp_name"], $target_file)) {
-    
+
+
+        if(empty($pre_wall_image)){
+        $data = array("userId"=>$userId, "wallImg"=>$wallImg, "createdOn"=>$date, "createdBy"=>$createdBy);
+        $postdata = json_encode($data);
+        $result = url_encode_Decode($url,$postdata);
+        //print_r($result); 
+        }else{
+          echo "up";
+         $data = array("userId"=>$userId, "wallImg"=>$wallImg, "updatedOn"=>$date, "updatedBy"=>$userId);
+        $postdata = json_encode($data);
+        $result = url_encode_Decode($update_url,$postdata);
+        //print_r($result); 
+        }
+
         $_SESSION["wallUploadSuccess"] = "File uploaded succesfully.";
         header('Location:../../profile.php');
          }
