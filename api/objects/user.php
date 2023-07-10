@@ -41,8 +41,7 @@ class User
         $stmt->bindParam(":id", $this->id);
 
     }else{
-        // $query = "Select up.id, user.id, user.userType, up.remark, city, state, userName, userMobile, userEmail, up.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where user.userType=:userType and user.id=:id and (up.status=1 or up.status=0 or up.status=2)";
-        $query = "Select ph.id, user.id, user.userType, ph.remark, city, state, userName, userMobile, userEmail, ph.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, wallImg, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user  LEFT JOIN ".$this->wall_uploads." as wall ON user.id=wall.userId LEFT JOIN " . $this->user_profile_history . " as ph ON user.id=ph.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=ph.businessCategory where user.userType=:userType and user.id=:id and (ph.status=1 or ph.status=0 or ph.status=2) ORDER BY ph.id DESC limit 1";
+        $query = "Select ph.id, user.id, user.userType, ph.remark, city, state, userName, userMobile, userEmail, ph.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile_history . " as ph ON user.id=ph.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=ph.businessCategory where user.userType=:userType and user.id=:id and (ph.status=1 or ph.status=0 or ph.status=2) ORDER BY ph.id DESC limit 1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id); 
@@ -107,7 +106,7 @@ class User
     {
         
         if($this->userId!=""){
-        $query = "Select wall.id,wall.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wall.wallImg,wall.status,wall.createdOn,wall.updatedOn,wall.createdBy,wall.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_uploads." as wall ON wall.userId=user.id where wall.status=:status and wall.userId=:userId";
+        $query = "Select wall.id,wall.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wall.wallImg,wall.status,wall.createdOn,wall.updatedOn,wall.createdBy,wall.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_uploads." as wall ON wall.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wall.businessCategory where wall.userId=:userId and wall.status=:status";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userId", $this->userId);
@@ -121,6 +120,19 @@ class User
         $stmt->execute();
         return $stmt;
     }
+
+
+       // select quiry for read user's wall history list 
+       public function readUsersWallHistory()
+       {
+           
+           $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status=:status ORDER BY wh.id DESC limit 1";
+   
+           $stmt = $this->conn->prepare($query);
+           $stmt->bindParam(":status", $this->status);
+           $stmt->execute();
+           return $stmt;
+       }
  
 
     public function insertUser()
@@ -464,7 +476,7 @@ class User
     function updateUserStatus()
     {
 
-        // query to insert record
+        // query to update record
         $query = "UPDATE 
          " . $this->user_profile . "
      SET
@@ -505,6 +517,61 @@ class User
         return false;
     }
 
+// update query for approve user wall
+    function approveUserwall()
+    {
+
+        // query to update record
+        $query = "UPDATE 
+         " . $this->wall_uploads . "
+     SET
+        wallImg=:wallImg,
+        status=:status,
+        updatedOn=:updatedOn,
+        updatedBy=:updatedBy
+        where userId=:userId";
+
+        $query2 = "UPDATE 
+         " . $this->wall_upload_history . "
+     SET
+        status=:status,
+        updatedOn=:updatedOn,
+        updatedBy=:updatedBy
+        where userId=:userId";
+
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+        $stmt2 = $this->conn->prepare($query2);
+
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->wallImg = htmlspecialchars(strip_tags($this->wallImg));
+        // $this->remark = htmlspecialchars(strip_tags($this->remark));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->updatedOn = htmlspecialchars(strip_tags($this->updatedOn));
+        $this->updatedBy = htmlspecialchars(strip_tags($this->updatedBy));
+
+        //bind values with stmt
+        $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":wallImg", $this->wallImg);
+        // $stmt->bindParam(":remark", $this->remark);
+        $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":updatedOn", $this->updatedOn);
+        $stmt->bindParam(":updatedBy", $this->updatedBy);
+        
+        //bind values with stmt2
+        $stmt2->bindParam(":userId", $this->userId);
+        // $stmt2->bindParam(":remark", $this->remark);
+        $stmt2->bindParam(":status", $this->status);
+        $stmt2->bindParam(":updatedOn", $this->updatedOn);
+        $stmt2->bindParam(":updatedBy", $this->updatedBy);
+
+        // execute query2
+        if ($stmt->execute() && $stmt2->execute()) {
+            return true;
+        }
+
+        return false;
+    }
 
 }
 ?>

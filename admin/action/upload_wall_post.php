@@ -81,15 +81,17 @@ if(isset($_POST["uploadWall"])){
 
 
         if(empty($pre_wall_image)){
+        //user wall entry 
         $data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>$status, "createdOn"=>$date, "createdBy"=>$createdBy);
         $postdata = json_encode($data);
         $result = url_encode_Decode($url,$postdata);
-        //print_r($result); 
+        //print_r($result);
         }else{
-        $data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>$status, "updatedOn"=>$date, "updatedBy"=>$userId);
-        $postdata = json_encode($data);
-        $result = url_encode_Decode($history_url,$postdata);
-        //print_r($result); 
+        //create user wall upload history
+        $history_data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>$status, "createdOn"=>$date, "createdBy"=>$createdBy);
+        $history_postdata = json_encode($history_data);
+        $history_result = url_encode_Decode($history_url,$history_postdata);
+        //print_r($history_result); 
         }
 
         $_SESSION["wallUploadSuccess"] = "File uploaded succesfully.";

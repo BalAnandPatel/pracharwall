@@ -137,8 +137,17 @@ return $result;
                         <div class="card swiper-slide">
                             <div class="image-content">
                                 <span class="overlay">
-
-                                    <img src="<?php $id=$value1->userId; echo $USER_WALL_IMGPATH."/".$id."/wall_img_".$id.".png"; ?>" alt="" class="card-img">
+                                    <?php
+                                    $wall_url = $URL . "user/read_user_wall.php";
+                                    $status = '1';
+                                    $userId = $value1->userId;
+                                    $wall_data = array("status" => $status, "userId" => $userId);
+                                    $wall_postdata = json_encode($wall_data);
+                                    $wall_result = giplCurl($wall_url,$wall_postdata);
+                                    // print_r($wall_result);
+                                    $wall_img = $wall_result->records[0]->wallImg;
+                                     ?>
+                                    <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" alt="wall_img" class="card-img">
                                 </span>
 
                                 <div class="card-image">

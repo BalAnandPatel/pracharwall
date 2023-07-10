@@ -1,19 +1,18 @@
 <?php
 // error_reporting(0);
 include "include/header.php";
-//   $url = $URL."user/read_allusers_list.php";
-//   $status='2';
-//   $data = array("status"=>$status);
-//   //print_r($data);
-//   $postdata = json_encode($data);
-//   $client = curl_init($url);
-//   curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
-//   //curl_setopt($client, CURLOPT_POST, 5);
-//   curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-//   $response = curl_exec($client);
-//   //print_r($response);
-//   $result = json_decode($response);
-//   //print_r($result);
+  $url = $URL."user/read_user_wall_history.php";
+  $data = array("status"=>'0');
+  //print_r($data);
+  $postdata = json_encode($data);
+  $client = curl_init($url);
+  curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+  //curl_setopt($client, CURLOPT_POST, 5);
+  curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+  $response = curl_exec($client);
+  //print_r($response);
+  $result = json_decode($response);
+  //print_r($result);
   ?>
 
   <div class="content-wrapper">
@@ -60,36 +59,43 @@ include "include/header.php";
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped text-center">
-                  <thead>
+                <thead>
                   <tr class="table-warning">
                     <th>Sr No.</th>
                     <th>Business Category</th>
                     <th>User Name</th>
                     <th>Post Image</th>
-                    <th>Update Date</th>
+                    <th>Create Date</th>
                     <th>Profile</th>
+                    <th>Approve</th>
                   </tr>
                     
                   </thead>
                   <tbody>
                   <?php 
-                    //  $counter='0';
-                    //  foreach($result as $key => $value){
-                    //  foreach($value as $key1 => $value1)
-                    //  {
+                     $counter='0';
+                     foreach($result as $key => $value){
+                     foreach($value as $key1 => $value1)
+                     {
                   ?>  
                   <tr>          
-                    <td><?php //echo ++$counter; ?></td>
-                    <td><?php //echo $value1->userRole; ?></td>
-                    <td><?php //echo $value1->userName; ?></td>
-                    <td><?php //echo $value1->userMobile; ?></td>
-                    <td><?php //echo $value1->userEmail; ?></td>
-                    <td><?php //if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td> 
-                    <!-- <td><?php //echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>  -->
+                    <td><?php echo ++$counter; ?></td>
+                    <td><?php echo $value1->businessCategory; ?></td>
+                    <td><?php echo $value1->userName; ?></td>
+                    <td><?php echo $value1->wallImg; ?></td>
+                    <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
+                    <td><?php echo ""; ?></td>  
+                    <td>
+                      <form action="action/wall_reapprove_post.php" method="post">
+                      <input type="hidden" name="userId" value="<?php echo $value1->userId; ?>">
+                      <input type="hidden" name="wallImg" value="<?php echo $value1->wallImg; ?>">
+                      <button type="submit" name="submit" class="btn btn-success">Reapprove</button>
+                      </form>  
+                    </td>  
                   </tr>
-                  <?php
-                    //  }
-                    // }
+                  <?php 
+                     }
+                    }
                   ?>
                 </tbody>
                 </table>

@@ -10,18 +10,33 @@ $U_Id="";
 ?>
 <?php
 $url = $URL."user/read_user_profile.php";
+$wall_url = $URL . "user/read_user_wall.php";
 $userType='3'; 
 $id=base64_decode($_GET['id']);
 $userId=$id;
 $data = array("userType" =>$userType, "id"=>$id);
+// print_r($data);
 $postdata = json_encode($data);
-$client = curl_init($url);
-curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
-curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-$response = curl_exec($client);
-print_r($response);
-$result = json_decode($response);
-print_r($result);
+$result = giplCurl($url,$postdata);
+//  print_r($result);
+
+// get users wall image
+$status = '1';
+$wall_data = array("status" => $status, "userId" => $userId);
+$wall_postdata = json_encode($wall_data);
+$wall_result = giplCurl($wall_url,$wall_postdata);
+// print_r($wall_result);
+$wall_img = $wall_result->records[0]->wallImg;
+
+function giplCurl($url,$postdata){
+    $client = curl_init($url);
+    curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+    $response = curl_exec($client);
+    //print_r($response);
+    $result = json_decode($response);
+    return $result;    
+    }
 ?>
 
 <style>
@@ -324,7 +339,7 @@ exit();
                 <h5>Photos</h5>
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="<?php echo $USER_WALL_IMGPATH.$id.'/wall_img_'.$id.'.png'; ?>" class="img-fluid border rounded">
+                        <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" class="img-fluid border rounded">
                     </div>
                     <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                         <img src="assets/img/events.png" class="border rounded">
