@@ -1,0 +1,11 @@
+   modified:   admin/action/upload_wall_post.php
+        modified:   admin/active_post_list.php
+        deleted:    admin/image/walluploads/72/wall_img_72_46.png
+        new file:   admin/image/walluploads/72/wall_img_72_91.png
+        new file:   admin/image/walluploads/72/wall_img_72_95.png
+        modified:   api/objects/user.php
+        modified:   api/src/user/insert_user_wall.php
+        new file:   api/src/user/insert_user_wall_history.php
+        new file:   api/src/user/read_user_wall.php
+        modified:   profile.php
+        modified:   profile_view.php
