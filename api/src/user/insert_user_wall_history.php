@@ -15,7 +15,7 @@ include_once '../../objects/user.php';
 $database = new Database();
 $db = $database->getConnection();
   
-$insert_user_wall = new User($db);
+$insert_user_wall_history = new User($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
@@ -30,19 +30,19 @@ if(
 )
 
 {
-    $insert_user_wall->userId = $data->userId;
-    $insert_user_wall->businessCategory = $data->categoryId;
-    $insert_user_wall->wallImg = $data->wallImg;
-    $insert_user_wall->createdOn = $data->createdOn;
-    $insert_user_wall->createdBy = $data->createdBy;
+    $insert_user_wall_history->userId = $data->userId;
+    $insert_user_wall_history->businessCategory = $data->categoryId;
+    $insert_user_wall_history->wallImg = $data->wallImg;
+    $insert_user_wall_history->createdOn = $data->createdOn;
+    $insert_user_wall_history->createdBy = $data->createdBy;
        
     //var_dump($exam);
     // create the reg
     
-    if($insert_user_wall->insertUserWall()){
+    if($insert_user_wall_history->insertUserWallHistory()){
 
         http_response_code(201);
-        echo json_encode(array("message"=>"Insert Wall Successfully"));
+        echo json_encode(array("message"=>"Insert Wall history Successfully"));
     }
     else{
   
@@ -50,7 +50,7 @@ if(
         http_response_code(503);
   
         // tell the user
-        echo json_encode(array("message" => "Unable to insert user wall"));
+        echo json_encode(array("message" => "Unable to insert user wall history"));
     }
 }
   
@@ -61,6 +61,6 @@ else{
     http_response_code(400);
   
     // tell the user
-    echo json_encode(array("message" => "Unable to insert user. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to insert user wall history. Data is incomplete."));
 }
 ?>

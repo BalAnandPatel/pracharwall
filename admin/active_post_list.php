@@ -1,19 +1,18 @@
 <?php
 // error_reporting(0);
 include "include/header.php";
-//   $url = $URL."user/read_allusers_list.php";
-//   $status='2';
-//   $data = array("status"=>$status);
-//   //print_r($data);
-//   $postdata = json_encode($data);
-//   $client = curl_init($url);
-//   curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
-//   //curl_setopt($client, CURLOPT_POST, 5);
-//   curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-//   $response = curl_exec($client);
-//   //print_r($response);
-//   $result = json_decode($response);
-//   //print_r($result);
+  $url = $URL."user/read_user_wall.php";
+  $data = array("status"=>'1',"userId"=>"");
+  //print_r($data);
+  $postdata = json_encode($data);
+  $client = curl_init($url);
+  curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+  //curl_setopt($client, CURLOPT_POST, 5);
+  curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+  $response = curl_exec($client);
+  //print_r($response);
+  $result = json_decode($response);
+  //print_r($result);
   ?>
 
   <div class="content-wrapper">
@@ -73,23 +72,22 @@ include "include/header.php";
                   </thead>
                   <tbody>
                   <?php 
-                    //  $counter='0';
-                    //  foreach($result as $key => $value){
-                    //  foreach($value as $key1 => $value1)
-                    //  {
+                     $counter='0';
+                     foreach($result as $key => $value){
+                     foreach($value as $key1 => $value1)
+                     {
                   ?>  
                   <tr>          
-                    <td><?php //echo ++$counter; ?></td>
-                    <td><?php //echo $value1->userRole; ?></td>
-                    <td><?php //echo $value1->userName; ?></td>
-                    <td><?php //echo $value1->userMobile; ?></td>
-                    <td><?php //echo $value1->userEmail; ?></td>
-                    <td><?php //if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td> 
-                    <!-- <td><?php //echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>  -->
+                    <td><?php echo ++$counter; ?></td>
+                    <td><?php echo $value1->businessCategory; ?></td>
+                    <td><?php echo $value1->userName; ?></td>
+                    <td><?php echo $value1->wallImg; ?></td>
+                    <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
+                    <td><?php echo ""; ?></td>  
                   </tr>
-                  <?php
-                    //  }
-                    // }
+                  <?php 
+                     }
+                    }
                   ?>
                 </tbody>
                 </table>

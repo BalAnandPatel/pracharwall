@@ -4,14 +4,27 @@ include '../../constant.php';
 if(isset($_POST["uploadWall"])){
   
   $url = $URL . "user/insert_user_wall.php";
-  $update_url = $URL . "user/update_user_wall.php";
+  // $update_url = $URL . "user/update_user_wall.php";
+  $history_url = $URL . "user/insert_user_wall_history.php";
+  $wall_read_url = $URL . "user/read_user_wall.php";
+
   $userId=$_POST['userId'];
-  $date=date("Y-m-d");
+  $categoryId=$_POST['categoryId'];
+  $date = date("Y-m-d h:i:s"); 
   $createdBy=$_POST['userId'];
   $target_dir = "../image/walluploads/";
   $path = "../image/walluploads/".$userId."/";
   $rand_no = rand(10,100);
-  $pre_wall_image = $_POST['pre_wall_image'];
+  $status='0';
+
+  //get pre uploaded image
+  $wall_read_data = array("userId"=>$userId, "status"=>'1');
+  $wall_read_postdata = json_encode($wall_read_data);
+  $wall_read_result = url_encode_Decode($wall_read_url,$wall_read_postdata);
+  //print_r($wall_read_result);
+  $pre_wall_image = $wall_read_result->records[0]->wallImg;
+  // exit();
+
  
     if (!is_dir($path)){
     mkdir($path, 0777, true);
@@ -68,15 +81,14 @@ if(isset($_POST["uploadWall"])){
 
 
         if(empty($pre_wall_image)){
-        $data = array("userId"=>$userId, "wallImg"=>$wallImg, "createdOn"=>$date, "createdBy"=>$createdBy);
+        $data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>$status, "createdOn"=>$date, "createdBy"=>$createdBy);
         $postdata = json_encode($data);
         $result = url_encode_Decode($url,$postdata);
         //print_r($result); 
         }else{
-          echo "up";
-         $data = array("userId"=>$userId, "wallImg"=>$wallImg, "updatedOn"=>$date, "updatedBy"=>$userId);
+        $data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>$status, "updatedOn"=>$date, "updatedBy"=>$userId);
         $postdata = json_encode($data);
-        $result = url_encode_Decode($update_url,$postdata);
+        $result = url_encode_Decode($history_url,$postdata);
         //print_r($result); 
         }
 
