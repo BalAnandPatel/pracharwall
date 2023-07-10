@@ -81,7 +81,7 @@ include "include/header.php";
                     <td><?php echo ++$counter; ?></td>
                     <td><?php echo $value1->businessCategory; ?></td>
                     <td><?php echo $value1->userName; ?></td>
-                    <td><?php echo $value1->wallImg; ?></td>
+                    <td><img src="<?php echo $USER_WALL_IMGPATH.$value1->userId."/".$value1->wallImg; ?>"></td>
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
                     <td><?php echo ""; ?></td>  
                   </tr>
