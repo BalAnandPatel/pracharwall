@@ -291,6 +291,42 @@ class User
 
         return false;
     }
+    
+    // insert user profile 
+    
+     public function insertUserProfile()
+    {
+
+        $query = "INSERT INTO
+        " . $this->user_profile . "
+    SET
+                   userId=:userId,
+                   status=:status,
+                   createdOn=:createdOn,
+                   createdBy=:createdBy
+               ";
+
+        $stmt = $this->conn->prepare($query);
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->createdOn = htmlspecialchars(strip_tags($this->createdOn));
+        $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
+
+
+        //bind values
+        $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":createdOn", $this->createdOn);
+        $stmt->bindParam(":createdBy", $this->createdBy);
+
+
+        // execute query
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
+    }
 
 // create user profile history
     
