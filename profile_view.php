@@ -26,7 +26,11 @@ $wall_data = array("status" => $status, "userId" => $userId);
 $wall_postdata = json_encode($wall_data);
 $wall_result = giplCurl($wall_url,$wall_postdata);
 // print_r($wall_result);
-$wall_img = $wall_result->records[0]->wallImg;
+$wall_img="";
+if(isset($wall_result->records[0]->wallImg)){
+$wall_img = $wall_result->records[0]->wallImg; 
+}
+
 
 function giplCurl($url,$postdata){
     $client = curl_init($url);
