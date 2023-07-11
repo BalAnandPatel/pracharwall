@@ -125,11 +125,19 @@ class User
        // select quiry for read user's wall history list 
        public function readUsersWallHistory()
        {
-           
-           $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status=:status ORDER BY wh.id DESC limit 1";
-   
-           $stmt = $this->conn->prepare($query);
-           $stmt->bindParam(":status", $this->status);
+        if($this->userId==""){
+
+            $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status=:status ORDER BY wh.id DESC limit 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":status", $this->status);
+
+        }else{
+            $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status=:status and wh.userId=:userId ORDER BY wh.id DESC limit 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":status", $this->status);
+            $stmt->bindParam(":userId", $this->userId);
+            
+        }
            $stmt->execute();
            return $stmt;
        }

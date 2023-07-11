@@ -3,7 +3,7 @@ include "include/header.php";
 ?>
 <?php
 $url = $URL."user/read_user_profile.php";
-$wall_url = $URL . "user/read_user_wall.php";
+$wall_url = $URL . "user/read_user_wall_history.php";
 // user type is static value for business owner 
 $userType='2';
 //user id will be session id 
@@ -16,12 +16,13 @@ $result = giplCurl($url,$postdata);
 //  print_r($result);
 
 // get users wall image
-$status = '1';
+$status = '0';
 $wall_data = array("status" => $status, "userId" => $userId);
 $wall_postdata = json_encode($wall_data);
 $wall_result = giplCurl($wall_url,$wall_postdata);
 // print_r($wall_result);
 $wall_img = $wall_result->records[0]->wallImg;
+
 
 function giplCurl($url,$postdata){
     $client = curl_init($url);
@@ -102,7 +103,9 @@ $(document).ready(function(){
                 </nav>
             </div>
         </div>
-        
+        <?php if(isset($_SESSION["wallUploadErrors"])){?>
+                    <div class="alert alert-danger p-1 rounded-0 text-bold"><strong>** <?php echo $_SESSION["wallUploadErrors"]; unset($_SESSION["wallUploadErrors"]); ?></strong></div>
+        <?php } ?>
          <?php 
                        
                      $counter=0;  
@@ -253,6 +256,8 @@ $(document).ready(function(){
                 <form action="admin/action/upload_wall_post.php" method="post" enctype="multipart/form-data">
                 <div class="row mt-5">
                 <h5>Upload Post</h5>
+                <div class="col-md-12">
+                    </div>
                      <div class="col-md-4">
                      <input class="form-control" name="uploadWallFile" type="file" required>
                      </div>

@@ -74,8 +74,8 @@ if(isset($_POST["uploadWall"])){
       header('Location:../../profile.php');
     } else {
 
-    $target_file = $path."wall_img_".$userId."_".$rand_no.".png";
-    $wallImg = "wall_img_".$userId."_".$rand_no.".png";
+    $target_file = $path."wall_img_".$userId."_".$rand_no.".".$imageFileType;
+    $wallImg = "wall_img_".$userId."_".$rand_no.".".$imageFileType;
    
     if (move_uploaded_file($_FILES["uploadWallFile"]["tmp_name"], $target_file)) {
 

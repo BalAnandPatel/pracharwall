@@ -2,7 +2,7 @@
 // error_reporting(0);
 include "include/header.php";
   $url = $URL."user/read_user_wall_history.php";
-  $data = array("status"=>'0');
+  $data = array("status"=>'0',"userId"=>"");
   //print_r($data);
   $postdata = json_encode($data);
   $client = curl_init($url);
@@ -12,7 +12,11 @@ include "include/header.php";
   $response = curl_exec($client);
   //print_r($response);
   $result = json_decode($response);
-  //print_r($result);
+  // print_r($result);
+  $userId="";
+  if(isset($result->records[0]->userId)){
+  $userId = $result->records[0]->userId;
+  }
   ?>
 
   <div class="content-wrapper">
@@ -82,7 +86,7 @@ include "include/header.php";
                     <td><?php echo ++$counter; ?></td>
                     <td><?php echo $value1->businessCategory; ?></td>
                     <td><?php echo $value1->userName; ?></td>
-                    <td><img src="<?php echo $USER_WALL_IMGPATH.$value1->userId."/".$value1->wallImg; ?>"></td>
+                    <td><?php echo $USER_WALL_IMGPATH.$userId."/".$value1->wallImg; ?><img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$value1->wallImg; ?>"></td>
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
                     <td><?php echo ""; ?></td>  
                     <td>
