@@ -3,7 +3,7 @@ include "include/header.php";
   $status='1';
   $userType='2';
   $url = $URL."user/read_allusers_list.php";
-  $data = array("status"=>$status, "userType"=>$userType);
+  $data = array("status"=>$status, "userType"=>$userType, "userId"=>"");
   //print_r($data);
   $postdata = json_encode($data);
   $client = curl_init($url);

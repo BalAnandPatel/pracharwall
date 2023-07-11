@@ -20,14 +20,27 @@ if(isset($_POST["update_profile"])){
  $status="0";
  $updatedOn=date("Y-m-d");
  $updatedBy=$_POST["userId"];
+
+
   
  $url = $URL . "user/update_user_profile.php";
  $url_profile_history=$URL. "user/insert_user_profile_history.php";
- 
+ $profile_url = $URL . "user/read_allusers_list.php";
+
+$profile_data = array("status"=>'0', "userType"=>'2', "userId"=>$userId);
+//print_r($profile_data);
+$profile_postdata = json_encode($profile_data);
+$profile_result = url_encode_Decode($profile_url,$profile_postdata);
+ // print_r($profile_result);
+if(isset($profile_result->records[0]->status)){
+$pre_profile_status = $profile_result->records[0]->status;
+}else{
+$pre_profile_status="";    
+}
+
+if($pre_profile_status=="0"){
+
  // update user profile
-
-if($pre_status=='0' && $status=='0'){
-
  $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite,
      "status"=>$status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
@@ -36,8 +49,18 @@ if($pre_status=='0' && $status=='0'){
  $postdata = json_encode($data);
  $result=url_encode_Decode($url,$postdata);
  //print_r($result);
+ 
+ // create user profile update history
 
-}
+  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>'1', "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+
+// print_r($data);
+
+ $profile_history_postdata = json_encode($profile_history_data);
+ $profile_history_result=url_encode_Decode($url_profile_history,$profile_history_postdata);
+ //print_r($profile_history_result);
+
+}else{
 
 // create user profile update history
 
@@ -48,6 +71,7 @@ if($pre_status=='0' && $status=='0'){
  $profile_history_postdata = json_encode($profile_history_data);
  $profile_history_result=url_encode_Decode($url_profile_history,$profile_history_postdata);
  //print_r($profile_history_result);
+}
 
  if($result->message=="User profile updated successfully"){
   $_SESSION['profileupdate_success']="Updated successfully"; 
@@ -64,7 +88,7 @@ if($pre_status=='0' && $status=='0'){
     curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
     $response = curl_exec($client);
-    //print_r($response);
+    print_r($response);
     return $result = json_decode($response);
 
 }

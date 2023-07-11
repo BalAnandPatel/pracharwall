@@ -5,7 +5,7 @@ $userType='2';
 $status = '0';
 //read user details
 
-$data = array("status"=>$status, "userType"=>$userType);
+$data = array("status"=>$status, "userType"=>$userType, "userId"=>"");
 //print_r($data);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);

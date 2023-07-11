@@ -14,7 +14,7 @@ $data = array("userType" =>$userType, "id"=>$id);
 // print_r($data);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
-//  print_r($result);
+//print_r($result);
 
 // get users wall image from walluploads table
 $wall_data = array("status" => '1', "userId" => $userId);
@@ -30,8 +30,10 @@ $wall_history_result = giplCurl($wall_histroy_url,$wall_history_postdata);
 // print_r($wall_history_result);
 if(isset($wall_history_result->records[0]->wallImg)){
 $wall_img = $wall_history_result->records[0]->wallImg;
-}else{
+}else if(isset($wall_result->records[0]->wallImg)){
 $wall_img=$wall_result->records[0]->wallImg;
+}else{
+$wall_img="";    
 }
 
 
@@ -45,7 +47,6 @@ function giplCurl($url,$postdata){
     return $result;    
     }
 ?>
-
 
 <style>
     .rated {
