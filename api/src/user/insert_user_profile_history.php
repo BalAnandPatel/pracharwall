@@ -51,6 +51,7 @@ if(
     $insert_profile_history->userWebsite = $data->userWebsite;
     $insert_profile_history->userServices = $data->userServices;
     $insert_profile_history->status = $data->status;
+    $insert_profile_history->history_status = $data->history_status;
     $insert_profile_history->updatedOn = $data->updatedOn;
     $insert_profile_history->updatedBy = $data->updatedBy;
 

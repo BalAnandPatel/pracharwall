@@ -16,12 +16,18 @@ $result = giplCurl($url,$postdata);
 
 // get users wall image
 $status = '1';
+$userId = "";
+if(isset($result->records[0]->userId)){
 $userId = $result->records[0]->userId;
+}
 $wall_data = array("status" => $status, "userId" => $userId);
 $wall_postdata = json_encode($wall_data);
 $wall_result = giplCurl($wall_url,$wall_postdata);
 // print_r($wall_result);
-$wall_img = $wall_result->records[0]->wallImg;
+$wall_img="";
+if(isset($wall_result->records[0]->wallImg)){
+$userId = $wall_result->records[0]->wallImg;
+}
 
 function giplCurl($url,$postdata){
     $client = curl_init($url);

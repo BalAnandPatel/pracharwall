@@ -1,6 +1,7 @@
 <?php
 include "include/header.php";
 $url = $URL . "user/read_allusers_list.php";
+$url_wall = $URL . "user/read_user_wall.php";
 $userType='2';
 $status = '0';
 //read user details
@@ -10,6 +11,21 @@ $data = array("status"=>$status, "userType"=>$userType, "userId"=>"");
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 //print_r($result);
+$userId="";
+if(isset($result->records[0]->id)){
+$userId = $result->records[0]->id;  
+}
+// get wall uploaded active post    
+$wall_data = array("status"=>'1', "userId"=>$userId);
+//print_r($data);
+$wall_postdata = json_encode($wall_data);
+$wall_result = giplCurl($url_wall,$wall_postdata);
+//print_r($wall_result);
+if(isset($wall_result->records[0]->wallImg)){
+$wall_img = $wall_result->records[0]->wallImg;
+}else{
+$wall_img=""; 
+}
 
 function giplCurl($url,$postdata){
 $client = curl_init($url);
@@ -123,7 +139,7 @@ return $result = json_decode($response);
                         <td class="col-md-1">
                           <form action="action/user_approve_post.php" method="post">
                             <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">
-                            <?php if(!empty($value1->businessCategory)) { ?>
+                            <?php if(!empty($value1->businessCategory) && !empty($wall_img)){ ?>
                             <button type="submit" name="submit" class="btn btn-success btn-sm">Approve</button>
                             <?php }else{ ?>
                             <button type="button" class="btn btn-success btn-sm" disabled>Approve</button> 
@@ -185,8 +201,6 @@ return $result = json_decode($response);
         console.log("depth" + JSON.stringify(response));
         // console.log(response.records[0].userName);
         // alert("response");
-        var u_id = response.records[0].id;
-        document.getElementById("viewUserImg").src = "<?php echo $USER_WALL_IMGPATH ?>"+u_id+"/wall_img_"+u_id+".png";
         // document.getElementById("viewUserName").innerHTML = response.records[0].userName;
         // document.getElementById("viewUserEmail").innerHTML = response.records[0].userEmail;
         // document.getElementById("viewUserMobile").innerHTML = "+91-"+response.records[0].userMobile;
@@ -226,7 +240,7 @@ return $result = json_decode($response);
                                     <div class="card mb-4">
                                         <div class="card-body text-center">
                                         <h5 id="viewUserName" class="my-3">Business Banner</h5>
-                                            <img src="" id="viewUserImg" alt="user image"
+                                            <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" alt="user image"
                                                 class="rounded-0 img-fluid img-thumbnail" height="100%" width="100%">
                                             <!--<p id="viewUserEmail" class="text-muted mb-1"></p>-->
                                             <!-- <p id="viewUserMobile" class="text-muted mb-4"></p> --> 
@@ -242,7 +256,7 @@ return $result = json_decode($response);
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-3">
-                                                    <p class="mb-0">Business Cateory</p>
+                                                    <p class="mb-0">Business Category</p>
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <p id="viewBusinessCategory" class="text-muted mb-0"></p>

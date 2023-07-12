@@ -41,7 +41,7 @@ class User
         $stmt->bindParam(":id", $this->id);
 
     }else{
-        $query = "Select ph.id, user.id, user.userType, ph.remark, city, state, userName, userMobile, userEmail, ph.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile_history . " as ph ON user.id=ph.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=ph.businessCategory where user.userType=:userType and user.id=:id and (ph.status=1 or ph.status=0 or ph.status=2 or ph.status=3) ORDER BY ph.id DESC limit 1";
+        $query = "Select ph.id, user.id, user.userType, ph.remark, city, state, userName, userMobile, userEmail, ph.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile_history . " as ph ON user.id=ph.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=ph.businessCategory where user.userType=:userType and user.id=:id and (ph.status=1 or ph.status=0 or ph.status=2 or ph.status=5) ORDER BY ph.id DESC limit 1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":id", $this->id); 
@@ -323,7 +323,7 @@ class User
         " . $this->user_profile_history . "
     SET
                    userId=:userId,
-                   status='3',
+                   status='5',
                    createdOn=:createdOn,
                    createdBy=:createdBy
                ";
@@ -360,6 +360,8 @@ class User
     
      public function insertUserProfileHistory()
     {
+
+        if($this->history_status=='1' || $this->history_status=='2' || $this->history_status=='4'){
 
         $query = "INSERT INTO
         " . $this->user_profile_history . "
@@ -421,7 +423,71 @@ class User
         $stmt->bindParam(":status", $this->status);
         $stmt->bindParam(":updatedOn", $this->updatedOn);
         $stmt->bindParam(":updatedBy", $this->updatedBy);
+    
+    }else{
 
+         $query = "UPDATE
+        " . $this->user_profile_history . "
+    SET
+                   userId=:userId,
+                   businessName=:businessName,
+                   businessCategory=:businessCategory,
+                   userAddress=:userAddress,
+                   city=:city,
+                   state=:state, 
+                   alterMobile=:alterMobile,
+                   aboutUser=:aboutUser,
+                   userServices=:userServices,
+                   establishmentYear=:establishmentYear,
+                   businessTiming=:businessTiming,
+                   businessDay=:businessDay,
+                   paymentMode=:paymentMode,
+                   userWebsite=:userWebsite,
+                   status=:status,
+                   updatedOn=:updatedOn,
+                   updatedBy=:updatedBy
+               where userId=:userId and (status='0' || status='5')";
+
+        $stmt = $this->conn->prepare($query);
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->businessName = htmlspecialchars(strip_tags($this->businessName));
+        $this->businessCategory = htmlspecialchars(strip_tags($this->businessCategory));
+        $this->userAddress = htmlspecialchars(strip_tags($this->userAddress));
+        $this->city = htmlspecialchars(strip_tags($this->city));
+        $this->state = htmlspecialchars(strip_tags($this->state));
+        $this->alterMobile = htmlspecialchars(strip_tags($this->alterMobile));
+        $this->aboutUser = htmlspecialchars(strip_tags($this->aboutUser));
+        $this->userServices = htmlspecialchars(strip_tags($this->userServices));
+        $this->establishmentYear = htmlspecialchars(strip_tags($this->establishmentYear));
+        $this->businessTiming = htmlspecialchars(strip_tags($this->businessTiming));
+        $this->businessDay = htmlspecialchars(strip_tags($this->businessDay));
+        $this->paymentMode = htmlspecialchars(strip_tags($this->paymentMode));
+        $this->userWebsite = htmlspecialchars(strip_tags($this->userWebsite));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->updatedOn = htmlspecialchars(strip_tags($this->updatedOn));
+        $this->updatedBy = htmlspecialchars(strip_tags($this->updatedBy));
+
+
+        //bind values
+        $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":businessName", $this->businessName);
+        $stmt->bindParam(":businessCategory", $this->businessCategory);
+        $stmt->bindParam(":userAddress", $this->userAddress);
+        $stmt->bindParam(":city", $this->city);
+        $stmt->bindParam(":state", $this->state);
+        $stmt->bindParam(":alterMobile", $this->alterMobile);
+        $stmt->bindParam(":aboutUser", $this->aboutUser);
+        $stmt->bindParam(":userServices", $this->userServices);
+        $stmt->bindParam(":establishmentYear", $this->establishmentYear);
+        $stmt->bindParam(":businessTiming", $this->businessTiming);
+        $stmt->bindParam(":businessDay", $this->businessDay);
+        $stmt->bindParam(":paymentMode", $this->paymentMode);
+        $stmt->bindParam(":userWebsite", $this->userWebsite);
+        $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":updatedOn", $this->updatedOn);
+        $stmt->bindParam(":updatedBy", $this->updatedBy);
+
+    }
 
         // execute query
         if ($stmt->execute()) {

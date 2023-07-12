@@ -16,7 +16,7 @@ if(isset($_POST["update_profile"])){
  $userWebsite=$_POST["userWebsite"];
  $userServices=ucwords($_POST["userServices"]);
  $aboutUser=$_POST["aboutUser"];
- $pre_status=$_POST["pre_status"];
+ $history_status=$_POST["pre_status"];
  $status="0";
  $updatedOn=date("Y-m-d");
  $updatedBy=$_POST["userId"];
@@ -32,6 +32,8 @@ $profile_data = array("status"=>'0', "userType"=>'2', "userId"=>$userId);
 $profile_postdata = json_encode($profile_data);
 $profile_result = url_encode_Decode($profile_url,$profile_postdata);
  // print_r($profile_result);
+
+
 if(isset($profile_result->records[0]->status)){
 $pre_profile_status = $profile_result->records[0]->status;
 }else{
@@ -52,7 +54,7 @@ if($pre_profile_status=="0"){
  
  // create user profile update history
 
-  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>'1', "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>$status, "history_status"=>$history_status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
 // print_r($data);
 
@@ -64,7 +66,7 @@ if($pre_profile_status=="0"){
 
 // create user profile update history
 
-  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>$status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>$status, "history_status"=>$history_status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
 // print_r($data);
 
@@ -88,7 +90,7 @@ if($pre_profile_status=="0"){
     curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
     $response = curl_exec($client);
-    print_r($response);
+    //print_r($response);
     return $result = json_decode($response);
 
 }

@@ -17,7 +17,7 @@ if(isset($_POST["uploadWall"])){
   $rand_no = rand(10,100);
   $status='0';
 
-  //get pre uploaded image
+  //get pre uploaded image 
   $wall_read_data = array("userId"=>$userId, "status"=>'1');
   $wall_read_postdata = json_encode($wall_read_data);
   $wall_read_result = url_encode_Decode($wall_read_url,$wall_read_postdata);

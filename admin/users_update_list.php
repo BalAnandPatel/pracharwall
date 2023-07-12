@@ -1,6 +1,7 @@
 <?php
 include "include/header.php";
 $url = $URL . "user/read_reupdated_users_list.php";
+$url_wall = $URL . "user/read_user_wall.php";
 $userType='2';
 $status = '0';
 //read user details
@@ -10,6 +11,21 @@ $data = array("status"=>$status, "userType"=>$userType);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 //print_r($result);
+$userId="";
+if(isset($result->records[0]->userId)){
+$userId = $result->records[0]->userId;  
+}
+// get wall uploaded active post    
+$wall_data = array("status"=>'1', "userId"=>$userId);
+//print_r($data);
+$wall_postdata = json_encode($wall_data);
+$wall_result = giplCurl($url_wall,$wall_postdata);
+//print_r($wall_result);
+if(isset($wall_result->records[0]->wallImg)){
+$wall_img = $wall_result->records[0]->wallImg;
+}else{
+$wall_img=""; 
+}
 
 function giplCurl($url,$postdata){
 $client = curl_init($url);
@@ -156,7 +172,34 @@ return $result = json_decode($response);
     
   </div>
 
-  <!-- modal box start-->
+
+<!-- Modal Reject Remark -->
+<div class="modal fade" id="remark" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reason of rejecting the User.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="action/user_reject_post.php" method="post">
+        <div class="modal-body">
+          <textarea name="remark" class="form-control" rows="3" placeholder="Write remark here" autofocus
+            style="resize:none;" required></textarea>
+          <input type="hidden" id="rejectUserId" name="userId">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="submit" class="btn btn-danger">Reject</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end reject modal -->
+
+<!-- modal box start-->
 <!-- Modal -->
 <!-- Modal for user profile details (Admin)-->
   <div class="modal fade" id="viewProfile" role="dialog">
@@ -173,7 +216,7 @@ return $result = json_decode($response);
                                     <div class="card mb-4">
                                         <div class="card-body text-center">
                                         <h5 id="viewUserName" class="my-3">Business Banner</h5>
-                                            <img src="" id="viewUserImg" alt="user image"
+                                            <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" alt="user image"
                                                 class="rounded-0 img-fluid img-thumbnail" height="100%" width="100%">
                                             <!--<p id="viewUserEmail" class="text-muted mb-1"></p>-->
                                             <!-- <p id="viewUserMobile" class="text-muted mb-4"></p> --> 
@@ -317,7 +360,6 @@ return $result = json_decode($response);
     </div>
   </div>
 <!-- modal box end-->
-
 <script>
 
     //This method for reject user details
@@ -348,8 +390,6 @@ return $result = json_decode($response);
         console.log("depth" + JSON.stringify(response));
         // console.log(response.records[0].userName);
         // alert("response");
-        var u_id = response.records[0].id;
-        document.getElementById("viewUserImg").src = "<?php echo $USER_WALL_IMGPATH ?>"+u_id+"/wall_img_"+u_id+".png";
         // document.getElementById("viewUserName").innerHTML = response.records[0].userName;
         // document.getElementById("viewUserEmail").innerHTML = response.records[0].userEmail;
         // document.getElementById("viewUserMobile").innerHTML = "+91-"+response.records[0].userMobile;

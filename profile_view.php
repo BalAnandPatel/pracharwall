@@ -226,7 +226,6 @@ exit();
 
             <div class="col-lg-2 col-xl-2 col-md-6 col-sm-12 col-xs-12 py-3 d-flex justify-content-center">
                  <?php
-                     error_reporting(0); 
                     $file=$USER_PROFILE_IMGPATH.$userId."/user_img_".$userId.".png";
                     if(getimagesize($file))
                     { ?>

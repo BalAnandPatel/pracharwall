@@ -1,9 +1,8 @@
 <?php
-//  error_reporting(0);
 include "include/header.php";
 ?>
 <?php
-if (isset($_POST['update'])) {
+if (isset($_POST['userId'])) {
     $userId = $_POST['userId'];
     $url = $URL . "user/read_user_profile.php";
     $userType = '2';
@@ -16,7 +15,7 @@ if (isset($_POST['update'])) {
     $response = curl_exec($client);
     //print_r($response);
     $profile_result = json_decode($response);
-    //print_r($profile_result);    
+    //print_r($profile_result);  
 } else {
     echo '<script>window.location="profile.php"</script>';
 }
@@ -38,9 +37,8 @@ if (isset($_POST['update'])) {
                 <div class="card-body text-center">
                     <!-- <img class="img-account-profile rounded-circle mb-2" src="assets/img/avatar1.png" alt=""> -->
                     <?php
-                    // error_reporting(0); 
                     $file = $USER_PROFILE_IMGPATH . $userId . "/user_img_" . $userId . ".png";
-                    if (getimagesize($file)) { ?>
+                    if(getimagesize($file)) { ?>
                         <img class="img-account-profile img-fluid rounded-circle mb-2" src="<?php echo $USER_PROFILE_IMGPATH . $userId . "/user_img_" . $userId . ".png"; ?>" alt="Profile Image">
                     <?php } else { ?>
                         <img class="img-account-profile img-fluid rounded-circle mb-2" src="assets/img/user_icon.png" alt="">
@@ -245,7 +243,6 @@ if (isset($_POST['update'])) {
         </div>
     </div>
 </div>
-
 
 <!-- <div class="container-xl px-4 mt-4 mb-5">
     <div class="row d-flex justify-content-center">
