@@ -244,6 +244,7 @@ class User
     SET      userId=:userId,
              businessCategory=:businessCategory,
              wallImg=:wallImg,
+             status=:status,
              createdOn=:createdOn,
              createdBy=:createdBy
                ";
@@ -252,6 +253,7 @@ class User
         $this->userId = htmlspecialchars(strip_tags($this->userId));
         $this->businessCategory = htmlspecialchars(strip_tags($this->businessCategory));
         $this->wallImg = htmlspecialchars(strip_tags($this->wallImg));
+        $this->status = htmlspecialchars(strip_tags($this->status));
         $this->createdOn = htmlspecialchars(strip_tags($this->createdOn));
         $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
 
@@ -259,6 +261,7 @@ class User
         $stmt->bindParam(":userId", $this->userId);
         $stmt->bindParam(":businessCategory", $this->businessCategory);
         $stmt->bindParam(":wallImg", $this->wallImg);
+        $stmt->bindParam(":status", $this->status);
         $stmt->bindParam(":createdOn", $this->createdOn);
         $stmt->bindParam(":createdBy", $this->createdBy);
 

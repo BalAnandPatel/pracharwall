@@ -18,22 +18,26 @@ if(isset($_POST["uploadWall"])){
   $status='0';
 
   //get pre uploaded image 
-  $wall_read_data = array("userId"=>$userId, "status"=>'1');
+  $wall_read_data = array("userId"=>$userId, "status"=>'0');
   $wall_read_postdata = json_encode($wall_read_data);
   $wall_read_result = url_encode_Decode($wall_read_url,$wall_read_postdata);
-  //print_r($wall_read_result);
-  $pre_wall_image = $wall_read_result->records[0]->wallImg;
-  // exit();
+  // print_r($wall_read_result);
+  $wall_status="";
+  if(isset($wall_read_result->records[0]->status)){
+  $wall_status = $wall_read_result->records[0]->status;
+  echo $wall_status;
+  }
+  exit();
 
  
     if (!is_dir($path)){
     mkdir($path, 0777, true);
-    // echo "directory created";
-    header('Location:../../profile.php');
+     echo "directory created";
+    //header('Location:../../profile.php');
     }
     else{ 
-    //  echo "unable to create directory";
-    header('Location:../../profile.php');
+      echo "unable to create directory";
+    //header('Location:../../profile.php');
     }
 
   $target_file_type = basename($_FILES["uploadWallFile"]["name"]);
@@ -56,7 +60,7 @@ if(isset($_POST["uploadWall"])){
     if ($_FILES["uploadWallFile"]["size"] > 5000000) {
     $msg = "Sorry, your file is too large.";
     $_SESSION["wallUploadErrors"] = $msg;
-    header('Location:../../profile.php');
+    //header('Location:../../profile.php');
     $uploadOk = 0;
     }
 
@@ -64,14 +68,14 @@ if(isset($_POST["uploadWall"])){
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
     $msg = "Sorry, only JPG, JPEG, PNG files are allowed.";
     $_SESSION["wallUploadErrors"] = $msg;
-    header('Location:../../profile.php');
+    //header('Location:../../profile.php');
     $uploadOk = 0;
     }
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
       $msg = "Sorry, your file was not uploaded.";
-      header('Location:../../profile.php');
+      //header('Location:../../profile.php');
     } else {
 
     $target_file = $path."wall_img_".$userId."_".$rand_no.".".$imageFileType;
@@ -80,12 +84,17 @@ if(isset($_POST["uploadWall"])){
     if (move_uploaded_file($_FILES["uploadWallFile"]["tmp_name"], $target_file)) {
 
 
-        if(empty($pre_wall_image)){
+        if($wall_read_result->message=="No user wall details found." || $wall_status=='0'){
         //user wall entry 
         $data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>$status, "createdOn"=>$date, "createdBy"=>$createdBy);
         $postdata = json_encode($data);
         $result = url_encode_Decode($url,$postdata);
         //print_r($result);
+        //create user wall upload history
+        $history_data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>'5', "createdOn"=>$date, "createdBy"=>$createdBy);
+        $history_postdata = json_encode($history_data);
+        $history_result = url_encode_Decode($history_url,$history_postdata);
+        print_r($history_result); 
         }else{
         //create user wall upload history
         $history_data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>$status, "createdOn"=>$date, "createdBy"=>$createdBy);
@@ -95,12 +104,12 @@ if(isset($_POST["uploadWall"])){
         }
 
         $_SESSION["wallUploadSuccess"] = "File uploaded succesfully.";
-        header('Location:../../profile.php');
+        //header('Location:../../profile.php');
          }
           else {
          //echo "Sorry, there was an error uploading your file.";
          $_SESSION["wallUploadErrors"] = "Sorry, there was an error uploading your file.";
-         header('Location:../../profile.php');
+         //header('Location:../../profile.php');
       }
 
       }
@@ -112,7 +121,7 @@ function url_encode_Decode($url,$postdata){
   curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
   $response = curl_exec($client);
-  //print_r($response);
+  print_r($response);
   return $result = json_decode($response);
   
   }

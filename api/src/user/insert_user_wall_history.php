@@ -25,6 +25,7 @@ if(
     
     !empty($data->wallImg) &&
     !empty($data->userId) &&
+    !empty($data->status) &&
     !empty($data->categoryId)
    
 )
@@ -33,6 +34,7 @@ if(
     $insert_user_wall_history->userId = $data->userId;
     $insert_user_wall_history->businessCategory = $data->categoryId;
     $insert_user_wall_history->wallImg = $data->wallImg;
+    $insert_user_wall_history->status = $data->status;
     $insert_user_wall_history->createdOn = $data->createdOn;
     $insert_user_wall_history->createdBy = $data->createdBy;
        
