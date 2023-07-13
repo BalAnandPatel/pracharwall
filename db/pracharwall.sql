@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 08, 2023 at 12:33 PM
+-- Generation Time: Jul 13, 2023 at 08:58 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -100,15 +100,15 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=79 ;
 
 --
 -- Dumping data for table `user_profile`
 --
 
 INSERT INTO `user_profile` (`id`, `userId`, `businessCategory`, `subCategory`, `alterMobile`, `userAddress`, `city`, `state`, `businessName`, `establishmentYear`, `paymentMode`, `businessTiming`, `businessDay`, `userServices`, `userWebsite`, `aboutUser`, `remark`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(67, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology 3', '2015', 'Cash, Master Card, Visa Card, Debit Cards', '9 Am To 6 Pm', 'Mon - Sat', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '2023-07-08 09:33:24', '72', '2023-07-07 18:30:00', '72'),
-(68, '73', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2023-07-07 06:10:45', '73', '0000-00-00 00:00:00', '');
+(77, '82', '22', '', '4165464', 'Add Meduadeeh Pratapgarh', 'City', 'State', 'Gipl Anand', '2015', 'Cash', '10 Pm To 3 Pm', 'Mon - Tue', 'Dgkjnjkfn', 'http://localhost/pracharwall/', 'ms', 'Approved', 1, '2023-07-12 12:27:50', '82', '2023-07-11 18:30:00', '82'),
+(78, '83', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '2023-07-12 20:55:30', '83', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -139,16 +139,18 @@ CREATE TABLE IF NOT EXISTS `user_profile_history` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL,
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `user_profile_history`
 --
 
 INSERT INTO `user_profile_history` (`id`, `userId`, `businessCategory`, `subCategory`, `alterMobile`, `userAddress`, `city`, `state`, `businessName`, `establishmentYear`, `paymentMode`, `businessTiming`, `businessDay`, `userServices`, `userWebsite`, `aboutUser`, `remark`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(5, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology ( GIPL1)', '2015', 'Cash, Master Card, Visa Card', '9 Am To 6 Pm', 'Mon - Sat', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-06 18:30:00', '72'),
-(6, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology 2', '2015', 'Cash', '9 Am To 6 Pm', 'Wed - Wed', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-06 18:30:00', '72'),
-(7, '72', '22', '', '2365478956', 'Mungra Badshahpur Jaunpur  Uttar Pradesh 222202', 'Mungra Badshahpur', 'Uttar Pradesh', 'Glintel Technology 3', '2015', 'Cash, Master Card, Visa Card, Debit Cards', '9 Am To 6 Pm', 'Mon - Sat', 'Web Development  ', 'https://www.glintel.com/', 'glintel technology private limited company', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-07 18:30:00', '72');
+(39, '83', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 5, '2023-07-12 20:55:30', '83', '0000-00-00 00:00:00', ''),
+(38, '82', '22', '', '4165464', 'Add Meduadeeh Pratapgarh', 'City', 'State', 'Gipl Anand Computer', '2015', 'Cash', '10 Pm To 3 Pm', 'Tue - Thu', 'Dgkjnjkfn', 'http://localhost/pracharwall/', 'ms', '', 0, '0000-00-00 00:00:00', '', '2023-07-11 18:30:00', '82'),
+(37, '82', '22', '', '4165464', 'Add Meduadeeh Pratapgarh', 'City', 'State', 'Gipl Anand', '2015', 'Cash', '10 Pm To 3 Pm', 'Mon - Tue', 'Dgkjnjkfn', 'http://localhost/pracharwall/', 'ms', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-11 18:30:00', '82'),
+(35, '82', '22', '', '4165464', 'Add', 'City', 'State', 'Gipl Mrityunjay', '2015', 'Cash', '10 Pm To 3 Pm', 'Mon - Wed', 'Dgkjnjkfn', 'http://localhost/pracharwall/', 'ms', 'Approved', 1, '2023-07-12 00:09:34', '82', '2023-07-11 18:30:00', '82'),
+(36, '82', '22', '', '4165464', 'Add Meduadeeh Pratapgarh', 'City', 'State', 'Gipl Yash Kumar', '2015', 'Cash', '10 Pm To 3 Pm', 'Tue - Tue', 'Dgkjnjkfn', 'http://localhost/pracharwall/', 'ms', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-11 18:30:00', '82');
 
 -- --------------------------------------------------------
 
@@ -169,16 +171,16 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=84 ;
 
 --
 -- Dumping data for table `user_registration`
 --
 
 INSERT INTO `user_registration` (`id`, `userType`, `userName`, `userMobile`, `userEmail`, `userPass`, `status`, `remark`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(72, '2', 'Mrityunjay Singh', '1234569871', 'ms123@gmail.com', '123', 0, '', '2023-07-07 08:48:09', 'Mrityunjay Singh', '0000-00-00 00:00:00', ''),
-(73, '2', 'Arun Kumar Patel', '2365896589', 'arun12345@gmail.com', '12345', 0, '', '2023-07-07 06:10:45', 'Arun Kumar Patel', '0000-00-00 00:00:00', ''),
-(1, '1', 'Admin', '16541654', 'admin@gmail.com', 'admin@123', 1, '', '2023-07-06 11:12:09', '', '0000-00-00 00:00:00', '');
+(82, '2', 'Mrityunjay Singh', '16549644', 'ms@gmail.com', '123', 0, '', '2023-07-12 00:09:34', 'Mrityunjay Singh', '0000-00-00 00:00:00', ''),
+(83, '2', 'Ms Demo', '46546', 'msdemo@gmail.com', '123', 0, '', '2023-07-13 08:56:26', 'Ms Demo', '0000-00-00 00:00:00', ''),
+(1, '1', 'Admin LTE', '', 'admin@gmail.com', 'admin@123', 1, '', '2023-07-12 08:31:13', '', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -223,14 +225,14 @@ CREATE TABLE IF NOT EXISTS `wall_uploads` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `wall_uploads`
 --
 
 INSERT INTO `wall_uploads` (`id`, `userId`, `businessCategory`, `subCategory`, `wallImg`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(2, '72', '', '', 'wall_img_72_43.png', 0, '2023-07-08 11:55:03', '72', '2023-07-07 18:30:00', '72');
+(27, '82', '22', '', 'wall_img_82_18.jpg', 1, '2023-07-13 08:53:36', '82', '2023-07-12 20:53:36', '82');
 
 -- --------------------------------------------------------
 
@@ -249,7 +251,15 @@ CREATE TABLE IF NOT EXISTS `wall_upload_history` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL,
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+
+--
+-- Dumping data for table `wall_upload_history`
+--
+
+INSERT INTO `wall_upload_history` (`id`, `userId`, `businessCategory`, `subCategory`, `wallImg`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
+(18, '82', '22', '', 'wall_img_82_56.jpg', 1, '2023-07-12 20:32:46', '82', '2023-07-12 20:53:36', '82'),
+(19, '82', '22', '', 'wall_img_82_18.jpg', 1, '2023-07-12 20:52:44', '82', '2023-07-12 20:53:36', '82');
 
 --
 -- Indexes for dumped tables
@@ -295,7 +305,7 @@ ALTER TABLE `user_type`
 -- Indexes for table `wall_uploads`
 --
 ALTER TABLE `wall_uploads`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `userId` (`userId`);
 
 --
 -- Indexes for table `wall_upload_history`
@@ -321,17 +331,17 @@ MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=68;
 -- AUTO_INCREMENT for table `user_profile`
 --
 ALTER TABLE `user_profile`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=69;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT for table `user_profile_history`
 --
 ALTER TABLE `user_profile_history`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `user_registration`
 --
 ALTER TABLE `user_registration`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=74;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=84;
 --
 -- AUTO_INCREMENT for table `user_type`
 --
@@ -341,12 +351,12 @@ MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `wall_uploads`
 --
 ALTER TABLE `wall_uploads`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `wall_upload_history`
 --
 ALTER TABLE `wall_upload_history`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
