@@ -22,7 +22,7 @@ $data = json_decode(file_get_contents("php://input"));
 //print_r($data);  
 // make sure data is not empty
 if(
-    
+
     !empty($data->wallImg) &&
     !empty($data->userId) &&
     !empty($data->status) &&
@@ -35,6 +35,7 @@ if(
     $insert_user_wall_history->businessCategory = $data->categoryId;
     $insert_user_wall_history->wallImg = $data->wallImg;
     $insert_user_wall_history->status = $data->status;
+    $insert_user_wall_history->wall_history_status = $data->wall_history_status;
     $insert_user_wall_history->createdOn = $data->createdOn;
     $insert_user_wall_history->createdBy = $data->createdBy;
        

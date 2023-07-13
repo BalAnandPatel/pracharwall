@@ -19,20 +19,21 @@ $insert_user_wall = new User($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
-//print_r($data);  
+//print_r($data);
 // make sure data is not empty
+
 if(
-    
     !empty($data->wallImg) &&
     !empty($data->userId) &&
     !empty($data->categoryId)
-   
 )
 
 {
+
     $insert_user_wall->userId = $data->userId;
     $insert_user_wall->businessCategory = $data->categoryId;
     $insert_user_wall->wallImg = $data->wallImg;
+    $insert_user_wall->status = $data->status;
     $insert_user_wall->createdOn = $data->createdOn;
     $insert_user_wall->createdBy = $data->createdBy;
        
@@ -61,6 +62,6 @@ else{
     http_response_code(400);
   
     // tell the user
-    echo json_encode(array("message" => "Unable to insert user. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to insert user wall. Data is incomplete."));
 }
 ?>

@@ -27,7 +27,7 @@ $status = '0';
 $wall_history_data = array("status" => $status, "userId" => $userId);
 $wall_history_postdata = json_encode($wall_history_data);
 $wall_history_result = giplCurl($wall_histroy_url,$wall_history_postdata);
-// print_r($wall_history_result);
+//print_r($wall_history_result);
 if(isset($wall_history_result->records[0]->wallImg)){
 $wall_img = $wall_history_result->records[0]->wallImg;
 }else if(isset($wall_result->records[0]->wallImg)){
@@ -117,6 +117,8 @@ $(document).ready(function(){
         </div>
         <?php if(isset($_SESSION["wallUploadErrors"])){?>
                     <div class="alert alert-danger p-1 rounded-0 text-bold"><strong>** <?php echo $_SESSION["wallUploadErrors"]; unset($_SESSION["wallUploadErrors"]); ?></strong></div>
+        <?php } else if(isset($_SESSION["wallUploadSuccess"])){ ?>
+          <div class="alert alert-success p-1 rounded-0 text-bold"><strong>** <?php echo $_SESSION["wallUploadSuccess"]; unset($_SESSION["wallUploadSuccess"]); ?></strong></div>
         <?php } ?>
          <?php 
                        

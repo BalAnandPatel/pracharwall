@@ -140,12 +140,12 @@ class User
        {
         if($this->userId==""){
 
-            $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status=:status ORDER BY wh.id DESC limit 1";
+            $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status=:status or wh.status='5' ORDER BY wh.id DESC limit 1";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(":status", $this->status);
 
         }else{
-            $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status=:status and wh.userId=:userId ORDER BY wh.id DESC limit 1";
+            $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where  wh.userId=:userId and wh.status=:status or wh.status='5' ORDER BY wh.id DESC limit 1";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(":status", $this->status);
             $stmt->bindParam(":userId", $this->userId);
@@ -203,11 +203,12 @@ class User
     public function insertUserWall()
     {
 
-       $query = "INSERT INTO
+      $query = "INSERT INTO
         " . $this->wall_uploads . "
     SET      userId=:userId,
              businessCategory=:businessCategory,
              wallImg=:wallImg,
+             status=:status,
              createdOn=:createdOn,
              createdBy=:createdBy
                ";
@@ -216,6 +217,7 @@ class User
         $this->userId = htmlspecialchars(strip_tags($this->userId));
         $this->businessCategory = htmlspecialchars(strip_tags($this->businessCategory));
         $this->wallImg = htmlspecialchars(strip_tags($this->wallImg));
+        $this->status = htmlspecialchars(strip_tags($this->status));
         $this->createdOn = htmlspecialchars(strip_tags($this->createdOn));
         $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
 
@@ -223,6 +225,7 @@ class User
         $stmt->bindParam(":userId", $this->userId);
         $stmt->bindParam(":businessCategory", $this->businessCategory);
         $stmt->bindParam(":wallImg", $this->wallImg);
+        $stmt->bindParam(":status", $this->status);
         $stmt->bindParam(":createdOn", $this->createdOn);
         $stmt->bindParam(":createdBy", $this->createdBy);
 
@@ -239,6 +242,8 @@ class User
     public function insertUserWallHistory()
     {
 
+       if($this->wall_history_status=='1' || $this->wall_history_status=='2' || $this->wall_history_status==''){     
+ 
        $query = "INSERT INTO
         " . $this->wall_upload_history . "
     SET      userId=:userId,
@@ -265,6 +270,34 @@ class User
         $stmt->bindParam(":createdOn", $this->createdOn);
         $stmt->bindParam(":createdBy", $this->createdBy);
 
+       }else{
+
+          $query = "UPDATE
+        " . $this->wall_upload_history . "
+    SET      userId=:userId,
+             businessCategory=:businessCategory,
+             wallImg=:wallImg,
+             status=:status,
+             createdOn=:createdOn,
+             createdBy=:createdBy where userId=:userId and (status='0' || status='5') ";
+
+        $stmt = $this->conn->prepare($query);
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->businessCategory = htmlspecialchars(strip_tags($this->businessCategory));
+        $this->wallImg = htmlspecialchars(strip_tags($this->wallImg));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->createdOn = htmlspecialchars(strip_tags($this->createdOn));
+        $this->createdBy = htmlspecialchars(strip_tags($this->createdBy));
+
+
+        $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":businessCategory", $this->businessCategory);
+        $stmt->bindParam(":wallImg", $this->wallImg);
+        $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":createdOn", $this->createdOn);
+        $stmt->bindParam(":createdBy", $this->createdBy);
+
+       }
 
         // execute query
         if ($stmt->execute()) {
