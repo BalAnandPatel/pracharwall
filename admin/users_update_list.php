@@ -2,11 +2,10 @@
 include "include/header.php";
 $url = $URL . "user/read_reupdated_users_list.php";
 $url_wall = $URL . "user/read_user_wall.php";
-$userType='2';
 $status = '0';
 //read user details
 
-$data = array("status"=>$status, "userType"=>$userType);
+$data = array("status"=>$status);
 //print_r($data);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);

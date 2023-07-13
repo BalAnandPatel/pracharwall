@@ -22,7 +22,6 @@ $read_wall_history = new User($db);
 $data = json_decode(file_get_contents("php://input"));
 //print_r($data);
 
-$read_wall_history->status=$data->status;
 $read_wall_history->userId=$data->userId;
 
 

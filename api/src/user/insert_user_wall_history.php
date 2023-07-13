@@ -19,15 +19,12 @@ $insert_user_wall_history = new User($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
-//print_r($data);  
+// print_r($data);  
 // make sure data is not empty
 if(
-
     !empty($data->wallImg) &&
     !empty($data->userId) &&
-    !empty($data->status) &&
-    !empty($data->categoryId)
-   
+    !empty($data->categoryId) 
 )
 
 {

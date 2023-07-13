@@ -30,6 +30,7 @@ if(
 
 {
 
+    $insert_user_wall->wall_status = $data->wall_status;
     $insert_user_wall->userId = $data->userId;
     $insert_user_wall->businessCategory = $data->categoryId;
     $insert_user_wall->wallImg = $data->wallImg;

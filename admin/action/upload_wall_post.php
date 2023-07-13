@@ -15,17 +15,30 @@ if(isset($_POST["uploadWall"])){
   $target_dir = "../image/walluploads/";
   $path = "../image/walluploads/".$userId."/";
   $rand_no = rand(10,100);
-  $status='0';
-
+  $status="0";
+  
   // get users wall status from wall_upload_history table
   $wall_history_data = array("status"=>'0', "userId"=>$userId);
   $wall_history_postdata = json_encode($wall_history_data);
   $wall_history_result = url_encode_Decode($wall_histroy_url,$wall_history_postdata);
   //print_r($wall_history_result);
   $wall_history_status="";
+  $pre_exist_file="";
   if(isset($wall_history_result->records[0]->status)){
   $wall_history_status = $wall_history_result->records[0]->status;
+  $pre_exist_file = $path.$wall_history_result->records[0]->wallImg;
   }
+
+
+  // Check if file already exists
+  if($wall_history_status=='0'){
+          if (file_exists($pre_exist_file)) {
+           
+            unlink($pre_exist_file);
+
+       }   
+
+    }   
 
   //get wall status from wall_uploads table
   $wall_read_data = array("userId"=>$userId, "status"=>'0');
@@ -36,7 +49,7 @@ if(isset($_POST["uploadWall"])){
   if(isset($wall_read_result->records[0]->status)){
   $wall_status = $wall_read_result->records[0]->status;
   }
- 
+
     if (!is_dir($path)){
     mkdir($path, 0777, true);
     // echo "directory created";
@@ -92,8 +105,9 @@ if(isset($_POST["uploadWall"])){
 
 
         if($wall_status=="" || $wall_status=='0'){
+
         //user wall entry 
-        $data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>'0', "createdOn"=>$date, "createdBy"=>$createdBy);
+        $data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>'0', "wall_status"=>$wall_status, "createdOn"=>$date, "createdBy"=>$createdBy);
         $postdata = json_encode($data);
         $result = url_encode_Decode($url,$postdata);
         //print_r($result);
@@ -101,7 +115,7 @@ if(isset($_POST["uploadWall"])){
         $history_data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>'5', "wall_history_status"=>$wall_history_status, "createdOn"=>$date, "createdBy"=>$createdBy);
         $history_postdata = json_encode($history_data);
         $history_result = url_encode_Decode($history_url,$history_postdata);
-         //print_r($history_result); 
+         //print_r($history_result);
         }else{
         //create user wall upload history
         $history_data = array("userId"=>$userId, "wallImg"=>$wallImg, "categoryId"=>$categoryId, "status"=>$status, "wall_history_status"=>$wall_history_status, "createdOn"=>$date, "createdBy"=>$createdBy);

@@ -16,22 +16,13 @@ $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 //print_r($result);
 
-// get users wall image from walluploads table
-$wall_data = array("status" => '1', "userId" => $userId);
-$wall_postdata = json_encode($wall_data);
-$wall_result = giplCurl($wall_url,$wall_postdata);
-// print_r($wall_result);
-
 // get users wall image from history table
-$status = '0';
-$wall_history_data = array("status" => $status, "userId" => $userId);
+$wall_history_data = array("userId" => $userId);
 $wall_history_postdata = json_encode($wall_history_data);
 $wall_history_result = giplCurl($wall_histroy_url,$wall_history_postdata);
 //print_r($wall_history_result);
 if(isset($wall_history_result->records[0]->wallImg)){
 $wall_img = $wall_history_result->records[0]->wallImg;
-}else if(isset($wall_result->records[0]->wallImg)){
-$wall_img=$wall_result->records[0]->wallImg;
 }else{
 $wall_img="";    
 }

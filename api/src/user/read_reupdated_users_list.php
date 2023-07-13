@@ -20,7 +20,6 @@ $db = $database->getConnection();
 $read_reupdated_users = new User($db);
   
 $data = json_decode(file_get_contents("php://input"));
-$read_reupdated_users->userType = $data->userType;
 $read_reupdated_users->status = $data->status;
 
 //print_r($data);
