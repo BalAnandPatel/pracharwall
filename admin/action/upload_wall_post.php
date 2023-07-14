@@ -6,7 +6,7 @@ if(isset($_POST["uploadWall"])){
   $url = $URL . "user/insert_user_wall.php";
   $wall_histroy_url = $URL . "user/read_user_wall_history.php";
   $history_url = $URL . "user/insert_user_wall_history.php";
-  $wall_read_url = $URL . "user/read_user_wall.php";
+  $wall_read_url = $URL . "user/read_user_wall_status.php";
 
   $userId=$_POST['userId'];
   $categoryId=$_POST['categoryId'];
@@ -40,7 +40,7 @@ if(isset($_POST["uploadWall"])){
     }   
 
   //get wall status from wall_uploads table
-  $wall_read_data = array("userId"=>$userId, "status"=>'0');
+  $wall_read_data = array("userId"=>$userId);
   $wall_read_postdata = json_encode($wall_read_data);
   $wall_read_result = url_encode_Decode($wall_read_url,$wall_read_postdata);
   // print_r($wall_read_result);

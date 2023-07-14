@@ -118,16 +118,28 @@ class User
     {
         
         if($this->userId!=""){
-        $query = "Select wall.id,wall.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wall.wallImg,wall.status,wall.createdOn,wall.updatedOn,wall.createdBy,wall.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_uploads." as wall ON wall.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wall.businessCategory where wall.userId=:userId";
+        $query = "Select wall.id,wall.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wall.wallImg,wall.status,wall.createdOn,wall.updatedOn,wall.createdBy,wall.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_uploads." as wall ON wall.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wall.businessCategory where wall.userId=:userId and wall.status=:status";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":status", $this->status);
         }else{
         $query = "Select wall.id,wall.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wall.wallImg,wall.status,wall.createdOn,wall.updatedOn,wall.createdBy,wall.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_uploads." as wall ON wall.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wall.businessCategory where wall.status=:status";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":status", $this->status);
         }
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function readUsersWallStatus()
+    {
+        $query = "Select wall.id,wall.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wall.wallImg,wall.status,wall.createdOn,wall.updatedOn,wall.createdBy,wall.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_uploads." as wall ON wall.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wall.businessCategory where wall.userId=:userId";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":userId", $this->userId);
+
         $stmt->execute();
         return $stmt;
     }

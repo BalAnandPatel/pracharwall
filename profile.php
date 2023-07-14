@@ -4,7 +4,6 @@ include "include/header.php";
 <?php
 $url = $URL."user/read_user_profile.php";
 $wall_histroy_url = $URL . "user/read_user_wall_history.php";
-$wall_url = $URL . "user/read_user_wall.php";
 // user type is static value for business owner 
 $userType='2';
 //user id will be session id 
