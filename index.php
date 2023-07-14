@@ -147,7 +147,7 @@ return $result;
                                     // print_r($wall_result);
                                     $wall_img = $wall_result->records[0]->wallImg;
                                      ?>
-                                    <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" alt="wall_img" class="card-img">
+                                    <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" height="100%" alt="wall_img" class="card-img">
                                 </span>
 
                                 <div class="card-image">
@@ -157,7 +157,7 @@ return $result;
                             <div class="card-content">
                                 <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" class="name"><?php echo $value1->businessName; ?></a>
                                 <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" class="description"><?php echo $value1->city; ?></a>
-                                <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" class="btn btn-primary w-100">Enquiry Now</a>
+                                <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" class="btn btn-primary w-100 mt-3">Enquiry Now</a>
                             </div>
                         </div>
                     </a>
