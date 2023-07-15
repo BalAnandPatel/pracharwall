@@ -1,10 +1,9 @@
 <?php
 // error_reporting(0);
 include "include/header.php";
-  $url = $URL."user/read_allusers_list.php";
-  $userType='2';
+  $url = $URL."user/read_rejected_user.php";
   $status='2';
-  $data = array("status"=>$status, "userType"=>$userType, "userId"=>"");
+  $data = array("status"=>$status, "userId"=>"");
   //print_r($data);
   $postdata = json_encode($data);
   $client = curl_init($url);
@@ -70,7 +69,7 @@ include "include/header.php";
                     <th>Email Id</th>
                     <th>Status</th>
                     <th>Remark</th>
-                    <th>Create date</th>
+                    <th>Date</th>
                   </tr>
                     
                   </thead>
@@ -87,9 +86,9 @@ include "include/header.php";
                     <td><?php echo $value1->userName; ?></td>
                     <td><?php echo $value1->userMobile; ?></td>
                     <td><?php echo $value1->userEmail; ?></td>
-                    <td><?php if($value1->status==1) echo "ACTIVE"; else if($value1->status==2) echo "REJECTED"; else echo "PENDING"; ?></td>
+                    <td><button type="button" class="btn btn-danger btn-xs"><?php if($value1->status==1) echo "ACTIVE"; else if($value1->status==2) echo "REJECTED"; else echo "PENDING"; ?></button></td>
                     <td><?php echo $value1->remark; ?></td> 
-                    <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td> 
+                    <td><?php echo date('d-m-Y',strtotime($value1->updatedOn)); ?></td> 
                   </tr>
                   <?php
                      }

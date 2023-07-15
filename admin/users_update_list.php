@@ -147,7 +147,7 @@ return $result = json_decode($response);
                         </td>
                         <td class="col-md-1">
                           <button class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#remark" onclick="rejectUsers(<?php echo $value1->id; ?>)">Reject</button>
+                            data-target="#remark" onclick="rejectUsers(<?php echo $value1->userId; ?>)">Reject</button>
                         </td>
                       </tr>
                       <?php
@@ -182,11 +182,11 @@ return $result = json_decode($response);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="action/user_reject_post.php" method="post">
+      <form action="action/user_re_reject_post.php" method="post">
         <div class="modal-body">
           <textarea name="remark" class="form-control" rows="3" placeholder="Write remark here" autofocus
             style="resize:none;" required></textarea>
-          <input type="hidden" id="rejectUserId" name="userId">
+          <input type="text" id="rejectUserId" name="userId">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

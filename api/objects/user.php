@@ -61,7 +61,7 @@ class User
     }
 
     
-// select quiry for users pending, approve or rejected list 
+// select quiry for users fresh list and active list
     public function readAllUsersDetail()
     {
        if($this->userId==""){
@@ -85,10 +85,31 @@ class User
         return $stmt;
     }
 
+// select quiry for users all rejected list or select list by user id
+public function readRejectedUsers()
+{
+    
+if($this->userId==""){
 
+   $query = "Select ph.id, ph.userId, user.userType, ph.remark, ut.userRole, user.userName, ph.userAddress, ph.businessCategory, user.userMobile, user.userEmail, ph.status, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile_history." as ph ON user.id=ph.userId where ph.status=:status";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(":status", $this->status);
+
+}else{
+
+    $query = "Select ph.id, ph.userId, user.userType, ph.remark, ut.userRole, user.userName, ph.userAddress, ph.businessCategory, user.userMobile, user.userEmail, ph.status, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile_history." as ph ON user.id=ph.userId where ph.status=:status and ph.userId=:userId ORDER BY ph.id DESC limit 1";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(":status", $this->status);
+    $stmt->bindParam(":userId", $this->userId);
+
+}
+    $stmt->execute();
+    return $stmt;
+}
 
 // select quiry for users reupdated list
-
     public function readReupdatedUsersDetail()
     {
 
@@ -635,6 +656,7 @@ class User
                    paymentMode=:paymentMode,
                    userWebsite=:userWebsite,
                    status=:status,
+                   remark=:remark,
                    updatedOn=:updatedOn,
                    updatedBy=:updatedBy
                    where userId=:userId";
@@ -654,6 +676,7 @@ class User
         $this->businessDay = htmlspecialchars(strip_tags($this->businessDay));
         $this->paymentMode = htmlspecialchars(strip_tags($this->paymentMode));
         $this->userWebsite = htmlspecialchars(strip_tags($this->userWebsite));
+        $this->remark = htmlspecialchars(strip_tags($this->remark));
         $this->status = htmlspecialchars(strip_tags($this->status));
         $this->updatedOn = htmlspecialchars(strip_tags($this->updatedOn));
         $this->updatedBy = htmlspecialchars(strip_tags($this->updatedBy));
@@ -674,6 +697,7 @@ class User
         $stmt->bindParam(":paymentMode", $this->paymentMode);
         $stmt->bindParam(":userWebsite", $this->userWebsite);
         $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":remark", $this->remark);
         $stmt->bindParam(":updatedOn", $this->updatedOn);
         $stmt->bindParam(":updatedBy", $this->updatedBy);
 
@@ -695,14 +719,14 @@ class User
      SET
         remark=:remark,
         status=:status
-        where userId=:id";
+        where userId=:id and status=0";
 
         $query2 = "UPDATE 
          " . $this->user_profile_history . "
      SET
         remark=:remark,
         status=:status
-        where userId=:id";
+        where userId=:id and status=0 or status=5";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
@@ -727,6 +751,39 @@ class User
             return true;
         }
 
+        return false;
+    }
+
+
+    function updateUserHistoryStatus(){
+        $query = "UPDATE 
+        " . $this->user_profile_history . "
+    SET
+       remark=:remark,
+       status=:status,
+       updatedOn=:updatedOn,
+       updatedBy=:updatedBy
+       where userId=:id and status=0";
+
+       // prepare query
+       $stmt = $this->conn->prepare($query);
+
+       $this->id = htmlspecialchars(strip_tags($this->id));
+       $this->remark = htmlspecialchars(strip_tags($this->remark));
+       $this->status = htmlspecialchars(strip_tags($this->status));
+       $this->updatedOn = htmlspecialchars(strip_tags($this->updatedOn));
+       $this->updatedBy = htmlspecialchars(strip_tags($this->updatedBy));
+
+       $stmt->bindParam(":id", $this->id);
+       $stmt->bindParam(":remark", $this->remark);
+       $stmt->bindParam(":status", $this->status);
+       $stmt->bindParam(":updatedOn", $this->updatedOn);
+       $stmt->bindParam(":updatedBy", $this->updatedBy);
+
+        // execute query2
+        if ($stmt->execute()) {
+            return true;
+        }
         return false;
     }
 

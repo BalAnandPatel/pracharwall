@@ -16,6 +16,7 @@ if(isset($_POST["update_profile"])){
  $userWebsite=$_POST["userWebsite"];
  $userServices=ucwords($_POST["userServices"]);
  $aboutUser=$_POST["aboutUser"];
+ $remark="";
  $history_status=$_POST["pre_status"];
  $status="0";
  $updatedOn=date("Y-m-d");
@@ -44,7 +45,7 @@ if($pre_profile_status=="0"){
 
  // update user profile
  $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite,
-     "status"=>$status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+     "status"=>$status, "remark"=>$remark, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
 // print_r($data);
 
@@ -54,7 +55,7 @@ if($pre_profile_status=="0"){
  
  // create user profile update history
 
-  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>'5', "history_status"=>$history_status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>'5', "remark"=>$remark, "history_status"=>$history_status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
 // print_r($data);
 
@@ -66,7 +67,7 @@ if($pre_profile_status=="0"){
 
 // create user profile update history
 
-  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>$status, "history_status"=>$history_status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>$status, "remark"=>$remark, "history_status"=>$history_status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
 // print_r($data);
 

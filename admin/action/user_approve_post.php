@@ -7,9 +7,9 @@ $remark="Approved";
 $userId=$_POST["userId"]; 
 $status=1;
  
- $url=$URL. "user/update_user_status.php";
+ $url=$URL. "user/update_user_approve.php";
 
- $data = array("userId"=>$userId, "remark"=>$remark, "status"=>$status);
+ $data = array("userId"=>$userId, "remark"=>$remark,  "status"=>$status);
 
  //print_r($data);
  $postdata = json_encode($data);

@@ -68,7 +68,7 @@ include "include/header.php";
                     <th>Mobile No.</th>
                     <th>Email Id</th>
                     <th>Status</th>
-                    <th>Create date</th>
+                    <th>Date</th>
                   </tr>
                     
                   </thead>
@@ -85,7 +85,7 @@ include "include/header.php";
                     <td><?php echo $value1->userName; ?></td>
                     <td><?php echo $value1->userMobile; ?></td>
                     <td><?php echo $value1->userEmail; ?></td>
-                    <td><?php if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td> 
+                    <td><button type="button" class="btn btn-success btn-xs"><?php if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></button></td> 
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td> 
                   </tr>
                   <?php

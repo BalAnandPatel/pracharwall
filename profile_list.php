@@ -4,8 +4,6 @@ include "include/header.php";
 ?>
 <?php
 $url = $URL."user/read_profile_by_category.php";
-$wall_url = $URL . "user/read_user_wall.php";
-
 $userType='2'; 
 $businessCategory=base64_decode($_GET['category']);
 $data = array("userType" =>$userType, "businessCategory"=>$businessCategory);
@@ -13,21 +11,6 @@ $data = array("userType" =>$userType, "businessCategory"=>$businessCategory);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 // print_r($result);
-
-// get users wall image
-$status = '1';
-$userId = "";
-if(isset($result->records[0]->userId)){
-$userId = $result->records[0]->userId;
-}
-$wall_data = array("status" => $status, "userId" => $userId);
-$wall_postdata = json_encode($wall_data);
-$wall_result = giplCurl($wall_url,$wall_postdata);
-// print_r($wall_result);
-$wall_img="";
-if(isset($wall_result->records[0]->wallImg)){
-$userId = $wall_result->records[0]->wallImg;
-}
 
 function giplCurl($url,$postdata){
     $client = curl_init($url);
@@ -122,6 +105,16 @@ function giplCurl($url,$postdata){
 
                 <div class="row">
                     <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
+                    <?php
+                                    $wall_url = $URL . "user/read_user_wall.php";
+                                    $status = '1';
+                                    $userId = $value1->userId;
+                                    $wall_data = array("status" => $status, "userId" => $userId);
+                                    $wall_postdata = json_encode($wall_data);
+                                    $wall_result = giplCurl($wall_url,$wall_postdata);
+                                    // print_r($wall_result);
+                                    $wall_img = $wall_result->records[0]->wallImg;
+                                     ?>
                         <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" style="height:100%;" class="img-fluid img-thumbnail" alt="user wall img">
                     </div>
 

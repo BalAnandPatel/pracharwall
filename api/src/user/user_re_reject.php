@@ -15,7 +15,7 @@ include_once '../../objects/user.php';
 $database = new Database();
 $db = $database->getConnection();
   
-$update_user_status = new User($db);
+$user_re_reject = new User($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
@@ -27,17 +27,19 @@ if(
 )
 
 {
-    $update_user_status->remark=$data->remark;
-    $update_user_status->id=$data->userId;
-    $update_user_status->status=$data->status;
+    $user_re_reject->remark=$data->remark;
+    $user_re_reject->id=$data->userId;
+    $user_re_reject->status=$data->status;
+    $user_re_reject->updatedOn=$data->updatedOn;
+    $user_re_reject->updatedBy=$data->updatedBy;
 
-    if($update_user_status->updateUserStatus()){
+    if($user_re_reject->updateUserHistoryStatus()){
   
         // set response code - 201 created
         http_response_code(201);
   
         // tell the user
-        echo json_encode(array("message" => "User status updated successfully"));
+        echo json_encode(array("message" => "User Rerejected successfully"));
     }
   
     // if unable to create the reg, tell the user
@@ -47,7 +49,7 @@ if(
         http_response_code(503);
   
         // tell the user
-        echo json_encode(array("message" => "Unable to update user status"));
+        echo json_encode(array("message" => "Unable to Reject user"));
     }
 }
   
@@ -58,6 +60,6 @@ else{
     http_response_code(400);
   
     // tell the user
-    echo json_encode(array("message" => "Unable to update user status. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to Reject user. Data is incomplete."));
 }
 ?>

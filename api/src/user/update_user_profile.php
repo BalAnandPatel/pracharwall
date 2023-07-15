@@ -51,6 +51,7 @@ if(
     $update_userprofile->userWebsite = $data->userWebsite;
     $update_userprofile->userServices = $data->userServices;
     $update_userprofile->status = $data->status;
+    $update_userprofile->remark = $data->remark;
     $update_userprofile->updatedOn = $data->updatedOn;
     $update_userprofile->updatedBy = $data->updatedBy;
 

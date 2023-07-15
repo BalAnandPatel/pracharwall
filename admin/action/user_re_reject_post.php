@@ -6,17 +6,18 @@ if(isset($_POST["submit"])){
 $remark=ucfirst($_POST['remark']);
 $userId=$_POST["userId"];
 $status=2;
- 
+$date=date("Y-m-d h:i:s");
+$rejectedBy="Admin"; 
 $url=$URL. "user/update_user_reject.php";
 
- $data = array("userId"=>$userId, "remark"=>$remark, "status"=>$status);
+ $data = array("userId"=>$userId, "remark"=>$remark, "status"=>$status, "updatedOn"=>$date, "updatedBy"=>$date);
 
  //print_r($data);
  $postdata = json_encode($data);
  $result=url_encode_Decode($url,$postdata);
  //print_r($result);
 
- header('Location:../user_registration_list.php');
+ header('Location:../users_update_list.php');
 
  }
 

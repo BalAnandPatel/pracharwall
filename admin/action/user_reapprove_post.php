@@ -3,7 +3,7 @@ include '../../constant.php';
 
 if(isset($_POST["submit"])){
 
-$url=$URL. "user/update_user_status.php";
+$url=$URL. "user/update_user_approve.php";
 $url_profile = $URL . "user/read_user_profile.php";
 $url_update = $URL . "user/update_user_profile.php";
 $userType='2';

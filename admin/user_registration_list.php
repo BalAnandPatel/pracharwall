@@ -147,8 +147,12 @@ return $result = json_decode($response);
                           </form>
                         </td>
                         <td class="col-md-1">
+                        <?php if(!empty($value1->businessCategory) && !empty($wall_img)){ ?>
                           <button class="btn btn-danger btn-sm" data-toggle="modal"
                             data-target="#remark" onclick="rejectUsers(<?php echo $value1->id; ?>)">Reject</button>
+                          <?php }else{ ?>
+                            <button type="button" class="btn btn-danger btn-sm" disabled>Reject</button> 
+                            <?php } ?>
                         </td>
                       </tr>
                       <?php
@@ -399,7 +403,7 @@ return $result = json_decode($response);
         <div class="modal-body">
           <textarea name="remark" class="form-control" rows="3" placeholder="Write remark here" autofocus
             style="resize:none;" required></textarea>
-          <input type="hidden" id="rejectUserId" name="userId">
+           <input type="text" id="rejectUserId" name="userId">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
