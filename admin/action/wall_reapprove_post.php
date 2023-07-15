@@ -3,13 +3,13 @@ include '../../constant.php';
 
 if(isset($_POST["submit"])){
 
-$url=$URL. "user/user_wall_approve.php";
+$url=$URL. "user/update_user_wall_status.php";
 $get_url = $URL."user/read_user_wall.php";
 
 $userId=$_POST["userId"];
 $post_wallImg=$_POST["wallImg"]; 
 $status=1;
-$date = date("Y-m-d h:i:s");
+$remark="Approved";
 
 // get pre uploaded wall image 
 $get_data = array("status"=>'1', "userId"=>$userId);
@@ -19,7 +19,7 @@ $get_result = url_encode_Decode($get_url,$get_postdata);
 // print_r($get_result);
 $pre_wall_img = $get_result->records[0]->wallImg;
 
-$data = array("userId"=>$userId, "wallImg"=>$post_wallImg, "status"=>$status, "updatedOn"=>$date, "updatedBy"=>$userId);
+$data = array("userId"=>$userId, "remark"=>$remark, "wallImg"=>$post_wallImg, "status"=>$status);
 //print_r($data);
 $postdata = json_encode($data);
 $result=url_encode_Decode($url,$postdata);

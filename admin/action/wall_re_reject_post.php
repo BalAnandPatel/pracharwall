@@ -3,19 +3,19 @@ include '../../constant.php';
 
 if(isset($_POST["submit"])){
 
-$url=$URL. "user/update_user_wall_status.php";
+$url=$URL. "user/user_wall_re_reject.php";
 
 $userId=$_POST["userId"];
-$post_wallImg=$_POST["wallImg"];
-$remark = "Approved"; 
-$status=1;
+$wallImg=$_POST["wallImg"];
+$remark=$_POST["remark"]; 
+$status=2;
 
-$data = array("userId"=>$userId, "remark"=>$remark, "wallImg"=>$post_wallImg, "status"=>$status);
+$data = array("userId"=>$userId, "remark"=>$remark, "wallImg"=>$wallImg, "status"=>$status);
 //print_r($data);
 $postdata = json_encode($data);
 $result=url_encode_Decode($url,$postdata);
 //print_r($result);
-header('Location:../new_post_request.php');    
+header('Location:../post_update_history.php');    
 exit();
 
 }

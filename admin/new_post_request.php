@@ -68,6 +68,7 @@ include "include/header.php";
                     <th>Create Date</th>
                     <th>Profile</th>
                     <th>Approve</th>
+                    <th>Reject</th>
                   </tr>
                     
                   </thead>
@@ -89,9 +90,14 @@ include "include/header.php";
                       <form action="action/user_wall_approve_post.php" method="post">
                       <input type="hidden" name="userId" value="<?php echo $value1->userId; ?>">
                       <input type="hidden" name="wallImg" value="<?php echo $value1->wallImg; ?>">
-                      <button type="submit" name="submit" class="btn btn-success">Approve</button>
+                      <button type="submit" name="submit" class="btn btn-success btn-sm">Approve</button>
                       </form>  
                     </td>
+                    <td>
+                      <?php $u_id= $value1->userId; $img = $value1->wallImg;?>
+                      <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#remark" 
+                      onclick="rejectUsers('<?php echo $u_id ?>','<?php echo $img ?>');">Reject</button>
+                    </td> 
                   </tr>
                   <?php 
                      }
@@ -114,27 +120,86 @@ include "include/header.php";
     
   </div>
 
-  <!-- modal box start-->
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <!-- Modal Reject Remark -->
+<div class="modal fade" id="remark" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Payment Slip</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Reason of rejecting the User.</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <img src="<?php echo $slip_img; ?>" alt="..." class="img-fluid img-thumbnail" width="100%">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
+      <form action="action/user_wall_reject_post.php" method="post">
+        <div class="modal-body">
+          <textarea name="remark" class="form-control" rows="3" placeholder="Write remark here" autofocus
+            style="resize:none;" required></textarea>
+           <input type="hidden" id="rejectUserId" name="userId">
+           <input type="hidden" id="rejectWallImg" name="wallImg">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="submit" class="btn btn-danger">Reject</button>
+      </form>
     </div>
   </div>
 </div>
-<!-- modal box end-->
+</div>
+
+  <script>
+
+    //This method for reject user details
+     function rejectUsers(id,wallImg){
+     //alert(id);
+     document.getElementById("rejectUserId").value = id;
+     document.getElementById("rejectWallImg").value = wallImg;
+     }
+
+    
+    // read user profle details
+
+    function getProfileList(id) {
+    // alert(id);
+    // var id;    
+    // var userType=2;    
+    // var status=0;    
+    // myData = {userId:id,userType:userType,status:status };
+    // console.log(myData);    
+    $.ajax({
+      url:"<?php echo $BASE_URL ?>admin/action/get_data.php",   
+      type:'POST',  
+      dataType:'json',  
+      data:{
+        "userId":id 
+      },
+      success: function(response) {
+        console.log(response);
+        console.log("depth" + JSON.stringify(response));
+        // console.log(response.records[0].userName);
+        // alert("response");
+        // document.getElementById("viewUserName").innerHTML = response.records[0].userName;
+        // document.getElementById("viewUserEmail").innerHTML = response.records[0].userEmail;
+        // document.getElementById("viewUserMobile").innerHTML = "+91-"+response.records[0].userMobile;
+        document.getElementById("viewBusinessCategory").innerHTML = response.records[0].businessCategory;
+        document.getElementById("viewUserAddress").innerHTML = response.records[0].userAddress;
+        document.getElementById("viewUserServices").innerHTML = response.records[0].userServices;
+        document.getElementById("viewAlterMobile").innerHTML = response.records[0].alterMobile;
+        document.getElementById("viewBusinessDay").innerHTML = response.records[0].businessDay;
+        document.getElementById("viewUserWebsite").innerHTML = response.records[0].userWebsite;
+        document.getElementById("viewEstablishmentYear").innerHTML = response.records[0].establishmentYear;
+        document.getElementById("viewPaymentMode").innerHTML = response.records[0].paymentMode;
+        document.getElementById("viewBusinessTiming").innerHTML = response.records[0].businessTiming;
+        document.getElementById("viewAboutUser").innerHTML = response.records[0].aboutUser;
+        document.getElementById("viewBusinessName").innerHTML = response.records[0].businessName;
+        document.getElementById("viewCity").innerHTML = response.records[0].city;
+        document.getElementById("viewState").innerHTML = response.records[0].state;
+
+      }  
+    });    
+ 
+  }
+</script>
+
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>

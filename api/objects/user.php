@@ -787,8 +787,8 @@ if($this->userId==""){
         return false;
     }
 
-// update query for approve user wall
-    function approveUserwall()
+//  change status approve and reject user wall
+    function updateUserwallStatus()
     {
 
         // query to update record
@@ -797,16 +797,15 @@ if($this->userId==""){
      SET
         wallImg=:wallImg,
         status=:status,
-        updatedOn=:updatedOn,
-        updatedBy=:updatedBy
-        where userId=:userId";
+        remark=:remark
+        where userId=:userId and (status=0 or status=2 or status=1)";
 
         $query2 = "UPDATE 
          " . $this->wall_upload_history . "
      SET
         status=:status,
-        updatedOn=:updatedOn,
-        updatedBy=:updatedBy
+        wallImg=:wallImg,
+        remark=:remark
         where userId=:userId and (status='0' or status='5')";
 
         // prepare query
@@ -815,28 +814,58 @@ if($this->userId==""){
 
         $this->userId = htmlspecialchars(strip_tags($this->userId));
         $this->wallImg = htmlspecialchars(strip_tags($this->wallImg));
-        // $this->remark = htmlspecialchars(strip_tags($this->remark));
+        $this->remark = htmlspecialchars(strip_tags($this->remark));
         $this->status = htmlspecialchars(strip_tags($this->status));
-        $this->updatedOn = htmlspecialchars(strip_tags($this->updatedOn));
-        $this->updatedBy = htmlspecialchars(strip_tags($this->updatedBy));
 
         //bind values with stmt
         $stmt->bindParam(":userId", $this->userId);
         $stmt->bindParam(":wallImg", $this->wallImg);
-        // $stmt->bindParam(":remark", $this->remark);
+        $stmt->bindParam(":remark", $this->remark);
         $stmt->bindParam(":status", $this->status);
-        $stmt->bindParam(":updatedOn", $this->updatedOn);
-        $stmt->bindParam(":updatedBy", $this->updatedBy);
         
         //bind values with stmt2
         $stmt2->bindParam(":userId", $this->userId);
-        // $stmt2->bindParam(":remark", $this->remark);
+        $stmt2->bindParam(":wallImg", $this->wallImg);
+        $stmt2->bindParam(":remark", $this->remark);
         $stmt2->bindParam(":status", $this->status);
-        $stmt2->bindParam(":updatedOn", $this->updatedOn);
-        $stmt2->bindParam(":updatedBy", $this->updatedBy);
+
 
         // execute query2
         if ($stmt->execute() && $stmt2->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // query for Rereject user wall 
+    function RerejectUserwall()
+    {
+
+        $query = "UPDATE 
+         " . $this->wall_upload_history . "
+     SET
+        status=:status,
+        remark=:remark,
+        wallImg=:wallImg
+        where userId=:userId and (status='0' or status='5')";
+
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+
+        $this->userId = htmlspecialchars(strip_tags($this->userId));
+        $this->wallImg = htmlspecialchars(strip_tags($this->wallImg));
+        $this->remark = htmlspecialchars(strip_tags($this->remark));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+
+        //bind values with stmt
+        $stmt->bindParam(":userId", $this->userId);
+        $stmt->bindParam(":wallImg", $this->wallImg);
+        $stmt->bindParam(":remark", $this->remark);
+        $stmt->bindParam(":status", $this->status);
+
+        // execute query2
+        if ($stmt->execute()) {
             return true;
         }
 

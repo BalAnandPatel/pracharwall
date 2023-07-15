@@ -4,10 +4,11 @@ date_default_timezone_set('Asia/Kolkata');
 $BASE_URL="http://localhost/pracharwall/";
 // website file path on server
 
-// $URL="https://pracharwall.com/api/src/";
-// $USER_PROFILE_IMGPATH="https://pracharwall.com/admin/image/user_profile/";
-// $USER_WALL_IMGPATH="https://pracharwall.com/admin/image/walluploads/";
-// $CATEGORY_IMGPATH="https://pracharwall.com/admin/image/uploads/img_";
+// $BASE_URL="https://www.pracharwall.com/";
+// $URL="https://www.pracharwall.com/api/src/";
+// $USER_PROFILE_IMGPATH="https://www.pracharwall.com/admin/image/user_profile/";
+// $USER_WALL_IMGPATH="https://www.pracharwall.com/admin/image/walluploads/";
+// $CATEGORY_IMGPATH="https://www.pracharwall.com/admin/image/uploads/img_";
 
 // website file path on localhost
 $URL="http://localhost/pracharwall/api/src/";

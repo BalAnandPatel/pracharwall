@@ -31,7 +31,7 @@ if(isset($_POST["uploadWall"])){
 
 
   // Check if file already exists
-  if($wall_history_status=='0' || $wall_history_status=='5'){
+  if($wall_history_status=='0' || $wall_history_status=='5' || $wall_history_status=='2'){
           if (file_exists($pre_exist_file)) {
            
           unlink($pre_exist_file);
