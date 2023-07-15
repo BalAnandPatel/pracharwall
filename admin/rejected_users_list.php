@@ -69,7 +69,7 @@ include "include/header.php";
                     <th>Email Id</th>
                     <th>Status</th>
                     <th>Remark</th>
-                    <th>Date</th>
+                    <th>Create date</th>
                   </tr>
                     
                   </thead>
