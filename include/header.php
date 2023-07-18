@@ -34,6 +34,10 @@ $result = json_decode($response);
     <script src="assets/js/sweetalert.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
 
+    <!-- <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/main.js"></script> -->
+
     <script type="text/javascript">
     $(document).ready(function() {
 
@@ -48,73 +52,94 @@ $result = json_decode($response);
 </head>
 
 <body>
-    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light" aria-label="Navbar">
-        <div class="container-fluid">
-            <div>
-                <a class="navbar-brand" href="index.php">
-                    <img src="Pracharwall_image/logo.png" class="img-fluid" alt="Pracharwall" width="160" height="40">
-                </a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
-                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="nav-item">
-                <div class="dropdown">
-                    <input type="text" id="ser-city" data-bs-toggle="dropdown" aria-expanded="false"
-                        class="form-control" size="60" placeholder="Search Your City"
-                        onkeyup="showResult(this.value)" />
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div id="livesearch"></div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<!-- <header> -->
+  <!-- Navbar -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light d-lg-block">
+    <div class="container-fluid">
 
-            <div>
-                <div class="collapse navbar-collapse" id="navbarsExample04">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="register-wall.php">Register Your Wall</a>
-                        </li>
-                        <?php
-                        if (strpos($ROLE, $PROFILE_USER) !== false) {
-                            ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="profile.php">Dashboard</a>
-                        </li>
-                        <?php } ?>
-                        <?php
-                        if (strpos($ROLE, $PROFILE_CUSTOMER) !== false) {
-                            ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cu_profile.php">
-                                My Profile
-                            </a>
-                        </li>
-                        <?php } ?>
-                        <?php if ($ROLE == "") { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Create Account</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signin" href="">Login</a>
-                        </li>
-                        <?php } else { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin/logout.php">Log Out <i class="bi bi-box-arrow-right"></i></a>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </div>
+      <!-- Navbar brand -->
+      <a class="navbar-brand nav-link" href="index.php">
+        <img src="Pracharwall_image/logo.png" class="img-fluid" alt="Pracharwall" width="160" height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+        aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                About
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="about.php">About Us</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="vision.php">Vision</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="mission.php">Mission</a>
+                </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register-wall.php">Register Your Wall</a>
+          </li>
+          <?php
+          if (strpos($ROLE, $PROFILE_USER) !== false) {
+              ?>
+          <li class="nav-item">
+              <a class="nav-link" href="profile.php">Dashboard</a>
+          </li>
+          <?php } ?>
+          <?php
+          if (strpos($ROLE, $PROFILE_CUSTOMER) !== false) {
+              ?>
+          <li class="nav-item">
+              <a class="nav-link" href="cu_profile.php">
+                  My Profile
+              </a>
+          </li>
+          <?php } ?>
+          <?php if ($ROLE == "") { ?>
+          <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Create Account</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signin" href="">Login</a>
+          </li>
+          <?php } else { ?>
+          <li class="nav-item">
+              <a class="nav-link" href="admin/logout.php">Log Out <i class="bi bi-box-arrow-right"></i></a>
+          </li>
+          <?php } ?>
+        </ul>
+
+        <ul class="navbar-nav list-inline">
+            <div class="dropdown">
+                <input type="text" id="ser-city" data-bs-toggle="dropdown" aria-expanded="false"
+                    class="form-control" size="30" placeholder="Search Your City"
+                    onkeyup="showResult(this.value)" />
+                <ul class="dropdown-menu">
+                    <li>
+                        <div id="livesearch"></div>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </nav>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+<!-- </header> -->
+
+
     <!-- Modal Sign Up-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -300,21 +325,6 @@ $result = json_decode($response);
         </div>
 
         <div class="offcanvas-body">
-            <!-- <div>
-                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images,
-                lists,
-                etc.
-            </div>
-            <div class="dropdown mt-3">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                    Dropdown button
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div> -->
             <div class="row justify-content-center">
                 <?php
             $counter = '0';
