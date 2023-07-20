@@ -60,7 +60,18 @@ return $result;
             <strong>200+ K</strong><br>Verified Experts
         </li>
         <li class="card border-0 m-4 text-center lh-1">
-            <strong>200+</strong><br>Categories
+            <?php
+                    $count_category_url = $URL . "admin/read_category_count.php";
+                    $count_category_data = array();
+                    $count_category_postdata = json_encode($count_category_data);
+                    $count_category_result = giplCurl($count_category_url,$count_category_postdata);
+                    //print_r($count_category_result);
+                    $count_category="";
+                    if(isset($count_category_result)){
+                    $count_category = $count_category_result->records[0]->category_count;
+                    }
+            ?>
+            <strong><?php echo $count_category; ?>+</strong><br>Categories
         </li>
     </ul>
 </div>
