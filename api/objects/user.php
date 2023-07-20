@@ -31,6 +31,8 @@ class User
         return $stmt;
     }
 
+    // select query for to read user profile detais 
+
     public function readUserProfile()
     {
 
@@ -49,6 +51,22 @@ class User
         $stmt->execute();
         return $stmt;
     }
+
+    // select query for to read customer profile details
+
+     public function readCustomerProfile()
+    {
+            
+        $query = "Select up.id, user.id, user.userType, up.remark, city, state, userName, userMobile, userEmail, up.status, bc.id as categoryId, bc.businessCategory, alterMobile, businessName, userWebsite, establishmentYear, userAddress, paymentMode, businessTiming, businessDay, userServices, aboutUser, user.createdOn, user.createdBy, up.updatedOn, up.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_profile . " as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.status=0 and user.userType=:userType and user.id=:id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":userType", $this->userType);
+
+        $stmt->execute();
+        return $stmt;
+    }
+    
+
 
         public function readAllProfileByCategory()
     {
