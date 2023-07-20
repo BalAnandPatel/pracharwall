@@ -267,8 +267,14 @@ $(document).ready(function(){
                      </div>
                      <div class="col-md-4">
                        <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">        
-                       <input type="hidden" name="categoryId" value="<?php echo $value1->categoryId; ?>">        
+                       <input type="hidden" name="categoryId" value="<?php echo $value1->categoryId; ?>">
+                       <?php if(isset($value1->businessCategory)){?>        
                        <button class="btn btn-primary" type="submit" name="uploadWall"><i class="bi bi-cloud-arrow-up-fill"></i> Upload your Business Banner</button>
+                       <?php }else{ ?>
+                     <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+                     <button class="btn btn-primary" type="button" disabled>Upload your Business Banner</button>
+                     </span>
+                       <?php } ?> 
                     </div>
                 </div>
                 </form>

@@ -27,13 +27,13 @@ $result = json_decode($response);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
+    <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="search.js"></script>
     <script src="assets/js/sweetalert.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
-
+    
     <!-- <script src="assets/js/jquery.counterup.min.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
     <script src="assets/js/main.js"></script> -->
