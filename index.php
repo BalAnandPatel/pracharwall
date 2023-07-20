@@ -51,29 +51,18 @@ return $result;
     </button>
 </div>
 
-<div class="counter_area">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4 col-md-4 mt-4">
-        <div class="single_counter text-center">
-          <h3> <span class="counter">30</span><span>M+</span> </h3>
-          <span>Happy Users</span>
-        </div>
-      </div>
-      <div class="col-xl-4 col-md-4 mt-4">
-        <div class="single_counter text-center">
-          <h3> <span class="counter">200</span><span>k+</span> </h3>
-          <span>Verified Experts</span>
-        </div>
-      </div>
-      <div class="col-xl-4 col-md-4 mt-4">
-        <div class="single_counter text-center">
-          <h3> <span class="counter">100</span><span>+</span> </h3>
-          <span>Categories</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container d-flex justify-content-center">
+    <ul class="d-flex">
+        <li class="card border-0 m-4 text-center lh-1">
+            <strong>30+ M</strong><br>Happy Users
+        </li>
+        <li class="card border-0 m-4 text-center lh-1">
+            <strong>200+ K</strong><br>Verified Experts
+        </li>
+        <li class="card border-0 m-4 text-center lh-1">
+            <strong>200+</strong><br>Categories
+        </li>
+    </ul>
 </div>
 
 <br>
@@ -158,7 +147,7 @@ return $result;
                                     // print_r($wall_result);
                                     $wall_img = $wall_result->records[0]->wallImg;
                                      ?>
-                                    <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" height="100%" alt="wall_img" class="card-img h-100">
+                                    <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" height="100%" alt="wall_img" class="card-img">
                                 </span>
 
                                 <div class="card-image">
