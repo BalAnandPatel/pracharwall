@@ -62,11 +62,12 @@ include "include/header.php";
                   <thead>
                   <tr class="table-warning">
                     <th>Sr No.</th>
-                    <th>Business Category</th>
+                    <th>Profile</th>
+                    <th>Email Id</th>
                     <th>User Name</th>
+                    <th>Business Category</th>
                     <th>Post Image</th>
                     <th>Create Date</th>
-                    <th>Profile</th>
                   </tr>
                     
                   </thead>
@@ -79,11 +80,19 @@ include "include/header.php";
                   ?>  
                   <tr>          
                     <td><?php echo ++$counter; ?></td>
-                    <td><?php echo $value1->businessCategory; ?></td>
+                    <td>
+                       <?php $uid = $value1->userId; ?>
+                      <img class="img-fluid img-thumbnail rounded-circle" height="100" width="100" src="<?php echo $USER_PROFILE_IMGPATH.$uid."/user_img_".$uid.".png"; ?>" alt="user image">
+                    </td>
+                    <td><?php echo $value1->userEmail; ?></td> 
                     <td><?php echo $value1->userName; ?></td>
-                    <td><img class="img img-fluid img-thumbnail" width="100" height="100"  src="<?php echo $USER_WALL_IMGPATH.$value1->userId."/".$value1->wallImg; ?>"></td>
+                    <td><?php echo $value1->businessCategory; ?></td>
+                    <td>
+                      <a href="<?php echo $USER_WALL_IMGPATH.$value1->userId."/".$value1->wallImg; ?>" target="_blank">
+                      <img class="img img-fluid img-thumbnail" width="100" height="100"  src="<?php echo $USER_WALL_IMGPATH.$value1->userId."/".$value1->wallImg; ?>">
+                     </a>
+                    </td>
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
-                    <td><?php echo ""; ?></td>  
                   </tr>
                   <?php 
                      }

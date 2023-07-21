@@ -84,14 +84,14 @@ class User
     {
        if($this->userId==""){
 
-        $query = "Select user.id, user.userType, user.remark, userRole, user.userName, up.userAddress, businessCategory, user.userMobile, user.userEmail, up.status, up.createdOn, up.createdBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where up.status=:status and user.userType=:userType";
+        $query = "Select user.id, user.userType, user.remark, userRole, user.userName, up.userAddress, bc.businessCategory, user.userMobile, user.userEmail, up.status, up.createdOn, up.createdBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.status=:status and user.userType=:userType";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);
         $stmt->bindParam(":status", $this->status);
     }else{
 
-        $query = "Select user.id, user.userType, user.remark, userRole, user.userName, up.userAddress, businessCategory, user.userMobile, user.userEmail, up.status, up.createdOn, up.createdBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where up.status=:status and user.userType=:userType and up.userId=:userId";
+        $query = "Select user.id, user.userType, user.remark, userRole, user.userName, up.userAddress, bc.businessCategory, user.userMobile, user.userEmail, up.status, up.createdOn, up.createdBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=up.businessCategory where up.status=:status and user.userType=:userType and up.userId=:userId";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":userType", $this->userType);

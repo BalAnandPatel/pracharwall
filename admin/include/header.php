@@ -59,17 +59,14 @@ date_default_timezone_set('Asia/Kolkata');
         <li class="nav-item d-none d-sm-inline-block">
           <a href="adm_dashboard.php" class="nav-link"><i class="fa fa-home mr-1"></i>HOME</a>
         </li>
-        <?php
-        // if (strpos($ROLE, $USER_PROFILE) !== false) {
-        ?>
-        <li class="nav-item d-none d-sm-inline-block">
+
+        <!-- <li class="nav-item d-none d-sm-inline-block">
           <a href="user_profile.php" class="nav-link"><i class="fa fa-user-circle mr-1"></i>PROFILE</a>
         </li>
-        <?php //} ?>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-changepass"><i
               class="fa fa-key mr-1"></i>CHANGE PASSWORD</a>
-        </li>
+        </li> -->
         <li class="nav-item d-none d-sm-inline-block">
           <a href="logout.php" class="nav-link"><i class="fa fa-lock mr-1"></i>LOGOUT</a>
         </li>

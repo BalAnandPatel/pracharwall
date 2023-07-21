@@ -9,10 +9,12 @@ if(isset($_POST["upload"])){
 
     if (!is_dir($path)){
     mkdir($path, 0777, true);
-    echo "directory created";
+    //echo "directory created";
+    header('Location:../../profile.php');
     }
     else{ 
-     echo "unable to create directory";
+     // echo "unable to create directory";
+     header('Location:../../profile.php');
     }
 
   $target_file_type = basename($_FILES["userImg"]["name"]);
@@ -35,7 +37,7 @@ if(isset($_POST["upload"])){
     if ($_FILES["userImg"]["size"] > 5000000) {
     echo $msg = "Sorry, your file is too large.";
     $_SESSION["userUploadErrors"] = $msg;
-    header('Location:../../update_user.php');
+    header('Location:../../profile.php');
     $uploadOk = 0;
     }
 
@@ -43,14 +45,14 @@ if(isset($_POST["upload"])){
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
     $msg = "Sorry, only JPG, JPEG, PNG files are allowed.";
     $_SESSION["userUploadErrors"] = $msg;
-    header('Location:../../update_user.php');
+    header('Location:../../profile.php');
     $uploadOk = 0;
     }
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
       $msg = "Sorry, your file was not uploaded.";
-      header('Location:../../update_user.php');
+      header('Location:../../profile.php');
     } else {
 
     $target_file = $path."user_img_".$userId.".png";
@@ -58,12 +60,12 @@ if(isset($_POST["upload"])){
     if (move_uploaded_file($_FILES["userImg"]["tmp_name"], $target_file)) {
     
          $_SESSION["userUploadSuccess"] = "File uploaded succesfully.";
-         header('Location:../../update_user.php');
+         header('Location:../../profile.php');
          }
           else {
         //   echo "Sorry, there was an error uploading your file.";
           $_SESSION["userUploadErrors"] = "Sorry, there was an error uploading your file.";
-          header('Location:../../update_user.php');
+          header('Location:../../profile.php');
       }
 
       }

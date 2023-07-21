@@ -57,7 +57,7 @@ include "include/header.php";
                <div class="col-md-6">
                   <div class="form-group">
                     <label for="name">Sub Category*</label>
-                    <input type="text" style="text-transform:capitalize;" class="form-control" name="subCategory" value="Na" id="exampleFormControlInput1" placeholder="Enter Subcategory" autocomplete="off" re>
+                    <input type="text" style="text-transform:capitalize;" class="form-control" name="subCategory" value="Na" id="exampleFormControlInput1" placeholder="Enter Subcategory" autocomplete="off" disabled>
                   </div>
               </div>
             

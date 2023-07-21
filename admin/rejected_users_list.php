@@ -63,7 +63,8 @@ include "include/header.php";
                   <thead>
                   <tr class="table-warning">
                     <th>Sr No.</th>
-                    <th>User Type</th>
+                    <th>User Img</th>
+                    <th>Business Category</th>
                     <th>User Name</th>
                     <th>Mobile No.</th>
                     <th>Email Id</th>
@@ -82,6 +83,11 @@ include "include/header.php";
                   ?>  
                   <tr>          
                     <td><?php echo ++$counter; ?></td>
+                    <td>
+                      <?php $uid = $value1->id; ?>
+                      <img class="img-fluid img-thumbnail rounded-circle" height="100px" width="100px" src="<?php echo $USER_PROFILE_IMGPATH.$uid."/user_img_".$uid.".png"; ?>" alt="user image">
+                    </td>
+                    <td><?php echo $value1->businessCategory; ?></td>
                     <td><?php echo $value1->userRole; ?></td>
                     <td><?php echo $value1->userName; ?></td>
                     <td><?php echo $value1->userMobile; ?></td>

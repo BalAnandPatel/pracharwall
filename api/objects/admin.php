@@ -4,8 +4,10 @@ class Admin{
     private $conn;
     private $business_category = "business_category";
     private $user_registration = "user_registration";
+    private $user_profile_history = "user_profile_history";
+    private $user_profile = "user_profile";
 
-    public $id, $businessCategory, $subCategory, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
+    public $id, $userId, $businessCategory, $subCategory, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
     public $userType;
 
     public function __construct($db){
@@ -97,11 +99,26 @@ class Admin{
 // counting details for admin dashboard 
  
 // Users Count
-
 function usersCount(){
      
     // select all query
-	   $query = "SELECT COUNT(id) as users_count FROM " . $this->user_registration . " where userType=:userType and status=:status";
+	   $query = "SELECT COUNT(up.id) as users_count FROM " . $this->user_registration . " as user LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where user.userType=:userType and up.status=:status";
+    
+    $stmt = $this->conn->prepare($query);
+  
+   $stmt->bindParam(":userType", $this->userType);
+   $stmt->bindParam(":status", $this->status);
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
+
+// Users Update Request Count From User_profile_history table
+function usersUpdateReqCount(){
+     
+    // select all query
+    $query = "SELECT COUNT(id) as users_count FROM " . $this->user_profile_history . " as user LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where user.userType=:userType and up.status=:status";
     
     $stmt = $this->conn->prepare($query);
   

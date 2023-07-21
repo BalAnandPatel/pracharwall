@@ -54,11 +54,22 @@ return $result;
 <div class="container d-flex justify-content-center">
     <ul class="d-flex">
         <li class="card border-0 m-4 text-center lh-1">
-            <strong>30+ M</strong><br>Happy Users
+            <?php
+             $users_count_url = $URL . "admin/read_users_count.php";
+             $users_count_data = array("status" => '1', "userType" => '2');
+             $users_count_postdata = json_encode($users_count_data);
+             $users_count_result = giplCurl($users_count_url,$users_count_postdata);
+             //print_r($users_count_result);  
+             $users_count="";
+             if(isset($users_count_result)){
+             $users_count = $users_count_result->records[0]->users_count;
+             } 
+            ?>
+            <strong><?php echo $users_count; ?>+</strong><br>Happy Users
         </li>
-        <li class="card border-0 m-4 text-center lh-1">
+      <!--   <li class="card border-0 m-4 text-center lh-1">
             <strong>200+ K</strong><br>Verified Experts
-        </li>
+        </li> -->
         <li class="card border-0 m-4 text-center lh-1">
             <?php
                     $count_category_url = $URL . "admin/read_category_count.php";

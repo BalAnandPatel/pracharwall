@@ -71,6 +71,7 @@ return $result = json_decode($response);
                   <tr class="table-warning">
                     <th>Sr No.</th>
                     <th>User Img</th>
+                    <th>Business Category</th>
                     <th>User Name</th>
                     <th>Mobile No.</th>
                     <th>Email Id</th>
@@ -114,6 +115,7 @@ return $result = json_decode($response);
                           <?php $uid = $value1->id; ?>
                           <img class="img-fluid img-thumbnail rounded-circle" height="100" width="100" src="<?php echo $USER_PROFILE_IMGPATH.$uid."/user_img_".$uid.".png"; ?>" alt="user image">
                         </td>
+                        <td><?php echo $value1->businessCategory; ?></td>
                         <td>
                           <?php echo $value1->userName; ?>
                         </td>
@@ -131,7 +133,7 @@ return $result = json_decode($response);
                         </td>
                         <td>
                          <?php if(!empty($value1->businessCategory)) { ?>
-                          <a type="button" class="btn btn-secondary" data-toggle="modal" data-target="#viewProfile" onclick="getProfileList(<?php echo $value1->id; ?>)">View</a>
+                          <a type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#viewProfile" onclick="getProfileList(<?php echo $value1->id; ?>)">View More</a>
                          <?php }else{ ?>
                             <button type="button" class="btn btn-secondary btn-xs" disabled>Details Pending</button> 
                          <?php } ?>

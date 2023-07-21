@@ -83,7 +83,7 @@ $approved_users = $result_approved_users->records[0]->users_count;
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="pending registration_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="user_registration_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -98,7 +98,7 @@ $approved_users = $result_approved_users->records[0]->users_count;
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="approved_registration_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="approved_users_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
 
@@ -109,7 +109,7 @@ $approved_users = $result_approved_users->records[0]->users_count;
             <div class="inner">
               <h3><?php // echo $rejected_registration; ?></h3>
 
-              <p>Rejected Users</p>
+              <p>Users Update Request</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
