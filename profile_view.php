@@ -339,7 +339,7 @@ exit();
 
         <div class="row border rounded mt-4 py-3">
             <div class="col">
-                <h5>Your Business Wall</h5>
+                <h5>Photos</h5>
                 <div class="row">
 
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
