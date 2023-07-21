@@ -11,21 +11,6 @@ $data = array("status"=>$status, "userType"=>$userType, "userId"=>"");
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 //print_r($result);
-$userId="";
-if(isset($result->records[0]->id)){
-$userId = $result->records[0]->id;  
-}
-// get wall uploaded active post    
-$wall_data = array("status"=>'1', "userId"=>$userId);
-//print_r($data);
-$wall_postdata = json_encode($wall_data);
-$wall_result = giplCurl($url_wall,$wall_postdata);
-//print_r($wall_result);
-if(isset($wall_result->records[0]->wallImg)){
-$wall_img = $wall_result->records[0]->wallImg;
-}else{
-$wall_img=""; 
-}
 
 function giplCurl($url,$postdata){
 $client = curl_init($url);
@@ -102,6 +87,24 @@ return $result = json_decode($response);
                   $counter = '0';
                   foreach ($result as $key => $value) {
                     foreach ($value as $key1 => $value1) {
+                   ?>
+                  <?php
+                      $userId="";
+                      if(isset($value1->id)){
+                      $userId = $value1->id;  
+                      }
+
+                      // get wall uploaded active post     
+                      $wall_data = array("status"=>'1', "userId"=>$userId);
+                      //print_r($data);
+                      $wall_postdata = json_encode($wall_data);
+                      $wall_result = giplCurl($url_wall,$wall_postdata);
+                      //print_r($wall_result);
+                      if(isset($wall_result->records[0]->wallImg)){
+                      $wall_img = $wall_result->records[0]->wallImg;
+                      }else{
+                      $wall_img=""; 
+                      }
                       ?>
                       <tr>
                         <td>
