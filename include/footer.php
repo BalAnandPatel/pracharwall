@@ -89,6 +89,7 @@
 </div>
 
 
+<script src="assets/js/lightbox.js"></script>
 
 <script>
 

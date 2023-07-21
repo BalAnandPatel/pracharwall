@@ -106,7 +106,7 @@
                                 o = /^html/.test(t),
                                 i = /^image/.test(t);
                             s.test(t) && (t = t.replace(s, ""));
-                            const n = this.settings.constrain ? "mw-100 mh-100 h-auto w-auto m-auto top-0 end-0 bottom-0 start-0" : "h-100 w-100",
+                            const n = this.settings.constrain ? "w-100 h-100 m-auto top-0 end-0 bottom-0 start-0" : "h-100 w-100",
                                 r = new URLSearchParams(t.split("?")[1]);
                             let l = "",
                                 d = t;
@@ -123,7 +123,7 @@
                             const u = this.getInstagramEmbed(t),
                                 m = this.getYoutubeLink(t);
                             this.isEmbed(t) && !i && (m && (t = m, h = 'title="YouTube video player" frameborder="0" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture"'), c = u || `<iframe src="${t}" ${h} allowfullscreen></iframe>`), o && (c = t);
-                            return `\n\t\t\t\t<div class="carousel-item ${e?"":"active"}" style="min-height: 100px">\n\t\t\t\t\t<div class="position-absolute top-50 start-50 translate-middle text-white"><div class="spinner-border" style="width: 3rem height: 3rem" role="status"></div></div>\n\t\t\t\t\t<div class="ratio ratio-16x9" style="background-color: #000;">${c}</div>\n\t\t\t\t\t${l}\n\t\t\t\t</div>`
+                            return `\n\t\t\t\t<div class="carousel-item ${e?"":"active"}" style="min-height: 100px">\n\t\t\t\t\t<div class="position-absolute top-50 start-50 translate-middle text-white"><div class="spinner-border" style="width: 3rem height: 3rem" role="status"></div></div>\n\t\t\t\t\t<div class="ratio ratio-16x9 w-100 border-0 " style="background-color: rgba(0,0,0,0);">${c}</div>\n\t\t\t\t\t${l}\n\t\t\t\t</div>`
                         })).join(""),
                         i = this.sources.length < 2 ? "" : `\n\t\t\t<button id="#lightboxCarousel-${this.hash}-prev" class="carousel-control carousel-control-prev h-75 m-auto" type="button" data-bs-target="#lightboxCarousel-${this.hash}" data-bs-slide="prev">\n\t\t\t\t<span class="carousel-control-prev-icon" aria-hidden="true"></span>\n\t\t\t\t<span class="visually-hidden">Previous</span>\n\t\t\t</button>\n\t\t\t<button id="#lightboxCarousel-${this.hash}-next" class="carousel-control carousel-control-next h-75 m-auto" type="button" data-bs-target="#lightboxCarousel-${this.hash}" data-bs-slide="next">\n\t\t\t\t<span class="carousel-control-next-icon" aria-hidden="true"></span>\n\t\t\t\t<span class="visually-hidden">Next</span>\n\t\t\t</button>`;
                     let n = "lightbox-carousel carousel slide";
@@ -156,7 +156,7 @@
                 }
                 createModal() {
                     const t = document.createElement("template"),
-                        s = `\n\t\t\t<div class="modal lightbox fade" id="lightboxModal-${this.hash}" tabindex="-1" aria-hidden="true">\n\t\t\t\t<div class="modal-dialog modal-dialog-centered modal-${this.settings.size}">\n\t\t\t\t\t<div class="modal-content border-0 bg-transparent">\n\t\t\t\t\t\t<div class="modal-body p-0">\n\t\t\t\t\t\t\t<button type="button" class="btn-close position-absolute top-0 end-0 p-3" data-bs-dismiss="modal" aria-label="Close" style="z-index: 2; background: none;"><svg xmlns="http://www.w3.org/2000/svg" style="position: relative; top: -5px;" viewBox="0 0 16 16" fill="#fff"><path d="M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z"/></svg></button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>`;
+                        s = `\n\t\t\t<div class="modal lightbox fade" id="lightboxModal-${this.hash}" tabindex="-1" aria-hidden="true">\n\t\t\t\t<div class="modal-dialog modal-dialog-centered modal-${this.settings.size}">\n\t\t\t\t\t<div class="modal-content border-0 bg-transparent">\n\t\t\t\t\t\t<div class="modal-body p-0">\n\t\t\t\t\t\t\t<button type="button" class="btn-close position-absolute top-0 end-0 p-4" data-bs-dismiss="modal" aria-label="Close" style="z-index: 2; background: #fff;"><svg xmlns="http://www.w3.org/2000/svg" style="position: relative; top: -5px;" viewBox="0 0 16 16" fill="#000"><path d="M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z"/></svg></button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>`;
                     return t.innerHTML = s.trim(), this.modalElement = t.content.firstChild, this.modalElement.querySelector(".modal-body").appendChild(this.carouselElement), this.modalElement.addEventListener("hidden.bs.modal", (() => this.modalElement.remove())), this.modalElement.querySelector("[data-bs-dismiss]").addEventListener("click", (() => this.modal.hide())), this.modal = new e.Modal(this.modalElement, this.modalOptions), this.modal
                 }
                 randomHash(t = 8) {

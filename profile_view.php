@@ -341,21 +341,13 @@ exit();
             <div class="col">
                 <h5>Photos</h5>
                 <div class="row">
+
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
+                    <a href="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" data-toggle="lightbox">
                         <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" class="img-fluid border rounded">
+                    </a>
                     </div>
-                    <!-- <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="assets/img/events.png" class="border rounded">
-                    </div>
-                    <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="assets/img/events.png" class="border rounded">
-                    </div>
-                    <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="assets/img/events.png" class="border rounded">
-                    </div>
-                    <div class="col col-xl-2 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
-                        <img src="assets/img/events.png" class="border rounded">
-                    </div> -->
+                    
                 </div>
               
             </div>
