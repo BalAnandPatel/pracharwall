@@ -18,6 +18,7 @@ function giplCurl($url, $postdata)
 
 
  $url_read_total_users = $URL . "admin/read_users_count.php";
+ $url_user_update_req = $URL . "admin/users_update_request_count.php";
 // $url_read_total_vacancy = $URL . "dashboard/total_vacancy_count.php";
 
 
@@ -27,8 +28,8 @@ $postdata_pending = json_encode($data_pending);
 $data_approved = array("status" => '1', "userType" => '2');
 $postdata_approved = json_encode($data_approved);
 
-// $data_rejected = array("status" => '2');
-// $postdata_rejected = json_encode($data_rejected);
+$data_user_update_req = array("status"=>'0', "userType"=>'2');
+$postdata_user_update_req = json_encode($data_user_update_req);
 
 $result_pendin_reg = giplCurl($url_read_total_users, $postdata_pending);
 //print_r($result_pendin_reg);
@@ -38,9 +39,9 @@ $result_approved_users = giplCurl($url_read_total_users, $postdata_approved);
 //print_r($result_approved_users);
 $approved_users = $result_approved_users->records[0]->users_count;
 
-// $result_rejected_reg = giplCurl($url_read_total_reg, $postdata_rejected);
-// //print_r($result_rejected_reg);
-// $rejected_registration = $result_rejected_reg->records[0]->reg_count;
+$result_users_update_req = giplCurl($url_user_update_req, $postdata_user_update_req);
+//print_r($result_users_update_req);
+$users_update_req_count = $result_users_update_req->records[0]->users_update_req;
 
 // $result_vacancy_count = giplCurl($url_read_total_vacancy, $postdata_approved);
 // //print_r($result_vacancy_count);
@@ -107,7 +108,7 @@ $approved_users = $result_approved_users->records[0]->users_count;
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3><?php // echo $rejected_registration; ?></h3>
+              <h3><?php echo $users_update_req_count; ?></h3>
 
               <p>Users Update Request</p>
             </div>

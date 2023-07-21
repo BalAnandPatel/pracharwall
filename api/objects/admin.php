@@ -118,7 +118,7 @@ function usersCount(){
 function usersUpdateReqCount(){
      
     // select all query
-    $query = "SELECT COUNT(id) as users_count FROM " . $this->user_profile_history . " as user LEFT JOIN ".$this->user_profile." as up ON user.id=up.userId where user.userType=:userType and up.status=:status";
+    $query = "SELECT COUNT(ph.id) as users_update_req FROM " . $this->user_registration . " as user LEFT JOIN ".$this->user_profile_history." as ph ON user.id=ph.userId where user.userType=:userType and ph.status=:status ORDER BY ph.id DESC limit 1";
     
     $stmt = $this->conn->prepare($query);
   
