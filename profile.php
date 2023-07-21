@@ -136,7 +136,7 @@ $(document).ready(function(){
             <div class="col col-lg-8 col-xl-8 col-md-12 col-sm-12 col-xs-12">
 
                 <h2><?php echo $value1->businessName; ?></h2>
-                <div>
+                <!-- <div>
                     <span class="bg-success text-white px-2 rounded">4.0</span>
                     <span class="fa fa-star rated"></span>
                     <span class="fa fa-star rated"></span>
@@ -145,7 +145,7 @@ $(document).ready(function(){
                     <span class="fa fa-star"></span>&nbsp;
                     <span class="text-secondary">223 Ratings</span>
                     <span><i class="bi bi-check-circle-fill"></i> Checked</span>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <?php echo $value1->city.", ".$value1->state; ?> 
@@ -239,7 +239,7 @@ $(document).ready(function(){
 
         <div class="row border rounded mt-4 py-3">
             <div class="col">
-                <h5>Photos</h5>
+                <h5>Your Business Wall</h5>
                 <div class="row">
 
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">

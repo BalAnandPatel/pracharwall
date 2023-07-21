@@ -238,7 +238,7 @@ exit();
             <div class="col-lg-7 col-xl-7 col-md-6 col-sm-12 col-xs-12">
 
                 <h2><?php echo $value1->businessName; ?></h2>
-                <div>
+                <!-- <div>
                     <span class="bg-success text-white px-2 rounded">4.0</span>
                     <span class="fa fa-star rated"></span>
                     <span class="fa fa-star rated"></span>
@@ -247,7 +247,7 @@ exit();
                     <span class="fa fa-star"></span>&nbsp;
                     <span class="text-secondary">223 Ratings</span>
                     <span><i class="bi bi-check-circle-fill"></i> Checked</span>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                         <?php echo $value1->city.", ".$value1->state; ?> 
@@ -339,7 +339,7 @@ exit();
 
         <div class="row border rounded mt-4 py-3">
             <div class="col">
-                <h5>Photos</h5>
+                <h5>Your Business Wall</h5>
                 <div class="row">
 
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">

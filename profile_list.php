@@ -122,14 +122,14 @@ function giplCurl($url,$postdata){
                         <h4>
                             <?php echo $value1->businessName; ?>
                         </h4>
-                        <div>
+                        <!-- <div>
                             <span class="bg-success text-white px-2 rounded">4.0</span>
                             <span class="fa fa-star rated"></span>
                             <span class="fa fa-star rated"></span>
                             <span class="fa fa-star rated"></span>
                             <span class="fa fa-star rated"></span>
                             <span class="fa fa-star"></span>&nbsp;
-                        </div>
+                        </div> -->
                         <div class="col">
                          <?php echo $value1->city.", ".$value1->state; ?>
                         </div>

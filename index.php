@@ -133,7 +133,9 @@ return $result;
     ?>
 
     <div class="row mt-3">
-        <h3 class="card-title" id="hideCategory"><?php echo $value1->businessCategory; ?></h3>
+        <a href="profile_list.php?category=<?php echo base64_encode($value1->id); ?>">
+            <h3 class="card-title" id="hideCategory"><?php echo $value1->businessCategory; ?></h3>
+        </a>
     </div>
     <div class="slide-container swiper">
             <div class="slide-content">
