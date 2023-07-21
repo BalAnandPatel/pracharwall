@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2023 at 09:30 AM
+-- Generation Time: Jul 20, 2023 at 10:33 AM
 -- Server version: 5.6.20-log
 -- PHP Version: 5.4.31
 
@@ -35,14 +35,15 @@ CREATE TABLE IF NOT EXISTS `business_category` (
   `createdBy` varchar(255) NOT NULL,
   `updaredOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `business_category`
 --
 
 INSERT INTO `business_category` (`id`, `businessCategory`, `subCategory`, `status`, `createdOn`, `createdBy`, `updaredOn`, `updatedBy`) VALUES
-(22, 'Education', 'Na', 1, '2023-07-03 06:25:41', 'Admin', '0000-00-00 00:00:00', '');
+(22, 'Education', 'Na', 1, '2023-07-03 06:25:41', 'Admin', '0000-00-00 00:00:00', ''),
+(23, 'Hospitals', 'Na', 1, '2023-07-20 06:00:24', 'Admin', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -62,14 +63,7 @@ CREATE TABLE IF NOT EXISTS `customer_inquiry` (
   `status` tinyint(1) NOT NULL,
   `createdOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `createdBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68 ;
-
---
--- Dumping data for table `customer_inquiry`
---
-
-INSERT INTO `customer_inquiry` (`id`, `userId`, `cuId`, `cuName`, `cuMobile`, `cuAddress`, `cuEmail`, `requiredService`, `status`, `createdOn`, `createdBy`) VALUES
-(67, '68', '68', 'Mrityunjay Singh', '', '', 'ms@gmail.com', 'Dw', 0, '2023-07-04 00:21:00', 'Mrityunjay Singh');
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=72 ;
 
 -- --------------------------------------------------------
 
@@ -100,15 +94,16 @@ CREATE TABLE IF NOT EXISTS `user_profile` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=90 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=105 ;
 
 --
 -- Dumping data for table `user_profile`
 --
 
 INSERT INTO `user_profile` (`id`, `userId`, `businessCategory`, `subCategory`, `alterMobile`, `userAddress`, `city`, `state`, `businessName`, `establishmentYear`, `paymentMode`, `businessTiming`, `businessDay`, `userServices`, `userWebsite`, `aboutUser`, `remark`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(88, '93', '22', '', '265261651', 'Mungra', 'Mungra', 'Up', 'Ms Education And Play ', '2010', 'Cash', '10 Am To 6 Pm', 'Tue - Tue', 'Services', 'http://localhost/', 'kmvdl', 'Approved', 1, '2023-07-15 07:47:47', '93', '2023-07-14 18:30:00', '93'),
-(89, '94', '22', '', '4365', 'Vlkdnnmn', ' K,nclknk', '4365', 'C S,n', '56', 'Cash', '.MV', 'Mon - Mon', 'Kvnkl', 'http://localhost/', 'nbckjbn', 'Approved', 1, '2023-07-15 09:26:47', '94', '2023-07-14 18:30:00', '94');
+(104, '109', '23', '', '46546', 'Addres', 'City', 'State', 'Mrtyunjay Singh', '2012', 'Cash', '10 Pm ', 'Sun - Sun', 'Bdbjh', 'https://google.com', 'nxhj', 'Approved', 1, '2023-07-20 10:24:21', '109', '2023-07-19 18:30:00', '109'),
+(103, '108', 'na', '', 'na', 'Aman Home Add', 'na', 'na', 'na', 'na', 'na', 'na', 'na', 'na', 'na', 'na', 'Customer', 0, '2023-07-20 08:14:57', '108', '2023-07-19 18:30:00', '108'),
+(102, '107', '22', '', '13216549654', 'Bhujaini, Kahala, Pratapgarh, Uttar Pradesh 230306', 'Pratapgarh', 'Uttar Pradesh', 'Raghuvansham Academy', '2012', 'Cash', '10 Am To 3 Pm', 'Mon - Sat', 'My Services', 'https://www.google.com/', 'know about me', 'Approved', 1, '2023-07-20 06:15:47', '107', '2023-07-19 18:30:00', '107');
 
 -- --------------------------------------------------------
 
@@ -135,22 +130,20 @@ CREATE TABLE IF NOT EXISTS `user_profile_history` (
   `aboutUser` varchar(2000) NOT NULL,
   `remark` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `createdOn` timestamp NOT NULL,
+  `createdOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `createdBy` varchar(255) NOT NULL,
-  `updatedOn` timestamp NOT NULL,
+  `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=77 ;
 
 --
 -- Dumping data for table `user_profile_history`
 --
 
 INSERT INTO `user_profile_history` (`id`, `userId`, `businessCategory`, `subCategory`, `alterMobile`, `userAddress`, `city`, `state`, `businessName`, `establishmentYear`, `paymentMode`, `businessTiming`, `businessDay`, `userServices`, `userWebsite`, `aboutUser`, `remark`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(57, '93', '22', '', '265261651', 'Mungra', 'Mungra', 'Up', 'Ms Education New', '2010', 'Cash', '10 Am To 6 Pm', 'Tue - Mon', 'Services', 'http://localhost/', 'kmvdl', 'Rejected 2', 2, '0000-00-00 00:00:00', '', '2023-07-14 19:40:15', 'Admin'),
-(58, '93', '22', '', '265261651', 'Mungra', 'Mungra', 'Up', 'Ms Education And Play ', '2010', 'Cash', '10 Am To 6 Pm', 'Tue - Tue', 'Services', 'http://localhost/', 'kmvdl', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-14 18:30:00', '93'),
-(59, '94', '22', '', '4365', 'Vlkdnnmn', ' K,nclknk', '4365', 'C S,n', '56', 'Cash', '.MV', 'Mon - Mon', 'Kvnkl', 'http://localhost/', 'nbckjbn', 'Approved', 1, '2023-07-14 21:22:29', '94', '2023-07-14 18:30:00', '94'),
-(55, '93', '22', '', '265261651', 'Mungra', 'Mungra', 'Up', 'Ms Education', '2010', 'Cash, Master Card, Visa Card', '10 Am To 6 Pm', 'Thu - Sat', 'Services', 'http://localhost/', 'kmvdl', 'Rejected', 2, '2023-07-15 07:21:09', '93', '2023-07-14 18:30:00', '93'),
-(56, '93', '22', '', '265261651', 'Mungra', 'Mungra', 'Up', 'Ms Education Center', '2010', 'Cash', '10 Am To 6 Pm', 'Mon - Mon', 'Services', 'http://localhost/', 'kmvdl', 'Approved', 1, '0000-00-00 00:00:00', '', '2023-07-14 18:30:00', '93');
+(76, '109', '23', '', '46546', 'Addres', 'City', 'State', 'Mrtyunjay Singh', '2012', 'Cash', '10 Pm ', 'Sun - Sun', 'Bdbjh', 'https://google.com', 'nxhj', 'Approved', 1, '2023-07-20 10:24:21', '109', '2023-07-19 18:30:00', '109'),
+(75, '108', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Approved', 1, '2023-07-20 10:24:21', '108', '0000-00-00 00:00:00', ''),
+(74, '107', '22', '', '13216549654', 'Bhujaini, Kahala, Pratapgarh, Uttar Pradesh 230306', 'Pratapgarh', 'Uttar Pradesh', 'Raghuvansham Academy', '2012', 'Cash', '10 Am To 3 Pm', 'Mon - Sat', 'My Services', 'https://www.google.com/', 'know about me', 'Approved', 1, '2023-07-20 06:15:47', '107', '2023-07-19 18:30:00', '107');
 
 -- --------------------------------------------------------
 
@@ -171,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=95 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=110 ;
 
 --
 -- Dumping data for table `user_registration`
@@ -179,8 +172,9 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
 
 INSERT INTO `user_registration` (`id`, `userType`, `userName`, `userMobile`, `userEmail`, `userPass`, `status`, `remark`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
 (1, '1', 'Admin LTE', '', 'admin@gmail.com', 'admin@123', 1, '', '2023-07-12 08:31:13', '', '0000-00-00 00:00:00', ''),
-(93, '2', 'Mrityunjay Singh', '16516', 'ms@gmail.com', '123', 0, '', '2023-07-15 07:21:09', 'Mrityunjay Singh', '0000-00-00 00:00:00', ''),
-(94, '2', 'Anand', '456465', 'anand@gmail.com', '123', 0, '', '2023-07-14 21:22:29', 'Anand', '0000-00-00 00:00:00', '');
+(109, '2', 'Xyz', '41654', 'xyz@gmail.com', '123', 0, '', '2023-07-19 22:20:08', 'Xyz', '0000-00-00 00:00:00', ''),
+(108, '3', 'Aman', '165464', 'aman@gmail.com', '123', 0, '', '2023-07-20 06:51:27', 'Aman', '0000-00-00 00:00:00', ''),
+(107, '2', 'Mrityunjay Singh', '1234569874', 'ms@gmail.com', '123', 0, '', '2023-07-20 06:01:51', 'Mrityunjay Singh', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -221,19 +215,20 @@ CREATE TABLE IF NOT EXISTS `wall_uploads` (
   `subCategory` varchar(100) NOT NULL,
   `wallImg` varchar(200) NOT NULL,
   `status` tinyint(1) NOT NULL,
+  `remark` varchar(255) NOT NULL,
   `createdOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `createdBy` varchar(255) NOT NULL,
   `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `wall_uploads`
 --
 
-INSERT INTO `wall_uploads` (`id`, `userId`, `businessCategory`, `subCategory`, `wallImg`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(38, '94', '22', '', 'wall_img_94_16.jpg', 1, '2023-07-15 09:26:11', '94', '2023-07-14 21:26:11', '94'),
-(37, '93', '22', '', 'wall_img_93_56.jpg', 1, '2023-07-15 07:34:31', '93', '2023-07-14 19:34:31', '93');
+INSERT INTO `wall_uploads` (`id`, `userId`, `businessCategory`, `subCategory`, `wallImg`, `status`, `remark`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
+(44, '107', '22', '', 'wall_img_107_67.jpg', 1, 'Approved', '2023-07-20 06:15:18', '107', '0000-00-00 00:00:00', ''),
+(45, '109', '23', '', 'wall_img_109_86.jpg', 1, 'Approved', '2023-07-20 10:24:03', '109', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -248,19 +243,20 @@ CREATE TABLE IF NOT EXISTS `wall_upload_history` (
   `subCategory` varchar(100) NOT NULL,
   `wallImg` varchar(200) NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `createdOn` timestamp NOT NULL,
+  `remark` varchar(255) NOT NULL,
+  `createdOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `createdBy` varchar(255) NOT NULL,
-  `updatedOn` timestamp NOT NULL,
+  `updatedOn` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatedBy` varchar(255) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
 -- Dumping data for table `wall_upload_history`
 --
 
-INSERT INTO `wall_upload_history` (`id`, `userId`, `businessCategory`, `subCategory`, `wallImg`, `status`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
-(34, '94', '22', '', 'wall_img_94_16.jpg', 1, '2023-07-14 21:26:01', '94', '2023-07-14 21:26:11', '94'),
-(33, '93', '22', '', 'wall_img_93_56.jpg', 1, '2023-07-14 19:34:13', '93', '2023-07-14 19:34:31', '93');
+INSERT INTO `wall_upload_history` (`id`, `userId`, `businessCategory`, `subCategory`, `wallImg`, `status`, `remark`, `createdOn`, `createdBy`, `updatedOn`, `updatedBy`) VALUES
+(47, '109', '23', '', 'wall_img_109_86.jpg', 1, 'Approved', '2023-07-20 10:24:03', '109', '0000-00-00 00:00:00', ''),
+(46, '107', '22', '', 'wall_img_107_67.jpg', 1, 'Approved', '2023-07-20 06:15:18', '107', '0000-00-00 00:00:00', '');
 
 --
 -- Indexes for dumped tables
@@ -322,27 +318,27 @@ ALTER TABLE `wall_upload_history`
 -- AUTO_INCREMENT for table `business_category`
 --
 ALTER TABLE `business_category`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `customer_inquiry`
 --
 ALTER TABLE `customer_inquiry`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=68;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `user_profile`
 --
 ALTER TABLE `user_profile`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=90;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=105;
 --
 -- AUTO_INCREMENT for table `user_profile_history`
 --
 ALTER TABLE `user_profile_history`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=60;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `user_registration`
 --
 ALTER TABLE `user_registration`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=95;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=110;
 --
 -- AUTO_INCREMENT for table `user_type`
 --
@@ -352,12 +348,12 @@ MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `wall_uploads`
 --
 ALTER TABLE `wall_uploads`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `wall_upload_history`
 --
 ALTER TABLE `wall_upload_history`
-MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

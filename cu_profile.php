@@ -1,11 +1,9 @@
 <?php
-include "include/header.php";
-// $userId = '6';
+include "include/header.php";   
 $userId = $_SESSION["USER_ID"];
-$url = $URL . "user/read_user_profile.php";
+$url = $URL . "user/read_customer_profile.php";
 $userType = '3';
-$status = '0';
-$data = array("userType" => $userType, "status" => $status, "id" => $userId);
+$data = array("userType"=>$userType, "id"=>$userId);
 $postdata = json_encode($data);
 $client = curl_init($url);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
@@ -118,8 +116,7 @@ $result = json_decode($response);
                                         </div>
                                         <div class="col-sm-9">
                                             <p class="text-muted mb-0">
-                                                <input class="form-control" type="text" id="cuAddress"
-                                                    value="<?php echo $value1->userAddress; ?>" id="userAdd" disabled>
+                                                <input class="form-control" style="text-transform:capitalize ;" type="text" id="cuAddress" value="<?php echo $value1->userAddress; ?>" id="userAdd" disabled>
                                             </p>
                                         </div>
                                     </div>
@@ -172,6 +169,7 @@ $result = json_decode($response);
                     cuAddress: cuAddress
                 },
                 success: function (response) {
+                    // alert("hello");
                     // alert(response);
                     // alert(JSON.stringify(response));
                     if(response.message=="User profile updated successfully"){
@@ -186,6 +184,10 @@ $result = json_decode($response);
                     }
                    
 
+                },
+                error: function(response){
+                    alert(response);
+                        // alert(JSON.stringify(response));
                 }
 
             });

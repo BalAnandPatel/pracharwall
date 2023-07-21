@@ -112,5 +112,20 @@ function usersCount(){
   
     return $stmt;
 }
+
+function categoryCount(){
+     
+    // select all query
+    $query = "SELECT COUNT(id) as category_count FROM " . $this->business_category;
+    
+    $stmt = $this->conn->prepare($query); 
+    // $stmt->bindParam(":status", $this->status);
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
+
+
 }
 ?>

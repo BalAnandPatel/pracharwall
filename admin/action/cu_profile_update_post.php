@@ -17,13 +17,14 @@
  $businessDay ="na";
  $userWebsite="na";
  $aboutUser="na";
+ $status="0";
+ $remark="Customer";
  $updatedOn=date("Y-m-d");
- // $updatedBy="rahul";
  $updatedBy=$_POST["cuId"];
   
  $url = $URL . "user/update_user_profile.php";
 
- $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "userServices"=>$userServices, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userWebsite"=>$userWebsite, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+ $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "userServices"=>$userServices, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userWebsite"=>$userWebsite, "updatedOn"=>$updatedOn, "remark"=>$remark, "status"=>$status, "updatedBy"=>$updatedBy);
 
   //print_r($data);
 

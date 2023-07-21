@@ -136,7 +136,14 @@ function giplCurl($url,$postdata){
                         <div class="col">
                             Open Until 8:00 pm
                             -
-                            15 Yrs in Business
+                        <?php  
+                        if($value1->establishmentYear!==""){
+                        $C_YEAR=date("Y"); 
+                        $E_YEAR = $value1->establishmentYear;
+                        echo $C_YEAR - $E_YEAR;
+                        }else{ 
+                        echo "0";
+                        }?> Yrs in Business
                         </div>
                         <div class="col">
                             <?php echo $value1->aboutUser; ?>
