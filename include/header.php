@@ -51,9 +51,10 @@ $result = json_decode($response);
     });
     </script>
 </head>
-
 <body>
-
+<div id="preloader">    
+<div class="loader"></div>
+</div>
 <!-- <header> -->
   <!-- Navbar -->
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light d-lg-block">

@@ -1,5 +1,8 @@
 <?php
-include "include/header.php";   
+include "include/header.php";
+if(!isset($_SESSION["USER_ID"])){
+echo '<script>window.location="index.php"</script>';    
+}   
 $userId = $_SESSION["USER_ID"];
 $url = $URL . "user/read_customer_profile.php";
 $userType = '3';
