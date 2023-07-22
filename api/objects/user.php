@@ -131,7 +131,7 @@ if($this->userId==""){
     public function readReupdatedUsersDetail()
     {
 
-    $query = "Select ph.id, ph.userId, user.userType, user.remark, ut.userRole, user.userName, ph.userAddress, ph.businessCategory, user.userMobile, user.userEmail, ph.status, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile_history." as ph ON user.id=ph.userId where ph.status=:status ORDER BY ph.id DESC limit 1";
+    $query = "Select ph.id, ph.userId, user.userType, user.remark, ut.userRole, user.userName, ph.userAddress, bc.businessCategory, user.userMobile, user.userEmail, ph.status, ph.updatedOn, ph.updatedBy from " . $this->user_registration . " as user LEFT JOIN " . $this->user_type . " as ut ON user.userType=ut.userType LEFT JOIN ".$this->user_profile_history." as ph ON user.id=ph.userId LEFT JOIN ".$this->business_category." as bc ON bc.id=ph.businessCategory where ph.status=:status ORDER BY ph.id DESC";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":status", $this->status);
@@ -189,7 +189,7 @@ if($this->userId==""){
        {
         if($this->userId==""){
 
-         $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status='0' ORDER BY wh.id DESC limit 1";
+         $query = "Select wh.id,wh.userId, user.userName, bc.businessCategory, user.userEmail, user.userMobile, wh.wallImg,wh.status,wh.createdOn,wh.updatedOn,wh.createdBy,wh.updatedBy from " . $this->user_registration . " as user LEFT JOIN ".$this->wall_upload_history." as wh ON wh.userId=user.id LEFT JOIN ".$this->business_category." as bc ON bc.id=wh.businessCategory where wh.status='0' ORDER BY wh.id DESC";
             $stmt = $this->conn->prepare($query);
 
         }else{

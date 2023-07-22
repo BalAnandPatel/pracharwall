@@ -25,6 +25,9 @@ function giplCurl($url, $postdata)
 $data_pending = array("status" => '0', "userType" => '2');
 $postdata_pending = json_encode($data_pending);
 
+$data_customer = array("status" => '0', "userType" => '3');
+$postdata_customer = json_encode($data_customer);
+
 $data_approved = array("status" => '1', "userType" => '2');
 $postdata_approved = json_encode($data_approved);
 
@@ -34,6 +37,10 @@ $postdata_user_update_req = json_encode($data_user_update_req);
 $result_pendin_reg = giplCurl($url_read_total_users, $postdata_pending);
 //print_r($result_pendin_reg);
 $pending_users = $result_pendin_reg->records[0]->users_count;
+
+$result_customer = giplCurl($url_read_total_users, $postdata_customer);
+//print_r($result_customer);
+$totle_customers = $result_customer->records[0]->users_count;
 
 $result_approved_users = giplCurl($url_read_total_users, $postdata_approved);
 //print_r($result_approved_users);
@@ -124,13 +131,13 @@ $users_update_req_count = $result_users_update_req->records[0]->users_update_req
           <div class="small-box bg-info">
             <div class="inner">
 
-              <h3><?php // echo $total_vacncy;  ?></h3>
+              <h3><?php echo $totle_customers;  ?></h3>
               <p>Number of Customers</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="ion ion-person-add"></i>
             </div>
-            <a href="exam_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="customer_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
 

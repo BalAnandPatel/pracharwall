@@ -234,7 +234,8 @@ if (isset($_POST['userId'])) {
                                 </div>
                                 <input type="hidden" name="userId" value="<?php echo $userId; ?>">
                                 <input type="hidden" name="pre_status" value="<?php echo $profile_value1->status; ?>">
-                                <button class="btn btn-primary" name="update_profile" type="submit">Save changes</button>
+                                <a href="profile.php" class="btn btn-primary" type="button"><i class="bi bi-arrow-return-left">Back</i></a>
+                                <button class="btn btn-success" name="update_profile" type="submit">Save Changes</button>
                         <?php }
                         } ?>
                     </form>

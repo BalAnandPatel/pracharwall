@@ -4,7 +4,7 @@ include "include/header.php";
 $url = $URL . "user/read_allusers_list.php";
 $status='0';
 $userType='3';
-$data = array("status"=>$status, "userType"=>$userType);
+$data = array("status"=>$status, "userType"=>$userType, "userId"=>"");
 //print_r($data);
 $postdata = json_encode($data);
 $client = curl_init($url);
@@ -79,10 +79,11 @@ $result = json_decode($response);
                      foreach($result as $key => $value){
                      foreach($value as $key1 => $value1)
                      {
+                    $cu_img = $USER_PROFILE_IMGPATH.$value1->id."/"."user_img_".$value1->id.".png";
                   ?>  
                   <tr>          
                     <td><?php echo ++$counter; ?></td>
-                    <td><img src="" class="img img-fluid img-thumbnail" alt="Profile Pic"></td>
+                    <td><img src="<?php echo $cu_img; ?>" height="100" width="100" class="img img-fluid img-thumbnail rounded-circle" alt="Profile Pic"></td>
                     <td><?php echo $value1->userName; ?></td>
                     <td><?php echo $value1->userMobile; ?></td>
                     <td><?php echo $value1->userEmail; ?></td>

@@ -13,10 +13,6 @@ include "include/header.php";
   //print_r($response);
   $result = json_decode($response);
   //print_r($result);
-  $userId="";
-  if(isset($result->records[0]->userId)){
-  $userId = $result->records[0]->userId;
-  }
   ?>
 
   <div class="content-wrapper">
@@ -94,8 +90,8 @@ include "include/header.php";
                     <td><?php echo $value1->userName; ?></td>
                     <td><?php echo $value1->businessCategory; ?></td>
                     <td>
-                    <a href="<?php echo $USER_WALL_IMGPATH.$userId."/".$value1->wallImg; ?>" target="_blank">
-                      <img class="img img-fluid img-thumbnail" width="250" height="250"  src="<?php echo $USER_WALL_IMGPATH.$userId."/".$value1->wallImg; ?>"></a>
+                    <a href="<?php echo $USER_WALL_IMGPATH.$uid."/".$value1->wallImg; ?>" target="_blank">
+                      <img class="img img-fluid img-thumbnail" width="250" height="250"  src="<?php echo $USER_WALL_IMGPATH.$uid."/".$value1->wallImg; ?>"></a>
                     </td>
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td> 
                     <td>

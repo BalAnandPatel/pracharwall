@@ -19,11 +19,23 @@ include "include/header.php";
 <link rel="stylesheet" href="common/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="common/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-<div class="container">
+<div class="container py-5">
+     <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="profile.php">User Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Customers Inquiry</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
 
     <div class="card my-4">
         <div class="card-header">
-            <h3 class="card-title">Customers Inquiry List</h3>
+            <a href="profile.php" class="btn btn-primary btn-sm" type="button"><i class="bi bi-arrow-return-left pr-2">Back</i></a>
+            <h3 class="card-title text-center">Customers Inquiry List</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -36,7 +48,7 @@ include "include/header.php";
                         <th>Monile No.</th>
                         <th>Address</th>
                         <th>Service (needed)</th>
-                        <!-- <th>Delete</th> -->
+                        <th>Dete</th>
                     </tr>
 
                 </thead>
@@ -53,6 +65,7 @@ include "include/header.php";
                         <td><?php echo $value1->cuMobile; ?></td>
                         <td><?php echo $value1->cuAddress; ?></td>
                         <td><?php echo $value1->requiredService; ?></td>
+                        <td><?php echo $value1->createdOn; ?></td>
                         <!-- <td class="col-md-1"><button class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button></td> -->
                     </tr>
                   <?php } } ?>

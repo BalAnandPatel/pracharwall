@@ -10,21 +10,6 @@ $data = array("status"=>$status);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 //print_r($result);
-$userId="";
-if(isset($result->records[0]->userId)){
-$userId = $result->records[0]->userId;  
-}
-// get wall uploaded active post    
-$wall_data = array("status"=>'1', "userId"=>$userId);
-//print_r($data);
-$wall_postdata = json_encode($wall_data);
-$wall_result = giplCurl($url_wall,$wall_postdata);
-//print_r($wall_result);
-if(isset($wall_result->records[0]->wallImg)){
-$wall_img = $wall_result->records[0]->wallImg;
-}else{
-$wall_img=""; 
-}
 
 function giplCurl($url,$postdata){
 $client = curl_init($url);
@@ -88,6 +73,8 @@ return $result = json_decode($response);
                     <th>User Name</th>
                     <th>Mobile No.</th>
                     <th>Email Id</th>
+                    <th>Business Category</th>
+                    <th>Business Banner</th>
                     <th>Status</th>
                     <th>View</th>
                     <th>Update date</th>
@@ -96,12 +83,29 @@ return $result = json_decode($response);
                   </tr>
 
                 </thead>
-                   <tbody>
+                <tbody>
                   <?php
                   $counter = '0';
                   foreach ($result as $key => $value) {
                     foreach ($value as $key1 => $value1) {
-                      ?>
+                  ?>
+                  <?php
+                  $userId="";
+                  if(isset($value1->userId)){
+                  $userId = $value1->userId;  
+                  }
+                  // get wall uploaded active post    
+                  $wall_data = array("status"=>'1', "userId"=>$userId);
+                  //print_r($data); 
+                  $wall_postdata = json_encode($wall_data);
+                  $wall_result = giplCurl($url_wall,$wall_postdata);
+                  //print_r($wall_result); 
+                  if(isset($wall_result->records[0]->wallImg)){
+                  $wall_img = $USER_WALL_IMGPATH.$userId."/".$wall_result->records[0]->wallImg;
+                  }else{
+                  $wall_img=""; 
+                  }
+                  ?>
                       <tr>
                         <td>
                           <?php echo ++$counter; ?>
@@ -118,6 +122,10 @@ return $result = json_decode($response);
                         </td>
                         <td>
                           <?php echo $value1->userEmail; ?>
+                        </td>
+                        <td><?php echo $value1->businessCategory; ?></td>
+                        <td>
+                         <img class="img-fluid img-thumbnail" height="100" width="100" src="<?php echo $wall_img; ?>" alt="Banner Image">
                         </td>
                         <td>
                           <?php if ($value1->status == 0)
@@ -211,22 +219,7 @@ return $result = json_decode($response);
                         <div class="container py-3">
 
                             <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="card mb-4">
-                                        <div class="card-body text-center">
-                                        <h5 id="viewUserName" class="my-3">Business Banner</h5>
-                                            <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" alt="user image"
-                                                class="rounded-0 img-fluid img-thumbnail" height="100%" width="100%">
-                                            <!--<p id="viewUserEmail" class="text-muted mb-1"></p>-->
-                                            <!-- <p id="viewUserMobile" class="text-muted mb-4"></p> --> 
-                                            <!-- <div class="d-flex justify-content-center mb-2">
-                                                <button type="button" class="btn btn-primary">Edit Proflie <i
-                                                        class="bi bi-pencil-square"></i></button>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8">
+                                <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
@@ -372,11 +365,7 @@ return $result = json_decode($response);
 
     function getProfileList(id) {
     // alert(id);
-    // var id;    
-    // var userType=2;    
-    // var status=0;    
-    // myData = {userId:id,userType:userType,status:status };
-    // console.log(myData);    
+    // var id;      
     $.ajax({
       url:"<?php echo $BASE_URL ?>admin/action/get_data.php",   
       type:'POST',  

@@ -1,5 +1,8 @@
 <?php
 include "include/header.php";
+if(!isset($_SESSION['USER_ID'])){
+echo "<script>window.location='index.php'</script>";   
+} 
 ?>
 <?php
 $url = $URL."user/read_user_profile.php";
@@ -25,7 +28,6 @@ $wall_img = $wall_history_result->records[0]->wallImg;
 }else{
 $wall_img="";    
 }
-
 
 function giplCurl($url,$postdata){
     $client = curl_init($url);
@@ -100,7 +102,7 @@ $(document).ready(function(){
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                        <li class="breadcrumb-item active" aria-current="page">User Dashboard</li>
                     </ol>
                 </nav>
             </div>
@@ -401,5 +403,6 @@ $(document).ready(function(){
 
     </div>
 </section>
-
-<?php include "include/footer.php"; ?>
+<?php
+include "include/footer.php";
+?>
