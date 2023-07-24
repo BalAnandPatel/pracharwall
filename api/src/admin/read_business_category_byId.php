@@ -17,28 +17,29 @@ $database = new Database();
 $db = $database->getConnection();
   
 // initialize object
-$read_category = new Admin($db);
+$read_category_byId = new Admin($db);
   
 $data = json_decode(file_get_contents("php://input"));
 //print_r($data);
+$read_category_byId->id=$data->id;
 
 
-$stmt = $read_category->readBusinessCategory();
+$stmt = $read_category_byId->readBusinessCategoryById();
 $num = $stmt->rowCount();
   
 // check if more than 0 record found
 if($num>0){
   
     // products array
-    $read_categorys_arr=array();
-    $read_categorys_arr["records"]=array();
+    $read_category_byIds_arr=array();
+    $read_category_byIds_arr["records"]=array();
 
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
      
         extract($row);
   
-        $read_category_item=array(
+        $read_category_byId_item=array(
 
             "id"=>$id,
             "businessCategory"=>$businessCategory,
@@ -48,11 +49,11 @@ if($num>0){
             "createdBy"=>$createdBy 
         );
   
-        array_push($read_categorys_arr["records"], $read_category_item);
+        array_push($read_category_byIds_arr["records"], $read_category_byId_item);
     }
   
     // show products data in json format
-    echo json_encode($read_categorys_arr);
+    echo json_encode($read_category_byIds_arr);
 
      // set response code - 200 OK
      http_response_code(200);
@@ -66,7 +67,7 @@ else{
   
     // tell the user no products found
     echo json_encode(
-        array("message" => "No category found.")
+        array("message" => "No category details found.")
     );
 }
 ?>

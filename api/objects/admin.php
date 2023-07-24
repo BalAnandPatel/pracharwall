@@ -64,9 +64,16 @@ class Admin{
         return $stmt;
     }
 
+    function readBusinessCategoryById(){
+      $query="Select id, businessCategory, subCategory, status, createdOn, createdBy from " .$this->business_category." where id=:id";
+        $stmt = $this->conn->prepare($query); 
+        $stmt->bindParam(":id", $this->id);
+        $stmt->execute();
+        return $stmt;
+    }
+
     function readBusinessCategory(){
-      $query="Select 
-        id, businessCategory, subCategory, status, createdOn, createdBy from " .$this->business_category;
+      $query="Select id, businessCategory, subCategory, status, createdOn, createdBy from " .$this->business_category;
         $stmt = $this->conn->prepare($query); 
         // $stmt->bindParam(":id", $this->id);
         $stmt->execute();

@@ -1,5 +1,4 @@
 <?php
-// error_reporting(0);
 include "include/header.php";
   $url = $URL."admin/read_business_category.php";
   $data = array();
@@ -63,7 +62,7 @@ include "include/header.php";
                     <th>Image</th>
                     <th>Status</th>
                     <th>Create date</th>
-                    <!--<th>Delete</th>-->
+                    <th>Edit</th>
                   </tr>
                     
                   </thead>
@@ -81,7 +80,12 @@ include "include/header.php";
                     <td><img class="img img-fluid img-thumbnail" src="<?php echo $CATEGORY_IMGPATH.$value1->id.".png"; ?>" width="100px" height="100px"></td>
                     <td><?php if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></td>
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
-                    <!--<td><button class="btn btn-danger" type='submit' onclick="getProfileList()">Delete</button></td> -->
+                    <td>
+                      <form action="business_category_update.php" method="post">
+                      <input type="hidden" name="categoryId" value="<?php echo $value1->id; ?>">
+                      <button class="btn btn-primary" type='submit'><span class="fas fa-edit"></button>
+                      </form>
+                    </td> 
                   </tr>
                   <?php
                     }
@@ -103,31 +107,8 @@ include "include/header.php";
     <!-- /.content -->
     
   </div>
-<script>
-function getProfileList(id){
- var id;
-  $.ajax({
-      url:"<?php echo $BASE_URL ?>admin/action/category_delete_post.php",   
-      type:'POST',    
-      data:{
-        "id":id 
-      },
-      success: function(response) {
-      // alert(response);
-      if(response=="1"){
-        $("#deleteMsg").html('<div class="alert alert-success">Record Deletd Successfully</div>');
-        setTimeout(() => {
-          window.location.reload();
-        }, 2500);
-      }else if(response=="0"){
-      $("#deleteMsg").html('<div class="alert alert-success">Not Deletd</div>');
-      }
-      }  
-    });    
 
- }
-</script>
-  <!-- modal box start-->
+<!-- modal box start-->
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
