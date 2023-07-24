@@ -96,9 +96,9 @@ function giplCurl($url,$postdata){
 
                   ?>
           
-        <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" style="color:inherit; text-decoration:none;">        
-        <div class="row d-flex mt-3 justify-content-between">
-            <div class="col col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
+          <div class="row d-flex mt-3 justify-content-between">
+              <div class="col col-lg-9 col-xl-9 col-md-12 col-sm-12 col-xs-12 py-3 border rounded mt-1">
+                <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>" style="color:inherit; text-decoration:none;">        
 
                 <div class="row">
                     <div class="col col-lg-3 col-xl-3 col-md-6 col-sm-12 col-xs-12 p-2 m-2">
@@ -160,9 +160,9 @@ function giplCurl($url,$postdata){
 
                 </div>
 
+            </a>
             </div>
         </div>
-      </a>
       <?php } } ?>
       <?php }else{
         echo '<div class="container">
