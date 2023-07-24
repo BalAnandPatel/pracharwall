@@ -1,5 +1,8 @@
 <?php
 include "include/header.php";
+if(!isset($_SESSION["USER_ID"])){
+echo "<script>window.location='index.php'</script>";    
+}
   $url = $URL."user/read_customers_inquiry.php";
   $userId=$_SESSION["USER_ID"];
   $data = array("userId"=>$userId);
@@ -65,7 +68,7 @@ include "include/header.php";
                         <td><?php echo $value1->cuMobile; ?></td>
                         <td><?php echo $value1->cuAddress; ?></td>
                         <td><?php echo $value1->requiredService; ?></td>
-                        <td><?php echo $value1->createdOn; ?></td>
+                        <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td>
                         <!-- <td class="col-md-1"><button class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button></td> -->
                     </tr>
                   <?php } } ?>

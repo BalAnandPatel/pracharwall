@@ -70,9 +70,6 @@ function giplCurl($url,$postdata){
     }
 </style>
 
-
-
-
 <section>
     <div class="container py-5">
 
@@ -188,3 +185,4 @@ function giplCurl($url,$postdata){
 </div>';
       } ?>
 </section>
+<?php include "include/footer.php"; ?>

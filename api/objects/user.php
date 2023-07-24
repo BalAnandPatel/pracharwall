@@ -66,6 +66,17 @@ class User
         return $stmt;
     }
     
+    // count profile by business category
+
+         public function countProfileByCategory()
+    {
+        $query = "Select count(up.id) as profile_count from " . $this->user_registration . " as user LEFT JOIN ". $this->user_profile ." as up ON user.id=up.userId where up.businessCategory=:businessCategory and up.status=1 and user.userType=:userType";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":userType", $this->userType);
+        $stmt->bindParam(":businessCategory", $this->businessCategory);
+        $stmt->execute();
+        return $stmt;
+    }
 
 
         public function readAllProfileByCategory()
