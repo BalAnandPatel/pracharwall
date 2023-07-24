@@ -51,7 +51,7 @@ $result = json_decode($response);
     });
     </script>
 </head>
-<body onload="myPreloader()">
+<body onload="myPreloader()" class="position-relative">
 <div id="preloader">    
 <div class="loader"></div>
 </div>
