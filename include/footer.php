@@ -126,9 +126,11 @@
     },
   });
 </script>
-
-
-
+<script>
+function myPreloader(){
+document.getElementById("preloader").style.display="none";    
+}    
+</script>    
 </body>
 
 </html>

@@ -4,7 +4,7 @@ include '../../constant.php';
 if(isset($_POST["submit"])){
 
   $businessCategory=ucwords($_POST['businessCategory']);
-  $subCategory=ucwords($_POST['subCategory']);
+  $subCategory="NA";
   $status='1';
   $createdOn=date('Y-m-d h:i:s');
   $createdBy="Admin";
