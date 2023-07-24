@@ -369,7 +369,8 @@ body {
     font-weight: var(--fc-body-font-weight);
     line-height: var(--fc-body-line-height);
     margin: 0;
-    text-align: var(--fc-body-text-align)
+    text-align: var(--fc-body-text-align);
+    min-height: 100vh;
 }
 
 hr {
