@@ -60,7 +60,7 @@ if(isset($_POST["submit"])){
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
       $msg = "Sorry, your file was not uploaded.";
-      //header('Location:../business_category_entry.php');
+      header('Location:../business_category_entry.php');
     } else {
 
     $postdata = json_encode($data);
@@ -88,7 +88,8 @@ if(isset($_POST["submit"])){
           header('Location:../business_category_entry.php');
       }
     }else{
-      $msg = "record not inserted";  
+        $_SESSION["categoryUploadErrors"] = "Category already created";
+        header('Location:../business_category_entry.php');  
     }
 
       }
