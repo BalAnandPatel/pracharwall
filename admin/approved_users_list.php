@@ -39,11 +39,7 @@ include "include/header.php";
     <section class="content">
       <div class="container-fluid">
   
-    <!-- <div class="alert alert-success" id="success-alert" role="alert"> 
-               </div>
-          
-            <div class="alert alert-danger" id="success-alert" role="alert">
-               </div> -->
+       <p id="usersDeleteAlert"></p>
          
      
         <div class="row">
@@ -70,6 +66,7 @@ include "include/header.php";
                     <th>Email Id</th>
                     <th>Status</th>
                     <th>Date</th>
+                    <th>Delete</th>
                   </tr>
                     
                   </thead>
@@ -92,6 +89,10 @@ include "include/header.php";
                     <td><?php echo $value1->userEmail; ?></td>
                     <td><button type="button" class="btn btn-success btn-xs"><?php if($value1->status==1) echo "ACTIVE"; else echo "PENDING"; ?></button></td> 
                     <td><?php echo date('d-m-Y',strtotime($value1->createdOn)); ?></td> 
+                    <td>
+                      <button type="button" class="btn btn-danger" data-toggle="modal"
+                            data-target="#usersDeleteModal" onclick="deleteUsers('<?php echo $value1->id ?>','<?php echo $value1->userName ?>','<?php echo $value1->userEmail ?>')"><span class="fas fa-trash"></sapn></button>
+                    </td> 
                   </tr>
                   <?php
                      }
@@ -111,28 +112,40 @@ include "include/header.php";
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    
   </div>
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="lugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="plugins/jszip/jszip.min.js"></script>
-<script src="plugins/pdfmake/pdfmake.min.js"></script>
-<script src="plugins/pdfmake/vfs_fonts.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Modal Reject Remark -->
+<div class="modal fade" id="usersDeleteModal" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete User.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="action/user_delete_post.php" method="post">
+        <div class="modal-body">
+          <p>Are you sure! You want to delete this user</p>
+          <p><strong>Name:-</strong> <span id="deletetUserName"></span><br><strong>Email Id:-</strong> <span id="deleteUserEmail"><span></p>
+          <input type="hidden" id="deleteUserId" name="userId">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="submit" name="submit" class="btn btn-success">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+ function deleteUsers(id,name,email){
+ document.getElementById("deleteUserId").value = id;
+ document.getElementById("deletetUserName").innerHTML = name;
+ document.getElementById("deleteUserEmail").innerHTML = email;
+}
+</script>
 <!-- Page specific script -->
-
 <?php
 include "include/footer.php";
 ?>

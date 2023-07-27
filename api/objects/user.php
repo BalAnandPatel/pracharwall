@@ -901,5 +901,49 @@ if($this->userId==""){
         return false;
     }
 
+
+   function deleteUser(){
+  
+    // delete user detatail
+    $query1 = " DELETE FROM " . $this->user_registration . " 
+    WHERE id=:id";
+
+    $query2 = " DELETE FROM " . $this->user_profile . " 
+    WHERE id=:id";
+
+    $query3 = " DELETE FROM " . $this->user_profile_history . " 
+    WHERE id=:id";
+
+    $query4 = " DELETE FROM " . $this->wall_uploads . " 
+    WHERE id=:id";
+
+    $query5 = " DELETE FROM " . $this->wall_upload_history . " 
+    WHERE id=:id";
+  
+    // prepare query
+    $stmt1 = $this->conn->prepare($query1);
+    $stmt2 = $this->conn->prepare($query2);
+    $stmt3 = $this->conn->prepare($query3);
+    $stmt4 = $this->conn->prepare($query4);
+    $stmt5 = $this->conn->prepare($query5);
+  
+    // sanitize
+    $this->id=htmlspecialchars(strip_tags($this->id));
+  
+    // bind id of record to delete
+    $stmt1->bindParam(":id", $this->id);
+    $stmt2->bindParam(":id", $this->id);
+    $stmt3->bindParam(":id", $this->id);
+    $stmt4->bindParam(":id", $this->id);
+    $stmt5->bindParam(":id", $this->id);
+  
+    // execute query
+    if($stmt1->execute()){
+        return true;
+    }
+  
+    return false;
+}
+
 }
 ?>

@@ -14,6 +14,7 @@ class Admin{
         $this->conn = $db;
     }
 
+
     // created business category by admin
 
     function insertBusinessCategory(){
@@ -55,6 +56,48 @@ class Admin{
           
     }
 
+// update business category
+
+  function updateBusinessCategory(){
+  
+        // query to insert record
+   $query = "UPDATE
+                    " . $this->business_category . "
+                SET
+                         businessCategory=:businessCategory,
+                         subCategory=:subCategory,
+                         status=:status, 
+                         updatedOn=:updatedOn,
+                         updatedBy=:updatedBy
+                    where id=:id"; 
+                          
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+        $this->id=htmlspecialchars(strip_tags($this->id));
+        $this->businessCategory=htmlspecialchars(strip_tags($this->businessCategory));
+        $this->subCategory=htmlspecialchars(strip_tags($this->subCategory));
+        $this->status=htmlspecialchars(strip_tags($this->status));
+        $this->updatedOn=htmlspecialchars(strip_tags($this->updatedOn));
+        $this->updatedBy=htmlspecialchars(strip_tags($this->updatedBy));
+        
+        //bind values
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":businessCategory", $this->businessCategory);
+        $stmt->bindParam(":subCategory", $this->subCategory);
+        $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":updatedOn", $this->updatedOn);
+        $stmt->bindParam(":updatedBy", $this->updatedBy);
+    
+       
+      
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+      
+        return false;
+          
+    }
 
 
     function readCategoryMaxId(){

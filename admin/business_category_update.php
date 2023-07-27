@@ -8,6 +8,8 @@ $data = array("id"=>$categoryId);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 //print_r($result);
+}else{
+echo '<script>window.location="view_category.php"</script>';
 }
 
 function giplCurl($url,$postdata){
@@ -46,17 +48,6 @@ return $result = json_decode($response);
 
       <div class="container-fluid">
 
-          <?php
-          if(isset($_SESSION['categoryUploadSuccess'])){
-          echo '<div class="alert alert-success rounded-0" role="alert">'.$_SESSION['categoryUploadSuccess'].'</div>';
-          unset($_SESSION['categoryUploadSuccess']);
-          }else if(isset($_SESSION['categoryUploadErrors'])){
-            echo '<div class="alert alert-danger rounded-0" role="alert">'.$_SESSION['categoryUploadErrors'].'</div>';
-            unset($_SESSION['categoryUploadErrors']);
-          } 
-
-          ?>
-
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
           <div class="card-header">
@@ -70,7 +61,7 @@ return $result = json_decode($response);
                      foreach($value as $key1 => $value1)
                      {
                   ?>  
-          <form action="action/business_category_post.php" method="post" enctype="multipart/form-data">
+          <form action="action/business_category_update_post.php" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-md-6">
                   <div class="form-group">
@@ -97,9 +88,10 @@ return $result = json_decode($response);
             </div>
           
             <!-- /.row -->
+              <input type="hidden" name="categoryId" value="<?php echo $value1->id; ?>"/>
                 <div class="btn-group w-auto">
                   <button type="submit" name="submit" class="btn btn-success col start">
-                    <i class="fas fa-edit mr-1"></i><span>Change details</span>
+                    <i class="fas fa-edit mr-1"></i><span>Change Details</span>
                   </button>
                 </div>
            <?php } } ?>

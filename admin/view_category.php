@@ -1,18 +1,18 @@
 <?php
 include "include/header.php";
-  $url = $URL."admin/read_business_category.php";
-  $data = array();
-  //print_r($data);
-  $postdata = json_encode($data);
-  $client = curl_init($url);
-  curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
-  //curl_setopt($client, CURLOPT_POST, 5);
-  curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-  $response = curl_exec($client);
-  //print_r($response);
-  $result = json_decode($response);
-  //print_r($result);
-  ?>
+$url = $URL."admin/read_business_category.php";
+$data = array();
+//print_r($data);
+$postdata = json_encode($data);
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+//curl_setopt($client, CURLOPT_POST, 5);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+//print_r($response);
+$result = json_decode($response);
+//print_r($result);
+?>
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -42,10 +42,16 @@ include "include/header.php";
         
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              
-            </div>
-            <!-- /.card -->
+          <?php
+          if(isset($_SESSION['categoryUpdateSuccess'])){
+          echo '<div class="alert alert-success rounded-0" role="alert">'.$_SESSION['categoryUpdateSuccess'].'</div>';
+          unset($_SESSION['categoryUpdateSuccess']);
+          }else if(isset($_SESSION['categoryUpdateErrors'])){
+            echo '<div class="alert alert-danger rounded-0" role="alert">'.$_SESSION['categoryUpdateErrors'].'</div>';
+            unset($_SESSION['categoryUpdateErrors']);
+          } 
+
+          ?>
 
             <div class="card">
               <div class="card-header">

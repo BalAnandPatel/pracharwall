@@ -8,24 +8,24 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
   
 // include database and object file
 include_once '../../config/database.php';
-include_once '../../objects/exam.php';
+include_once '../../objects/user.php';
   
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
   
 // prepare admin object
-$exam = new exam($db);
+$delete_user = new delete_user($db);
   
 // get admin id
 $data = json_decode(file_get_contents("php://input"));
 //print_r($data);  
 
 // set admin id to be deleted
-$exam->id = $data->id;
+$delete_user->id = $data->id;
   
 // delete the admin
-if($exam->delete_exam()){
+if($delete_user->deleteUser()){
   
     // set response code - 200 ok
     http_response_code(200);
