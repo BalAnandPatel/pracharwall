@@ -1,6 +1,5 @@
 <?php
 include "constant.php";
-include "searchList.php";
 $url = $URL . "admin/read_business_category.php";
 $data = array();
 //print_r($data);

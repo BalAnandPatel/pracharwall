@@ -132,6 +132,9 @@
         document.getElementById("preloader").style.display = "none";
     }    
 </script>
+
+<?php include "searchList.php";?>
+
 </body>
 
 </html>
