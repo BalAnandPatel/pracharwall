@@ -1,5 +1,6 @@
 <?php
 include "constant.php";
+include "searchList.php";
 $url = $URL . "admin/read_business_category.php";
 $data = array();
 //print_r($data);
@@ -27,6 +28,7 @@ $result = json_decode($response);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/search.css">
     
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -125,14 +127,16 @@ $result = json_decode($response);
 
         <ul class="navbar-nav list-inline">
             <div class="dropdown">
-                <input type="text" id="ser-city" data-bs-toggle="dropdown" aria-expanded="false"
-                    class="form-control" size="30" placeholder="Search Your City"
-                    onkeyup="showResult(this.value)" />
-                <ul class="dropdown-menu">
-                    <li>
-                        <div id="livesearch"></div>
-                    </li>
-                </ul>
+                <form class="input-group">
+                    <input type="text" placeholder="Search for any business or category" id="search2" class="ga-fp form-control" size="25" autocomplete="off"
+                        onkeydown="key_pressed_in_search(event)" oninput="find_search_results(this)"
+                        onfocus="find_search_results(this)">
+                    <button type="button" id="learntocode_searchbtn" class="input-group-text btn btn-primary border-3" onclick="click_learntocode_search_btn()">
+                        <i id="learntocode_searchicon" class="fa fa-search ga-fp"></i>
+                    </button>
+                    <div id="listofsearchresults">
+                    </div>
+                </form>
             </div>
         </ul>
       </div>

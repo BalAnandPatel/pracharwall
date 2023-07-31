@@ -1,8 +1,0 @@
-article{margin:20px auto;width:100%;padding:1em;font-family:Lucida Sans Unicode;font-weight:normal;font-size:1em;//color:#ffc345}
-.quote{padding:15px 20px 5px 15px;border-radius:5px;margin-bottom:30px}
-.quote:after{content:'';width:0;height:0;border-style:solid;border-width:20px 18px 0 18px;border-color:#3e3831 transparent transparent transparent;position:relative;top:37px;left:20px}
-.student{margin-left:25px;margin-bottom:20px}
-.student .photo{background-color:#ccc;width:100%;float:left;border-radius:100%;vertical-align:middle;height:auto;max-width:100%}
-.student p{position:relative;top:5px;text-transform:uppercase}
-.student p:nth-child(2){font-size:16px;font-weight:600;margin-bottom:0}
-.student p:nth-child(3){font-size:14px;color:#777}
