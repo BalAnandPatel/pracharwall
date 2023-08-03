@@ -15,7 +15,7 @@ $database = new Database();
 $db = $database->getConnection();
   
 // prepare admin object
-$delete_user = new delete_user($db);
+$delete_user = new User($db);
   
 // get admin id
 $data = json_decode(file_get_contents("php://input"));

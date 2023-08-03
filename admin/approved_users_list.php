@@ -1,20 +1,20 @@
 <?php
 include "include/header.php";
-  $status='1';
-  $userType='2';
-  $url = $URL."user/read_allusers_list.php";
-  $data = array("status"=>$status, "userType"=>$userType, "userId"=>"");
-  //print_r($data);
-  $postdata = json_encode($data);
-  $client = curl_init($url);
-  curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
-  //curl_setopt($client, CURLOPT_POST, 5);
-  curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-  $response = curl_exec($client);
-  //print_r($response);
-  $result = json_decode($response);
-  //print_r($result);
-  ?>
+$status='1';
+$userType='2';
+$url = $URL."user/read_allusers_list.php";
+$data = array("status"=>$status, "userType"=>$userType, "userId"=>"");
+//print_r($data);
+$postdata = json_encode($data);
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,1);
+//curl_setopt($client, CURLOPT_POST, 5);
+curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
+$response = curl_exec($client);
+//print_r($response);
+$result = json_decode($response);
+//print_r($result);
+?>
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -44,6 +44,10 @@ include "include/header.php";
      
         <div class="row">
           <div class="col-12">
+          <?php if(isset($_SESSION['user_delete_msg'])){ ?>
+           <div class="alert alert-success"><?php echo $_SESSION['user_delete_msg']; 
+           unset($_SESSION['user_delete_msg']) ?></div>
+          <?php } ?>
             <div class="card">
               
             </div>

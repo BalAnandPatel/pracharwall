@@ -909,16 +909,16 @@ if($this->userId==""){
     WHERE id=:id";
 
     $query2 = " DELETE FROM " . $this->user_profile . " 
-    WHERE id=:id";
+    WHERE userId=:id";
 
     $query3 = " DELETE FROM " . $this->user_profile_history . " 
-    WHERE id=:id";
+    WHERE userId=:id";
 
     $query4 = " DELETE FROM " . $this->wall_uploads . " 
-    WHERE id=:id";
+    WHERE userId=:id";
 
     $query5 = " DELETE FROM " . $this->wall_upload_history . " 
-    WHERE id=:id";
+    WHERE userId=:id";
   
     // prepare query
     $stmt1 = $this->conn->prepare($query1);
@@ -938,7 +938,7 @@ if($this->userId==""){
     $stmt5->bindParam(":id", $this->id);
   
     // execute query
-    if($stmt1->execute()){
+    if($stmt1->execute() && $stmt2->execute() && $stmt3->execute() && $stmt4->execute() && $stmt5->execute()){
         return true;
     }
   
