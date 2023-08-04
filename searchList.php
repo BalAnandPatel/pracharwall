@@ -26,7 +26,7 @@
     $status = '1';
     $userType = '2';
     $url = $URL . "user/read_allusers_list.php";
-    $data = array("status" => $status, "userType" => $userType, "userId" => "");
+    $data = array("status"=>$status, "userType"=>$userType, "userId" =>"");
     //print_r($data);
     $postdata = json_encode($data);
     $client = curl_init($url);
@@ -43,7 +43,7 @@
     foreach ($value as $key1 => $value1) { 
     ?>
 
-    ["", "profile_view.php?id=<?php echo base64_encode($value1->id); ?>", "<?php echo $value1->businessCategory; ?>"],
+    ["", "profile_view.php?id=<?php echo base64_encode($value1->id); ?>", "<?php echo $value1->businessName; ?>"],
 
     <?php } } ?>
     ];
@@ -58,7 +58,7 @@
         for (i = 0; i < x.length; i++) {
             if (x[i].className.indexOf("search_active") > -1) {
                 n = x[i].href;
-                if (n.indexOf("search_entire_w3schools") > -1) {
+                if (n.indexOf("search_entire_pracharwall") > -1) {
                     cc = 1;
                 }
                 break;

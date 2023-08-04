@@ -50,6 +50,7 @@ if($num>0){
             "userName"=>$userName,
             "userMobile"=>$userMobile,
             "userAddress"=>$userAddress,
+            "businessName"=>$businessName,
             "userEmail"=>$userEmail,
             "status"=>$status,
             "remark"=>$remark,
