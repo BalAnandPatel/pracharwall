@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 error_reporting(0);
 include '../../constant.php';
 include '../../common/php-jwt/src/JWT.php';
