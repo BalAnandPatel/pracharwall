@@ -43,7 +43,7 @@
     foreach ($value as $key1 => $value1) { 
     ?>
 
-    ["", "profile_view.php?id=<?php echo base64_encode($value1->id); ?>", "<?php echo $value1->userName; ?>"],
+    ["", "profile_view.php?id=<?php echo base64_encode($value1->id); ?>", "<?php echo $value1->businessCategory; ?>"],
 
     <?php } } ?>
     ];
