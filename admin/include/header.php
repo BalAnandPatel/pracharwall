@@ -1,5 +1,8 @@
 <?php
 include "../constant.php";
+$CATEGORY_IMGPATH="image/uploads/img_";
+$USER_WALL_IMGPATH="image/walluploads/";
+$USER_PROFILE_IMGPATH="image/user_profile/";
 date_default_timezone_set('Asia/Kolkata');
 ?>
 <!DOCTYPE html>
