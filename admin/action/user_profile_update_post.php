@@ -1,5 +1,5 @@
 <?php
- include "../../constant.php";
+include "../../constant.php";
 if(isset($_POST["update_profile"])){
     
  $userId=$_POST["userId"];
@@ -16,7 +16,7 @@ if(isset($_POST["update_profile"])){
  $userWebsite=$_POST["userWebsite"];
  $userServices=ucwords($_POST["userServices"]);
  $aboutUser=$_POST["aboutUser"];
- $remark="";
+ $remark="na";
  $history_status=$_POST["pre_status"];
  $status="0";
  $updatedOn=date("Y-m-d");
@@ -32,7 +32,7 @@ $profile_data = array("status"=>'0', "userType"=>'2', "userId"=>$userId);
 //print_r($profile_data);
 $profile_postdata = json_encode($profile_data);
 $profile_result = url_encode_Decode($profile_url,$profile_postdata);
- // print_r($profile_result);
+//print_r($profile_result);
 
 
 if(isset($profile_result->records[0]->status)){

@@ -147,7 +147,7 @@ return $result;
                     $data = array("userType" => $userType, "businessCategory" => $businessCategory);
                     $postdata = json_encode($data);
                     $result = giplCurl($url,$postdata);
-                    // print_r($result);
+                    //print_r($result);
                     ?>
                     <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>
                     <?php 

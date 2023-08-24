@@ -33,7 +33,7 @@ if(
     $user_wall_re_reject->remark=$data->remark;
     $user_wall_re_reject->status=$data->status;
 
-    if($user_wall_re_reject->updateUserwallStatus()){
+    if($user_wall_re_reject->RerejectUserwall()){
   
         // set response code - 201 created
         http_response_code(201);

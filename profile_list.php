@@ -177,7 +177,7 @@ function giplCurl($url,$postdata){
                     <p class="lead">
                         The page you’re looking for doesn’t exist.
                     </p>
-                    <a href="'.$BASE_URL.'" class="btn btn-primary"><span class="fa fa-arrow-circle-left"></span> Go Home</a>
+                    <a href="index.php" class="btn btn-primary"><span class="fa fa-arrow-circle-left"></span> Go Home</a>
                 </div>
 
             </div>

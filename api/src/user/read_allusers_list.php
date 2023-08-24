@@ -43,7 +43,7 @@ if($num>0){
   
         $read_allusers_item=array(
 
-            "id" => $id,
+            "id"=>$id,
             "userType"=>$userType,
             "userRole"=>$userRole,
             "businessCategory"=>$businessCategory,
