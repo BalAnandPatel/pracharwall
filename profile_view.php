@@ -173,7 +173,7 @@ $('#signin').modal('show');
 }else{
 
     $.ajax({
-    url:'<?php echo $BASE_URL ?>admin/action/customer_inquiry_post.php',
+    url:'admin/action/customer_inquiry_post.php',
     type:'POST',
     data:{
        "cuId":"<?php echo $U_Id; ?>", 

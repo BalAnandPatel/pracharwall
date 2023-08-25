@@ -1,5 +1,5 @@
 <?php
- include "../../constant.php";
+include "../../constant.php";
 if(isset($_POST["update_profile"])){
     
   $userId=$_POST["userId"];
@@ -16,7 +16,7 @@ if(isset($_POST["update_profile"])){
  $userWebsite=$_POST["userWebsite"];
  $userServices=ucwords($_POST["userServices"]);
  $aboutUser=$_POST["aboutUser"];
- $remark="";
+ $remark="na";
  $history_status=$_POST["pre_status"];
  $status="0";
  $updatedOn=date("Y-m-d");

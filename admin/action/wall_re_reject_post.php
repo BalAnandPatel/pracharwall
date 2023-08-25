@@ -3,7 +3,7 @@ include '../../constant.php';
 
 if(isset($_POST["submit"])){
 
-$url=$URL. "user/user_wall_re_reject.php";
+$url=$URL. "user/user_wall_reject.php";
 
 $userId=$_POST["userId"];
 $wallImg=$_POST["wallImg"];

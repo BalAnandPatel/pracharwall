@@ -162,7 +162,7 @@ $result = json_decode($response);
             var cuAddress = $('#cuAddress').val();
             // alert(cuId);
             $.ajax({
-                url: "<?php echo $BASE_URL ?>admin/action/cu_profile_update_post.php",
+                url: "admin/action/cu_profile_update_post.php",
                 type: 'POST',
                 dataType: 'json',
                 data: {
@@ -189,8 +189,8 @@ $result = json_decode($response);
 
                 },
                 error: function(response){
-                    alert(response);
-                        // alert(JSON.stringify(response));
+                    // alert(response);
+                        alert(JSON.stringify(response));
                 }
 
             });
