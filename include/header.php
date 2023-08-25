@@ -29,10 +29,10 @@ $result = json_decode($response);
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/search.css">
     
-    <script src="assets/js/popper.min.js"></script>
+    <!--<script src="assets/js/popper.min.js"></script>-->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
-    <script src="search.js"></script>
+    <!--<script src="search.js"></script>-->
     <script src="assets/js/sweetalert.min.js"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     
@@ -211,8 +211,9 @@ $result = json_decode($response);
         // var data = userType+"-"+userName+"-"+userEmail+"-"+userMobile+"-"+userPass;
         // alert(data);
         if(/^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/.test(userEmail)) {
+           
         $.ajax({
-            url: '<?php echo $BASE_URL ?>admin/action/user_registration_post.php',
+            url: 'admin/action/user_registration_post.php',
             type: 'POST',
             data: {
                 "userType": userType,
@@ -274,7 +275,7 @@ $result = json_decode($response);
 <!-- using ajax query for login -->
     <script>
         $(document).ready(function(){
-         
+        
         $("#loginPost").on("click", function(e){
         e.preventDefault();
         var email = $("#uEmail").val();  
@@ -289,7 +290,7 @@ $result = json_decode($response);
         //  alert('passed');
 
         $.ajax({
-         url:"<?php echo $BASE_URL ?>admin/action/user_login_post.php",
+         url:"admin/action/user_login_post.php",
          type:"POST",
          data:{
          "userEmail":email,
@@ -300,7 +301,7 @@ $result = json_decode($response);
         if(response==0){
         swal("Request Failed!", "Incorrect User Email or Password");
         }else if (response==1){
-        window.open('<?php echo $BASE_URL ?>admin/adm_dashboard.php', '_blank'); 
+        window.open('admin/adm_dashboard.php', '_blank'); 
         window.location.reload();
         }else{
         window.location.reload();    
