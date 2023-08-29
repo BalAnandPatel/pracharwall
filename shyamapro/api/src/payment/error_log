@@ -1,0 +1,54 @@
+[09-Jul-2023 17:20:29 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:21:11 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:22:53 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:23:59 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:24:43 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:25:33 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:32:03 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:33:35 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:36:47 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:40:35 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:41:02 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:41:39 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:44:13 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 17:47:41 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 18:39:32 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 18:43:07 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 18:43:34 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 18:44:23 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 18:49:45 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 18:51:03 Asia/Kolkata] PHP Fatal error:  Cannot redeclare payment::$amount in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 12
+[09-Jul-2023 18:53:32 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Class 'payment_details' not found in /home2/glintqnj/krishilimited.com/api/src/payment/payment_details.php:20
+Stack trace:
+#0 {main}
+  thrown in /home2/glintqnj/krishilimited.com/api/src/payment/payment_details.php on line 20
+[28-Jul-2023 14:49:44 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:50:51 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:51:11 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:52:31 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:53:08 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:54:26 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:54:38 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:55:46 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:57:17 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:57:19 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 09:27:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php:2) in /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php on line 4
+[28-Jul-2023 09:27:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php:2) in /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php on line 5
+[28-Jul-2023 09:27:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php:2) in /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php on line 6
+[28-Jul-2023 09:27:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php:2) in /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php on line 7
+[28-Jul-2023 09:27:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php:2) in /home2/glintqnj/krishilimited.com/api/src/payment/confirm_payment.php on line 8
+[28-Jul-2023 14:57:43 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:58:08 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:58:39 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:58:58 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:59:14 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:59:35 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:59:39 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 14:59:58 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 15:01:02 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 15:02:00 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 15:02:07 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 15:02:41 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 15:04:11 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[28-Jul-2023 15:11:30 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 70
+[29-Jul-2023 12:19:51 Asia/Kolkata] PHP Parse error:  syntax error, unexpected ':' in /home2/glintqnj/krishilimited.com/api/objects/payment.php on line 75

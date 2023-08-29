@@ -1,0 +1,55 @@
+[24-Nov-2022 13:06:54 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:21:52 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:21:56 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:22:25 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:23:30 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:25:19 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:25:24 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:26:14 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:26:39 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:28:18 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33
+[24-Nov-2022 13:28:41 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/ssegr.org.in/api/objects/exam.php:33
+Stack trace:
+#0 /home2/glintqnj/ssegr.org.in/api/src/exam/read_exam_list.php(24): exam->read_exam_list()
+#1 {main}
+  thrown in /home2/glintqnj/ssegr.org.in/api/objects/exam.php on line 33

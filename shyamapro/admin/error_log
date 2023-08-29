@@ -1,0 +1,218 @@
+[01-May-2023 12:04:07 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[01-May-2023 12:04:19 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[01-May-2023 12:06:15 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[02-May-2023 05:19:10 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[02-May-2023 06:08:52 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 06:17:55 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 06:22:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 06:31:28 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 06:38:08 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 09:07:19 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 09:07:25 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 09:35:41 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 09:35:59 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 15:05:59 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[05-Jun-2023 09:36:05 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 15:06:05 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[05-Jun-2023 09:36:23 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 15:06:23 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[05-Jun-2023 09:36:39 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 09:37:09 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 09:45:20 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 09:49:53 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 09:51:16 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 15:21:16 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[05-Jun-2023 10:03:16 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:03:47 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 15:33:47 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[05-Jun-2023 10:05:50 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:07:35 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:14:40 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:14:53 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:52:14 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:52:21 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:52:30 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:52:44 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:52:50 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:53:02 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 10:53:07 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[05-Jun-2023 16:23:07 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[05-Jun-2023 10:53:25 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:00:41 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:00:56 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:05:29 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 16:35:29 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[06-Jun-2023 11:05:37 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:06:40 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:07:37 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:07:58 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:08:02 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:08:10 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:08:11 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:08:16 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:17:38 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:17:58 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:19:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:19:40 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:19:46 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:19:53 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 16:49:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[06-Jun-2023 11:20:01 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:20:42 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:21:17 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:23:07 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 16:53:07 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[06-Jun-2023 11:30:22 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 11:38:32 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[06-Jun-2023 17:08:32 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[10-Jun-2023 07:17:09 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 07:17:17 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 12:47:17 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/farmers_list.php on line 65
+[10-Jun-2023 09:10:31 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 14:40:31 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/farmers_list.php on line 65
+[10-Jun-2023 09:11:22 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:12:08 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 14:42:09 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/farmers_list.php on line 65
+[10-Jun-2023 09:13:33 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:17:39 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:18:00 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:18:11 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:18:18 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:19:17 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:19:28 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:25:07 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:25:31 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:25:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:26:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:26:37 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:26:40 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:26:42 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:29:00 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:29:30 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:45:50 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[10-Jun-2023 09:48:07 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[13-Jun-2023 08:03:32 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[13-Jun-2023 08:03:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[13-Jun-2023 08:03:58 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[19-Jun-2023 06:39:15 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[19-Jun-2023 06:39:32 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[19-Jun-2023 06:39:46 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[19-Jun-2023 06:54:24 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[19-Jun-2023 06:54:36 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[19-Jun-2023 06:55:15 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[19-Jun-2023 06:55:21 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[19-Jun-2023 10:45:21 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[20-Jun-2023 10:12:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[20-Jun-2023 10:14:20 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[20-Jun-2023 10:15:53 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[20-Jun-2023 15:45:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[22-Jun-2023 07:05:24 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:35:24 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
+[22-Jun-2023 07:05:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:08:00 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:08:10 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:11:06 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:11:30 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:14:32 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 17:44:32 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_record.php on line 74
+[22-Jun-2023 12:14:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:15:04 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:15:43 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:15:46 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:17:16 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:17:49 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:17:53 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 17:47:53 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/notification_list.php on line 76
+[22-Jun-2023 12:18:02 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 17:48:02 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_record.php on line 74
+[22-Jun-2023 12:18:20 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:18:43 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:19:03 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:19:07 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 17:49:07 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/notification_list.php on line 76
+[22-Jun-2023 12:19:39 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:19:44 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:19:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 17:49:48 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/notification_list.php on line 76
+[22-Jun-2023 12:21:35 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 17:51:35 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/notification_list.php on line 76
+[22-Jun-2023 12:21:44 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:21:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 17:51:48 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/notification_list.php on line 76
+[22-Jun-2023 12:22:57 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 12:23:00 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[22-Jun-2023 17:53:00 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_record.php on line 79
+[23-Jun-2023 05:25:00 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 05:25:58 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 05:27:25 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 05:27:31 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 05:28:04 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 10:58:04 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_record.php on line 79
+[23-Jun-2023 06:08:00 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:09:43 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:09:51 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:09:57 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:10:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:40:48 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_record.php on line 79
+[23-Jun-2023 06:10:52 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:12:00 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:12:43 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:12:45 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:42:45 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_record.php on line 79
+[23-Jun-2023 06:12:49 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:13:36 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:17:28 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 06:24:14 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 10:40:48 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 10:45:21 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:00:52 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:02:34 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:02:50 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:10:17 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:10:45 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:11:27 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:11:42 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:12:36 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:13:04 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:19:01 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[23-Jun-2023 11:24:06 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 10:53:08 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 10:53:21 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 10:53:29 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 10:54:17 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 16:24:17 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_video_records.php on line 80
+[24-Jun-2023 10:54:23 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 16:24:23 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_news_record.php on line 79
+[24-Jun-2023 10:57:31 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:05:44 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:06:18 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 16:36:18 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_news_record.php on line 79
+[24-Jun-2023 11:06:22 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:06:40 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:06:50 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:06:55 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:08:08 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:09:43 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:10:06 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:10:13 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 16:40:13 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_video_records.php on line 80
+[24-Jun-2023 11:10:19 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:10:46 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:11:43 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:11:51 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 16:41:51 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_news_record.php on line 79
+[24-Jun-2023 11:11:54 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:12:13 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:12:21 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:13:26 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:14:01 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 16:44:01 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_video_records.php on line 80
+[24-Jun-2023 11:14:09 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:14:38 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:14:51 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:15:05 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 11:15:10 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/glintqnj/krishilimited.com/constant.php on line 2
+[24-Jun-2023 16:47:45 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_news_record.php on line 79
+[24-Jun-2023 16:48:47 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/gallery_news_record.php on line 79
+[10-Jul-2023 16:10:46 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/notification_list.php on line 76
+[02-Aug-2023 12:14:15 Asia/Kolkata] PHP Warning:  Invalid argument supplied for foreach() in /home2/glintqnj/krishilimited.com/admin/exam_list.php on line 83
