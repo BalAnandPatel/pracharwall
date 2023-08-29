@@ -50,7 +50,6 @@ if($num>0){
             "userName"=>$userName,
             "userMobile"=>$userMobile,
             "userAddress"=>$userAddress,
-            "businessName"=>$businessName,
             "userEmail"=>$userEmail,
             "status"=>$status,
             "remark"=>$remark,
@@ -60,7 +59,7 @@ if($num>0){
   
         array_push($read_allusers_arr["records"], $read_allusers_item);
     }
-  
+
     // show products data in json format
     echo json_encode($read_allusers_arr);
 

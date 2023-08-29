@@ -2,8 +2,8 @@
 include "../../constant.php";
 if(isset($_POST["update_profile"])){
     
- $userId=$_POST["userId"];
- $businessName=ucwords($_POST["businessName"]);
+  $userId=$_POST["userId"];
+  $businessName=ucwords($_POST["businessName"]);
  $businessCategory=ucwords($_POST["businessCategory"]);
  $userAddress=ucwords($_POST["userAddress"]);
  $state=ucwords($_POST["state"]);
@@ -23,7 +23,7 @@ if(isset($_POST["update_profile"])){
  $updatedBy=$_POST["userId"];
 
 
-  
+
  $url = $URL . "user/update_user_profile.php";
  $url_profile_history=$URL. "user/insert_user_profile_history.php";
  $profile_url = $URL . "user/read_allusers_list.php";
@@ -31,13 +31,19 @@ if(isset($_POST["update_profile"])){
 $profile_data = array("status"=>'0', "userType"=>'2', "userId"=>$userId);
 //print_r($profile_data);
 $profile_postdata = json_encode($profile_data);
+//print_r($profile_postdata);
 $profile_result = url_encode_Decode($profile_url,$profile_postdata);
 //print_r($profile_result);
 
 
 if(isset($profile_result->records[0]->status)){
 $pre_profile_status = $profile_result->records[0]->status;
-}else{
+
+}
+else
+{
+//  echo "helkkkkkkkkkkkkkkkkkll";
+
 $pre_profile_status="";    
 }
 
@@ -47,15 +53,15 @@ if($pre_profile_status=="0"){
  $data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite,
      "status"=>$status, "remark"=>$remark, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
-// print_r($data);
+ //print_r($data);
 
  $postdata = json_encode($data);
  $result=url_encode_Decode($url,$postdata);
- //print_r($result);
  
+
  // create user profile update history
 
-  $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>'5', "remark"=>$remark, "history_status"=>$history_status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
+$profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, "businessCategory"=>$businessCategory, "userAddress"=>$userAddress, "city"=>$city, "state"=>$state, "alterMobile"=>$alterMobile, "establishmentYear"=>$establishmentYear, "businessDay"=>$businessDay, "businessTiming"=>$businessTiming, "paymentMode"=>$paymentMode, "aboutUser"=>$aboutUser, "userServices"=>$userServices, "userWebsite"=>$userWebsite, "status"=>'5', "remark"=>$remark, "history_status"=>$history_status, "updatedOn"=>$updatedOn, "updatedBy"=>$updatedBy);
 
 // print_r($data);
 
@@ -76,12 +82,12 @@ if($pre_profile_status=="0"){
  //print_r($profile_history_result);
 }
 
- if($result->message=="User profile updated successfully"){
-  $_SESSION['profileupdate_success']="Updated successfully"; 
-  header('location:../../profile.php');
- }else{
-  header('location:../../update_user.php');
- }   
+//  if($result->message=="User profile updated successfully"){
+//   $_SESSION['profileupdate_success']="Updated successfully"; 
+//   header('location:../../profile.php');
+//  }else{
+//   header('location:../../update_user.php');
+//  }   
 
 }
     
