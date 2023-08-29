@@ -1,5 +1,0 @@
-[13-Jun-2023 13:22:06 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/glintqnj/krishilimited.com/api/objects/notification.php:59
-Stack trace:
-#0 /home2/glintqnj/krishilimited.com/api/src/notification/read_notification.php(24): Notice->read_notification()
-#1 {main}
-  thrown in /home2/glintqnj/krishilimited.com/api/objects/notification.php on line 59
