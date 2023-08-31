@@ -7,6 +7,12 @@
     </center>
     <br>
 
+    <p>
+        The Mission of Pracharwall the start the PPW(PAY PER WALL) it means we find the every empty wll from building owner and provide the best Customer for
+        advertising on pracharwall. The team of pracharwall is manage customer and Walloner both. With the help of this mission we create a way to 
+        earning of money without any risk. The prachawall team also find better place for your buziness by which you have to know more Customers and Users
+    </p>
+<!-- 
     <div class="container">
 
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>To understand the business objectives and target audience of our clients and develop customized Pracharwall strategies to help them achieve their goals.</p></div>
@@ -20,7 +26,7 @@
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>To educate and empower our clients by sharing knowledge and expertise in Pracharwall landscape, offering marketing.</p></div>
 
 
-    </div>
+    </div> -->
 </div>
 
 <?php include "include/footer.php"; ?>

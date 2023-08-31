@@ -3,11 +3,18 @@
 <div>
     <br>
     <center>
-        <h1>About Pracharwall</h1>
+        <h1><a href="https://pracharwall.com/about.php">About Pracharwall</a></h1>
     </center>
     <br>
 
-    <div class="container">
+    <p>Pracharwall is Local advertising Brand Which is Developed By <a href="https://pracharwall.com">Glintel Techanologies Pvt. Ltd.</a> We Provide Digital
+        advertising on Pracharwall.com. That is search as local Market Base by which you can find more customer and lead. The Motto of pracharwall
+        to Give the latest update of our shop or orgnigaztion. We also provide the Physicall Wall for Your advertising. The physical wall be according
+        to your need and we provide the best pricing for your advertizment.
+    </p>
+    <P>The Pracharwall is started for Better Result for your Customer because today the data trafic create confusion to our customer and Users</p>
+
+    <!-- <div class="container">
 
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>Pracharwall is like advertising.</p></div>
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>Pracharwall is a Form of communication used to promote products, services, or ideas.</p></div>
@@ -31,7 +38,7 @@
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>Pracharwall is an ever-evolving field, adapting to technological advancements,changing consumer behavior and cultural trends.</p></div>
 
 
-    </div>
+    </div> -->
 </div>
 
 <?php include "include/footer.php"; ?>
