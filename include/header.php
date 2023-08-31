@@ -19,8 +19,11 @@ $result = json_decode($response);
 
 <head>
     <meta charset="utf-8">
+    <meta name="description" content="Best online advertising platforms, Pracharwall.com, local Website">
+    <meta name="keywords" content="pracharwall, Find your Online Diplay, Find your Digital catalogue">
+    <meta name="author" content="Pracharwall, Best Website for Prachar, Find on Prcharwall, Add your Business">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pracharwall</title>
+    <title>Best Advertising Agency Pracharwall Managed By  Glitel Technologies Pvt Ltd.</title>
     <link rel="shortcut icon" href="Pracharwall_image/favicon.ico" type="image/x-icon">
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="assets/css/theme.min.css" rel="stylesheet">
