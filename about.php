@@ -7,12 +7,23 @@
     </center>
     <br>
 
-    <p>Pracharwall is Local advertising Brand Which is Developed By <a href="https://pracharwall.com">Glintel Techanologies Pvt. Ltd.</a> We Provide Digital
-        advertising on Pracharwall.com. That is search as local Market Base by which you can find more customer and lead. The Motto of pracharwall
-        to Give the latest update of our shop or orgnigaztion. We also provide the Physicall Wall for Your advertising. The physical wall be according
-        to your need and we provide the best pricing for your advertizment.
-    </p>
-    <P>The Pracharwall is started for Better Result for your Customer because today the data trafic create confusion to our customer and Users</p>
+    <div class="container">
+        <p class="h3 p-5" style="border-left: 6px solid #ccc; background-color: #fdf5e6;">
+            <span style="font-size:30px;">&#10077;</span>
+            Pracharwall is local advertising brand which is developed by <a href="https://glintel.com" target="_blank">Glintel Technologies Pvt. Ltd.</a> We provide digital
+            advertising on Pracharwall.com. That is search as local market base by which you can find more customer and
+            lead. The motto of pracharwall to give the latest update of your shop or orgnigaztion. We also provide the
+            physical Wall for your advertising. The physical wall will be according to your need and we provide the best
+            pricing for your advertisement.
+            <span style="font-size:30px;">&#10080;</span>
+        </p>
+        <p class="h3 p-5" style="border-left: 6px solid #ccc; background-color: #fdf5e6;">
+            <span style="font-size:30px;">&#10077;</span>
+            The Pracharwall is started for better result for your Customer because today the data trafic create
+            confusion to our Customer and Users.
+            <span style="font-size:30px;">&#10080;</span>
+        </p>
+    </div>
 
     <!-- <div class="container">
 

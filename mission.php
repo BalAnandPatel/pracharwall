@@ -3,16 +3,21 @@
 <div>
     <br>
     <center>
-        <h1>Mission of Pracharwall</h1>
+        <h1><a href="mission.php">Mission of Pracharwall</a></h1>
     </center>
     <br>
 
-    <p>
-        The Mission of Pracharwall the start the PPW(PAY PER WALL) it means we find the every empty wll from building owner and provide the best Customer for
-        advertising on pracharwall. The team of pracharwall is manage customer and Walloner both. With the help of this mission we create a way to 
-        earning of money without any risk. The prachawall team also find better place for your buziness by which you have to know more Customers and Users
-    </p>
-<!-- 
+    <div class="container">
+        <p class="h3 p-5" style="border-left: 6px solid #ccc; background-color: #fdf5e6;">
+            <span style="font-size:30px;">&#10077;</span>
+            The Mission of Pracharwall is to start the PPW(PAY PER WALL) it means we will find the every empty wall from
+            building owner and provide the best Customer for advertising on pracharwall. The team of pracharwall will
+            manage customer and wall owner both. With the help of this mission we create a way of earning money without
+            any risk. The pracharwall team will also find best place for your business by which you will know more
+            about your Customers and Users.
+            <span style="font-size:30px;">&#10080;</span>
+        </p>
+        <!-- 
     <div class="container">
 
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>To understand the business objectives and target audience of our clients and develop customized Pracharwall strategies to help them achieve their goals.</p></div>
@@ -27,6 +32,6 @@
 
 
     </div> -->
-</div>
+    </div>
 
-<?php include "include/footer.php"; ?>
+    <?php include "include/footer.php"; ?>
