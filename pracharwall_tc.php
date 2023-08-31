@@ -17,6 +17,7 @@
             and the team of Prachawall approve your profile then after you will be able to diplay your profile.
             Prachawall is not resposible for any type of loss product and Mony. The Prachawall is only a Plateforme
             which provide the way of advertisment.
+            <span style="font-size:30px;">&#10080;</span>
         </p>
     </div>
     <!-- 
