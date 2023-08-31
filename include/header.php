@@ -84,13 +84,13 @@ $result = json_decode($response);
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a class="dropdown-item" href="about.php">About Us</a>
+                    <a class="dropdown-item" href="pracharwall_about.php">About Us</a>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="vision.php">Vision</a>
+                    <a class="dropdown-item" href="pracharwall_vision.php">Vision</a>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="mission.php">Mission</a>
+                    <a class="dropdown-item" href="pracharwall_mission.php">Mission</a>
                 </li>
             </ul>
           </li>

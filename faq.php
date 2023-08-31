@@ -53,7 +53,7 @@
         <div class="card mb-3" style="width: 100%;">
             <div class="card-body">
                 <h5 class="card-title">How can I list my business on Pracharwall?</h5>
-                <p class="card-text">To begin your sign up, just click on the sign-up button below</p>
+                <p class="card-text d-flex ">To begin your sign up, just click &nbsp;<a class="nav-link" style="color: blue;text-decoration:underline;" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">here</a></p>
             </div>
         </div>
 
