@@ -33,6 +33,18 @@ return $result;
                 <!-- <h1>Abc</h1> -->
             </div>
         </div>
+        <div class="carousel-item">
+            <img src="Pracharwall_image/slider-3.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <!-- <h1>Abc</h1> -->
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="Pracharwall_image/slider-4.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <!-- <h1>Abc</h1> -->
+            </div>
+        </div>
         <!-- <div class="carousel-item">
             <img src="assets/img/photography.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
