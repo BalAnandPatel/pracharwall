@@ -76,7 +76,7 @@
                             Wall</a>
                     </li>
                     <li class="nav-item"><a href="faq.php" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Terms & Condition</a>
+                    <li class="nav-item"><a href="prachawall_tc.php" class="nav-link px-2 text-body-secondary">Terms & Condition</a>
                     </li>
                 </ul>
             </div>
