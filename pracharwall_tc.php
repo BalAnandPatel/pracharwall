@@ -3,16 +3,23 @@
 <div>
     <br>
     <center>
-        <h1>Pracharwall Term and Condition</h1>
+        <h1><a href="pracharwall_tc.php"></a>Pracharwall Term and Condition</a></h1>
     </center>
     <br>
 
-    <p>The Term and Condition of Pracharwall for user. There is user means customer who one find some think. This way user can find our needed product and services very essay and
-        essyly compare with other. User Must be Register for the sending any inquery to Service Provider. The Service Provide Means you must Register on prachawall as Business owner
-        and the team of Prachawall approve your profile then after you will be able to diplay your profile.
-        Prachawall is not resposible for any type of loss product and Mony. The Prachawall is only a Plateforme which provide the way of advertisment. 
-    </p>
-<!-- 
+    <div class="container">
+        <p class="h3 p-5" style="border-left: 6px solid #ccc; background-color: #fdf5e6;">
+            <span style="font-size:30px;">&#10077;</span>
+            The Term and Condition of Pracharwall for user. There is user means customer who one find some think. This
+            way user can find our needed product and services very essay and
+            essyly compare with other. User Must be Register for the sending any inquery to Service Provider. The
+            Service Provide Means you must Register on prachawall as Business owner
+            and the team of Prachawall approve your profile then after you will be able to diplay your profile.
+            Prachawall is not resposible for any type of loss product and Mony. The Prachawall is only a Plateforme
+            which provide the way of advertisment.
+        </p>
+    </div>
+    <!-- 
     <div class="container">
 
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>To be a global leader in the Pracharwall industry, delivering innovative and impactful campaigns that drive business growth for our clients.</p></div>

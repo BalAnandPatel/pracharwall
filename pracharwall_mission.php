@@ -3,7 +3,7 @@
 <div>
     <br>
     <center>
-        <h1><a href="mission.php">Mission of Pracharwall</a></h1>
+        <h1><a href="pracharwall_mission.php">Mission of Pracharwall</a></h1>
     </center>
     <br>
 
@@ -17,7 +17,8 @@
             about your Customers and Users.
             <span style="font-size:30px;">&#10080;</span>
         </p>
-        <!-- 
+    </div>
+    <!-- 
     <div class="container">
 
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>To understand the business objectives and target audience of our clients and develop customized Pracharwall strategies to help them achieve their goals.</p></div>
@@ -32,6 +33,6 @@
 
 
     </div> -->
-    </div>
+</div>
 
-    <?php include "include/footer.php"; ?>
+<?php include "include/footer.php"; ?>

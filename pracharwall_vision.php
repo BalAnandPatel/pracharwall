@@ -3,7 +3,7 @@
 <div>
     <br>
     <center>
-        <h1><a href="vision.php">Vision of Pracharwall</a></h1>
+        <h1><a href="pracharwall_vision.php">Vision of Pracharwall</a></h1>
     </center>
     <br>
 
@@ -16,7 +16,8 @@
             the better experience and customers and business owners needed.
             <span style="font-size:30px;">&#10080;</span>
         </p>
-        <!-- 
+    </div>
+    <!-- 
     <div class="container">
 
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>To be a global leader in the Pracharwall industry, delivering innovative and impactful campaigns that drive business growth for our clients.</p></div>
@@ -30,6 +31,6 @@
 
 
     </div> -->
-    </div>
+</div>
 
-    <?php include "include/footer.php"; ?>
+<?php include "include/footer.php"; ?>

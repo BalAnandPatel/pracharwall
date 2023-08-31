@@ -3,7 +3,7 @@
 <div>
     <br>
     <center>
-        <h1><a href="https://pracharwall.com/about.php">About Pracharwall</a></h1>
+        <h1><a href="pracharwall_about.php">About Pracharwall</a></h1>
     </center>
     <br>
 
