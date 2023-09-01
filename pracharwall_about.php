@@ -3,11 +3,29 @@
 <div>
     <br>
     <center>
-        <h1>About Pracharwall</h1>
+        <h1><a href="pracharwall_about.php">About Pracharwall</a></h1>
     </center>
     <br>
 
     <div class="container">
+        <p class="h3 p-5" style="border-left: 6px solid #ccc; background-color: #fdf5e6;">
+            <span style="font-size:30px;">&#10077;</span>
+            Pracharwall is local advertising brand which is developed by <a href="https://glintel.com" target="_blank">Glintel Technologies Pvt. Ltd.</a> We provide digital
+            advertising on Pracharwall.com. That is search as local market base by which you can find more customer and
+            lead. The motto of pracharwall to give the latest update of your shop or orgnigaztion. We also provide the
+            physical Wall for your advertising. The physical wall will be according to your need and we provide the best
+            pricing for your advertisement.
+            <span style="font-size:30px;">&#10080;</span>
+        </p>
+        <p class="h3 p-5" style="border-left: 6px solid #ccc; background-color: #fdf5e6;">
+            <span style="font-size:30px;">&#10077;</span>
+            The Pracharwall is started for better result for your Customer because today the data trafic create
+            confusion to our Customer and Users.
+            <span style="font-size:30px;">&#10080;</span>
+        </p>
+    </div>
+
+    <!-- <div class="container">
 
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>Pracharwall is like advertising.</p></div>
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>Pracharwall is a Form of communication used to promote products, services, or ideas.</p></div>
@@ -31,7 +49,7 @@
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>Pracharwall is an ever-evolving field, adapting to technological advancements,changing consumer behavior and cultural trends.</p></div>
 
 
-    </div>
+    </div> -->
 </div>
 
 <?php include "include/footer.php"; ?>

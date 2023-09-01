@@ -3,10 +3,21 @@
 <div>
     <br>
     <center>
-        <h1>Vision of Pracharwall</h1>
+        <h1><a href="pracharwall_vision.php">Vision of Pracharwall</a></h1>
     </center>
     <br>
 
+    <div class="container">
+        <p class="h3 p-5" style="border-left: 6px solid #ccc; background-color: #fdf5e6;">
+            <span style="font-size:30px;">&#10077;</span>
+            The Vision of Pracharwall is to promote all type of Business and dipslay their profile to appropriate
+            customer as per user requirement. Because today number of tailented Entrepreneurs failed due to advertising.
+            The pracharwall promote all the Entrepreneurs with respected price and respect customer need and we give
+            the better experience and customers and business owners needed.
+            <span style="font-size:30px;">&#10080;</span>
+        </p>
+    </div>
+    <!-- 
     <div class="container">
 
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>To be a global leader in the Pracharwall industry, delivering innovative and impactful campaigns that drive business growth for our clients.</p></div>
@@ -19,7 +30,7 @@
     <div class="d-flex"><i class="bi bi-check2-all mx-2"></i> <p>To maintain the highest ethical standards in our Pracharwall practices, ensuring transparency, honesty and respect for consumer privacy.</p></div>
 
 
-    </div>
+    </div> -->
 </div>
 
 <?php include "include/footer.php"; ?>
