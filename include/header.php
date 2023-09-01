@@ -19,8 +19,11 @@ $result = json_decode($response);
 
 <head>
     <meta charset="utf-8">
+    <meta name="description" content="Best online advertising platforms, Pracharwall.com, local Website">
+    <meta name="keywords" content="pracharwall, Find your Online Diplay, Find your Digital catalogue">
+    <meta name="author" content="Pracharwall, Best Website for Prachar, Find on Prcharwall, Add your Business">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pracharwall</title>
+    <title>Best Advertising Agency Pracharwall Managed By  Glitel Technologies Pvt Ltd.</title>
     <link rel="shortcut icon" href="Pracharwall_image/favicon.ico" type="image/x-icon">
     <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="assets/css/theme.min.css" rel="stylesheet">
@@ -81,13 +84,13 @@ $result = json_decode($response);
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a class="dropdown-item" href="about.php">About Us</a>
+                    <a class="dropdown-item" href="pracharwall_about.php">About Us</a>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="vision.php">Vision</a>
+                    <a class="dropdown-item" href="pracharwall_vision.php">Vision</a>
                 </li>
                 <li>
-                    <a class="dropdown-item" href="mission.php">Mission</a>
+                    <a class="dropdown-item" href="pracharwall_mission.php">Mission</a>
                 </li>
             </ul>
           </li>
@@ -179,11 +182,11 @@ $result = json_decode($response);
                                 <input type="email" name="userEmail" placeholder="Enter Email Id" class="form-control"
                                     id="userEmail" required autocomplete="off">
                             </div>
-                            <div class="form-group pt-2">
-                                <label style="font-weight: 600;" for="pwd">Password:</label>
-                                <input type="password" name="userPass" placeholder="Enter Password" class="form-control"
-                                    id="userPass" required autocomplete="off">
-                            </div>
+                            <!--<div class="form-group pt-2">-->
+                            <!--    <label style="font-weight: 600;" for="pwd">Password:</label>-->
+                            <!--    <input type="password" name="userPass" placeholder="Enter Password" class="form-control"-->
+                            <!--        id="userPass" required autocomplete="off">-->
+                            <!--</div>-->
                             <br>
                         </div>
                         <div class="modal-footer d-flex justify-content-between">
@@ -207,8 +210,8 @@ $result = json_decode($response);
         var userName = $('#userName').val();
         var userMobile = $('#userMobile').val();
         var userEmail = $('#userEmail').val();
-        var userPass = $('#userPass').val();
-        // var data = userType+"-"+userName+"-"+userEmail+"-"+userMobile+"-"+userPass;
+        
+        // var data = userType+"-"+userName+"-"+userEmail+"-"+userMobile;
         // alert(data);
         if(/^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/.test(userEmail)) {
            
@@ -219,12 +222,11 @@ $result = json_decode($response);
                 "userType": userType,
                 "userName": userName,
                 "userMobile": userMobile,
-                "userEmail": userEmail,
-                "userPass": userPass
+                "userEmail": userEmail
             },
             success:function(response){
                 if (response==1) {
-                    swal("Thank you!", "You have successfully registerd. Now you can login", "success");
+                    swal("Thank you!", "You have successfully registered.Your login password is sent on your registered email", "success");
                     $("#signupForm").trigger('reset');
                 } else if (response==2) {
                     swal("Sorry!", "User already registered", "error");

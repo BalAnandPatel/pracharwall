@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 include '../../constant.php';
 
 
@@ -6,8 +8,8 @@ include '../../constant.php';
  $userType=$_POST['userType'];
  $status='0';
  $userMobile=$_POST["userMobile"];
- $userEmail=$_POST["userEmail"];
- $userPass=$_POST["userPass"];
+ $userEmail=$_POST["userEmail"]; 
+ $userPass=rand(100000, 999999);
  $createdOn=date("Y-m-d h:i:s");
  $createdBy=ucwords($_POST["userName"]);
 
@@ -24,6 +26,14 @@ $result=url_encode_Decode($url,$postdata);
 //print_r($result);
 
 if($result->message=="Successfull"){
+    
+$to = $userEmail;
+$subject = "Email verification from pracharwall.com";
+$message = "Your Password for pracharwall.com is " . $userPass;
+$headers = "From: smrityunjay570@gmail.com" . "\r\n" .
+$userEmail;
+
+mail($to,$subject,$message,$headers);
 
 // read user registration max id
 
