@@ -19,14 +19,10 @@ return $result;
         $('#modal-2').modal('show');
     });
 </script>
-<style>
-    .modal-backdrop {
-        background-color: rgba(0, 0, 0, 0);
-    }
-</style>
+
 
 <div class="modal fade" id="modal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="btn-close bg-white p-4 position-absolute top-0 end-0"
@@ -47,12 +43,12 @@ return $result;
     </div>
 </div>
 <div class="modal fade" id="modal-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body d-flex justify-content-center">
                 <button type="button" class="btn-close bg-white p-4 position-absolute top-0 end-0"
                     data-bs-dismiss="modal" aria-label="Close"></button>
-                <video controls>
+                <video class="img-fluid" controls>
                     <source src="assets/videos/How to Register your wall.mp4">
                 </video>
             </div>
