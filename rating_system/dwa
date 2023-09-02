@@ -1,0 +1,28 @@
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO products VALUES (1, 'New Balance CK4040 V5', 'Phasellus at scelerisque eros, elementum congue leo.');
+INSERT INTO products VALUES (2, 'SS Players Series - Chest Guard', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+INSERT INTO products VALUES (3, "Shrey Supporters - TRUNK", "Ut ultrices nibh non orci sollicitudin.");
+INSERT INTO products VALUES (4, "New Balance - Batting Inners", "Sed sed magna consequat, cursus felis.");
+INSERT INTO products VALUES (5, "Gray-Nicolls TEST Arm Guard", "Etiam vulputate condimentum facilisis.");
+INSERT INTO products VALUES (6, "SS Ton Vintage MSD 4.0 - Cricket Bat", "Aliquam nec tortor porttitor, mollis quam sit amet.");
+INSERT INTO products VALUES (7, "Shrey Pro Guard - Titanium", "Vivamus lacinia augue id ipsum luctus molestie.");
+
+
+
+
+
+
+
+
+
+CREATE TABLE `product_rating` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `rating` int(2) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

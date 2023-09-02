@@ -5,7 +5,7 @@
     }
 </style>
 
-<div style="padding-top:100px;">
+<div style="padding-top:200px;">
     <div class="position-absolute bottom-0 w-100">
         <footer class="px-4 py-2 small" style="background-color: #eee;">
 
