@@ -27,13 +27,13 @@ $result=url_encode_Decode($url,$postdata);
 
 if($result->message=="Successfull"){
     
-$to = $userEmail;
-$subject = "Email verification from pracharwall.com";
-$message = "Your Password for pracharwall.com is " . $userPass;
-$headers = "From: smrityunjay570@gmail.com" . "\r\n" .
-$userEmail;
+//$to = $userEmail;
+//$subject = "Email verification from pracharwall.com";
+//$message = "Your Password for pracharwall.com is " . $userPass;
+//$headers = "From: smrityunjay570@gmail.com" . "\r\n" .
+//$userEmail;
 
-mail($to,$subject,$message,$headers);
+//mail($to,$subject,$message,$headers);
 
 // read user registration max id
 
