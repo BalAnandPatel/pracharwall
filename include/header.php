@@ -337,19 +337,21 @@ $result = json_decode($response);
 
         <div class="offcanvas-body">
             <div class="row justify-content-center">
-                <?php
+            <?php
             $counter = '0';
             foreach ($result as $key => $value) {
-                foreach ($value as $key1 => $value1) {
+            foreach ($value as $key1 => $value1) {
             ?>
                 <div class="col-md-2 col-sm-4 col-xs-12 text-break img-thumbnail m-1 d-flex justify-content-center">
-                    <a href="profile_list.php?category=<?php echo $value1->businessCategory; ?>">
-                        <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>"
-                            style="height:60px;">
-                        <p>
-                            <?php echo $value1->businessCategory; ?>
-                        </p>
-                    </a>
+                    <center>
+                        <a href="profile_list.php?category=<?php echo base64_encode($value1->businessCategory); ?>">
+                            <img class="img img-fluid" src="<?php echo $CATEGORY_IMGPATH . $value1->id . ".png"; ?>"
+                                style="height:60px;">
+                            <p>
+                                <?php echo $value1->businessCategory; ?>
+                            </p>
+                        </a>
+                    </center>
                 </div>
                 <?php } } ?>
             </div>
@@ -431,4 +433,40 @@ $result = json_decode($response);
       </div>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="modal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close bg-white p-4 position-absolute top-0 end-0"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="alerts d-flex justify-content-center alert-danger" role="alert">
+                        <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.31171 10.7615C8.23007 5.58716 9.68925 3 12 3C14.3107 3 15.7699 5.58716 18.6883 10.7615L19.0519 11.4063C21.4771 15.7061 22.6897 17.856 21.5937 19.428C20.4978 21 17.7864 21 12.3637 21H11.6363C6.21356 21 3.50217 21 2.40626 19.428C1.31034 17.856 2.52291 15.7061 4.94805 11.4063L5.31171 10.7615ZM12 7.25C12.4142 7.25 12.75 7.58579 12.75 8V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V8C11.25 7.58579 11.5858 7.25 12 7.25ZM12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" fill="#ff0000"/> </g>
+                        </svg>
+                        <div class="p-2">
+                            <b>Note: </b>This is a 15 day trial-version of this site.
+                            The website is still under maintainence. Please give your feedback of your experience.
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="howtoregisterWall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body d-flex justify-content-center">
+                <button type="button" class="btn-close bg-white p-4 position-absolute top-0 end-0"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+                <video class="img-fluid" controls>
+                    <source src="assets/videos/How to Register your wall.mp4">
+                </video>
+            </div>
+        </div>
+    </div>
 </div>

@@ -3,7 +3,29 @@
         color: inherit;
         text-decoration: none;
     }
+
+    .fixedButton {
+        position: fixed;
+        right: 0px;
+        top: 20%;
+    }
+
+    .roundedFixedBtn {
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        font-size: 12px;
+        padding: 5px;
+        font-weight: bold;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
 </style>
+
+<a class="fixedButton" data-bs-toggle="modal" data-bs-target="#howtoregisterWall" href="">
+    <div class="roundedFixedBtn">HOW TO REGISTER YOUR WALL</div>
+</a>
 
 <div style="padding-top:200px;">
     <div class="position-absolute bottom-0 w-100">
@@ -76,7 +98,8 @@
                             Wall</a>
                     </li>
                     <li class="nav-item"><a href="faq.php" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item"><a href="pracharwall_tc.php" class="nav-link px-2 text-body-secondary">Terms & Condition</a>
+                    <li class="nav-item"><a href="pracharwall_tc.php" class="nav-link px-2 text-body-secondary">Terms &
+                            Condition</a>
                     </li>
                 </ul>
             </div>
@@ -133,7 +156,7 @@
     }    
 </script>
 
-<?php include "searchList.php";?>
+<?php include "searchList.php"; ?>
 
 </body>
 

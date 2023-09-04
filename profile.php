@@ -222,7 +222,7 @@ $(document).ready(function(){
                  <input type="hidden" name="userEmail" value="<?php echo $value1->userEmail; ?>">
                  <input type="hidden" name="userMobile" value="<?php echo $value1->userMobile; ?>">
                  <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-pencil-square"></i>
-                 <button class="btn border-0 text-primary" name="update" type="submit">Edit Your Account</button>
+                 <button class="btn border-0 text-primary" name="update" type="submit">Update Your Profile</button>
                  </a>
                </form>
                 <hr>
