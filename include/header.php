@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 include "constant.php";
 $url = $URL . "admin/read_business_category.php";
 $data = array();

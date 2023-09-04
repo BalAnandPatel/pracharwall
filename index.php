@@ -89,6 +89,7 @@ return $result;
             <strong>200+ K</strong><br>Verified Experts
         </li> -->
         <li class="card border-0 m-4 text-center lh-1">
+           
             <?php
                     $count_category_url = $URL . "admin/read_category_count.php";
                     $count_category_data = array();
@@ -147,18 +148,10 @@ return $result;
     <?php
     $counter = 0;
     foreach ($result as $key => $value) {
-    foreach ($value as $key1 => $value1) {
-    ?>
 
-    <div class="row mt-3">
-        <a href="profile_list.php?category=<?php echo base64_encode($value1->id); ?>">
-            <h3 class="card-title" id="hideCategory"><?php echo $value1->businessCategory; ?></h3>
-        </a>
-    </div>
-    <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                <?php
+    foreach ($value as $key1 => $value1) {
+       
+    
                     $url = $URL . "user/read_profile_by_category.php";
                     $userType = '2';
                     $businessCategory = $value1->id;
@@ -166,13 +159,30 @@ return $result;
                     $postdata = json_encode($data);
                     $result = giplCurl($url,$postdata);
                     //print_r($result);
-                    ?>
-                    <?php error_reporting(0); if($result->records[0]->status=='1'){ ?>
+               
+                  
+if(isset($result->records[0]->status) && $result->records[0]->status=='1'){ ?>
+<u>
+    <div class="row mt-3">
+        <a href="profile_list.php?category=<?php echo base64_encode($value1->id); ?>">
+            <h3 class="card-title" id="hideCategory"><?php echo $value1->businessCategory; ?></h3>
+        </a>
+    </div>
+    </u>
+ 
+    <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                   
+               
+                 
+                    
                     <?php 
                       $counter=0;  
                       foreach($result as $key => $value){
                       foreach($value as $key1 => $value1)
                      {
+                       
                     ?>
                     
                     <a href="profile_view.php?id=<?php echo base64_encode($value1->userId);?>">
@@ -203,11 +213,10 @@ return $result;
                             </div>
                         </div>
                     </a>
-                    <?php }} ?>
-                    <?php }else{
-                        echo "comming soon";
-                        // echo '<script>document.querySelectorAll("#hideCategory").style.display="none"</script>';
-                    } ?>
+                    <?php }}
+                
+                    ?>
+                 
 
                     <!-- <div class="card swiper-slide">
                         <div class="image-content">
@@ -234,7 +243,8 @@ return $result;
             <div class="swiper-button-prev swiper-navBtn"></div>
             <div class="swiper-pagination"></div>
         </div>
-    <?php } } ?>
+        <hr class="change_category">
+    <?php } } } ?>
 </div>
   
     <!-- <hr> -->
@@ -313,6 +323,9 @@ return $result;
 
 </div>
 <style>
+.change_category:last-child{
+display:none;
+}
 .slide-container{
   max-width: 1120px;
   width: 100%;
