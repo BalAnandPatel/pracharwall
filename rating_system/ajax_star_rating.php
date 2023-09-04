@@ -1,6 +1,6 @@
 <?php
 include "./database/db.php";
-$user_id = 1;
+$user_id = 2;
 $product_id = $_POST['product_id'];
 $rating = $_POST['rating'];
 // Check rating inside the table

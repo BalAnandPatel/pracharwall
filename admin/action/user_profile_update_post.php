@@ -82,12 +82,12 @@ $profile_history_data = array("userId"=>$userId, "businessName"=>$businessName, 
  //print_r($profile_history_result);
 }
 
-//  if($result->message=="User profile updated successfully"){
-//   $_SESSION['profileupdate_success']="Updated successfully"; 
-//   header('location:../../profile.php');
-//  }else{
-//   header('location:../../update_user.php');
-//  }   
+ if($result->message=="User profile updated successfully"){
+  $_SESSION['profileupdate_success']="Updated successfully"; 
+  header('location:../../profile.php');
+ }else{
+  header('location:../../update_user.php');
+ }   
 
 }
     

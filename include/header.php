@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include "constant.php";
 $url = $URL . "admin/read_business_category.php";
 $data = array();
@@ -18,7 +19,9 @@ $result = json_decode($response);
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="Best online advertising platforms, Pracharwall.com, local Website">
     <meta name="keywords" content="pracharwall, Find your Online Diplay, Find your Digital catalogue">
     <meta name="author" content="Pracharwall, Best Website for Prachar, Find on Prcharwall, Add your Business">
