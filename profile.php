@@ -135,7 +135,7 @@ $(document).ready(function(){
                     <?php } ?>
             </div>
 
-            <div class="col col-lg-8 col-xl-8 col-md-12 col-sm-12 col-xs-12">
+            <div class="col col-lg-7 col-xl-7 col-md-12 col-sm-12 col-xs-12">
 
                 <h2><?php echo $value1->businessName; ?></h2>
                 <!-- <div>
@@ -174,6 +174,18 @@ $(document).ready(function(){
                     <i class="fa fa-phone"></i>
                     <?php echo $value1->userMobile; ?></a>
                 </a>
+            </div>
+
+            <div class="col-lg-3 col-xl-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center mt-1">
+                <form action="update_user.php" method="post">
+                    <input type="hidden" name="userId" value="<?php echo $value1->id; ?>">    
+                    <input type="hidden" name="userName" value="<?php echo $value1->userName; ?>">
+                    <input type="hidden" name="userEmail" value="<?php echo $value1->userEmail; ?>">
+                    <input type="hidden" name="userMobile" value="<?php echo $value1->userMobile; ?>">
+                    <a href="update_user.php" class="m-1 link-underline-light"><i class="bi bi-pencil-square"></i>
+                        <button class="btn btn-primary w-100" name="update" type="submit">Update Your Profile</button>
+                    </a>
+               </form>
             </div>
             
         </div>
