@@ -74,6 +74,7 @@ return $result = json_decode($response);
                     <th>User Name</th>
                     <th>Mobile No.</th>
                     <th>Email Id</th>
+                    <th>Password</th>
                     <th>Business Category</th>
                     <th>Business Banner</th>
                     <th>Status</th>
@@ -124,6 +125,9 @@ return $result = json_decode($response);
                         </td>
                         <td>
                           <?php echo $value1->userEmail; ?>
+                        </td>
+                        <td>
+                          <?php echo $value1->userPass; ?>
                         </td>
                         <td><?php echo $value1->businessCategory; ?></td>
                         <td>

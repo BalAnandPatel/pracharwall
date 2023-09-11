@@ -51,6 +51,7 @@ if($num>0){
             "userMobile"=>$userMobile,
             "userAddress"=>$userAddress,
             "userEmail"=>$userEmail,
+            "userPass"=>$userPass,
             "status"=>$status,
             "remark"=>$remark,
             "createdOn"=>$createdOn,
