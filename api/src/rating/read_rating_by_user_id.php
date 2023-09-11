@@ -21,9 +21,11 @@ $read_rating = new Rating($db);
   
 $data = json_decode(file_get_contents("php://input"));
 $read_rating->business_owner = $data->business_owner;
+$read_rating->user_id = $data->user_id;
 
-$stmt = $read_rating->readRating();
+$stmt = $read_rating->readRatingBYUserId();
 $num = $stmt->rowCount();
+
   
 // check if more than 0 record found
 if($num>0){
@@ -67,7 +69,7 @@ else{
   
     // tell the user no products found
     echo json_encode(
-        array("message" => "No ratings found.")
+        array("message" => "No ratings details found.")
     );
 }
 ?>

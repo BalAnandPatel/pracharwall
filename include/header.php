@@ -469,13 +469,12 @@ $result = json_decode($response);
         </div>
     </div>
 </div>
-
+<?php if ($ROLE == "") { ?>
 <script type="text/javascript">
     $(window).on('load', function () {
         $('#signin').modal('show');
     });
 </script>
-<?php if ($ROLE == "") { ?>
     <script type="text/javascript">
         $(window).on('load', function () {
             setInterval(() => {
