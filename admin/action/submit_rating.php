@@ -1,6 +1,7 @@
 <?php
 include "../../constant.php";
-if(isset($_POST["rating_data"]))
+
+if(isset($_POST["rating_data"]) && isset($_SESSION["USER_EMAIL"]))
 {
 
 $url = $URL."rating/insert_rating.php";
@@ -63,9 +64,11 @@ $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 
 if($result->message=="Successfull"){
- echo "Your Review & Rating Successfully Submitted";
+ echo "success";
 }
 
+}else{
+echo "session_expire";	
 }
 
 function giplCurl($url,$postdata){

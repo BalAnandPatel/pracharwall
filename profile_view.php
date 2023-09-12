@@ -588,7 +588,6 @@ exit();
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
                 </h4>
                 <div class="form-group">
-                    <input type="hidden" name="user_email" value="<?php  if(isset($_SESSION["USER_EMAIL"])) echo $_SESSION["USER_EMAIL"]; ?>" id="user_email"/>
 
                     <input type="hidden" name="user_id" value="<?php  if(isset($_SESSION["USER_ID"])) echo $_SESSION["USER_ID"]; ?>" id="user_id"/>
 
@@ -662,7 +661,7 @@ exit();
 
     });
 
-    $('#save_review').click(function(){
+    $('#save_review').click(function(){ 
 
         var user_email = $('#user_email').val();
 
@@ -677,12 +676,6 @@ exit();
         if(rating_data==''){
          alert("Please select star to review");
          return false;   
-        }
-
-        if(user_name!= '' && user_review!= '' && user_email == ''){
-         $('#review_modal').modal('hide');
-         $('#signin').modal('show');
-         return false;
         }
 
         if(user_name == '' || user_review == '')
@@ -703,8 +696,16 @@ exit();
                 user_review:user_review},
                 success:function(data)
                 {
+                    // alert(data);
                     $('#review_modal').modal('hide');
-                    alert(data);
+
+                    if(data=="session_expire"){
+                     $('#signin').modal('show');
+                     return false;  
+                    }else if(data=="success"){
+                    alert("Your Review & Rating Successfully Submitted");
+                    }
+
                     load_rating_data();
 
                 }

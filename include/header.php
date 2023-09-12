@@ -39,7 +39,7 @@ $result = json_decode($response);
     <script src="assets/js/jquery.min.js"></script>
     <!--<script src="search.js"></script>-->
     <script src="assets/js/sweetalert.min.js"></script>
-    <!-- <script src="assets/js/swiper-bundle.min.js"></script> -->
+     <script src="assets/js/swiper-bundle.min.js"></script> 
     
     <!-- <script src="assets/js/jquery.counterup.min.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
