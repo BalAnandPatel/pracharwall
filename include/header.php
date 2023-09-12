@@ -76,7 +76,7 @@ $result = json_decode($response);
       </button>
 
       <div class="collapse navbar-collapse" id="navbarExample01">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="index.php">Home</a>
           </li>
@@ -117,10 +117,10 @@ $result = json_decode($response);
           <?php } ?>
           <?php if ($ROLE == "") { ?>
           <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Create Account</a>
+              <a class="btn btn-primary btn-sm my-2 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Create Account</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#signin" href="">Login</a>
+              <a class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#signin" href="">Login</a>
           </li>
           <?php } else { ?>
           <li class="nav-item">
@@ -434,7 +434,17 @@ $result = json_decode($response);
   </div>
 </div>
 
-<div class="modal fade" id="modal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<style>
+.blur{
+   backdrop-filter: blur(5px);
+   background-color: #01223770;
+}
+.blur.in{
+   opacity: 1 !important;
+}
+</style>
+
+<div class="modal fade blur" id="modal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
@@ -459,7 +469,7 @@ $result = json_decode($response);
 <div class="modal fade" id="howtoregisterWall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body d-flex justify-content-center">
+            <div class="modal-body d-flex justify-content-center p-10">
                 <button type="button" class="btn-close bg-white p-4 position-absolute top-0 end-0"
                     data-bs-dismiss="modal" aria-label="Close"></button>
                 <video class="img-fluid" controls>
@@ -472,14 +482,14 @@ $result = json_decode($response);
 <?php if ($ROLE == "") { ?>
 <script type="text/javascript">
     $(window).on('load', function () {
-        $('#signin').modal('show');
+        $('#exampleModal').modal('show');
     });
 </script>
     <script type="text/javascript">
         $(window).on('load', function () {
             setInterval(() => {
-                $('#signin').modal('show');
-            }, 50000);
+                $('#exampleModal').modal('show');
+            }, 120000);
         });
     </script>
 <?php } ?>
