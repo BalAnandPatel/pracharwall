@@ -771,13 +771,13 @@ exit();
                     {
                         html += '<div class="row mb-3">';
 
-                        html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
-
-                        html += '<div class="col-sm-11">';
+                        // html += '<div class="col-sm-1"><div class="rounded-circle bg-secondary py-2" style="max-width:50px;"><h3 class="m-0 text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
+                        
+                        html += '<div class="col-sm-12">';
 
                         html += '<div class="card">';
 
-                        html += '<div class="card-header"><b>'+data.review_data[count].user_name+'</b></div>';
+                        html += '<div class="card-header d-flex align-items-center"><div class="rounded-circle bg-secondary p-2 mx-2" style="max-width:50px;"><h3 class="m-0 text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div><b>'+data.review_data[count].user_name+'</b>&nbsp;~&nbsp;<a class="text-decoration-underline" role="button" data-bs-toggle="collapse" data-bs-target="#collapse'+count+'" aria-expanded="true" aria-controls="collapseOne">reply</a></div>';
 
                         html += '<div class="card-body">';
 
@@ -803,6 +803,22 @@ exit();
 
                         html += '</div>';
 
+                        html += '<div id="collapse'+count+'" class="accordion-collapse collapse" data-bs-parent="#accordionExample"><div class="accordion-body px-5 pb-5"><hr>';
+
+                        html += '<form method="post">';
+
+                        html += '<div class="input-group"><span class="input-group-text mx-1 rounded-circle" id="reply"><?php echo substr($_SESSION['NAME'],0,1);?></span><input type="text" aria-describedby="reply" class="form-control" required /></div>';
+
+                        html += '<div class="mt-2 d-flex justify-content-end">';
+                        
+                        html += '<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'+count+'" aria-expanded="true" aria-controls="collapseOne">Cancel</button>';
+                        
+                        html += '<button class="btn btn-success mx-2" type="submit">Submit</button>';
+                        
+                        html += '</div></form>';
+                        
+                        html += '</div></div>';
+                        
                         html += '<div class="card-footer text-right">On '+data.review_data[count].datetime+'</div>';
 
                         html += '</div>';
