@@ -7,6 +7,7 @@ echo "<script>window.location='index.php'</script>";
 <?php
 $url = $URL."user/read_user_profile.php";
 $wall_histroy_url = $URL . "user/read_user_wall_history.php";
+$inq_url = $URL."admin/read_inquiry_count.php";
 // user type is static value for business owner 
 $userType='2';
 //user id will be session id 
@@ -28,6 +29,12 @@ $wall_img = $wall_history_result->records[0]->wallImg;
 }else{
 $wall_img="";    
 }
+
+// get customer inquiry count list
+$inq_data = array("userId" => $userId);
+$inq_postdata = json_encode($inq_data);
+$inq_result = giplCurl($inq_url,$inq_postdata);
+//print_r($inq_result);
 
 function giplCurl($url,$postdata){
     $client = curl_init($url);
@@ -168,7 +175,7 @@ $(document).ready(function(){
                     </div>
                 </div>
                 <div>
-                    300 people recently enquired
+                     <?php echo $inq_result->records[0]->inquiry_count; ?>  people recently enquired
                 </div>
                 <a href="tel:<?php echo $value1->userMobile; ?>" class="border bg-success text-white btn mt-2">
                     <i class="fa fa-phone"></i>

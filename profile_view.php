@@ -11,7 +11,8 @@ $U_Id="";
 ?>
 <?php
 $url = $URL."user/read_user_profile.php";
-$wall_url = $URL . "user/read_user_wall.php";
+$wall_url = $URL."user/read_user_wall.php";
+$inq_url = $URL."admin/read_inquiry_count.php";
 $userType='3'; 
 $id=base64_decode($_GET['id']);
 $userId=$id;
@@ -22,7 +23,6 @@ $result = giplCurl($url,$postdata);
 //  print_r($result);
 
 // get users wall image
-$status = '1';
 $wall_data = array("status" => $status, "userId" => $userId);
 $wall_postdata = json_encode($wall_data);
 $wall_result = giplCurl($wall_url,$wall_postdata);
@@ -32,6 +32,11 @@ if(isset($wall_result->records[0]->wallImg)){
 $wall_img = $wall_result->records[0]->wallImg; 
 }
 
+// get customer inquiry count list
+$inq_data = array("userId" => $userId);
+$inq_postdata = json_encode($inq_data);
+$inq_result = giplCurl($inq_url,$inq_postdata);
+//print_r($inq_result);
 
 function giplCurl($url,$postdata){
     $client = curl_init($url);
@@ -269,7 +274,7 @@ exit();
                     </div>
                 </div>
                 <div>
-                    300 people recently enquired
+                    <?php echo $inq_result->records[0]->inquiry_count; ?> people recently enquired
                 </div>
                 <a href="tel:<?php echo $value1->userMobile; ?>" class="border bg-success text-white btn mt-2">
                     <i class="fa fa-phone"></i>

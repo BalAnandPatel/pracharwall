@@ -6,6 +6,7 @@ class Admin{
     private $user_registration = "user_registration";
     private $user_profile_history = "user_profile_history";
     private $user_profile = "user_profile";
+    private $customer_inquiry = "customer_inquiry";
 
     public $id, $userId, $businessCategory, $subCategory, $status, $createdOn, $createdBy, $updatedOn, $updatedBy;
     public $userType;
@@ -193,6 +194,18 @@ function categoryCount(){
     return $stmt;
 }
 
+function inquiryCount(){
+     
+    // select all query
+    $query = "SELECT COUNT(id) as inquiry_count FROM " . $this->customer_inquiry." where userId=:userId";
+    
+    $stmt = $this->conn->prepare($query); 
+    $stmt->bindParam(":userId", $this->userId);
+    // execute query
+    $stmt->execute();
+  
+    return $stmt;
+}
 
 }
 ?>
