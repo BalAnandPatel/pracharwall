@@ -8,10 +8,12 @@ $url = $URL."rating/insert_rating_reply.php";
 $read_url = $URL."rating/read_rating_by_user_id.php";
 $update_url = $URL."rating/update_rating.php";
 
+$review_id = $_POST["review_id"];
 $user_reply = $_POST["user_reply"];
 $user_id = $_POST["user_id"];
 $business_owner = $_POST["business_owner"];
 $date = time();
+$created_by = $_POST["business_owner"];
 
 
 // $read_data = array("business_owner"=>$business_owner,"user_id"=>$user_id);
@@ -42,10 +44,12 @@ $date = time();
 // }
 
 $data = array(
+"review_id"=>$review_id,
 "user_reply"=>$user_reply,
 "user_id"=>$user_id,
 "business_owner"=>$business_owner,
-"created_on"=>$date
+"created_on"=>$date,
+"created_by"=>$created_by
 );
 
 // print_r($data);

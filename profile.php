@@ -747,7 +747,7 @@ $(document).ready(function(){
 
                         html += '<form id="reviewReplyForm" method="post">';
 
-                        html += '<div class="input-group"><span class="input-group-text mx-1 rounded-circle" id="reply"><?php echo substr($_SESSION['NAME'],0,1);?></span><input type="text" id="userReply" aria-describedby="reply" class="form-control" required /></div>';
+                        html += '<div class="input-group"><span class="input-group-text mx-1 rounded-circle" id="reply"><?php echo substr($_SESSION['NAME'],0,1);?></span><input type="text" id="userReply" aria-describedby="reply" class="form-control" required /><input type="hidden" id="review_id" value='+ data.review_data[count].review_id +' /></div>';
 
                         html += '<div class="mt-2 d-flex justify-content-end">';
                         
@@ -778,6 +778,7 @@ function replyRatings(){
   var user_reply = $('#userReply').val();
   var user_id = $('#user_id').val();
   var business_owner = $('#business_owner').val();
+  var review_id = $('#review_id').val();
   // alert(user_reply);
    if(user_reply == '')
    {
@@ -790,6 +791,7 @@ function replyRatings(){
                 method:"POST",
                 data:{
                 user_reply:user_reply,
+                review_id:review_id,
                 user_id:user_id,
                 business_owner:business_owner
                 },

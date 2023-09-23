@@ -34,6 +34,7 @@ foreach($value as $key1 => $value1)
 
 
 $review_content[] = array(
+			'review_id'		=>	$value1->review_id,
 			'user_name'		=>	$value1->user_name,
 			'user_review'	=>	$value1->user_review,
 			'rating'		=>	$value1->user_rating,

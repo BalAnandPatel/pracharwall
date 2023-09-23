@@ -20,7 +20,7 @@ $db = $database->getConnection();
 $read_rating_reply = new Rating($db);
   
 $data = json_decode(file_get_contents("php://input"));
-// $read_rating_reply->business_owner = $data->business_owner;
+$read_rating_reply->review_id = $data->review_id;
 
 $stmt = $read_rating_reply->readRatingReply();
 $num = $stmt->rowCount();

@@ -47,6 +47,7 @@ function giplCurl($url,$postdata){
     $result = json_decode($response);
     return $result;    
     }
+
 ?>
 
 <style>
@@ -806,22 +807,28 @@ exit();
 
                         html += data.review_data[count].user_review;
 
+                        html += '<input type="hidden" id="review_id" value='+ data.review_data[count].review_id +' />';
+
                         html += '</div>';
 
                         html += '<div id="collapse'+count+'" class="accordion-collapse collapse" data-bs-parent="#accordionExample"><div class="accordion-body px-5 pb-5"><hr>';
+                        <?php 
+                        $url = $URL."rating/read_rating_reply.php";
+                        $review_id = '';
+                        $data = array("review_id"=>$review_id);
+                        // print_r($data);
+                        $postdata = json_encode($data);
+                        $reply_result = giplCurl($url,$postdata);
+                        // print_r($reply_result);
+                        
+                        $counter=0;  
+                        foreach($reply_result as $key => $value){
+                        foreach($value as $key1 => $value1)
+                        {
+                        ?>
+                        html += '<?php echo $value1->user_reply; ?>';
+                        <?php } } ?>
 
-                        html += '<form method="post">';
-
-                        html += '<div class="input-group"><span class="input-group-text mx-1 rounded-circle" id="reply"><?php echo substr($_SESSION['NAME'],0,1);?></span><input type="text" aria-describedby="reply" class="form-control" required /></div>';
-
-                        html += '<div class="mt-2 d-flex justify-content-end">';
-                        
-                        html += '<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'+count+'" aria-expanded="true" aria-controls="collapseOne">Cancel</button>';
-                        
-                        html += '<button class="btn btn-success mx-2" type="submit">Submit</button>';
-                        
-                        html += '</div></form>';
-                        
                         html += '</div></div>';
                         
                         html += '<div class="card-footer text-right">On '+data.review_data[count].datetime+'</div>';

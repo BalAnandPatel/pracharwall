@@ -10,7 +10,7 @@
         $this->conn = $db;
     }
 
-    public $review_id,$user_name,$business_owner,$user_id,$user_rating,$user_reply,$user_review,$created_on;
+    public $review_id,$user_name,$business_owner,$user_id,$user_rating,$user_reply,$user_review,$created_on,$created_by;
     public $average_rating,$total_review,$five_star_review,$four_star_review,$three_star_review,$two_star_review,$one_star_review,$total_user_rating; 
 
 
@@ -57,22 +57,28 @@
         $query="INSERT INTO
         " . $this->review_reply . "
     SET
+             review_id=:review_id,
              user_reply=:user_reply,
              user_id=:user_id,
              business_owner=:business_owner,
-             created_on=:created_on
+             created_on=:created_on,
+             created_by=:created_by
                ";
 
         $stmt = $this->conn->prepare($query);
+        $this->review_id=htmlspecialchars(strip_tags($this->review_id));
         $this->user_reply=htmlspecialchars(strip_tags($this->user_reply));
         $this->user_id=htmlspecialchars(strip_tags($this->user_id));
         $this->business_owner=htmlspecialchars(strip_tags($this->business_owner));
         $this->created_on=htmlspecialchars(strip_tags($this->created_on));
+        $this->created_by=htmlspecialchars(strip_tags($this->created_by));
 
+        $stmt->bindParam(":review_id", $this->review_id);
         $stmt->bindParam(":user_reply", $this->user_reply);
         $stmt->bindParam(":user_id", $this->user_id);
         $stmt->bindParam(":business_owner", $this->business_owner);
         $stmt->bindParam(":created_on", $this->created_on);
+        $stmt->bindParam(":created_by", $this->created_by);
        
          // execute query
          if($stmt->execute()){
@@ -128,9 +134,9 @@ function update_rating(){
 
  public function readRatingReply(){
 
-     $query="Select id,user_id,business_owner,user_reply,created_on from " .$this->review_reply;
+     $query="Select id,user_id,business_owner,user_reply,created_on from " .$this->review_reply. " where review_id=:review_id";
         $stmt = $this->conn->prepare($query);
-        // $stmt->bindParam(":business_owner", $this->business_owner); 
+        $stmt->bindParam(":review_id", $this->review_id); 
         $stmt->execute();
         return $stmt;
 

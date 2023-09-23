@@ -22,6 +22,7 @@ $data = json_decode(file_get_contents("php://input"));
  // print_r($data);  
 // make sure data is not empty
 if(
+     !empty($data->review_id) &&
      !empty($data->user_reply) &&
      !empty($data->user_id) &&
      !empty($data->business_owner) 
@@ -29,10 +30,12 @@ if(
 )
 
 {
+    $insert_rating->review_id = $data->review_id;
     $insert_rating->user_reply = $data->user_reply;
     $insert_rating->user_id = $data->user_id;
     $insert_rating->business_owner = $data->business_owner;
     $insert_rating->created_on = $data->created_on;
+    $insert_rating->created_by = $data->created_by;
     
     //var_dump($insert_rating);
     // create the insert_rating
