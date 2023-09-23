@@ -745,7 +745,7 @@ $(document).ready(function(){
 
                         html += '<div id="collapse'+count+'" class="accordion-collapse collapse" data-bs-parent="#accordionExample"><div class="accordion-body px-5 pb-5"><hr>';
 
-                        html += '<form method="post">';
+                        html += '<form id="reviewReplyForm" method="post">';
 
                         html += '<div class="input-group"><span class="input-group-text mx-1 rounded-circle" id="reply"><?php echo substr($_SESSION['NAME'],0,1);?></span><input type="text" id="userReply" aria-describedby="reply" class="form-control" required /></div>';
 
@@ -753,7 +753,7 @@ $(document).ready(function(){
                         
                         html += '<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'+count+'" aria-expanded="true" aria-controls="collapseOne">Cancel</button>';
                         
-                        html += '<button class="btn btn-success mx-2" type="submit">Submit</button>';
+                        html += '<button type="button" class="btn btn-success mx-2" onclick="replyRatings()">Submit</button>';
                         
                         html += '</div></form>';
                         
@@ -774,7 +774,39 @@ $(document).ready(function(){
         })
     }
 
+function replyRatings(){
+  var user_reply = $('#userReply').val();
+  var user_id = $('#user_id').val();
+  var business_owner = $('#business_owner').val();
+  // alert(user_reply);
+   if(user_reply == '')
+   {
+      alert("Please Fill the required Field");
+      return false;
+    }else{
+    
+          $.ajax({
+                url:"admin/action/submit_rating_reply.php",
+                method:"POST",
+                data:{
+                user_reply:user_reply,
+                user_id:user_id,
+                business_owner:business_owner
+                },
+                success:function(data)
+                {
+                    if(data=="session_expire"){
+                     $('#signin').modal('show');
+                     return false;  
+                    }else if(data=="success"){
+                    $("#reviewReplyForm").trigger('reset');
+                    alert("Reply sent Successfully");
+                    }
 
+                }
+            });
+    }
+}
 </script>
 <!-- rewiew section end -->
 <?php
