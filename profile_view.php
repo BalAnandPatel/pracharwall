@@ -813,7 +813,7 @@ exit();
 
                         html += '<div id="collapse'+count+'" class="accordion-collapse collapse" data-bs-parent="#accordionExample"><div class="accordion-body px-5 pb-5"><hr>';
 
-                        html += '<div class="card-body d-flex align-items-center"><div class="rounded-circle bg-light p-2 mx-2" style="max-width:50px;"><h3 class="m-0 text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div><b>'+data.review_data[count].reply_by+'</b></div>';
+                        html += '<div class="card-body d-flex align-items-center"><div class="rounded-circle bg-light p-2 mx-2" style="max-width:50px;"><h3 class="m-0 text-center">'+data.review_data[count].reply_by.charAt(0)+'</h3></div><b>'+data.review_data[count].reply_by+'</b></div>';
 
                         html += data.review_data[count].review_reply;
                    
