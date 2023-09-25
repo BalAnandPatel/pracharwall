@@ -45,6 +45,9 @@ if($num>0){
             "business_owner"=>$business_owner,
             "user_rating"=>$user_rating,
             "user_review"=>$user_review,
+            "review_reply"=>$review_reply,
+            "reply_by"=>$reply_by,
+            "updated_on"=>$updated_on,
             "created_on"=>$created_on
 
              );

@@ -37,6 +37,9 @@ $review_content[] = array(
 			'review_id'		=>	$value1->review_id,
 			'user_name'		=>	$value1->user_name,
 			'user_review'	=>	$value1->user_review,
+			'review_reply'	=>	$value1->review_reply,
+			'reply_by'	    =>	$value1->reply_by,
+			'updated_on'	=>	$value1->updated_on,
 			'rating'		=>	$value1->user_rating,
 			'datetime'		=>	date('l jS, F Y h:i:s A', $value1->created_on)
 		);

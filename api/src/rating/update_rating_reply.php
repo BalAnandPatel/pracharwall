@@ -9,37 +9,34 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // get database connection
 include_once '../../config/database.php';
   
-// instantiate insert_rating object
+// instantiate update_rating object
 include_once '../../objects/rating.php';
   
 $database = new Database();
 $db = $database->getConnection();
   
-$insert_rating = new Rating($db);
+$update_rating = new Rating($db);
   
 // get posted data
 $data = json_decode(file_get_contents("php://input"));
  // print_r($data);  
 // make sure data is not empty
 if(
-     !empty($data->review_id) &&
-     !empty($data->user_reply) &&
-     !empty($data->user_id) &&
+     !empty($data->review_reply) &&
      !empty($data->business_owner) 
 
 )
 
 {
-    $insert_rating->review_id = $data->review_id;
-    $insert_rating->user_reply = $data->user_reply;
-    $insert_rating->user_id = $data->user_id;
-    $insert_rating->business_owner = $data->business_owner;
-    $insert_rating->created_on = $data->created_on;
-    $insert_rating->created_by = $data->created_by;
+    $update_rating->review_reply = $data->review_reply;
+    $update_rating->business_owner = $data->business_owner;
+    $update_rating->review_id = $data->review_id;
+    $update_rating->reply_by = $data->reply_by;
+    $update_rating->updated_on = $data->updated_on;
     
-    //var_dump($insert_rating);
-    // create the insert_rating
-    if($insert_rating->insert_rating_reply()){
+    //var_dump($update_rating);
+    // create the update_rating
+    if($update_rating->update_rating_reply()){
 
         http_response_code(201);
         echo json_encode(array("message" => "Successfull"));
@@ -50,7 +47,7 @@ if(
         http_response_code(503);
   
         // tell the user
-        echo json_encode(array("message" => "Unable to create rating"));
+        echo json_encode(array("message" => "Unable to update rating"));
     }
 }
   
@@ -61,6 +58,6 @@ else{
     http_response_code(400);
   
     // tell the user
-    echo json_encode(array("message" => "Unable to create rating. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to update- rating. Data is incomplete."));
 }
 ?>

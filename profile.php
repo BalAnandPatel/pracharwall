@@ -747,7 +747,7 @@ $(document).ready(function(){
 
                         html += '<form id="reviewReplyForm" method="post">';
 
-                        html += '<div class="input-group"><span class="input-group-text mx-1 rounded-circle" id="reply"><?php echo substr($_SESSION['NAME'],0,1);?></span><input type="text" id="userReply" aria-describedby="reply" class="form-control" required /><input type="hidden" id="review_id" value='+ data.review_data[count].review_id +' /></div>';
+                        html += '<div class="input-group"><span class="input-group-text mx-1 rounded-circle" id="reply"><?php echo substr($_SESSION['NAME'],0,1);?></span><input type="text" id="review_reply" aria-describedby="reply" class="form-control" required /><input type="hidden" id="review_id" value='+ data.review_data[count].review_id +' /><input type="hidden" id="reply_by" value="<?php echo $_SESSION['NAME'] ?>" /></div>';
 
                         html += '<div class="mt-2 d-flex justify-content-end">';
                         
@@ -775,12 +775,12 @@ $(document).ready(function(){
     }
 
 function replyRatings(){
-  var user_reply = $('#userReply').val();
-  var user_id = $('#user_id').val();
-  var business_owner = $('#business_owner').val();
+  var review_reply = $('#review_reply').val();
   var review_id = $('#review_id').val();
-  // alert(user_reply);
-   if(user_reply == '')
+  var reply_by = $('#reply_by').val();
+  var business_owner = $('#business_owner').val();
+  // alert(review_id); 
+   if(review_reply == '')
    {
       alert("Please Fill the required Field");
       return false;
@@ -790,9 +790,9 @@ function replyRatings(){
                 url:"admin/action/submit_rating_reply.php",
                 method:"POST",
                 data:{
-                user_reply:user_reply,
+                review_reply:review_reply,
                 review_id:review_id,
-                user_id:user_id,
+                reply_by:reply_by,
                 business_owner:business_owner
                 },
                 success:function(data)

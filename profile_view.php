@@ -812,22 +812,11 @@ exit();
                         html += '</div>';
 
                         html += '<div id="collapse'+count+'" class="accordion-collapse collapse" data-bs-parent="#accordionExample"><div class="accordion-body px-5 pb-5"><hr>';
-                        <?php 
-                        $url = $URL."rating/read_rating_reply.php";
-                        $review_id = '';
-                        $data = array("review_id"=>$review_id);
-                        // print_r($data);
-                        $postdata = json_encode($data);
-                        $reply_result = giplCurl($url,$postdata);
-                        // print_r($reply_result);
-                        
-                        $counter=0;  
-                        foreach($reply_result as $key => $value){
-                        foreach($value as $key1 => $value1)
-                        {
-                        ?>
-                        html += '<?php echo $value1->user_reply; ?>';
-                        <?php } } ?>
+
+                        html += '<div class="card-body d-flex align-items-center"><div class="rounded-circle bg-light p-2 mx-2" style="max-width:50px;"><h3 class="m-0 text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div><b>'+data.review_data[count].reply_by+'</b></div>';
+
+                        html += data.review_data[count].review_reply;
+                   
 
                         html += '</div></div>';
                         
