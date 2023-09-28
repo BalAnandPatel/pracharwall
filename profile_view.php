@@ -21,12 +21,12 @@ $data = array("userType" =>$userType, "id"=>$id);
 $postdata = json_encode($data);
 $result = giplCurl($url,$postdata);
 //  print_r($result);
-
+$status='1';
 // get users wall image
 $wall_data = array("status" => $status, "userId" => $userId);
 $wall_postdata = json_encode($wall_data);
 $wall_result = giplCurl($wall_url,$wall_postdata);
-// print_r($wall_result);
+//print_r($wall_result);
 $wall_img="";
 if(isset($wall_result->records[0]->wallImg)){
 $wall_img = $wall_result->records[0]->wallImg; 
@@ -348,7 +348,6 @@ exit();
             <div class="col">
                 <h5>Photos</h5>
                 <div class="row">
-
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mt-1">
                     <a href="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" data-toggle="lightbox">
                         <img src="<?php echo $USER_WALL_IMGPATH.$userId."/".$wall_img; ?>" class="img-fluid border rounded">
